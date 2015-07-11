@@ -1,0 +1,324 @@
+1                                         The SAS System           10:49 Monday, December 22, 2014
+
+NOTE: Copyright (c) 2002-2008 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.2 (TS2M3) 
+      Licensed to THE URBAN INSTITUTE, Site 70097024.
+NOTE: This session is executing on the X64_VSPRO  platform.
+
+
+
+NOTE: SAS initialization used:
+      real time           0.78 seconds
+      cpu time            0.21 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is D:\Users\ptatian\Documents\My SAS 
+      Files\9.2\Autoexnt.sas.
+
+
+NOTE: AUTOEXEC processing completed.
+
+1          /**************************************************************************
+2           Program:  Sec8MF_formats.sas
+3           Library:  HUD
+4           Project:  NeighborhoodInfo DC
+5           Author:   P. Tatian
+6           Created:  12/22/14
+7           Version:  SAS 9.2
+8           Environment:  Local Windows session (desktop)
+9          
+10          Description:  Create formats for HUD Section 8 MF data.
+11         
+12          Modifications:
+13           12/22/14 PAT Adapted for DCData from sect8_formats.sas.
+14         **************************************************************************/
+15         
+16         %include "L:\SAS\Inc\StdLocal.sas";
+NOTE: Libref _METADAT was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: L:\Libraries\Metadata\Data
+59        +
+60        +options ls=124 ps=48;    ** Landscape **;
+61        +
+62        +** Output title **;
+63        +
+64        +title "&_library/&_program:  NeighborhoodInfo DC";
+65        +
+66        +** Define General library for local session only **;
+67        +
+2 The SAS System                                                                             10:49 Monday, December 22, 2014
+
+68        +%DCData_lib( General, env=windows, macdef=dcautos uiautos sasautos )
+MPRINT(DCDATA_LIB):   options nomprint;
+NOTE: Libref GENERA_L was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: D:\DCData\Libraries\General\Data
+NOTE: Libref GENERA_R was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: L:\Libraries\General\Data
+NOTE: Libref GENERAL was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): D:\DCData\Libraries\General\Data
+      Engine(2):        V9 
+      Physical Name(2): L:\Libraries\General\Data
+
+=====================================================================
+Current FmtSearch Option value:
+
+     WORK* LIBRARY* GENERAL
+
+   *implicitly included by default.
+
+=====================================================================
+Status of current catalogs:
+
+NOTE:    WORK.FORMATS DOES NOT EXIST
+NOTE:    LIBRARY.FORMATS DOES NOT EXIST
+NOTE:    GENERAL.FORMATS EXISTS
+=====================================================================
+
+
+=====================================================================
+Current Sasautos Option value:
+
+     GENERA_L DCAUTOS UIAUTOS SASAUTOS
+
+=====================================================================
+
+
+=====================================================================
+Current Sasautos Option value:
+
+     GENERA_L  GENERA_R DCAUTOS UIAUTOS SASAUTOS
+
+=====================================================================
+
+3 The SAS System                                                                             10:49 Monday, December 22, 2014
+
+69        +
+70        +%let _userid = %sysfunc( putc( %lowcase(&SYSUSERID), $longusr. ) );
+NOTE: %INCLUDE (level 1) ending.
+71         
+72         ** Define libraries **;
+73         %DCData_lib( HUD, local=n )
+MPRINT(DCDATA_LIB):   options nomprint;
+NOTE: Libref HUD_R was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: L:\Libraries\HUD\Data
+NOTE: Libref HUD was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): L:\Libraries\HUD\Data
+
+=====================================================================
+Current FmtSearch Option value:
+
+     WORK* LIBRARY* GENERAL HUD
+
+   *implicitly included by default.
+
+=====================================================================
+Status of current catalogs:
+
+NOTE:    WORK.FORMATS DOES NOT EXIST
+NOTE:    LIBRARY.FORMATS DOES NOT EXIST
+NOTE:    GENERAL.FORMATS EXISTS
+NOTE:    HUD.FORMATS EXISTS
+=====================================================================
+
+
+=====================================================================
+Current Sasautos Option value:
+
+     HUD_R GENERA_L GENERA_R DCAUTOS UIAUTOS SASAUTOS
+
+=====================================================================
+
+74         
+75         proc format library=HUD;
+76         
+77           value $s8stat
+78             'A' = 'Active'
+79             'E' = 'Executed'
+80             'P' = 'Pending'
+4 The SAS System                                                                             10:49 Monday, December 22, 2014
+
+81             'S' = 'Suspended'
+82             'T' = 'Terminated'
+83             'X' = 'Expired';
+NOTE: Format $S8STAT is already on the library.
+NOTE: Format $S8STAT has been written to HUD.FORMATS.
+84         
+85           value $s8exqtr
+86             'Q1' = 'Oct - Dec'
+87             'Q2' = 'Jan - Mar'
+88             'Q3' = 'Apr - Jun'
+89             'Q4' = 'Jul - Sep';
+NOTE: Format $S8EXQTR is already on the library.
+NOTE: Format $S8EXQTR has been written to HUD.FORMATS.
+90         
+91           /*
+92           value $yesno
+93             'Y' = 'Yes'
+94             'N' = 'No';
+95           */
+96         
+97           value $s8docty
+98             'ACC' = 'Annual Contributions Contract'
+99             'AHAP' = 'Housing Assistance Payments Contract'
+100            'APRAC' = 'APRAC'
+101            'HAP' = 'Housing Assistance Payments'
+102            'PAC' = 'PAC'
+103            'PRAC' = 'Project Rental Assistance Contract'
+104            'RAP' = 'Rental Assistance Program'
+105            'SCHAP' = 'Senior Citizen Homeowner Assistance Program'
+106            'SUP' = 'Rent Supplement';
+NOTE: Format $S8DOCTY is already on the library.
+NOTE: Format $S8DOCTY has been written to HUD.FORMATS.
+107        
+108          value $s8pgmnm
+109            '202/162 MR' = '202/162 MR'
+110            '202/162 NC' = '202/162 NC'
+111            '202/162 SR' = '202/162 SR'
+112            '202/8 NC' = '202/8 NC'
+113            '202/8 SR' = '202/8 SR'
+114            '515/8 NC' = '515/8 NC'
+115            '515/8 SR' = '515/8 SR'
+116            'HFDA/8 NC' = 'HFDA/8 NC'
+117            'HFDA/8 SR' = 'HFDA/8 SR'
+118            'LMSA' = 'LMSA'
+119            'Old 202' = 'Old 202'
+120            'PAC/202' = 'PAC/202'
+5 The SAS System                                                                             10:49 Monday, December 22, 2014
+
+121            'PAC/811' = 'PAC/811'
+122            'PD/8 Existing' = 'PD/8 Existing'
+123            'PD/8 MR' = 'PD/8 MR'
+124            'PD/8 SR' = 'PD/8 SR'
+125            'PRAC/202' = 'PRAC/202'
+126            'PRAC/811' = 'PRAC/811'
+127            'Preservation' = 'Preservation'
+128            'RAP' = 'Rental Assistance Program'
+129            'Rent Supp' = 'Rent Supplement'
+130            'Sec 8 NC' = 'Sec 8 New Construction'
+131            'Sec 8 SR' = 'Sec 8 Substantial Rehabilitation'
+132            'UnasstPrj SCHAP' = 'UnasstPrj SCHAP';
+NOTE: Format $S8PGMNM is already on the library.
+NOTE: Format $S8PGMNM has been written to HUD.FORMATS.
+133        
+134          value $s8pgmgr
+135            '202' = 'Section 202'
+136            '515' = 'S8 FmHA'
+137            'HFDA' = 'S8 State Agency'
+138            'LMSA' = 'S8 Loan Management'
+139            'PAC' = 'PAC 202/811'
+140            'PD' = 'S8 Property Disposition'
+141            'PRAC' = 'PRAC 202/811'
+142            'PRES' = 'S8 Preservation'
+143            'RAP' = 'Sec. 236 Rental Assistance Program'
+144            'S8NC' = 'Other S8 New Construction'
+145            'S8SR' = 'Other S8 Rehabilitation'
+146            'SUPP' = 'Rent Supplement'
+147            'SC' = 'Service Coordinator'
+148            'UNK' = 'Unknown';
+NOTE: Format $S8PGMGR is already on the library.
+NOTE: Format $S8PGMGR has been written to HUD.FORMATS.
+149        
+150          value $s8prfin
+151            '202811' = '202/811'
+152            'FLEXSB' = 'Flexible Subsidy'
+153            'HUDHLD' = 'HUD Held'
+154            'HUDOWN' = 'HUD Owned'
+155            'INSURD' = 'Insured'
+156            'NONINS' = 'Non-Insured';
+NOTE: Format $S8PRFIN is already on the library.
+NOTE: Format $S8PRFIN has been written to HUD.FORMATS.
+157        
+158          value $s8owmgt
+159            'LD' = 'Limited Dividend'
+160            'NP' = 'Non-Profit'
+6 The SAS System                                                                             10:49 Monday, December 22, 2014
+
+161            'OT' = 'Other'
+162            'PM' = 'Profit Motivated';
+NOTE: Format $S8OWMGT is already on the library.
+NOTE: Format $S8OWMGT has been written to HUD.FORMATS.
+163        
+164          value $s8prpct
+165            '202811' = '202/811'
+166            'HUDHLD' = 'HUD Held'
+167            'HUDOWN' = 'HUD Owned'
+168            'INSPRE' = 'Insured - Previously Subsidized'
+169            'INSSUB' = 'Insured - Subsidized'
+170            'OTSSRO' = 'Other Subsidy Servicing Required (Only)'
+171            'SUB202' = 'Subsidized - Previously 202/811'
+172            'SUBINS' = 'Subsidized - Previously Insured'
+173            'SUBNOH' = 'Subsidized, No HUD Financing'
+174            'USERES' = 'Use Restriction';
+NOTE: Format $S8PRPCT is already on the library.
+NOTE: Format $S8PRPCT has been written to HUD.FORMATS.
+175        
+176          value s8ui4cat
+177            1 = 'Active-New'
+178            2 = 'Active-Renewed'
+179            3 = 'Active'
+180            4 = 'Expired';
+NOTE: Format S8UI4CAT is already on the library.
+NOTE: Format S8UI4CAT has been written to HUD.FORMATS.
+181        
+182          value s8ui2cat
+183            1,2,3 = 'Active'
+184            4     = 'Expired';
+NOTE: Format S8UI2CAT is already on the library.
+NOTE: Format S8UI2CAT has been written to HUD.FORMATS.
+185        
+186        run;
+
+NOTE: PROCEDURE FORMAT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+187        
+188        proc catalog catalog=HUD.formats;
+189          modify s8stat (desc="S8/MF TRACS contract status") /et=formatc;
+190          modify s8exqtr (desc="S8/MF Contract expiration quarter") /et=formatc;
+191          modify s8docty (desc="S8/MF Document type of contract") /et=formatc;
+192          modify s8pgmnm (desc="S8/MF Program name") /et=formatc;
+7 The SAS System                                                                             10:49 Monday, December 22, 2014
+
+193          modify s8pgmgr (desc="S8/MF Program type group") /et=formatc;
+194          modify s8prfin (desc="S8/MF Property financing") /et=formatc;
+195          modify s8owmgt (desc="S8/MF Owner/manager company type") /et=formatc;
+196          modify s8prpct (desc="S8/MF Property category") /et=formatc;
+197          modify s8ui4cat (desc="S8/MF UI status code (4 categories)") /et=format;
+198          modify s8ui2cat (desc="S8/MF UI status code (2 categories)") /et=format;
+199          contents;
+200          quit;
+
+NOTE: Description changed for entry S8STAT.FORMATC in catalog HUD.FORMATS.
+NOTE: Description changed for entry S8EXQTR.FORMATC in catalog HUD.FORMATS.
+NOTE: Description changed for entry S8DOCTY.FORMATC in catalog HUD.FORMATS.
+NOTE: Description changed for entry S8PGMNM.FORMATC in catalog HUD.FORMATS.
+NOTE: Description changed for entry S8PGMGR.FORMATC in catalog HUD.FORMATS.
+NOTE: Description changed for entry S8PRFIN.FORMATC in catalog HUD.FORMATS.
+NOTE: Description changed for entry S8OWMGT.FORMATC in catalog HUD.FORMATS.
+NOTE: Description changed for entry S8PRPCT.FORMATC in catalog HUD.FORMATS.
+NOTE: Description changed for entry S8UI4CAT.FORMAT in catalog HUD.FORMATS.
+NOTE: Description changed for entry S8UI2CAT.FORMAT in catalog HUD.FORMATS.
+NOTE: The PROCEDURE CATALOG printed page 1.
+NOTE: PROCEDURE CATALOG used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.03 seconds
+      
+
+201        
+202        run;
+203        
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           1.07 seconds
+      cpu time            0.31 seconds
+      

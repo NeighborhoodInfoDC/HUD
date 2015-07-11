@@ -1,0 +1,640 @@
+HUD/Sec8MF_2014_10.sas:  NeighborhoodInfo DC                                          15:37 Wednesday, December 31, 2014   1
+File = HUD.Sec8MF_2014_10_dc
+
+The CONTENTS Procedure
+
+Data Set Name        HUD.SEC8MF_2014_10_DC                                              Observations           113 
+Member Type          DATA                                                               Variables              103 
+Engine               V9                                                                 Indexes                0   
+Created              Wed, Dec 31, 2014 03:37:43 PM                                      Observation Length     1816
+Last Modified        Wed, Dec 31, 2014 03:37:43 PM                                      Deleted Observations   0   
+Protection                                                                              Compressed             CHAR
+Data Set Type                                                                           Reuse Space            NO  
+Label                Sec 8 multifamily contracts w/property data, 10-2014 update, DC    Point to Observations  YES 
+Data Representation  WINDOWS_64                                                         Sorted                 YES 
+Encoding             wlatin1  Western (Windows)                                                                    
+
+
+                     Engine/Host Dependent Information
+
+Data Set Page Size          16384                                           
+Number of Data Set Pages    7                                               
+Number of Data Set Repairs  0                                               
+Filename                    L:\Libraries\HUD\Data\sec8mf_2014_10_dc.sas7bdat
+Release Created             9.0202M3                                        
+Host Created                X64_VSPRO                                       
+
+
+                                        Alphabetic List of Variables and Attributes
+ 
+  # Variable               Type Len Format    Label
+
+ 98 RecordNo               Num    8           Record number (UI created)                                                   
+ 34 address_line1_text     Char  45           Property street address/first line of mailing address                        
+ 35 address_line2_text     Char  45           Property suite number, PO box or other information for second line of address
+  9 assisted_units_count   Num    8           Total number of assisted units for contract                                  
+ 47 associated_financing_  Char  18           FHA or 202/811 number (for properties with active financing)                 
+    number                                                                                                                 
+ 18 br0_count              Num    8           Number of units/beds for efficiency units that                               
+                                              receive(d) assistance under this contract                                    
+ 24 br0_fmr                Num    8           Fair Market Rent (FMR) for efficiency units (.N when bedroom count is zero)  
+ 19 br1_count              Num    8           Number of units/beds for one bedroom units that                              
+                                              receive(d) assistance under this contract                                    
+ 25 br1_fmr                Num    8           Fair Market Rent (FMR) for one bedroom units (.N when bedroom count is zero) 
+ 20 br2_count              Num    8           Number of units/beds for two bedroom units that                              
+                                              receive(d) assistance under this contract                                    
+ 26 br2_fmr                Num    8           Fair Market Rent (FMR) for two bedroom units (.N when bedroom count is zero) 
+ 21 br3_count              Num    8           Number of units/beds for three bedroom units that                            
+                                              receive(d) assistance under this contract                                    
+HUD/Sec8MF_2014_10.sas:  NeighborhoodInfo DC                                          15:37 Wednesday, December 31, 2014   2
+File = HUD.Sec8MF_2014_10_dc
+
+The CONTENTS Procedure
+
+                                        Alphabetic List of Variables and Attributes
+ 
+  # Variable               Type Len Format    Label
+
+ 27 br3_fmr                Num    8           Fair Market Rent (FMR) for three bedroom                                     
+                                              units (.N when bedroom count is zero)                                        
+ 22 br4_count              Num    8           Number of units/beds for four bedroom units that                             
+                                              receive(d) assistance under this contract                                    
+ 28 br4_fmr                Num    8           Fair Market Rent (FMR) for four bedroom units (.N when bedroom count is zero)
+ 23 br5plus_count          Num    8           Number of units/beds for five or more bedroom units                          
+                                              that receive(d) assistance under this contract                               
+ 36 city_name_text         Char  28           City name of property address                                                
+ 44 congressional_         Char  15           Property congressional district code(s) (For properties                      
+    district_code                             without 9-digit ZIP code, all possible districts listed)                     
+ 13 contract_doc_type_code Char   5 $S8DOCTY. Document type of contract, as provided by TRACS                              
+  1 contract_number        Char  11           TRACS-assigned contract number                                               
+  8 contract_term_         Num    8           Term of contract (months)                                                    
+    months_qty                                                                                                             
+ 40 county_code            Char   3           Property three digit county code                                             
+ 41 county_name_text       Char  30           Property county name                                                         
+ 29 extract_date           Num    8 MMDDYY10. File extract date                                                            
+ 30 hub_name_text          Char  30           HUD office responsible for HUD servicing site for property                   
+ 49 is_202_811_ind         Char   1 $YESNO.   Any active financing instruments associated                                  
+                                              with property are 202/811 grants/loans                                       
+ 57 is_221d3_ind           Char   1 $YESNO.   Any active financing instruments associated with property are 221/d3 loans   
+ 58 is_221d4_ind           Char   1 $YESNO.   Any active financing instruments associated with property are 221/d4 loans   
+ 59 is_236_ind             Char   1 $YESNO.   Any active financing instruments associated                                  
+                                              with property are insured 236 loans                                          
+ 11 is_acc_old_ind         Char   1 $YESNO.   Contract is an old ACC contract (pre-performance-based)                      
+ 12 is_acc_performance_    Char   1 $YESNO.   Contract is a performance-based ACC                                          
+    based_ind                                                                                                              
+ 55 is_assisted_living_ind Char   1 $YESNO.   Any active financing instruments associated with property                    
+                                              are loans for an assisted living property                                    
+ 61 is_bmir_ind            Char   1 $YESNO.   Any active financing instruments associated with property are BMIR loans     
+ 54 is_board_and_care_ind  Char   1 $YESNO.   Any active financing instruments associated with                             
+                                              property are loans for a board and care property                             
+ 64 is_co_insured_ind      Char   1 $YESNO.   Any active financing associated with property is a co-insured loan           
+ 52 is_hospital_ind        Char   1 $YESNO.   Any active financing instruments associated                                  
+                                              with property are loans for a hospital                                       
+ 10 is_hud_administered_   Char   1 $YESNO.   HUD is administrator of contract                                             
+    ind                                                                                                                    
+ 50 is_hud_held_ind        Char   1 $YESNO.   Any active financing instruments associated with property are HUD-held loans 
+ 51 is_hud_owned_ind       Char   1 $YESNO.   Property is HUD-owned                                                        
+HUD/Sec8MF_2014_10.sas:  NeighborhoodInfo DC                                          15:37 Wednesday, December 31, 2014   3
+File = HUD.Sec8MF_2014_10_dc
+
+The CONTENTS Procedure
+
+                                        Alphabetic List of Variables and Attributes
+ 
+  # Variable               Type Len Format    Label
+
+ 48 is_insured_ind         Char   1 $YESNO.   Any active financing instruments associated with property are insurance      
+ 63 is_mip_ind             Char   1 $YESNO.   Any active financing instruments associated with property are MIP loans      
+ 60 is_non_insured_ind     Char   1 $YESNO.   Any active financing instruments associated                                  
+                                              with property are non-insured loans                                          
+ 53 is_nursing_home_ind    Char   1 $YESNO.   Any active financing instruments associated                                  
+                                              with property are loans for a nursing home                                   
+ 56 is_refinanced_ind      Char   1 $YESNO.   Any active financing instruments associated with                             
+                                              property are loans that have been refinanced                                 
+ 62 is_risk_sharing_ind    Char   1 $YESNO.   Any active financing instruments associated                                  
+                                              with property are risk sharing loans                                         
+ 89 mgmt_agent_address_    Char  45           Management agent street address/first line of mailing address                
+    line1                                                                                                                  
+ 90 mgmt_agent_address_    Char  45           Management agent suite number, PO box or other                               
+    line2                                     information for second line of address                                       
+ 91 mgmt_agent_city_name   Char  28           City name of management agent address                                        
+103 mgmt_agent_company     Char   2 $S8OWMGT. Management agent company type                                                
+ 97 mgmt_agent_email_text  Char 100           Internet email address for management agent                                  
+ 86 mgmt_agent_full_name   Char  56           Management agent full name                                                   
+ 83 mgmt_agent_indv_       Char  18           Management agent first name                                                  
+    first_name                                                                                                             
+ 84 mgmt_agent_indv_       Char  18           Management agent last name                                                   
+    last_name                                                                                                              
+ 85 mgmt_agent_indv_       Char  18           Management agent middle name                                                 
+    middle_name                                                                                                            
+ 87 mgmt_agent_indv_       Char 100           Management agent title                                                       
+    title_text                                                                                                             
+ 96 mgmt_agent_main_       Char  18           Management agent main fax number                                             
+    fax_number                                                                                                             
+ 95 mgmt_agent_main_       Char  25           Management agent main phone number                                           
+    phone_number                                                                                                           
+ 88 mgmt_agent_org_name    Char  50           Registered organization name for management agent of property                
+ 82 mgmt_agent_            Num    8           Identifier for management agent having                                       
+    participant_id                            most recent effective date for property                                      
+ 92 mgmt_agent_state_code  Char   2           Two character state code of management agent address                         
+ 94 mgmt_agent_zip4_code   Char   4           Four digit zip code extension of management agent address                    
+ 93 mgmt_agent_zip_code    Char   5           Five digit zip code of management agent address                              
+ 42 msa_code               Char   4           Property standard metropolitan statistical area code                         
+ 43 msa_name_text          Char  30           Property standard metropolitan statistical area name                         
+ 73 owner_address_line1    Char  45           Owner street address/first line of mailing address                           
+HUD/Sec8MF_2014_10.sas:  NeighborhoodInfo DC                                          15:37 Wednesday, December 31, 2014   4
+File = HUD.Sec8MF_2014_10_dc
+
+The CONTENTS Procedure
+
+                                        Alphabetic List of Variables and Attributes
+ 
+  # Variable               Type Len Format    Label
+
+ 74 owner_address_line2    Char  45           Owner suite number, PO box or other information for second line of address   
+ 75 owner_city_name        Char  28           City name of owner address                                                   
+102 owner_company          Char   2 $S8OWMGT. Type of owner company                                                        
+ 81 owner_email_text       Char 100           Internet email address for owner                                             
+ 67 owner_individual_      Char  18           Owner first name                                                             
+    first_name                                                                                                             
+ 70 owner_individual_      Char  60           Owner full name                                                              
+    full_name                                                                                                              
+ 69 owner_individual_      Char  20           Owner last name                                                              
+    last_name                                                                                                              
+ 68 owner_individual_      Char  18           Owner middle name                                                            
+    middle_name                                                                                                            
+ 71 owner_individual_      Char 100           Owner title                                                                  
+    title_text                                                                                                             
+ 80 owner_main_fax_        Char  25           Owner main fax number                                                        
+    number_text                                                                                                            
+ 79 owner_main_phone_      Char  25           Owner main phone number                                                      
+    number_text                                                                                                            
+ 72 owner_organization_    Char  50           Registered organization name for owner of property                           
+    name                                                                                                                   
+ 66 owner_participant_id   Num    8           Identifier for owner having most recent effective date for property          
+ 76 owner_state_code       Char   2           Two character state code of owner address                                    
+ 78 owner_zip4_code        Char   4           Four digit zip code extension of owner address                               
+ 77 owner_zip_code         Char   5           Five digit zip code of owner address                                         
+ 65 ownership_effective_   Num    8 MMDDYY10. Most recent effective date associated with property owner                    
+    date                                                                                                                   
+ 45 placed_base_city_      Char  30           Property standard place based city name                                      
+    name_text                                                                                                              
+101 primary_financing      Char   6 $S8PRFIN. Primary type of financing associated with property                           
+ 15 program_type_          Char  20 $S8PGMGR. Program type group code (derived from program_type_name                      
+    group_code                                and contract_doc_type_code)                                                  
+ 14 program_type_name      Char  20 $S8PGMNM. Name of program type, provided from TRACS                                    
+100 property_category      Char   6 $S8PRPCT. Property category                                                            
+  2 property_id            Num    8           REMS-assigned identifier for each property                                   
+ 32 property_name_text     Char  50           Recorded name of property                                                    
+ 33 property_phone_number  Char  25           Phone number at primary property address (generally on-site agent)           
+ 46 property_total_        Num    8           Total number of units for property                                           
+    unit_count                                                                                                             
+HUD/Sec8MF_2014_10.sas:  NeighborhoodInfo DC                                          15:37 Wednesday, December 31, 2014   5
+File = HUD.Sec8MF_2014_10_dc
+
+The CONTENTS Procedure
+
+                                        Alphabetic List of Variables and Attributes
+ 
+  # Variable               Type Len Format    Label
+
+ 17 rent_to_fmr_           Char  40           Rent to FMR ratio for assisted units                                         
+    description                                                                                                            
+ 16 rent_to_fmr_ratio      Num    8           Ratio of rent gross amount to FMR gross amount                               
+ 31 servicing_site_        Char  40           HUD office responsible for management/servicing functions for property       
+    name_text                                                                                                              
+ 37 state_code             Char   2           State code of property address                                               
+  7 tracs_current_         Num    8 MMDDYY10. Expiration date of current term of contract as provided by TRACS             
+    expiration_date                                                                                                        
+  3 tracs_effective_date   Num    8 MMDDYY10. Effective date of contract as provided by TRACS                              
+  5 tracs_overall_exp_     Num    8           Fiscal year of tracs_overall_expiration_date                                 
+    fiscal_year                                                                                                            
+  4 tracs_overall_         Num    8 MMDDYY10. Overall expiration date of contract                                          
+    expiration_date                                                                                                        
+  6 tracs_overall_         Char   2 $S8EXQTR. Fiscal year quarter of contract expiration date                              
+    expire_quarter                            (calculated from tracs_overall_expiration_date)                              
+ 99 tracs_status           Char   1 $S8STAT.  Contract status (from TRACS)                                                 
+ 39 zip4_code              Char   4           Four digit zip code extension of property address                            
+ 38 zip_code               Char   5           Five digit zip code of property address                                      
+
+
+       Sort Information
+
+Sortedby       contract_number
+Validated      YES            
+Character Set  ANSI           
+HUD/Sec8MF_2014_10.sas:  NeighborhoodInfo DC                                          15:37 Wednesday, December 31, 2014   6
+File = HUD.Sec8MF_2014_10_dc
+Printing first 10 obs.
+
+                            tracs_   tracs_overall_ tracs_overall_                tracs_current_   contract_  assisted_
+     contract_  property_ effective_  expiration_     exp_fiscal_  tracs_overall_  expiration_   term_months_   units_
+Obs   number        id       date         date           year      expire_quarter      date           qty       count
+
+  1 DC390001010 800003717 10/01/2011   09/30/2031        2031        Jul - Sep      09/30/2014        240        187   
+  2 DC390001013 800003709 03/31/2005   03/30/2025        2025        Jan - Mar      03/30/2015        240        111   
+  3 DC390001015 800003786 10/01/2013   09/30/2017        2017        Jul - Sep      09/30/2014         48         46   
+  4 DC390001016 800003751 09/01/2013   10/31/2013        2014        Oct - Dec      10/31/2013          2        121   
+  5 DC390003002 800003767 12/01/2004   11/30/2024        2025        Oct - Dec      11/30/2014        240         94   
+  6 DC390005003 800003784 04/01/2011   03/31/2016        2016        Jan - Mar      03/31/2015         60         80   
+  7 DC390005009 800003679 09/01/2011   08/31/2016        2016        Jul - Sep      08/31/2014         60         97   
+  8 DC390005015 800003739 12/01/2012   11/30/2022        2023        Oct - Dec      11/30/2014        120        202   
+  9 DC390007005 800000063 03/01/2014   02/28/2015        2015        Jan - Mar      02/28/2015         12         48   
+ 10 DC390007006 800003673 07/01/2004   06/30/2024        2024        Apr - Jun      06/30/2015        240        108   
+
+       is_hud_                    is_acc_
+    administered_    is_acc_    performance_
+Obs      ind         old_ind     based_ind        contract_doc_type_code       program_type_name
+
+  1      No            No           Yes         Housing Assistance Payments    Sec 8 New Construction          
+  2      No            No           Yes         Housing Assistance Payments    Sec 8 New Construction          
+  3      No            No           Yes         Housing Assistance Payments    Sec 8 New Construction          
+  4      No            No           Yes         Housing Assistance Payments    Sec 8 New Construction          
+  5      No            No           Yes         Housing Assistance Payments    PD/8 SR                         
+  6      No            No           Yes         Housing Assistance Payments    Sec 8 Substantial Rehabilitation
+  7      No            No           Yes         Housing Assistance Payments    Sec 8 New Construction          
+  8      No            No           Yes         Housing Assistance Payments    Sec 8 Substantial Rehabilitation
+  9      No            No           Yes         Housing Assistance Payments    Sec 8 New Construction          
+ 10      No            No           Yes         Housing Assistance Payments    Sec 8 Substantial Rehabilitation
+HUD/Sec8MF_2014_10.sas:  NeighborhoodInfo DC                                          15:37 Wednesday, December 31, 2014   7
+File = HUD.Sec8MF_2014_10_dc
+Printing first 10 obs.
+
+                              rent_to_
+                                fmr_                            br0_  br1_  br2_  br3_  br4_ br5plus_
+Obs  program_type_group_code    ratio  rent_to_fmr_description count count count count count   count  br0_fmr br1_fmr
+
+  1 Other S8 New Construction  106.61  Between 101% & 120% FMR   0    187     0     0    0       0       N      1239 
+  2 Other S8 New Construction  106.08  Between 101% & 120% FMR   0     28    49    34    0       0       N      1239 
+  3 Other S8 New Construction   77.00  Below 80% FMR             0      6    31     9    0       0       N      1239 
+  4 Other S8 New Construction  106.74  Between 101% & 120% FMR   0     30    71    20    0       0       N      1239 
+  5 S8 Property Disposition     94.44  Between 80% & 100% FMR    0     63    19    12    0       0       N      1239 
+  6 Other S8 Rehabilitation     81.88  Between 80% & 100% FMR    0     15    45    18    2       0       N      1239 
+  7 Other S8 New Construction   84.18  Between 80% & 100% FMR    0     14    58    25    0       0       N      1239 
+  8 Other S8 Rehabilitation     89.90  Between 80% & 100% FMR    0     41   121    40    0       0       N      1239 
+  9 Other S8 New Construction  135.69  Between 131% & 140% FMR   0      0    36    12    0       0       N         N 
+ 10 Other S8 Rehabilitation     77.56  Below 80% FMR             0      5    93    10    0       0       N      1239 
+
+ 
+                                 extract_  hub_name_    servicing_                                       property_
+Obs br2_fmr  br3_fmr  br4_fmr        date    text     site_name_text  property_name_text                 phone_number
+
+  1      N        N        N   10/02/2014  Baltimore  Washington, DC  FORT LINCOLN SENIOR VILLAGE I      529-7730     
+  2   1469     1966        N   10/02/2014  Baltimore  Washington, DC  Faircliff Plaza West               202-986-2802 
+  3   1469     1966        N   10/02/2014  Baltimore  Washington, DC  Stoneridge Apts. Sec II            202-659-0700 
+  4   1469     1966        N   10/02/2014  Baltimore  Washington, DC  LINCOLN WESTMORELAND II            (202)265-9390
+  5   1469     1966        N   10/02/2014  Baltimore  Washington, DC  Parkchester Associates Apartments  (202)889-1200
+  6   1469     1966     2470   10/02/2014  Baltimore  Washington, DC  Forest Ridge/The Vistas            (202)678-7100
+  7   1469     1966        N   10/02/2014  Baltimore  Washington, DC  BENNING COURTS                     202-396-2512 
+  8   1469     1966        N   10/02/2014  Baltimore  Washington, DC  Huntington Village                 202-889-0804 
+  9   1469     1966        N   10/02/2014  Baltimore  Washington, DC  PORTNER PLACE                      202-387-7079 
+ 10   1469     1966        N   10/02/2014  Baltimore  Washington, DC  ATLANTIC GARDENS                   202-561-8600 
+HUD/Sec8MF_2014_10.sas:  NeighborhoodInfo DC                                          15:37 Wednesday, December 31, 2014   8
+File = HUD.Sec8MF_2014_10_dc
+Printing first 10 obs.
+
+                               address_
+                                line2_   city_name_  state_            zip4_  county_
+Obs address_line1_text           text       text      code   zip_code  code    code      county_name_text    msa_code
+
+  1 3001 BLADENSBURG RD NE               WASHINGTON    DC     20018    2235     001    District Of Columbia    8840  
+  2 1400 Euclid ST NW                    WASHINGTON    DC     20009    4563     001    District Of Columbia    8840  
+  3 325 ANACOSTIA RD SE                  WASHINGTON    DC     20019    7106     001    District Of Columbia    8840  
+  4 1711 8TH ST NW                       WASHINGTON    DC     20001    3163     001    District Of Columbia    8840  
+  5 2704 Wade Road, S.E. #201            WASHINGTON    DC     20020    5901     001    District Of Columbia    8840  
+  6 2549 ELVANS RD SE            #204    WASHINGTON    DC     20020    3530     001    District Of Columbia    8840  
+  7 1703 BENNING RD NE                   WASHINGTON    DC     20002    7224     001    District Of Columbia    8840  
+  8 3526 Stanton Rd., SE                 WASHINGTON    DC     20020             001    District Of Columbia    8840  
+  9 1449 U ST NW                         WASHINGTON    DC     20009    3951     001    District Of Columbia    8840  
+ 10 4216 4TH ST SE                       WASHINGTON    DC     20032    3325     001    District Of Columbia    8840  
+
+                                                   placed_     property_   associated_
+                                  congressional_  base_city_  total_unit_  financing_   is_insured_  is_202_  is_hud_
+Obs        msa_name_text          district_code   name_text      count       number         ind      811_ind  held_ind
+
+  1 Washington, DC-MD-VA-WV PMSA        00        WASHINGTON      187                       No         No       No    
+  2 Washington, DC-MD-VA-WV PMSA        00        WASHINGTON      112                       No         No       No    
+  3 Washington, DC-MD-VA-WV PMSA        00        WASHINGTON       46                       No         No       No    
+  4 Washington, DC-MD-VA-WV PMSA        00        WASHINGTON      122                       No         No       No    
+  5 Washington, DC-MD-VA-WV PMSA        00        WASHINGTON       95       00035168        Yes        No       Yes   
+  6 Washington, DC-MD-VA-WV PMSA        00        WASHINGTON      398                       No         No       No    
+  7 Washington, DC-MD-VA-WV PMSA        00        WASHINGTON       97                       No         No       No    
+  8 Washington, DC-MD-VA-WV PMSA        00        WASHINGTON      204                       No         No       No    
+  9 Washington, DC-MD-VA-WV PMSA        00        WASHINGTON       48                       No         No       No    
+ 10 Washington, DC-MD-VA-WV PMSA        00        WASHINGTON      108       00035283        Yes        No       Yes   
+HUD/Sec8MF_2014_10.sas:  NeighborhoodInfo DC                                          15:37 Wednesday, December 31, 2014   9
+File = HUD.Sec8MF_2014_10_dc
+Printing first 10 obs.
+
+    is_hud_                             is_board_                                                               is_non_
+    owned_   is_hospital_  is_nursing_  and_care_  is_assisted_  is_refinanced_  is_221d3_  is_221d4_  is_236_  insured_
+Obs   ind        ind        home_ind       ind      living_ind        ind           ind        ind       ind      ind
+
+  1   No          No           No          No           No            No            No         No        No        No   
+  2   No          No           No          No           No            No            No         No        No        No   
+  3   No          No           No          No           No            No            No         No        No        No   
+  4   No          No           No          No           No            No            No         No        No        No   
+  5   No          No           No          No           No            Yes           Yes        No        No        No   
+  6   No          No           No          No           No            No            No         No        No        No   
+  7   No          No           No          No           No            No            No         No        No        No   
+  8   No          No           No          No           No            No            No         No        No        No   
+  9   No          No           No          No           No            No            No         No        No        No   
+ 10   No          No           No          No           No            Yes           Yes        No        No        No   
+
+             is_risk_          is_co_  ownership_    owner_
+    is_bmir_ sharing_ is_mip_ insured_ effective_ participant_ owner_individual_ owner_individual_ owner_individual_
+Obs   ind      ind      ind     ind       date         id         first_name        middle_name        last_name
+
+  1    No       No      No       No    12/02/1976     16767                                                         
+  2    No       No      No       No    03/17/2005    237844                                                         
+  3    No       No      No       No             .    120409                                                         
+  4    No       No      No       No    11/15/1978     16819                                                         
+  5    No       No      No       No    11/06/1981     17062                                                         
+  6    No       No      No       No    09/10/1999    208929                                                         
+  7    No       No      No       No    09/29/1978     16854                                                         
+  8    No       No      No       No    01/30/2006    251224                                                         
+  9    No       No      No       No             .    336502                                                         
+ 10    No       No      No       No             .      8291                                                         
+HUD/Sec8MF_2014_10.sas:  NeighborhoodInfo DC                                          15:37 Wednesday, December 31, 2014  10
+File = HUD.Sec8MF_2014_10_dc
+Printing first 10 obs.
+
+ 
+    owner_individual_    owner_individual_
+Obs     full_name           title_text        owner_organization_name
+
+  1                                           Fort Lincoln Senior Village No. I  Associates
+  2                                           FPW, LP                                      
+  3                                           Stoneridge II LP                             
+  4                                           Lincoln-Westmoreland II, Limited P           
+  5                                           Parkchester Associates Apartments            
+  6                                           Vista Ridge Limited Partnership              
+  7                                           Gales Place Associates                       
+  8                                           Hunter Pines Limited Partnership             
+  9                                           Portner Place, LLC                           
+ 10                                           Washington Rehabilitation Associates         
+
+                                                                                                          owner_
+                                                                                          owner_city_     state_   owner_
+Obs owner_address_line1                            owner_address_line2                    name             code   zip_code
+
+  1 3298 Fort Lincoln Drive, N.E.                                                         Washington        DC     20018  
+  2 c/o The Eagle Point Companies                  125 John Roberts Rd, Suite 12          South Portland    ME     04106  
+  3 c/o Horning Brothers                           1350 Connecticut Ave., NW, Suite 800   Washington        DC     20036  
+  4 20316 Seneca Meadows Parkways                                                         Germantown        MD     20876  
+  5 1755 East Martin Luther King Junior Boulevard                                         Los Angeles       CA     90058  
+  6 2549 Elvans Road, S.E.,                        Apt. 101                               Washington        DC     20020  
+  7 1350 Connecticut Avenue, NW                    Suite 800                              Washington        DC     20036  
+  8 c/o William C. Smith & Co.                     1100 New Jersey Ave., S.E. Suite 1000  Washington        DC     20003  
+  9 4115 Wisconsin Avenue, NW Ste 210                                                     Washington        DC     20016  
+ 10 6 Faneuil Hall Market Place                                                           Boston            MA     02109  
+HUD/Sec8MF_2014_10.sas:  NeighborhoodInfo DC                                          15:37 Wednesday, December 31, 2014  11
+File = HUD.Sec8MF_2014_10_dc
+Printing first 10 obs.
+
+    owner_  owner_main_    owner_main_                                  mgmt_agent_ mgmt_agent_ mgmt_agent_ mgmt_agent_
+    zip4_  phone_number_   fax_number_                                 participant_ indv_first_ indv_last_  indv_middle_
+Obs  code       text           text      owner_email_text                   id         name        name         name
+
+  1  0000  (202) 269-3400 (202)526-4946  jgaddis@fortlincolnrealty.com      4534                                        
+  2  6420  207-780-8050   207-780-8060   dbaker@eaglepointco.com          277887                                        
+  3        202-659-0700   202-659-9489   smitchell@horningbrothers.com    173583                                        
+  4  0000  (301)562-1600  (301)562-1670  fmifflin@emcmgmt.com               4515                                        
+  5  1522  (323) 231-4174                need_email@hud.gov               299874                                        
+  6  3595  (202)678-7100  (202)678-3864  need_email@hud.gov               292451                                        
+  7  0000  (202) 659-0700                smitchell@horningbrothers.com    173583                                        
+  8        (202)465-7037  (202) 682-5840 need_email@hud.gov               195294                                        
+  9        202-363-2090                  jruffing@somersetdev.com         277887                                        
+ 10  0000  (617) 742-4500                need_email@hud.gov               211774                                        
+
+                mgmt_agent_
+    mgmt_agent_ indv_title_                                                                         mgmt_agent_address_
+Obs  full_name     text     mgmt_agent_org_name                mgmt_agent_address_line1             line2
+
+  1                         Fort Lincoln Realty Co.            3298 Ft. Lincoln Dr., N.E.                                  
+  2                         Eagle Point Management, LLC        C/O The Eagle Point Companies        One City Center, 2nd Fl
+  3                         Horning Brothers                   1350 Connecticut Avenue, N.W.                               
+  4                         EDGEWOOD MANAGEMENT CORPORATION    20316 Seneca Meadows Parkway                                
+  5                         EMP II, Inc.                       1755 E. Martin Luther King Jr. Blvd.                        
+  6                         Community Management Solutions LLC 3040 Stanton Road SE                 Suite 101              
+  7                         Horning Brothers                   1350 Connecticut Avenue, N.W.                               
+  8                         William C Smith & Co Inc           1100 New Jersey Ave SE #1000                                
+  9                         Eagle Point Management, LLC        C/O The Eagle Point Companies        One City Center, 2nd Fl
+ 10                         Winn Managed Properties, LLC       6 Faneuil Hall Marketplace                                  
+HUD/Sec8MF_2014_10.sas:  NeighborhoodInfo DC                                          15:37 Wednesday, December 31, 2014  12
+File = HUD.Sec8MF_2014_10_dc
+Printing first 10 obs.
+
+                                                                                  mgmt_agent_
+    mgmt_agent_   mgmt_agent_   mgmt_agent_   mgmt_agent_   mgmt_agent_main_       main_fax_
+Obs  city_name    state_code     zip_code      zip4_code    phone_number             number        mgmt_agent_email_text
+
+  1 Washington        DC           20018         0000       (202) 269-3400                       need_email@hud.gov       
+  2 Portland          ME           04101                    207-780-8050          207-780-8060   dbaker@eaglepointco.com  
+  3 WASHINGTON        DC           20036                    202 659-0700          202-659-9489   chad@horningbrothers.com 
+  4 Germantown        MD           20876         7004       301-562-1600          301-562-1670   fmifflin@emcmgmt.com     
+  5 Los Angeles       CA           90058                    3232314174                           tenglish@21alphagroup.com
+  6 Washington        DC           20020         7877       202 610-2031 ext 15   202 889-3407   billpetr@castlemgmt.com  
+  7 WASHINGTON        DC           20036                    202 659-0700          202-659-9489   chad@horningbrothers.com 
+  8 Washington        DC           20003                    202-371-1220                         cjmccabe@wcsmith.com     
+  9 Portland          ME           04101                    207-780-8050          207-780-8060   dbaker@eaglepointco.com  
+ 10 Boston            MA           02109                    617-742-4500                         mcassidy@winnco.com      
+
+ 
+    Record    tracs_                                        primary_                           mgmt_agent_
+Obs   No      status     property_category                  financing     owner_company          company
+
+  1   21      Active     Subsidized - Previously Insured                 Profit Motivated    Profit Motivated
+  2   22      Active     Subsidized - Previously Insured                 Profit Motivated    Profit Motivated
+  3   23      Active     Subsidized - Previously Insured                 Limited Dividend    Profit Motivated
+  4   24      Expired    Subsidized - Previously Insured                 Profit Motivated    Profit Motivated
+  5   25      Active     Insured - Subsidized                Insured     Profit Motivated    Profit Motivated
+  6   26      Active     Subsidized - Previously Insured                 Profit Motivated    Profit Motivated
+  7   27      Active     Subsidized - Previously Insured                 Profit Motivated    Profit Motivated
+  8   28      Active     Subsidized - Previously Insured                 Profit Motivated    Profit Motivated
+  9   29      Active     Subsidized - Previously Insured                 Profit Motivated    Profit Motivated
+ 10   30      Active     Insured - Subsidized                Insured     Profit Motivated    Profit Motivated
+HUD/Sec8MF_2014_10.sas:  NeighborhoodInfo DC                                          15:37 Wednesday, December 31, 2014  13
+File = HUD.Sec8MF_2014_10_dc
+
+The MEANS Procedure
+
+Variable                           N             Sum            Mean         Std Dev         Minimum         Maximum
+--------------------------------------------------------------------------------------------------------------------
+property_id                      113     90402450186       800021683        52650.90       800000023       800219652
+tracs_effective_date             113      2025134.00        17921.54         2195.04         7640.00        19997.00
+tracs_overall_expiration_date    113      2513724.00        22245.35         2590.86        14883.00        27240.00
+tracs_overall_exp_fiscal_year    113       228332.00         2020.64       7.1214740         2000.00         2034.00
+tracs_current_expiration_date    113      2264609.00        20040.79     869.5290644        14883.00        23588.00
+contract_term_months_qty         113        15876.00     140.4955752     106.8426015       1.0000000     480.0000000
+assisted_units_count             113        11138.00      98.5663717      83.5947790               0     406.0000000
+rent_to_fmr_ratio                111        10328.46      93.0491892      29.5273261      24.0400000     192.1300000
+br0_count                        111     499.0000000       4.4954955      14.1933876               0     123.0000000
+br1_count                        111         5110.00      46.0360360      59.2334254               0     290.0000000
+br2_count                        111         4015.00      36.1711712      44.8785986               0     223.0000000
+br3_count                        111         1268.00      11.4234234      18.9959563               0     127.0000000
+br4_count                        111     204.0000000       1.8378378       6.3368196               0      45.0000000
+br5plus_count                    111      42.0000000       0.3783784       2.3122364               0      23.0000000
+br0_fmr                           29        34104.00         1176.00               0         1176.00         1176.00
+br1_fmr                           98       121422.00         1239.00               0         1239.00         1239.00
+br2_fmr                           83       121927.00         1469.00               0         1469.00         1469.00
+br3_fmr                           59       115994.00         1966.00               0         1966.00         1966.00
+br4_fmr                           21        51870.00         2470.00               0         2470.00         2470.00
+extract_date                     113      2259774.00        19998.00               0        19998.00        19998.00
+property_total_unit_count        113        16138.00     142.8141593     121.5518370       6.0000000     653.0000000
+ownership_effective_date          94      1186485.00        12622.18         4724.01        -7640.00        18983.00
+owner_participant_id             113     15170879.00       134255.57       114126.83         4497.00       336502.00
+mgmt_agent_participant_id        113     15685328.00       138808.21       113607.22     942.0000000       307613.00
+RecordNo                         113         9118.00      80.6902655      55.0394468      21.0000000     550.0000000
+--------------------------------------------------------------------------------------------------------------------
+HUD/Sec8MF_2014_10.sas:  NeighborhoodInfo DC                                          15:37 Wednesday, December 31, 2014  14
+File = HUD.Sec8MF_2014_10_dc
+
+The FREQ Procedure
+
+                 Contract status (from TRACS)
+ 
+tracs_                                 Cumulative    Cumulative
+status        Frequency     Percent     Frequency      Percent
+---------------------------------------------------------------
+Active             105       92.92           105        92.92  
+Terminated           1        0.88           106        93.81  
+Expired              7        6.19           113       100.00  
+
+
+                        File extract date
+ 
+                                         Cumulative    Cumulative
+extract_date    Frequency     Percent     Frequency      Percent
+-----------------------------------------------------------------
+  10/02/2014         113      100.00           113       100.00  
+
+
+Fiscal year quarter of contract expiration date (calculated from tracs_overall_expiration_date)
+ 
+tracs_overall_                             Cumulative    Cumulative
+expire_quarter    Frequency     Percent     Frequency      Percent
+-------------------------------------------------------------------
+Oct - Dec               33       29.20            33        29.20  
+Jan - Mar               30       26.55            63        55.75  
+Apr - Jun               18       15.93            81        71.68  
+Jul - Sep               32       28.32           113       100.00  
+
+
+                    Rent to FMR ratio for assisted units
+ 
+                                                    Cumulative    Cumulative
+rent_to_fmr_description    Frequency     Percent     Frequency      Percent
+----------------------------------------------------------------------------
+                                  2        1.77             2         1.77  
+Below 80% FMR                    40       35.40            42        37.17  
+Between 101% & 120% FMR          19       16.81            61        53.98  
+Between 121% & 130% FMR           7        6.19            68        60.18  
+Between 131% & 140% FMR           6        5.31            74        65.49  
+Between 141% & 160% FMR           7        6.19            81        71.68  
+Between 80% & 100% FMR           31       27.43           112        99.12  
+Over 160% FMR                     1        0.88           113       100.00  
+HUD/Sec8MF_2014_10.sas:  NeighborhoodInfo DC                                          15:37 Wednesday, December 31, 2014  15
+File = HUD.Sec8MF_2014_10_dc
+
+The FREQ Procedure
+
+                        Document type of contract, as provided by TRACS
+ 
+                                                                        Cumulative    Cumulative
+contract_doc_type_code                         Frequency     Percent     Frequency      Percent
+------------------------------------------------------------------------------------------------
+Housing Assistance Payments                          96       84.96            96        84.96  
+Project Rental Assistance Contract                   15       13.27           111        98.23  
+Senior Citizen Homeowner Assistance Program           2        1.77           113       100.00  
+
+
+  Program type group code (derived from program_type_name and contract_doc_type_code)
+ 
+                                                               Cumulative    Cumulative
+program_type_group_code               Frequency     Percent     Frequency      Percent
+---------------------------------------------------------------------------------------
+Section 202                                 13       11.50            13        11.50  
+S8 State Agency                              7        6.19            20        17.70  
+S8 Loan Management                          34       30.09            54        47.79  
+S8 Property Disposition                     12       10.62            66        58.41  
+PRAC 202/811                                15       13.27            81        71.68  
+Other S8 New Construction                   15       13.27            96        84.96  
+Other S8 Rehabilitation                     15       13.27           111        98.23  
+Service Coordinator                          2        1.77           113       100.00  
+
+
+HUD/Sec8MF_2014_10.sas:  NeighborhoodInfo DC                                          15:37 Wednesday, December 31, 2014  16
+File = HUD.Sec8MF_2014_10_dc
+
+The FREQ Procedure
+
+                      Name of program type, provided from TRACS
+ 
+                                                             Cumulative    Cumulative
+program_type_name                   Frequency     Percent     Frequency      Percent
+-------------------------------------------------------------------------------------
+202/8 NC                                   7        6.19             7         6.19  
+202/8 SR                                   6        5.31            13        11.50  
+HFDA/8 NC                                  3        2.65            16        14.16  
+HFDA/8 SR                                  4        3.54            20        17.70  
+LMSA                                      34       30.09            54        47.79  
+PD/8 Existing                              4        3.54            58        51.33  
+PD/8 MR                                    4        3.54            62        54.87  
+PD/8 SR                                    4        3.54            66        58.41  
+PRAC/202                                   7        6.19            73        64.60  
+PRAC/811                                   8        7.08            81        71.68  
+Sec 8 New Construction                    15       13.27            96        84.96  
+Sec 8 Substantial Rehabilitation          15       13.27           111        98.23  
+UnasstPrj SCHAP                            2        1.77           113       100.00  
+
+
+                                     Property category
+ 
+                                                                    Cumulative    Cumulative
+property_category                          Frequency     Percent     Frequency      Percent
+--------------------------------------------------------------------------------------------
+202/811                                          20       17.70            20        17.70  
+HUD Held                                          1        0.88            21        18.58  
+Insured - Subsidized                             37       32.74            58        51.33  
+Subsidized - Previously 202/811                   4        3.54            62        54.87  
+Subsidized - Previously Insured                  48       42.48           110        97.35  
+Subsidized, No HUD Financing                      3        2.65           113       100.00  
+
+
+HUD/Sec8MF_2014_10.sas:  NeighborhoodInfo DC                                          15:37 Wednesday, December 31, 2014  17
+File = HUD.Sec8MF_2014_10_dc
+
+The FREQ Procedure
+
+         Primary type of financing associated with property
+ 
+primary_                                     Cumulative    Cumulative
+financing           Frequency     Percent     Frequency      Percent
+---------------------------------------------------------------------
+                          52       46.02            52        46.02  
+202/811                   20       17.70            72        63.72  
+Flexible Subsidy           3        2.65            75        66.37  
+GREENR                     4        3.54            79        69.91  
+HUD Held                   1        0.88            80        70.80  
+Insured                   33       29.20           113       100.00  
+
+
+                        Type of owner company
+ 
+                                             Cumulative    Cumulative
+owner_company       Frequency     Percent     Frequency      Percent
+---------------------------------------------------------------------
+Limited Dividend          18       15.93            18        15.93  
+Non-Profit                46       40.71            64        56.64  
+Profit Motivated          49       43.36           113       100.00  
+
+
+                    Management agent company type
+ 
+mgmt_agent_                                  Cumulative    Cumulative
+company             Frequency     Percent     Frequency      Percent
+---------------------------------------------------------------------
+Limited Dividend           2        1.77             2         1.77  
+Non-Profit                 7        6.19             9         7.96  
+Profit Motivated         104       92.04           113       100.00  

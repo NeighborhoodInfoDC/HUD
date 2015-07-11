@@ -1,0 +1,1232 @@
+1                                         The SAS System        15:38 Wednesday, December 31, 2014
+
+NOTE: Copyright (c) 2002-2008 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.2 (TS2M3) 
+      Licensed to THE URBAN INSTITUTE, Site 70097024.
+NOTE: This session is executing on the X64_VSPRO  platform.
+
+
+
+NOTE: SAS initialization used:
+      real time           0.68 seconds
+      cpu time            0.20 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is D:\Users\ptatian\Documents\My SAS 
+      Files\9.2\Autoexnt.sas.
+
+
+NOTE: AUTOEXEC processing completed.
+
+1          /**************************************************************************
+2           Program:  Sec8MF_2014_10.sas
+3           Library:  HUD
+4           Project:  NeighborhoodInfo DC
+5           Author:   P. Tatian
+6           Created:  12/23/14
+7           Version:  SAS 9.2
+8           Environment:  Local Windows session (desktop)
+9          
+10          Description:  Compile Section 8 multifamily contract/project data.
+11          Creates files for DC, MD, VA, and WV.
+12         
+13          NB:  Change upload=Y for final batch run.
+14         
+15          Modifications:
+16           10/19/14 PAT Updated for SAS1.
+17           12/23/14 PAT New version incorporating %sec8mf_readbasetbls() and
+18                        %Sec8MF_dmvw() macros.
+19         **************************************************************************/
+20         
+21         %include "L:\SAS\Inc\StdLocal.sas";
+NOTE: Libref _METADAT was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: L:\Libraries\Metadata\Data
+64        +
+65        +options ls=124 ps=48;    ** Landscape **;
+66        +
+67        +** Output title **;
+2 The SAS System                                                                          15:38 Wednesday, December 31, 2014
+
+68        +
+69        +title "&_library/&_program:  NeighborhoodInfo DC";
+70        +
+71        +** Define General library for local session only **;
+72        +
+73        +%DCData_lib( General, env=windows, macdef=dcautos uiautos sasautos )
+MPRINT(DCDATA_LIB):   options nomprint;
+NOTE: Libref GENERA_L was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: D:\DCData\Libraries\General\Data
+NOTE: Libref GENERA_R was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: L:\Libraries\General\Data
+NOTE: Libref GENERAL was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): D:\DCData\Libraries\General\Data
+      Engine(2):        V9 
+      Physical Name(2): L:\Libraries\General\Data
+
+=====================================================================
+Current FmtSearch Option value:
+
+     WORK* LIBRARY* GENERAL
+
+   *implicitly included by default.
+
+=====================================================================
+Status of current catalogs:
+
+NOTE:    WORK.FORMATS DOES NOT EXIST
+NOTE:    LIBRARY.FORMATS DOES NOT EXIST
+NOTE:    GENERAL.FORMATS EXISTS
+=====================================================================
+
+
+=====================================================================
+Current Sasautos Option value:
+
+     GENERA_L DCAUTOS UIAUTOS SASAUTOS
+
+=====================================================================
+
+
+=====================================================================
+Current Sasautos Option value:
+3 The SAS System                                                                          15:38 Wednesday, December 31, 2014
+
+
+     GENERA_L  GENERA_R DCAUTOS UIAUTOS SASAUTOS
+
+=====================================================================
+
+74        +
+75        +%let _userid = %sysfunc( putc( %lowcase(&SYSUSERID), $longusr. ) );
+NOTE: %INCLUDE (level 1) ending.
+76         
+77         ** Define libraries **;
+78         %DCData_lib( HUD, local=n )
+MPRINT(DCDATA_LIB):   options nomprint;
+NOTE: Libref HUD_R was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: L:\Libraries\HUD\Data
+NOTE: Libref HUD was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): L:\Libraries\HUD\Data
+
+=====================================================================
+Current FmtSearch Option value:
+
+     WORK* LIBRARY* GENERAL HUD
+
+   *implicitly included by default.
+
+=====================================================================
+Status of current catalogs:
+
+NOTE:    WORK.FORMATS DOES NOT EXIST
+NOTE:    LIBRARY.FORMATS DOES NOT EXIST
+NOTE:    GENERAL.FORMATS EXISTS
+NOTE:    HUD.FORMATS EXISTS
+=====================================================================
+
+
+=====================================================================
+Current Sasautos Option value:
+
+     HUD_R GENERA_L GENERA_R DCAUTOS UIAUTOS SASAUTOS
+
+=====================================================================
+
+79         %DCData_lib( RealProp, local=n )
+MPRINT(DCDATA_LIB):   options nomprint;
+4 The SAS System                                                                          15:38 Wednesday, December 31, 2014
+
+NOTE: Libref REALPR_R was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: L:\Libraries\RealProp\Data
+NOTE: Libref REALPROP was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): L:\Libraries\RealProp\Data
+
+=====================================================================
+Current FmtSearch Option value:
+
+     WORK* LIBRARY* GENERAL HUD REALPROP
+
+   *implicitly included by default.
+
+=====================================================================
+Status of current catalogs:
+
+NOTE:    WORK.FORMATS DOES NOT EXIST
+NOTE:    LIBRARY.FORMATS DOES NOT EXIST
+NOTE:    GENERAL.FORMATS EXISTS
+NOTE:    HUD.FORMATS EXISTS
+NOTE:    REALPROP.FORMATS EXISTS
+=====================================================================
+
+
+=====================================================================
+Current Sasautos Option value:
+
+     HUD_R  REALPR_R GENERA_L GENERA_R DCAUTOS UIAUTOS SASAUTOS
+
+=====================================================================
+
+80         
+81         
+82         *--- EDIT PARAMETERS BELOW -----------------------------------------;
+83         
+84           ** Enter date of HUD database as SAS date value, ex: '25nov2014'd **;
+85         
+86           %let s8filedate = '25nov2014'd;
+87         
+88           %let upload = N;
+89         
+90           %let revisions = %str(New file.);
+91         
+92         *-------------------------------------------------------------------;
+5 The SAS System                                                                          15:38 Wednesday, December 31, 2014
+
+93         
+94         
+95         *--- MAIN PROGRAM --------------------------------------------------;
+96         
+97         %sec8mf_readbasetbls(
+98           filedate=&s8filedate,
+99           folder=&_dcdata_r_path\HUD
+100        )
+SEC8MF_READBASETBLS FILEDATE '25nov2014'd
+SEC8MF_READBASETBLS FILEDATE_FMT 11/25/2014
+SEC8MF_READBASETBLS FOLDER L:\Libraries\HUD
+SEC8MF_READBASETBLS MONTH 11
+SEC8MF_READBASETBLS YEAR 2014
+GLOBAL _RECURSE 
+GLOBAL UPLOAD N
+GLOBAL _REMOTE_SESSION 0
+GLOBAL _DCDATA_L_DRIVE D
+GLOBAL _DCDATA_R_DRIVE L
+GLOBAL _DCDATA_L_PATH D:\DCData\Libraries
+GLOBAL _DCDATA_R_PATH L:\Libraries
+GLOBAL _DCDATA_PATH L:\Libraries
+GLOBAL REVISIONS New file.
+GLOBAL _USERID ptatian
+GLOBAL _LIBRARY HUD
+GLOBAL _PROGRAM Sec8MF_2014_11.sas
+GLOBAL S8FILEDATE '25nov2014'd
+GLOBAL _NEWFMS GENERAL HUD
+MPRINT(SEC8MF_READBASETBLS):   **Step1. Read in the current month files**;
+MPRINT(SEC8MF_READBASETBLS):   * Universe of properties and related property-level information corresponding * to the 
+universe of active assistance and Section 8 contracts in * Multifamily Housing;
+MPRINT(SEC8MF_READBASETBLS):   filename rp112014 
+"L:\Libraries\HUD\Raw\Sec8MF\2014-11\MF_Properties_with_Assistance___Sec8_Contracts.txt";
+MPRINT(SEC8MF_READBASETBLS):   data MF_Properties_11_2014 (label="Sec 8 multifamily projects, property-level data, extract 
+date 11/25/2014");
+MPRINT(SEC8MF_READBASETBLS):   infile rp112014 dlm=',' firstobs=2 flowover dsd lrecl=4000;
+MPRINT(SEC8MF_READBASETBLS):   length hub_name_text $30. servicing_site_name_text $40. property_id 8. property_name_text 
+$50. property_phone_number $25. address_line1_text $45. address_line2_text $45. city_name_text $28. state_code $2. zip_code 
+$5. zip4_code $4. county_code $3. county_name_text $30. msa_code $4. msa_name_text $30. congressional_district_code $15. 
+placed_base_city_name_text $30. property_total_unit_count 8. property_category_name $60. primary_financing_type $30. 
+associated_financing_number $18. is_insured_ind $1. is_202_811_ind $1. is_hud_held_ind $1. is_hud_owned_ind $1. 
+is_hospital_ind $1. is_nursing_home_ind $1. is_board_and_care_ind $1. is_assisted_living_ind $1. is_refinanced_ind $1. 
+is_221d3_ind $1. is_221d4_ind $1. is_236_ind $1. is_non_insured_ind $1. is_bmir_ind $1. is_risk_sharing_ind $1. is_mip_ind 
+$1. is_co_insured_ind $1. ownership_effective_date 8. owner_participant_id 8. owner_company_type $20. 
+owner_individual_first_name $18. owner_individual_middle_name $18. owner_individual_last_name $20. 
+owner_individual_full_name $60. owner_individual_title_text $100. owner_organization_name $50. owner_address_line1 $45. 
+owner_address_line2 $45. owner_city_name $28. owner_state_code $2. owner_zip_code $5. owner_zip4_code $4. 
+6 The SAS System                                                                          15:38 Wednesday, December 31, 2014
+
+owner_main_phone_number_text $25. owner_main_fax_number_text $25. owner_email_text $100. mgmt_agent_participant_id 8. 
+mgmt_agent_company_type $20. mgmt_agent_indv_first_name $18. mgmt_agent_indv_last_name $18. mgmt_agent_indv_middle_name 
+$18. mgmt_agent_full_name $56. mgmt_agent_indv_title_text $100. mgmt_agent_org_name $50. mgmt_agent_address_line1 $45. 
+mgmt_agent_address_line2 $45. mgmt_agent_city_name $28. mgmt_agent_state_code $2. mgmt_agent_zip_code $5. 
+mgmt_agent_zip4_code $4. mgmt_agent_main_phone_number $25. mgmt_agent_main_fax_number $18. mgmt_agent_email_text $100.;
+MPRINT(SEC8MF_READBASETBLS):   input hub_name_text $ servicing_site_name_text $ property_id property_name_text $ 
+property_phone_number $ address_line1_text $ address_line2_text $ city_name_text $ state_code $ zip_code $ zip4_code $ 
+county_code $ county_name_text $ msa_code $ msa_name_text $ congressional_district_code $ placed_base_city_name_text $ 
+property_total_unit_count property_category_name $ primary_financing_type $ associated_financing_number $ is_insured_ind $ 
+is_202_811_ind $ is_hud_held_ind $ is_hud_owned_ind $ is_hospital_ind $ is_nursing_home_ind $ is_board_and_care_ind $ 
+is_assisted_living_ind $ is_refinanced_ind $ is_221d3_ind $ is_221d4_ind $ is_236_ind $ is_non_insured_ind $ is_bmir_ind $ 
+is_risk_sharing_ind $ is_mip_ind $ is_co_insured_ind $ ownership_effective_date : mmddyy. owner_participant_id 
+owner_company_type $ owner_individual_first_name $ owner_individual_middle_name $ owner_individual_last_name $ 
+owner_individual_full_name $ owner_individual_title_text $ owner_organization_name $ owner_address_line1 $ 
+owner_address_line2 $ owner_city_name $ owner_state_code $ owner_zip_code $ owner_zip4_code $ owner_main_phone_number_text 
+$ owner_main_fax_number_text $ owner_email_text $ mgmt_agent_participant_id mgmt_agent_company_type $ 
+mgmt_agent_indv_first_name $ mgmt_agent_indv_last_name $ mgmt_agent_indv_middle_name $ mgmt_agent_full_name $ 
+mgmt_agent_indv_title_text $ mgmt_agent_org_name $ mgmt_agent_address_line1 $ mgmt_agent_address_line2 $ 
+mgmt_agent_city_name $ mgmt_agent_state_code $ mgmt_agent_zip_code $ mgmt_agent_zip4_code $ mgmt_agent_main_phone_number $ 
+mgmt_agent_main_fax_number $ mgmt_agent_email_text $;
+MPRINT(SEC8MF_READBASETBLS):   extract_date = '25nov2014'd;
+MPRINT(SEC8MF_READBASETBLS):   label extract_date = "File extract date";
+MPRINT(SEC8MF_READBASETBLS):   ** Invalid state code **;
+MPRINT(SEC8MF_READBASETBLS):   if state_code = '00' then state_code = '';
+MPRINT(SEC8MF_READBASETBLS):   format ownership_effective_date extract_date mmddyy10.;
+MPRINT(SEC8MF_READBASETBLS):   ** Label variables **;
+MPRINT(SEC8MF_READBASETBLS):   label hub_name_text = "HUD office responsible for HUD servicing site for property" 
+servicing_site_name_text = "HUD office responsible for management/servicing functions for property" property_id = 
+"REMS-assigned identifier for each property" property_name_text = "Recorded name of property" property_phone_number = 
+"Phone number at primary property address (generally on-site agent)" address_line1_text = "Property street address/first 
+line of mailing address" address_line2_text = "Property suite number, PO box or other information for second line of 
+address" city_name_text = "City name of property address" state_code = "State code of property address" zip_code = "Five 
+digit zip code of property address" zip4_code = "Four digit zip code extension of property address" county_code = "Property 
+three digit county code" county_name_text = "Property county name" msa_code = "Property standard metropolitan statistical 
+area code" msa_name_text = "Property standard metropolitan statistical area name" congressional_district_code = "Property 
+congressional district code(s) (For properties without 9-digit ZIP code, all possible districts listed)" 
+placed_base_city_name_text = "Property standard place based city name" property_total_unit_count = "Total number of units 
+for property" property_category_name = "Property category" primary_financing_type = "Primary type of financing associated 
+with property" associated_financing_number = "FHA or 202/811 number (for properties with active financing)" is_insured_ind 
+= "Any active financing instruments associated with property are insurance" is_202_811_ind = "Any active financing 
+instruments associated with property are 202/811 grants/loans" is_hud_held_ind = "Any active financing instruments 
+associated with property are HUD-held loans" is_hud_owned_ind = "Property is HUD-owned" is_hospital_ind = "Any active 
+financing instruments associated with property are loans for a hospital" is_nursing_home_ind = "Any active financing 
+instruments associated with property are loans for a nursing home" is_board_and_care_ind = "Any active financing 
+instruments associated with property are loans for a board and care property" is_assisted_living_ind = "Any active 
+financing instruments associated with property are loans for an assisted living property" is_refinanced_ind = "Any active 
+7 The SAS System                                                                          15:38 Wednesday, December 31, 2014
+
+financing instruments associated with property are loans that have been refinanced" is_221d3_ind = "Any active financing 
+instruments associated with property are 221/d3 loans" is_221d4_ind = "Any active financing instruments associated with 
+property are 221/d4 loans" is_236_ind = "Any active financing instruments associated with property are insured 236 loans" 
+is_non_insured_ind = "Any active financing instruments associated with property are non-insured loans" is_bmir_ind = "Any 
+active financing instruments associated with property are BMIR loans" is_risk_sharing_ind = "Any active financing 
+instruments associated with property are risk sharing loans" is_mip_ind = "Any active financing instruments associated with 
+property are MIP loans" is_co_insured_ind = "Any active financing associated with property is a co-insured loan" 
+ownership_effective_date = "Most recent effective date associated with property owner" owner_participant_id = "Identifier 
+for owner having most recent effective date for property" owner_company_type = "Type of owner company" 
+owner_individual_first_name = "Owner first name" owner_individual_middle_name = "Owner middle name" 
+owner_individual_last_name = "Owner last name" owner_individual_full_name = "Owner full name" owner_individual_title_text = 
+"Owner title" owner_organization_name = "Registered organization name for owner of property" owner_address_line1 = "Owner 
+street address/first line of mailing address" owner_address_line2 = "Owner suite number, PO box or other information for 
+second line of address" owner_city_name = "City name of owner address" owner_state_code = "Two character state code of 
+owner address" owner_zip_code = "Five digit zip code of owner address" owner_zip4_code = "Four digit zip code extension of 
+owner address" owner_main_phone_number_text = "Owner main phone number" owner_main_fax_number_text = "Owner main fax 
+number" owner_email_text = "Internet email address for owner" mgmt_agent_participant_id = "Identifier for management agent 
+having most recent effective date for property" mgmt_agent_company_type = "Management agent company type" 
+mgmt_agent_indv_first_name = "Management agent first name" mgmt_agent_indv_last_name = "Management agent last name" 
+mgmt_agent_indv_middle_name = "Management agent middle name" mgmt_agent_full_name = "Management agent full name" 
+mgmt_agent_indv_title_text = "Management agent title" mgmt_agent_org_name = "Registered organization name for management 
+agent of property" mgmt_agent_address_line1 = "Management agent street address/first line of mailing address" 
+mgmt_agent_address_line2 = "Management agent suite number, PO box or other information for second line of address" 
+mgmt_agent_city_name = "City name of management agent address" mgmt_agent_state_code = "Two character state code of 
+management agent address" mgmt_agent_zip_code = "Five digit zip code of management agent address" mgmt_agent_zip4_code = 
+"Four digit zip code extension of management agent address" mgmt_agent_main_phone_number = "Management agent main phone 
+number" mgmt_agent_main_fax_number = "Management agent main fax number" mgmt_agent_email_text = "Internet email address for 
+management agent";
+MPRINT(SEC8MF_READBASETBLS):   run;
+
+NOTE: The infile RP112014 is:
+      Filename=L:\Libraries\HUD\Raw\Sec8MF\2014-11\MF_Properties_with_Assistance___Sec8_Contracts.txt,
+      RECFM=V,LRECL=4000,File Size (bytes)=35372131,
+      Last Modified=22Dec2014:11:00:59,
+      Create Time=22Dec2014:11:00:53
+
+NOTE: Invalid data for mgmt_agent_participant_id in line 7977 281-302.
+RULE:     ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0              
+7978      Natalie J Bowman                                                           ","250 Ute Ave           
+     101                         ","                                             ","Rifle                     
+     201    ","CO","81650","    ","970-625-3974             ","970-665-9238      ","hudhouse@riflecolo.net" 297
+NOTE: Invalid data errors for file RP112014 occurred outside the printed range.
+NOTE: Increase available buffer lines with the INFILE n= option.
+hub_name_text=Denver servicing_site_name_text=Denver property_id=800003058 property_name_text=KENDALL HEIGHTS APTS I
+property_phone_number=(970)625-3974 address_line1_text=250 UTE AVE address_line2_text=  city_name_text=RIFLE state_code=CO
+zip_code=81650 zip4_code=  county_code=045 county_name_text=GARFIELD msa_code=0000 msa_name_text=Not In Metro Area
+8 The SAS System                                                                          15:38 Wednesday, December 31, 2014
+
+congressional_district_code=03 placed_base_city_name_text=RIFLE property_total_unit_count=24
+property_category_name=Subsidized, No HUD Financing primary_financing_type=  associated_financing_number=  is_insured_ind=N
+is_202_811_ind=N is_hud_held_ind=N is_hud_owned_ind=N is_hospital_ind=N is_nursing_home_ind=N is_board_and_care_ind=N
+is_assisted_living_ind=N is_refinanced_ind=N is_221d3_ind=N is_221d4_ind=N is_236_ind=N is_non_insured_ind=N is_bmir_ind=N
+is_risk_sharing_ind=N is_mip_ind=N is_co_insured_ind=N ownership_effective_date=. owner_participant_id=6753
+owner_company_type=Non-Profit owner_individual_first_name=  owner_individual_middle_name=  owner_individual_last_name= 
+owner_individual_full_name=  owner_individual_title_text=  owner_organization_name="Rifle Housing Authority
+owner_address_line1=Natalie J Bowman owner_address_line2=250 Ute Ave owner_city_name=  owner_state_code=Ri owner_zip_code=CO
+owner_zip4_code=8165 owner_main_phone_number_text=  owner_main_fax_number_text=970-625-3974 owner_email_text=970-665-9238
+mgmt_agent_participant_id=. mgmt_agent_company_type=6753 mgmt_agent_indv_first_name=Non-Profit mgmt_agent_indv_last_name= 
+mgmt_agent_indv_middle_name=  mgmt_agent_full_name=  mgmt_agent_indv_title_text=  mgmt_agent_org_name= 
+mgmt_agent_address_line1="Rifle Housing Authority mgmt_agent_address_line2=Natalie J Bowman mgmt_agent_city_name=250 Ute Ave
+mgmt_agent_state_code=  mgmt_agent_zip_code=Rifle mgmt_agent_zip4_code=CO mgmt_agent_main_phone_number=81650
+mgmt_agent_main_fax_number=  mgmt_agent_email_text=970-625-3974 extract_date=11/25/2014 _ERROR_=1 _N_=7970
+NOTE: Invalid data for mgmt_agent_participant_id in line 7980 281-302.
+RULE:     ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0              
+7981      Natalie J Bowman                                                           ","250 Ute Ave           
+     101                         ","                                             ","Rifle                     
+     201    ","CO","81650","    ","970-625-3974             ","970-665-9238      ","hudhouse@riflecolo.net" 297
+NOTE: Invalid data errors for file RP112014 occurred outside the printed range.
+NOTE: Increase available buffer lines with the INFILE n= option.
+hub_name_text=Denver servicing_site_name_text=Denver property_id=800003059 property_name_text=KENDALL HEIGHTS APTS II
+property_phone_number=(970)625-3974 address_line1_text=150 UTE address_line2_text=  city_name_text=RIFLE state_code=CO
+zip_code=81650 zip4_code=  county_code=045 county_name_text=GARFIELD msa_code=0000 msa_name_text=Not In Metro Area
+congressional_district_code=03 placed_base_city_name_text=RIFLE property_total_unit_count=36
+property_category_name=Subsidized, No HUD Financing primary_financing_type=  associated_financing_number=  is_insured_ind=N
+is_202_811_ind=N is_hud_held_ind=N is_hud_owned_ind=N is_hospital_ind=N is_nursing_home_ind=N is_board_and_care_ind=N
+is_assisted_living_ind=N is_refinanced_ind=N is_221d3_ind=N is_221d4_ind=N is_236_ind=N is_non_insured_ind=N is_bmir_ind=N
+is_risk_sharing_ind=N is_mip_ind=N is_co_insured_ind=N ownership_effective_date=. owner_participant_id=6753
+owner_company_type=Non-Profit owner_individual_first_name=  owner_individual_middle_name=  owner_individual_last_name= 
+owner_individual_full_name=  owner_individual_title_text=  owner_organization_name="Rifle Housing Authority
+owner_address_line1=Natalie J Bowman owner_address_line2=250 Ute Ave owner_city_name=  owner_state_code=Ri owner_zip_code=CO
+owner_zip4_code=8165 owner_main_phone_number_text=  owner_main_fax_number_text=970-625-3974 owner_email_text=970-665-9238
+mgmt_agent_participant_id=. mgmt_agent_company_type=6753 mgmt_agent_indv_first_name=Non-Profit mgmt_agent_indv_last_name= 
+mgmt_agent_indv_middle_name=  mgmt_agent_full_name=  mgmt_agent_indv_title_text=  mgmt_agent_org_name= 
+mgmt_agent_address_line1="Rifle Housing Authority mgmt_agent_address_line2=Natalie J Bowman mgmt_agent_city_name=250 Ute Ave
+mgmt_agent_state_code=  mgmt_agent_zip_code=Rifle mgmt_agent_zip4_code=CO mgmt_agent_main_phone_number=81650
+mgmt_agent_main_fax_number=  mgmt_agent_email_text=970-625-3974 extract_date=11/25/2014 _ERROR_=1 _N_=7971
+NOTE: Invalid data for mgmt_agent_participant_id in line 8614 290-312.
+8614      (Sunrise Villa)                                                                     ","159 Jefferson
+     101                                  ","p.o. box 1893                                ","Lander           
+     201             ","WY","82520","    ","3073493011               ","                         ","jeffleafgr
+     301  een@yahoo.com",334495,"Profit Motivated    ","Jeff              ","Leafgreen         ","Alan        
+     401        ","Jeff Alan Leafgreen                                     "," ","                            
+     501                                                                          ","1850 Rodeo Dr.           
+     601                      ","                                             ","Lander                      "
+9 The SAS System                                                                          15:38 Wednesday, December 31, 2014
+
+RULE:     ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0              
+     701  ,"WY","82520","    ","3073492670               ","                  ","jeffleafgreen@yahoo.com" 795
+hub_name_text=Denver servicing_site_name_text=Denver property_id=800023797 property_name_text=SUNRISE VILLA APARTMENTS
+property_phone_number=(307)332-6664 address_line1_text=117 JEFFERSON ST address_line2_text=  city_name_text=LANDER
+state_code=WY zip_code=82520 zip4_code=  county_code=013 county_name_text=FREMONT msa_code=0000
+msa_name_text=Not In Metro Area congressional_district_code=01 placed_base_city_name_text=LANDER
+property_total_unit_count=20 property_category_name=Subsidized, No HUD Financing primary_financing_type= 
+associated_financing_number=  is_insured_ind=N is_202_811_ind=N is_hud_held_ind=N is_hud_owned_ind=N is_hospital_ind=N
+is_nursing_home_ind=N is_board_and_care_ind=N is_assisted_living_ind=N is_refinanced_ind=N is_221d3_ind=N is_221d4_ind=N
+is_236_ind=N is_non_insured_ind=N is_bmir_ind=N is_risk_sharing_ind=N is_mip_ind=N is_co_insured_ind=N
+ownership_effective_date=. owner_participant_id=333132 owner_company_type=Limited Dividend owner_individual_first_name= 
+owner_individual_middle_name=  owner_individual_last_name=  owner_individual_full_name=  owner_individual_title_text= 
+owner_organization_name="Shoreline LLC. owner_address_line1=(Sunrise Villa) owner_address_line2=159 Jefferson
+owner_city_name=p.o. box 1893 owner_state_code=La owner_zip_code=WY owner_zip4_code=8252 owner_main_phone_number_text= 
+owner_main_fax_number_text=3073493011 owner_email_text=  mgmt_agent_participant_id=. mgmt_agent_company_type=334495
+mgmt_agent_indv_first_name=Profit Motivated mgmt_agent_indv_last_name=Jeff mgmt_agent_indv_middle_name=Leafgreen
+mgmt_agent_full_name=Alan mgmt_agent_indv_title_text=Jeff Alan Leafgreen mgmt_agent_org_name=  mgmt_agent_address_line1= 
+mgmt_agent_address_line2=1850 Rodeo Dr. mgmt_agent_city_name=  mgmt_agent_state_code=La mgmt_agent_zip_code=WY
+mgmt_agent_zip4_code=8252 mgmt_agent_main_phone_number=  mgmt_agent_main_fax_number=3073492670 mgmt_agent_email_text= 
+extract_date=11/25/2014 _ERROR_=1 _N_=8603
+NOTE: Invalid data for mgmt_agent_participant_id in line 10130 208-219.
+10130     Casa de Amistad, Inc.                                     ","611 N. Flores Suite 200                
+     101        ","                                             ","San Antonio                 ","TX","78205",
+     201  "    ","210 223-4088             ","210-223-4970             ","cmartinez@agif-nvop.org",213256,"Pro
+     301  fit Motivated    ","                  ","                  ","                  ","                 
+     401                                         "," ","Suzanne Smith Management Company                      
+     501                                                ","PO Box 10278                                 ","   
+     601                                            ","San Antonio                 ","TX","78210","0278","210 
+     701  531-0577             ","210 531-0580      ","need_email@hud.gov" 764
+hub_name_text=Fort Worth servicing_site_name_text=Fort Worth property_id=800020739 property_name_text=Casa De Amistad
+property_phone_number=210-735-1388 address_line1_text=145 De Chantle Rd address_line2_text=  city_name_text=San Antonio
+state_code=TX zip_code=78201 zip4_code=3818 county_code=029 county_name_text=Bexar msa_code=7240
+msa_name_text=San Antonio, TX MSA congressional_district_code=20 placed_base_city_name_text=SAN ANTONIO
+property_total_unit_count=61 property_category_name=202/811 primary_financing_type=202/811
+associated_financing_number=115EE031 is_insured_ind=N is_202_811_ind=Y is_hud_held_ind=N is_hud_owned_ind=N
+is_hospital_ind=N is_nursing_home_ind=N is_board_and_care_ind=N is_assisted_living_ind=N is_refinanced_ind=N is_221d3_ind=N
+is_221d4_ind=N is_236_ind=N is_non_insured_ind=N is_bmir_ind=N is_risk_sharing_ind=N is_mip_ind=N is_co_insured_ind=N
+ownership_effective_date=06/20/1996 owner_participant_id=21835 owner_company_type=Non-Profit owner_individual_first_name= 
+owner_individual_middle_name=  owner_individual_last_name=  owner_individual_full_name=  owner_individual_title_text= 
+owner_organization_name="American GI Forum owner_address_line1=Dr. Hector P. Garcia- owner_address_line2=Casa de Amistad
+owner_city_name=Inc. owner_state_code=61 owner_zip_code=  owner_zip4_code=San owner_main_phone_number_text=TX
+owner_main_fax_number_text=78205 owner_email_text=  mgmt_agent_participant_id=. mgmt_agent_company_type=210-223-4970
+mgmt_agent_indv_first_name=cmartinez@agif-nvo mgmt_agent_indv_last_name=213256 mgmt_agent_indv_middle_name=Profit Motivated
+mgmt_agent_full_name=  mgmt_agent_indv_title_text=  mgmt_agent_org_name=  mgmt_agent_address_line1= 
+mgmt_agent_address_line2=  mgmt_agent_city_name=Suzanne Smith Management Com mgmt_agent_state_code=PO mgmt_agent_zip_code= 
+mgmt_agent_zip4_code=San mgmt_agent_main_phone_number=TX mgmt_agent_main_fax_number=78210 mgmt_agent_email_text=0278
+10 The SAS System                                                                         15:38 Wednesday, December 31, 2014
+
+extract_date=11/25/2014 _ERROR_=1 _N_=10118
+NOTE: Invalid data for mgmt_agent_participant_id in line 10899 256-269.
+RULE:     ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0              
+10899     dba Center II Apartments                                                      ","4245 Forest Park Av
+     101  e.                        ","                                             ","ST. LOUIS              
+     201       ","MO","63108","    ","(314) 880-5415 (direct)  ","(314) 880-5468           ","agriffard@indepe
+     301  ndencecenter.org",3750,"Non-Profit          ","                  ","                  ","           
+     401         ","                                                        "," ","INDEPENDENCE CENTER        
+     501                                                                           ","4380  W PINE  BLVD      
+     601                       ","                                             ","ST. LOUIS                   
+     701  ","MO","63108","2206","(314) 533-4380           ","(314) 531-7372    ","need_email@hud.gov" 791
+hub_name_text=Fort Worth servicing_site_name_text=Fort Worth property_id=800225094 property_name_text=Center II Apartments
+property_phone_number=314-880-5415 address_line1_text=4121 Laclede Ave address_line2_text=  city_name_text=St. Louis
+state_code=MO zip_code=63108 zip4_code=  county_code=510 county_name_text=Saint Louis City msa_code=7040
+msa_name_text=St. Louis, MO-IL MSA congressional_district_code=01 placed_base_city_name_text=Saint Louis
+property_total_unit_count=41 property_category_name=Insured-Subsidized primary_financing_type=Insured
+associated_financing_number=08511090 is_insured_ind=Y is_202_811_ind=N is_hud_held_ind=N is_hud_owned_ind=N
+is_hospital_ind=N is_nursing_home_ind=N is_board_and_care_ind=N is_assisted_living_ind=N is_refinanced_ind=Y is_221d3_ind=N
+is_221d4_ind=N is_236_ind=N is_non_insured_ind=N is_bmir_ind=N is_risk_sharing_ind=N is_mip_ind=N is_co_insured_ind=N
+ownership_effective_date=09/28/2007 owner_participant_id=13720 owner_company_type=Non-Profit owner_individual_first_name= 
+owner_individual_middle_name=  owner_individual_last_name=  owner_individual_full_name=  owner_individual_title_text= 
+owner_organization_name="CENTER HOUSING owner_address_line1=INC. owner_address_line2=dba Center II Apartments
+owner_city_name=4245 Forest Park Ave. owner_state_code=  owner_zip_code=ST. L owner_zip4_code=MO
+owner_main_phone_number_text=63108 owner_main_fax_number_text=  owner_email_text=(314) 880-5415 (direct)
+mgmt_agent_participant_id=. mgmt_agent_company_type=agriffard@independen mgmt_agent_indv_first_name=3750
+mgmt_agent_indv_last_name=Non-Profit mgmt_agent_indv_middle_name=  mgmt_agent_full_name=  mgmt_agent_indv_title_text= 
+mgmt_agent_org_name=  mgmt_agent_address_line1=  mgmt_agent_address_line2=INDEPENDENCE CENTER
+mgmt_agent_city_name=4380  W PINE  BLVD mgmt_agent_state_code=  mgmt_agent_zip_code=ST. L mgmt_agent_zip4_code=MO
+mgmt_agent_main_phone_number=63108 mgmt_agent_main_fax_number=2206 mgmt_agent_email_text=(314) 533-4380
+extract_date=11/25/2014 _ERROR_=1 _N_=10886
+NOTE: Invalid data for mgmt_agent_participant_id in line 12571 220-231.
+12571     c/o Ralph Andrews, President                                          ","207 McNabb  Road, SW       
+     101                    ","                                             ","Cullman                     ","
+     201  AL","35055","    ","205-639-5073             ","                         ","none@none.com",5831,"Pro
+     301  fit Motivated    ","                  ","                  ","                  ","                 
+     401                                         "," ","SPM, LLC                                              
+     501                                                ","1103 Richard Arrington, Jr. Blvd., South     ","   
+     601                                            ","Birmingham                  ","AL","35205","0000","205-
+     701  639-5073             ","205-639-5073      ","tskellie@spm.net" 762
+hub_name_text=Jacksonville servicing_site_name_text=Birmingham property_id=800000217
+property_name_text=NESMITH PARK APARTMENTS property_phone_number=(256) 734-6400 address_line1_text=207 MCNABB ROAD
+address_line2_text=  city_name_text=CULLMAN state_code=AL zip_code=35055 zip4_code=3134 county_code=043
+county_name_text=Cullman msa_code=9999 msa_name_text=  congressional_district_code=04 placed_base_city_name_text=CULLMAN
+property_total_unit_count=53 property_category_name=Insured-Subsidized primary_financing_type=Insured
+associated_financing_number=06211190 is_insured_ind=Y is_202_811_ind=N is_hud_held_ind=N is_hud_owned_ind=N
+is_hospital_ind=N is_nursing_home_ind=N is_board_and_care_ind=N is_assisted_living_ind=N is_refinanced_ind=Y is_221d3_ind=N
+11 The SAS System                                                                         15:38 Wednesday, December 31, 2014
+
+is_221d4_ind=N is_236_ind=N is_non_insured_ind=N is_bmir_ind=N is_risk_sharing_ind=N is_mip_ind=N is_co_insured_ind=N
+ownership_effective_date=06/26/1991 owner_participant_id=19285 owner_company_type=Non-Profit owner_individual_first_name= 
+owner_individual_middle_name=  owner_individual_last_name=  owner_individual_full_name=  owner_individual_title_text= 
+owner_organization_name="Cullman Senior Housing owner_address_line1=Inc. owner_address_line2=c/o Ralph Andrews
+owner_city_name=President owner_state_code=20 owner_zip_code=  owner_zip4_code=Cull owner_main_phone_number_text=AL
+owner_main_fax_number_text=35055 owner_email_text=  mgmt_agent_participant_id=. mgmt_agent_company_type= 
+mgmt_agent_indv_first_name=none@none.com mgmt_agent_indv_last_name=5831 mgmt_agent_indv_middle_name=Profit Motivated
+mgmt_agent_full_name=  mgmt_agent_indv_title_text=  mgmt_agent_org_name=  mgmt_agent_address_line1= 
+mgmt_agent_address_line2=  mgmt_agent_city_name=SPM, LLC mgmt_agent_state_code=11 mgmt_agent_zip_code= 
+mgmt_agent_zip4_code=Birm mgmt_agent_main_phone_number=AL mgmt_agent_main_fax_number=35205 mgmt_agent_email_text=0000
+extract_date=11/25/2014 _ERROR_=1 _N_=12556
+NOTE: Invalid data for mgmt_agent_participant_id in line 12696 221-232.
+RULE:     ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0              
+12696     c/o Ouida Mayfield, President                                          ","100 Collins Street        
+     101                     ","                                             ","Columbiana                  ",
+     201  "AL","35051","    ","205-639-5073             ","                         ","tommies@brecdevelopment
+     301  .com",5831,"Profit Motivated    ","                  ","                  ","                  ","  
+     401                                                        "," ","SPM, LLC                               
+     501                                                               ","1103 Richard Arrington, Jr. Blvd., S
+     601  outh     ","                                             ","Birmingham                  ","AL","3520
+     701  5","0000","205-639-5073             ","205-639-5073      ","tskellie@spm.net" 777
+hub_name_text=Jacksonville servicing_site_name_text=Birmingham property_id=800000425
+property_name_text=SHELBY WOODS APARTMENTS property_phone_number=205 669-0066 address_line1_text=100 COLLINS ST
+address_line2_text=  city_name_text=COLUMBIANA state_code=AL zip_code=35051 zip4_code=9304 county_code=117
+county_name_text=Shelby msa_code=1000 msa_name_text=Birmingham, AL MSA congressional_district_code=06
+placed_base_city_name_text=COLUMBIANA property_total_unit_count=53 property_category_name=Insured-Subsidized
+primary_financing_type=Insured associated_financing_number=06211192 is_insured_ind=Y is_202_811_ind=N is_hud_held_ind=N
+is_hud_owned_ind=N is_hospital_ind=N is_nursing_home_ind=N is_board_and_care_ind=N is_assisted_living_ind=N
+is_refinanced_ind=Y is_221d3_ind=N is_221d4_ind=N is_236_ind=N is_non_insured_ind=N is_bmir_ind=N is_risk_sharing_ind=N
+is_mip_ind=N is_co_insured_ind=N ownership_effective_date=05/31/1991 owner_participant_id=19284
+owner_company_type=Non-Profit owner_individual_first_name=  owner_individual_middle_name=  owner_individual_last_name= 
+owner_individual_full_name=  owner_individual_title_text=  owner_organization_name="SHELBY SENIOR HOUSING
+owner_address_line1=INC. owner_address_line2=c/o Ouida Mayfield owner_city_name=President owner_state_code=10
+owner_zip_code=  owner_zip4_code=Colu owner_main_phone_number_text=AL owner_main_fax_number_text=35051 owner_email_text= 
+mgmt_agent_participant_id=. mgmt_agent_company_type=  mgmt_agent_indv_first_name=tommies@brecdevelo
+mgmt_agent_indv_last_name=5831 mgmt_agent_indv_middle_name=Profit Motivated mgmt_agent_full_name= 
+mgmt_agent_indv_title_text=  mgmt_agent_org_name=  mgmt_agent_address_line1=  mgmt_agent_address_line2= 
+mgmt_agent_city_name=SPM, LLC mgmt_agent_state_code=11 mgmt_agent_zip_code=  mgmt_agent_zip4_code=Birm
+mgmt_agent_main_phone_number=AL mgmt_agent_main_fax_number=35205 mgmt_agent_email_text=0000 extract_date=11/25/2014
+_ERROR_=1 _N_=12680
+NOTE: Invalid data for mgmt_agent_participant_id in line 13150 273-287.
+13151     Briarstone Apartm                                                  ","1625 Watercrest Dr.           
+     101                 ","                                             ","Cumming                     ","GA"
+     201  ,"30041","    ","954-913-1000             ","470-239-8357      ","jpfiles@aol.com" 282
+NOTE: Invalid data errors for file RP112014 occurred outside the printed range.
+NOTE: Increase available buffer lines with the INFILE n= option.
+12 The SAS System                                                                         15:38 Wednesday, December 31, 2014
+
+hub_name_text=Jacksonville servicing_site_name_text=Jacksonville property_id=800003939
+property_name_text=BRIARSTONE APARTMENTS property_phone_number=954-913-1000 address_line1_text=3034 LIPSCOMB ST
+address_line2_text=  city_name_text=MELBOURNE state_code=FL zip_code=32901 zip4_code=7959 county_code=009
+county_name_text=Brevard msa_code=4900 msa_name_text=Melbourne-Titusville-Palm Bay, congressional_district_code=08
+placed_base_city_name_text=Melbourne property_total_unit_count=14 property_category_name=Subsidized - Previously Insured
+primary_financing_type=  associated_financing_number=  is_insured_ind=N is_202_811_ind=N is_hud_held_ind=N
+is_hud_owned_ind=N is_hospital_ind=N is_nursing_home_ind=N is_board_and_care_ind=N is_assisted_living_ind=N
+is_refinanced_ind=N is_221d3_ind=N is_221d4_ind=N is_236_ind=N is_non_insured_ind=N is_bmir_ind=N is_risk_sharing_ind=N
+is_mip_ind=N is_co_insured_ind=N ownership_effective_date=10/12/1971 owner_participant_id=5489
+owner_company_type=Profit Motivated owner_individual_first_name=  owner_individual_middle_name= 
+owner_individual_last_name=  owner_individual_full_name=  owner_individual_title_text= 
+owner_organization_name="Arlington Apartments Inc. d/b/a owner_address_line1=Briarstone Apartm
+owner_address_line2=1625 Watercrest Dr. owner_city_name=  owner_state_code=Cu owner_zip_code=GA owner_zip4_code=3004
+owner_main_phone_number_text=  owner_main_fax_number_text=954-913-1000 owner_email_text=470-239-8357
+mgmt_agent_participant_id=. mgmt_agent_company_type=5489 mgmt_agent_indv_first_name=Profit Motivated
+mgmt_agent_indv_last_name=  mgmt_agent_indv_middle_name=  mgmt_agent_full_name=  mgmt_agent_indv_title_text= 
+mgmt_agent_org_name=  mgmt_agent_address_line1="Arlington Apartments Inc. d/b/a mgmt_agent_address_line2=Briarstone Apartm
+mgmt_agent_city_name=1625 Watercrest Dr. mgmt_agent_state_code=  mgmt_agent_zip_code=Cummi mgmt_agent_zip4_code=GA
+mgmt_agent_main_phone_number=30041 mgmt_agent_main_fax_number=  mgmt_agent_email_text=954-913-1000 extract_date=11/25/2014
+_ERROR_=1 _N_=13133
+NOTE: Invalid data for mgmt_agent_participant_id in line 14452 252-265.
+RULE:     ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0              
+14452     dba Center Apartments III                                                 ","4245 Forest Park Av    
+     101                        ","                                             ","ST. LOUIS                  
+     201   ","MO","63108","    ","(314) 880-5415 (direct)  ","(314) 880-5468           ","agriffard@independen
+     301  cecenter.org",3750,"Non-Profit          ","                  ","                  ","               
+     401     ","                                                        "," ","INDEPENDENCE CENTER            
+     501                                                                       ","4380  W PINE  BLVD          
+     601                   ","                                             ","ST. LOUIS                   ","M
+     701  O","63108","2206","(314) 533-4380           ","(314) 531-7372    ","need_email@hud.gov" 787
+hub_name_text=Kansas City servicing_site_name_text=Kansas City property_id=800011496
+property_name_text=Center III Apartments property_phone_number=314-533-4245 address_line1_text=2443 PROUHET
+address_line2_text=  city_name_text=BRECKENRIDGE HILL state_code=MO zip_code=63114 zip4_code=1946 county_code=189
+county_name_text=Saint Louis msa_code=7040 msa_name_text=St. Louis, MO-IL MSA congressional_district_code=01
+placed_base_city_name_text=  property_total_unit_count=15 property_category_name=202/811 primary_financing_type=202/811
+associated_financing_number=085HH009 is_insured_ind=N is_202_811_ind=Y is_hud_held_ind=N is_hud_owned_ind=N
+is_hospital_ind=N is_nursing_home_ind=N is_board_and_care_ind=N is_assisted_living_ind=N is_refinanced_ind=N is_221d3_ind=N
+is_221d4_ind=N is_236_ind=N is_non_insured_ind=N is_bmir_ind=N is_risk_sharing_ind=N is_mip_ind=N is_co_insured_ind=N
+ownership_effective_date=05/19/1994 owner_participant_id=15991 owner_company_type=Non-Profit owner_individual_first_name= 
+owner_individual_middle_name=  owner_individual_last_name=  owner_individual_full_name=  owner_individual_title_text= 
+owner_organization_name="CENTER HOUSING III owner_address_line1=INC. owner_address_line2=dba Center Apartments III
+owner_city_name=4245 Forest Park Av owner_state_code=  owner_zip_code=ST. L owner_zip4_code=MO
+owner_main_phone_number_text=63108 owner_main_fax_number_text=  owner_email_text=(314) 880-5415 (direct)
+mgmt_agent_participant_id=. mgmt_agent_company_type=agriffard@independen mgmt_agent_indv_first_name=3750
+mgmt_agent_indv_last_name=Non-Profit mgmt_agent_indv_middle_name=  mgmt_agent_full_name=  mgmt_agent_indv_title_text= 
+mgmt_agent_org_name=  mgmt_agent_address_line1=  mgmt_agent_address_line2=INDEPENDENCE CENTER
+13 The SAS System                                                                         15:38 Wednesday, December 31, 2014
+
+mgmt_agent_city_name=4380  W PINE  BLVD mgmt_agent_state_code=  mgmt_agent_zip_code=ST. L mgmt_agent_zip4_code=MO
+mgmt_agent_main_phone_number=63108 mgmt_agent_main_fax_number=2206 mgmt_agent_email_text=(314) 533-4380
+extract_date=11/25/2014 _ERROR_=1 _N_=14431
+NOTE: Invalid data for mgmt_agent_participant_id in line 14454 253-266.
+RULE:     ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0              
+14454     dba Center Apartments IV                                                   ","4245 Forest Park      
+     101                         ","                                             ","ST. LOUIS                 
+     201    ","MO","63108","    ","(314) 880-5415 (direct)  ","(314) 880-5468           ","agriffard@independe
+     301  ncecenter.org",3750,"Non-Profit          ","                  ","                  ","              
+     401      ","                                                        "," ","INDEPENDENCE CENTER           
+     501                                                                        ","4380  W PINE  BLVD         
+     601                    ","                                             ","ST. LOUIS                   ","
+     701  MO","63108","2206","(314) 533-4380           ","(314) 531-7372    ","need_email@hud.gov" 788
+hub_name_text=Kansas City servicing_site_name_text=Kansas City property_id=800011497 property_name_text=Center IV Apartments
+property_phone_number=314-286-4510 address_line1_text=1519 N NEWSTEAD AVE address_line2_text=  city_name_text=SAINT LOUIS
+state_code=MO zip_code=63110 zip4_code=2722 county_code=510 county_name_text=Saint Louis City msa_code=7040
+msa_name_text=St. Louis, MO-IL MSA congressional_district_code=01 placed_base_city_name_text=Saint Louis
+property_total_unit_count=15 property_category_name=202/811 primary_financing_type=202/811
+associated_financing_number=085HH010 is_insured_ind=N is_202_811_ind=Y is_hud_held_ind=N is_hud_owned_ind=N
+is_hospital_ind=N is_nursing_home_ind=N is_board_and_care_ind=N is_assisted_living_ind=N is_refinanced_ind=N is_221d3_ind=N
+is_221d4_ind=N is_236_ind=N is_non_insured_ind=N is_bmir_ind=N is_risk_sharing_ind=N is_mip_ind=N is_co_insured_ind=N
+ownership_effective_date=. owner_participant_id=15990 owner_company_type=Non-Profit owner_individual_first_name= 
+owner_individual_middle_name=  owner_individual_last_name=  owner_individual_full_name=  owner_individual_title_text= 
+owner_organization_name="CENTER HOUSING II owner_address_line1=INC. owner_address_line2=dba Center Apartments IV
+owner_city_name=4245 Forest Park owner_state_code=  owner_zip_code=ST. L owner_zip4_code=MO
+owner_main_phone_number_text=63108 owner_main_fax_number_text=  owner_email_text=(314) 880-5415 (direct)
+mgmt_agent_participant_id=. mgmt_agent_company_type=agriffard@independen mgmt_agent_indv_first_name=3750
+mgmt_agent_indv_last_name=Non-Profit mgmt_agent_indv_middle_name=  mgmt_agent_full_name=  mgmt_agent_indv_title_text= 
+mgmt_agent_org_name=  mgmt_agent_address_line1=  mgmt_agent_address_line2=INDEPENDENCE CENTER
+mgmt_agent_city_name=4380  W PINE  BLVD mgmt_agent_state_code=  mgmt_agent_zip_code=ST. L mgmt_agent_zip4_code=MO
+mgmt_agent_main_phone_number=63108 mgmt_agent_main_fax_number=2206 mgmt_agent_email_text=(314) 533-4380
+extract_date=11/25/2014 _ERROR_=1 _N_=14432
+NOTE: Invalid data for mgmt_agent_participant_id in line 17855 279-297.
+17855     C/o Metropolitan Realty                                                  ","60 Cuttermill Road      
+     101                       ","Suite 200                                    ","Great Neck                  
+     201  ","NY","11021","    ","212-835-9040             ","                         ","sjaffee@metreal.com",
+     301  216491,"Profit Motivated    ","                  ","                  ","                  ","      
+     401                                                    "," ","Metropolitan Realty Group LLC              
+     501                                                           ","60 Cuttermill Road                      
+     601       ","Suite 200                                    ","Great Neck                  ","NY","11021","
+     701      ","212-835-9040             ","212-835-9059      ","need_email@hud.gov" 775
+hub_name_text=New York servicing_site_name_text=New York property_id=800015209 property_name_text=HARLEM GATEWAY NSA SITE 2
+property_phone_number=  address_line1_text=234 W 111TH ST address_line2_text=  city_name_text=NEW YORK state_code=NY
+zip_code=10026 zip4_code=4105 county_code=061 county_name_text=New York msa_code=5600 msa_name_text=New York, NY PMSA
+congressional_district_code=13 placed_base_city_name_text=New York property_total_unit_count=91
+property_category_name=Subsidized - Previously Insured primary_financing_type=  associated_financing_number= 
+14 The SAS System                                                                         15:38 Wednesday, December 31, 2014
+
+is_insured_ind=N is_202_811_ind=N is_hud_held_ind=N is_hud_owned_ind=N is_hospital_ind=N is_nursing_home_ind=N
+is_board_and_care_ind=N is_assisted_living_ind=N is_refinanced_ind=N is_221d3_ind=N is_221d4_ind=N is_236_ind=N
+is_non_insured_ind=N is_bmir_ind=N is_risk_sharing_ind=N is_mip_ind=N is_co_insured_ind=N ownership_effective_date=.
+owner_participant_id=332530 owner_company_type=Profit Motivated owner_individual_first_name=  owner_individual_middle_name= 
+owner_individual_last_name=  owner_individual_full_name=  owner_individual_title_text= 
+owner_organization_name="Hargate NYAH Holdings LLC owner_address_line1=C/o Metropolitan Realty
+owner_address_line2=60 Cuttermill Road owner_city_name=Suite 200 owner_state_code=Gr owner_zip_code=NY owner_zip4_code=1102
+owner_main_phone_number_text=  owner_main_fax_number_text=212-835-9040 owner_email_text=  mgmt_agent_participant_id=.
+mgmt_agent_company_type=216491 mgmt_agent_indv_first_name=Profit Motivated mgmt_agent_indv_last_name= 
+mgmt_agent_indv_middle_name=  mgmt_agent_full_name=  mgmt_agent_indv_title_text=  mgmt_agent_org_name= 
+mgmt_agent_address_line1=Metropolitan Realty Group LLC mgmt_agent_address_line2=60 Cuttermill Road
+mgmt_agent_city_name=Suite 200 mgmt_agent_state_code=Gr mgmt_agent_zip_code=NY mgmt_agent_zip4_code=1102
+mgmt_agent_main_phone_number=  mgmt_agent_main_fax_number=212-835-9040 mgmt_agent_email_text=212-835-9059
+extract_date=11/25/2014 _ERROR_=1 _N_=17831
+NOTE: Invalid data for mgmt_agent_participant_id in line 19833 278-294.
+RULE:     ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0              
+19833     DBA: Manor Glen                                                         ","101 East County Line Road
+     101                      ","Suite 200                                    ","Hatboro                     "
+     201  ,"PA","19040","    ","2153543183               ","                         ","smatthews@wel.org",150
+     301  0,"Profit Motivated    ","                  ","                  ","                  ","           
+     401                                               "," ","EVANGELICAL MANOR                               
+     501                                                      ","928 Jaymor Road, Ste. B-150                  
+     601  ","                                             ","Southampton                 ","PA","18966","0000"
+     701  ,"(215) 624-5800           ","                  ","need_email@hud.gov" 770
+hub_name_text=Philadelphia servicing_site_name_text=Philadelphia property_id=800058909 property_name_text=MANOR GLEN
+property_phone_number=(215) 543-0442 address_line1_text=8403 Roosevelt Blvd address_line2_text=  city_name_text=Philadelphia
+state_code=PA zip_code=19152 zip4_code=2000 county_code=101 county_name_text=Philadelphia msa_code=6160
+msa_name_text=Philadelphia, PA-NJ PMSA congressional_district_code=13 placed_base_city_name_text=PHILADELPHIA
+property_total_unit_count=50 property_category_name=202/811 primary_financing_type=202/811
+associated_financing_number=034EE045 is_insured_ind=N is_202_811_ind=Y is_hud_held_ind=N is_hud_owned_ind=N
+is_hospital_ind=N is_nursing_home_ind=N is_board_and_care_ind=N is_assisted_living_ind=N is_refinanced_ind=N is_221d3_ind=N
+is_221d4_ind=N is_236_ind=N is_non_insured_ind=N is_bmir_ind=N is_risk_sharing_ind=N is_mip_ind=N is_co_insured_ind=N
+ownership_effective_date=03/07/1998 owner_participant_id=208940 owner_company_type=Non-Profit owner_individual_first_name= 
+owner_individual_middle_name=  owner_individual_last_name=  owner_individual_full_name=  owner_individual_title_text= 
+owner_organization_name="Evangelical Senior Housing owner_address_line1=DBA: Manor Glen
+owner_address_line2=101 East County Line Road owner_city_name=Suite 200 owner_state_code=Ha owner_zip_code=PA
+owner_zip4_code=1904 owner_main_phone_number_text=  owner_main_fax_number_text=2153543183 owner_email_text= 
+mgmt_agent_participant_id=. mgmt_agent_company_type=1500 mgmt_agent_indv_first_name=Profit Motivated
+mgmt_agent_indv_last_name=  mgmt_agent_indv_middle_name=  mgmt_agent_full_name=  mgmt_agent_indv_title_text= 
+mgmt_agent_org_name=  mgmt_agent_address_line1=EVANGELICAL MANOR mgmt_agent_address_line2=928 Jaymor Road, Ste. B-150
+mgmt_agent_city_name=  mgmt_agent_state_code=So mgmt_agent_zip_code=PA mgmt_agent_zip4_code=1896
+mgmt_agent_main_phone_number=0000 mgmt_agent_main_fax_number=(215) 624-5800 mgmt_agent_email_text=  extract_date=11/25/2014
+_ERROR_=1 _N_=19808
+NOTE: 22732 records were read from the infile RP112014.
+      The minimum record length was 273.
+      The maximum record length was 1692.
+15 The SAS System                                                                         15:38 Wednesday, December 31, 2014
+
+NOTE: SAS went to a new line when INPUT statement reached past the end of a line.
+NOTE: The data set WORK.MF_PROPERTIES_11_2014 has 22708 observations and 74 variables.
+NOTE: Compressing data set WORK.MF_PROPERTIES_11_2014 decreased size by 70.80 percent. 
+      Compressed is 737 pages; un-compressed would require 2524 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.52 seconds
+      cpu time            0.34 seconds
+      
+
+MPRINT(SEC8MF_READBASETBLS):   * Universe of active assistance and Section 8 contracts in Multifamily Housing *;
+MPRINT(SEC8MF_READBASETBLS):   filename rc112014 "L:\Libraries\HUD\Raw\Sec8MF\2014-11\MF_Assistance___Sec8_Contracts.txt";
+MPRINT(SEC8MF_READBASETBLS):   data MF_S8Contracts_11_2014 (label="Sec 8 multifamily projects, contract-level data, extract 
+date 11/25/2014");
+MPRINT(SEC8MF_READBASETBLS):   infile rc112014 dlm=',' firstobs=2 flowover dsd lrecl=2000;
+MPRINT(SEC8MF_READBASETBLS):   length contract_number $11. property_id 8. property_name_text $50. tracs_effective_date 8. 
+tracs_overall_expiration_date 8. tracs_overall_exp_fiscal_year 8. tracs_overall_expire_quarter $2. 
+tracs_current_expiration_date 8. tracs_status_name $20. contract_term_months_qty 8. assisted_units_count 8. 
+is_hud_administered_ind $1. is_acc_old_ind $1. is_acc_performance_based_ind $1. contract_doc_type_code $5. 
+program_type_name $20. program_type_group_code $20. program_type_group_name $20. rent_to_fmr_ratio 8. 
+rent_to_fmr_description $40. br0_count 8. br1_count 8. br2_count 8. br3_count 8. br4_count 8. br5plus_count 8. br0_fmr 8. 
+br1_fmr 8. br2_fmr 8. br3_fmr 8. br4_fmr 8.;
+MPRINT(SEC8MF_READBASETBLS):   input contract_number $ property_id property_name_text $ tracs_effective_date : mmddyy. 
+tracs_overall_expiration_date : mmddyy. tracs_overall_exp_fiscal_year tracs_overall_expire_quarter $ 
+tracs_current_expiration_date : mmddyy. tracs_status_name $ contract_term_months_qty assisted_units_count 
+is_hud_administered_ind $ is_acc_old_ind $ is_acc_performance_based_ind $ contract_doc_type_code $ program_type_name $ 
+program_type_group_code $ program_type_group_name $ rent_to_FMR_ratio rent_to_FMR_description $ br0_count br1_count 
+br2_count br3_count br4_count br5plus_count br0_fmr : comma. br1_fmr : comma. br2_fmr : comma. br3_fmr : comma. br4_fmr : 
+comma.;
+MPRINT(SEC8MF_READBASETBLS):   extract_date = '25nov2014'd;
+MPRINT(SEC8MF_READBASETBLS):   label extract_date = "File extract date";
+MPRINT(SEC8MF_READBASETBLS):   ** Recode FMRs to .N (not applicable) if no units of that bedroom size **;
+MPRINT(SEC8MF_READBASETBLS):   array brfmr{*} br0_fmr br1_fmr br2_fmr br3_fmr br4_fmr;
+MPRINT(SEC8MF_READBASETBLS):   array brcnt{*} br0_count br1_count br2_count br3_count br4_count;
+MPRINT(SEC8MF_READBASETBLS):   do _i = 1 to dim( brfmr );
+MPRINT(SEC8MF_READBASETBLS):   if brfmr{_i} = 0 and brcnt{_i} = 0 then brfmr{_i} = .n;
+MPRINT(SEC8MF_READBASETBLS):   else if brfmr{_i} = 0 and brcnt{_i} > 0 then brfmr{_i} = .u;
+MPRINT(SEC8MF_READBASETBLS):   end;
+MPRINT(SEC8MF_READBASETBLS):   drop _i;
+MPRINT(SEC8MF_READBASETBLS):   format tracs_effective_date tracs_current_expiration_date tracs_overall_expiration_date 
+extract_date mmddyy10.;
+MPRINT(SEC8MF_READBASETBLS):   ** Label variables **;
+MPRINT(SEC8MF_READBASETBLS):   label contract_number = "TRACS-assigned contract number" property_id = "REMS-assigned 
+identifier for each property" property_name_text = "Recorded name of property" tracs_effective_date = "Effective date of 
+contract as provided by TRACS" tracs_overall_expiration_date = "Overall expiration date of contract" 
+tracs_overall_exp_fiscal_year = "Fiscal year of tracs_overall_expiration_date" tracs_overall_expire_quarter = "Fiscal year 
+quarter of contract expiration date (calculated from tracs_overall_expiration_date)" tracs_current_expiration_date = 
+16 The SAS System                                                                         15:38 Wednesday, December 31, 2014
+
+"Expiration date of current term of contract as provided by TRACS" tracs_status_name = "Status of contract in TRACS" 
+contract_term_months_qty = "Term of contract (months)" assisted_units_count = "Total number of assisted units for contract" 
+is_hud_administered_ind = "HUD is administrator of contract" is_acc_old_ind = "Contract is an old ACC contract 
+(pre-performance-based)" is_acc_performance_based_ind = "Contract is a performance-based ACC" contract_doc_type_code = 
+"Document type of contract, as provided by TRACS" program_type_name = "Name of program type, provided from TRACS" 
+program_type_group_code = "Program type group code (derived from program_type_name and contract_doc_type_code)" 
+program_type_group_name = "Program type group name (derived from program_type_group_code)" rent_to_FMR_ratio = "Ratio of 
+rent gross amount to FMR gross amount" rent_to_FMR_description = "Rent to FMR ratio for assisted units" BR0_count = "Number 
+of units/beds for efficiency units that receive(d) assistance under this contract" BR1_count = "Number of units/beds for 
+one bedroom units that receive(d) assistance under this contract" BR2_count = "Number of units/beds for two bedroom units 
+that receive(d) assistance under this contract" BR3_count = "Number of units/beds for three bedroom units that receive(d) 
+assistance under this contract" BR4_count = "Number of units/beds for four bedroom units that receive(d) assistance under 
+this contract" BR5plus_count = "Number of units/beds for five or more bedroom units that receive(d) assistance under this 
+contract" BR0_FMR = "Fair Market Rent (FMR) for efficiency units (.N when bedroom count is zero)" BR1_FMR = "Fair Market 
+Rent (FMR) for one bedroom units (.N when bedroom count is zero)" BR2_FMR = "Fair Market Rent (FMR) for two bedroom units 
+(.N when bedroom count is zero)" BR3_FMR = "Fair Market Rent (FMR) for three bedroom units (.N when bedroom count is zero)" 
+BR4_FMR = "Fair Market Rent (FMR) for four bedroom units (.N when bedroom count is zero)";
+MPRINT(SEC8MF_READBASETBLS):   run;
+
+NOTE: The infile RC112014 is:
+      Filename=L:\Libraries\HUD\Raw\Sec8MF\2014-11\MF_Assistance___Sec8_Contracts.txt,
+      RECFM=V,LRECL=2000,File Size (bytes)=8359678,
+      Last Modified=22Dec2014:10:57:23,
+      Create Time=22Dec2014:10:57:07
+
+NOTE: 23510 records were read from the infile RC112014.
+      The minimum record length was 227.
+      The maximum record length was 376.
+NOTE: The data set WORK.MF_S8CONTRACTS_11_2014 has 23510 observations and 32 variables.
+NOTE: Compressing data set WORK.MF_S8CONTRACTS_11_2014 decreased size by 43.55 percent. 
+      Compressed is 289 pages; un-compressed would require 512 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.13 seconds
+      cpu time            0.10 seconds
+      
+
+MPRINT(SEC8MF_READBASETBLS):   **Step2. Merge two base tables into one complete database of Contracts and Properties (See 
+Appendix A. for comment)**;
+MPRINT(SEC8MF_NAT_MERGE):   proc sort data=MF_Properties_11_2014 ;
+MPRINT(SEC8MF_NAT_MERGE):   by property_id;
+
+NOTE: There were 22708 observations read from the data set WORK.MF_PROPERTIES_11_2014.
+NOTE: SAS sort was used.
+NOTE: The data set WORK.MF_PROPERTIES_11_2014 has 22708 observations and 74 variables.
+NOTE: Compressing data set WORK.MF_PROPERTIES_11_2014 decreased size by 70.80 percent. 
+      Compressed is 737 pages; un-compressed would require 2524 pages.
+17 The SAS System                                                                         15:38 Wednesday, December 31, 2014
+
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.15 seconds
+      cpu time            0.15 seconds
+      
+
+MPRINT(SEC8MF_NAT_MERGE):   proc sort data=MF_S8Contracts_11_2014 ;
+MPRINT(SEC8MF_NAT_MERGE):   by property_id;
+MPRINT(SEC8MF_NAT_MERGE):   run;
+
+NOTE: There were 23510 observations read from the data set WORK.MF_S8CONTRACTS_11_2014.
+NOTE: SAS sort was used.
+NOTE: The data set WORK.MF_S8CONTRACTS_11_2014 has 23510 observations and 32 variables.
+NOTE: Compressing data set WORK.MF_S8CONTRACTS_11_2014 decreased size by 43.55 percent. 
+      Compressed is 289 pages; un-compressed would require 512 pages.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.06 seconds
+      
+
+MPRINT(SEC8MF_NAT_MERGE):   data Sec8MF_2014_11_us (label="Sec 8 multifamily contracts w/property data, 11-2014 update, 
+US") ;
+MPRINT(SEC8MF_NAT_MERGE):   merge MF_S8Contracts_11_2014 (in=contracts drop=property_name_text) MF_Properties_11_2014 
+(in=properties drop=extract_date);
+MPRINT(SEC8MF_NAT_MERGE):   by property_id;
+MPRINT(SEC8MF_NAT_MERGE):   RecordNo = _n_;
+MPRINT(SEC8MF_NAT_MERGE):   label RecordNo = "Record number (UI created)";
+MPRINT(SEC8MF_NAT_MERGE):   ** Set out of range expiration dates to missing (.U) **;
+MPRINT(SEC8MF_NAT_MERGE):   ** Create coded TRACS status var to replace tracs_status_name **;
+MPRINT(SEC8MF_NAT_MERGE):   length tracs_status $ 1;
+MPRINT(SEC8MF_NAT_MERGE):   select ( tracs_status_name );
+MPRINT(SEC8MF_NAT_MERGE):   when ( "Active" ) tracs_status = "A";
+MPRINT(SEC8MF_NAT_MERGE):   when ( "Executed" ) tracs_status = "E";
+MPRINT(SEC8MF_NAT_MERGE):   when ( "Expired" ) tracs_status = "X";
+MPRINT(SEC8MF_NAT_MERGE):   when ( "Pending" ) tracs_status = "P";
+MPRINT(SEC8MF_NAT_MERGE):   when ( "Suspended" ) tracs_status = "S";
+MPRINT(SEC8MF_NAT_MERGE):   when ( "Terminated" ) tracs_status = "T";
+MPRINT(SEC8MF_NAT_MERGE):   when ( "" ) tracs_status = "";
+MPRINT(SEC8MF_NAT_MERGE):   otherwise do;
+MPRINT(WARN_PUT):   put "WARN" "ING:" " " "Invalid value for tracs_status_name: " recordno= contract_number= 
+tracs_status_name=;
+MPRINT(SEC8MF_NAT_MERGE):   end;
+MPRINT(SEC8MF_NAT_MERGE):   end;
+MPRINT(SEC8MF_NAT_MERGE):   label tracs_status = "Contract status (from TRACS)";
+MPRINT(SEC8MF_NAT_MERGE):   ** Recode program_type_group_code **;
+MPRINT(SEC8MF_NAT_MERGE):   if program_type_group_code = 'Service Coordinator' then program_type_group_code = 'SC';
+MPRINT(SEC8MF_NAT_MERGE):   ** Create coded property category var. to replace property_category_name **;
+18 The SAS System                                                                         15:38 Wednesday, December 31, 2014
+
+MPRINT(SEC8MF_NAT_MERGE):   length property_category $ 6;
+MPRINT(SEC8MF_NAT_MERGE):   select ( property_category_name );
+MPRINT(SEC8MF_NAT_MERGE):   when ( '202/811' ) property_category = '202811';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'HUD Held' ) property_category = 'HUDHLD';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'HUD Owned' ) property_category = 'HUDOWN';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Insured - Previously Subsidized' ) property_category = 'INSPRE';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Insured-Subsidized' ) property_category = 'INSSUB';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Other Subsidy Servicing Required (Only)' ) property_category = 'OTSSRO';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Subsidized - Previously 202/811' ) property_category = 'SUB202';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Subsidized - Previously Insured' ) property_category = 'SUBINS';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Subsidized, No HUD Financing' ) property_category = 'SUBNOH';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Subsidized-Green Retrofit' ) property_category = 'GREENR';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Use Restriction' ) property_category = 'USERES';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Flexible Subsidy' ) property_category = 'FLEXSB';
+MPRINT(SEC8MF_NAT_MERGE):   when ( '' ) property_category = '      ';
+MPRINT(SEC8MF_NAT_MERGE):   otherwise do;
+MPRINT(WARN_PUT):   put "WARN" "ING:" " " "Invalid value for property_category_name: " recordno= contract_number= 
+property_id= property_category_name=;
+MPRINT(SEC8MF_NAT_MERGE):   end;
+MPRINT(SEC8MF_NAT_MERGE):   end;
+MPRINT(SEC8MF_NAT_MERGE):   label property_category = "Property category";
+MPRINT(SEC8MF_NAT_MERGE):   ** Create coded primary financing var. to replace primary_financing_type **;
+MPRINT(SEC8MF_NAT_MERGE):   length primary_financing $ 6;
+MPRINT(SEC8MF_NAT_MERGE):   select ( primary_financing_type );
+MPRINT(SEC8MF_NAT_MERGE):   when ( '202/811' ) primary_financing = '202811';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Flexible Subsidy' ) primary_financing = 'FLEXSB';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'HUD Held' ) primary_financing = 'HUDHLD';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'HUD Owned' ) primary_financing = 'HUDOWN';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Insured' ) primary_financing = 'INSURD';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Non-Insured' ) primary_financing = 'NONINS';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Green Retrofit' ) primary_financing = 'GREENR';
+MPRINT(SEC8MF_NAT_MERGE):   when ( '' ) primary_financing = '      ';
+MPRINT(SEC8MF_NAT_MERGE):   otherwise do;
+MPRINT(WARN_PUT):   put "WARN" "ING:" " " "Invalid value for primary_financing_type: " recordno= contract_number= 
+property_id= primary_financing_type=;
+MPRINT(SEC8MF_NAT_MERGE):   end;
+MPRINT(SEC8MF_NAT_MERGE):   end;
+MPRINT(SEC8MF_NAT_MERGE):   label primary_financing = "Primary type of financing associated with property";
+MPRINT(SEC8MF_NAT_MERGE):   ** Create coded owner co. type var. to replace owner_company_type **;
+MPRINT(SEC8MF_NAT_MERGE):   length owner_company $ 2;
+MPRINT(SEC8MF_NAT_MERGE):   select ( owner_company_type );
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Limited Dividend' ) owner_company = 'LD';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Non-Profit' ) owner_company = 'NP';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Other' ) owner_company = 'OT';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Profit Motivated' ) owner_company = 'PM';
+MPRINT(SEC8MF_NAT_MERGE):   when ( '' ) owner_company = '  ';
+19 The SAS System                                                                         15:38 Wednesday, December 31, 2014
+
+MPRINT(SEC8MF_NAT_MERGE):   otherwise do;
+MPRINT(WARN_PUT):   put "WARN" "ING:" " " "Invalid value for owner_company_type: " recordno= contract_number= property_id= 
+owner_company_type=;
+MPRINT(SEC8MF_NAT_MERGE):   end;
+MPRINT(SEC8MF_NAT_MERGE):   end;
+MPRINT(SEC8MF_NAT_MERGE):   label owner_company = "Type of owner company";
+MPRINT(SEC8MF_NAT_MERGE):   ** Create coded management co. type var. to replace mgmt_agent_company_type **;
+MPRINT(SEC8MF_NAT_MERGE):   length mgmt_agent_company $ 2;
+MPRINT(SEC8MF_NAT_MERGE):   select ( mgmt_agent_company_type );
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Limited Dividend' ) mgmt_agent_company = 'LD';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Non-Profit' ) mgmt_agent_company = 'NP';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Other' ) mgmt_agent_company = 'OT';
+MPRINT(SEC8MF_NAT_MERGE):   when ( 'Profit Motivated' ) mgmt_agent_company = 'PM';
+MPRINT(SEC8MF_NAT_MERGE):   when ( '' ) mgmt_agent_company = '  ';
+MPRINT(SEC8MF_NAT_MERGE):   otherwise do;
+MPRINT(WARN_PUT):   put "WARN" "ING:" " " "Invalid value for mgmt_agent_company_type: " recordno= contract_number= 
+property_id= mgmt_agent_company_type=;
+MPRINT(SEC8MF_NAT_MERGE):   end;
+MPRINT(SEC8MF_NAT_MERGE):   end;
+MPRINT(SEC8MF_NAT_MERGE):   label mgmt_agent_company = "Management agent company type";
+MPRINT(SEC8MF_NAT_MERGE):   drop tracs_status_name primary_financing_type owner_company_type mgmt_agent_company_type 
+program_type_group_name property_category_name;
+MPRINT(SEC8MF_NAT_MERGE):   format tracs_status $s8stat. contract_doc_type_code $s8docty. tracs_overall_expire_quarter 
+$s8exqtr. program_type_group_code $s8pgmgr. program_type_name $s8pgmnm. primary_financing $s8prfin. owner_company 
+mgmt_agent_company $s8owmgt. property_category $s8prpct. is_: $yesno. ;
+MPRINT(SEC8MF_NAT_MERGE):   run;
+
+WARNING: Invalid value for mgmt_agent_company_type: RecordNo=142 contract_number=AL09T881025 property_id=800000191
+mgmt_agent_company_type=none@none.com
+WARNING: Invalid value for mgmt_agent_company_type: RecordNo=2396 contract_number=CO99R000006 property_id=800003058
+mgmt_agent_company_type=6753
+WARNING: Invalid value for mgmt_agent_company_type: RecordNo=2397 contract_number=CO99R000016 property_id=800003059
+mgmt_agent_company_type=6753
+WARNING: Invalid value for mgmt_agent_company_type: RecordNo=3022 contract_number=FL29M000191 property_id=800003939
+mgmt_agent_company_type=5489
+WARNING: Invalid value for mgmt_agent_company_type: RecordNo=6020 contract_number=KY36M000151 property_id=800007809
+mgmt_agent_company_type=pc12@windstream.net
+WARNING: Invalid value for mgmt_agent_company_type: RecordNo=6114 contract_number=KY36M000057 property_id=800007926
+mgmt_agent_company_type=pc12@windstream.net
+WARNING: Invalid value for mgmt_agent_company_type: RecordNo=8927 contract_number=MO36Q901001 property_id=800011496
+mgmt_agent_company_type=agriffard@independen
+WARNING: Invalid value for mgmt_agent_company_type: RecordNo=8928 contract_number=MO36Q901002 property_id=800011497
+mgmt_agent_company_type=agriffard@independen
+WARNING: Invalid value for mgmt_agent_company_type: RecordNo=11860 contract_number=NY36A011002 property_id=800015209
+mgmt_agent_company_type=216491
+WARNING: Invalid value for mgmt_agent_company_type: RecordNo=16276 contract_number=TX59S951002 property_id=800020739
+20 The SAS System                                                                         15:38 Wednesday, December 31, 2014
+
+mgmt_agent_company_type=210-223-4970
+WARNING: Invalid value for mgmt_agent_company_type: RecordNo=18614 contract_number=WY99R000003 property_id=800023797
+mgmt_agent_company_type=334495
+WARNING: Invalid value for mgmt_agent_company_type: RecordNo=19153 contract_number=PA26S951004 property_id=800058909
+mgmt_agent_company_type=1500
+WARNING: Invalid value for mgmt_agent_company_type: RecordNo=22802 contract_number=MO36D891008 property_id=800225094
+mgmt_agent_company_type=agriffard@independen
+WARNING: Invalid value for mgmt_agent_company_type: RecordNo=22803 contract_number=MO36T821004 property_id=800225094
+mgmt_agent_company_type=agriffard@independen
+WARNING: Invalid value for mgmt_agent_company_type: RecordNo=23039 contract_number=MO36L000007 property_id=800227253
+mgmt_agent_company_type=garyplichta@gmail.co
+NOTE: There were 23510 observations read from the data set WORK.MF_S8CONTRACTS_11_2014.
+NOTE: There were 22708 observations read from the data set WORK.MF_PROPERTIES_11_2014.
+NOTE: The data set WORK.SEC8MF_2014_11_US has 23511 observations and 103 variables.
+NOTE: Compressing data set WORK.SEC8MF_2014_11_US decreased size by 65.42 percent. 
+      Compressed is 904 pages; un-compressed would require 2614 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.22 seconds
+      cpu time            0.21 seconds
+      
+
+MPRINT(SEC8MF_NAT_MERGE):   proc sort data=Sec8MF_2014_11_us;
+MPRINT(SEC8MF_NAT_MERGE):   by contract_number;
+MPRINT(SEC8MF_READBASETBLS):   ** Check for duplicate contracts **;
+MPRINT(SEC8MF_READBASETBLS):   title2 'Duplicate Contracts';
+MPRINT(DUP_CHECK):   options nomprint;
+
+NOTE: There were 23511 observations read from the data set WORK.SEC8MF_2014_11_US.
+NOTE: SAS sort was used.
+NOTE: The data set WORK.SEC8MF_2014_11_US has 23511 observations and 103 variables.
+NOTE: Compressing data set WORK.SEC8MF_2014_11_US decreased size by 65.42 percent. 
+      Compressed is 904 pages; un-compressed would require 2614 pages.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.22 seconds
+      cpu time            0.21 seconds
+      
+
+NOTE: SAS threaded sort was used.
+NOTE: Table WORK._DUP_CHECK created, with 0 rows and 4 columns.
+
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.04 seconds
+      
+
+NOTE: PROCEDURE SQL used (Total process time):
+21 The SAS System                                                                         15:38 Wednesday, December 31, 2014
+
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: [Dup_check] 0 duplicate observations found in data set MF_S8CONTRACTS_11_2014
+NOTE: [Dup_check] for BY variables CONTRACT_NUMBER.
+
+NOTE: No observations in data set WORK._DUP_CHECK.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: Deleting WORK._DUP_CHECK (memtype=DATA).
+NOTE: PROCEDURE DATASETS used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(SEC8MF_READBASETBLS):   run;
+MPRINT(SEC8MF_READBASETBLS):   title2 'Duplicate Properties';
+MPRINT(DUP_CHECK):   options nomprint;
+NOTE: SAS threaded sort was used.
+NOTE: Table WORK._DUP_CHECK created, with 0 rows and 4 columns.
+
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.03 seconds
+      
+
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+NOTE: [Dup_check] 0 duplicate observations found in data set MF_PROPERTIES_11_2014
+NOTE: [Dup_check] for BY variables PROPERTY_ID.
+
+NOTE: No observations in data set WORK._DUP_CHECK.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+22 The SAS System                                                                         15:38 Wednesday, December 31, 2014
+
+NOTE: Deleting WORK._DUP_CHECK (memtype=DATA).
+NOTE: PROCEDURE DATASETS used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(SEC8MF_READBASETBLS):   run;
+MPRINT(SEC8MF_READBASETBLS):   title2;
+101        
+102        %Sec8MF_dmvw(
+103          filedate=&s8filedate,
+104          upload=&upload,
+105          revisions=&revisions
+106        )
+MPRINT(SEC8MF_DMVW):   ** Create separate data sets for DC, MD, VA, and WV **;
+MPRINT(SEC8MF_DMVW):   data HUD.Sec8MF_2014_11_dc (label="Sec 8 multifamily contracts w/property data, 11-2014 update, DC") 
+HUD.SEC8MF_2014_11_MD (label="Sec 8 multifamily contracts w/property data, 11-2014 update, MD") HUD.SEC8MF_2014_11_VA 
+(label="Sec 8 multifamily contracts w/property data, 11-2014 update, VA") HUD.SEC8MF_2014_11_WV (label="Sec 8 multifamily 
+contracts w/property data, 11-2014 update, WV") ;
+MPRINT(SEC8MF_DMVW):   set Sec8MF_2014_11_us;
+MPRINT(SEC8MF_DMVW):   where state_code in ( "DC", "MD", "VA", "WV" );
+MPRINT(SEC8MF_DMVW):   RecordNo = _n_;
+MPRINT(SEC8MF_DMVW):   label RecordNo = "Record number (UI created)";
+MPRINT(SEC8MF_DMVW):   ** Address corrections **;
+MPRINT(SEC8MF_ADDR_CORRECT):   ** DC addresses only **;
+MPRINT(SEC8MF_ADDR_CORRECT):   if state_code = "DC" then do;
+MPRINT(SEC8MF_ADDR_CORRECT):   select ( address_line1_text );
+MPRINT(SEC8MF_ADDR_CORRECT):   when ( "2518 NW 17th ST NW" ) address_line1_text = "2518 17th ST NW";
+MPRINT(SEC8MF_ADDR_CORRECT):   when ( "324 ANACOSTIA AVE SE" ) address_line1_text = "324 ANACOSTIA ROAD SE";
+MPRINT(SEC8MF_ADDR_CORRECT):   otherwise ;
+MPRINT(SEC8MF_ADDR_CORRECT):   end;
+MPRINT(SEC8MF_ADDR_CORRECT):   end;
+MPRINT(SEC8MF_DMVW):   ** Set out of range expiration dates to missing (.U) **;
+MPRINT(SEC8MF_DMVW):   if . < tracs_current_expiration_date < '01jan1998'd then do;
+MPRINT(WARN_PUT):   put "WARN" "ING:" " " "Current expir. date out of range: " contract_number= address_line1_text= 
+tracs_current_expiration_date= " Will be set to missing (.U)";
+MPRINT(SEC8MF_DMVW):   tracs_current_expiration_date = .u;
+MPRINT(SEC8MF_DMVW):   end;
+MPRINT(SEC8MF_DMVW):   if . < tracs_overall_expiration_date < '01jan1998'd then do;
+MPRINT(WARN_PUT):   put "WARN" "ING:" " " "Overall expir. date out of range: " contract_number= address_line1_text= 
+tracs_overall_expiration_date= " Will be set to missing (.U)";
+MPRINT(SEC8MF_DMVW):   tracs_overall_expiration_date = .u;
+MPRINT(SEC8MF_DMVW):   end;
+MPRINT(SEC8MF_DMVW):   ** Address corrections **;
+MPRINT(SEC8MF_DMVW):   select ( address_line1_text );
+MPRINT(SEC8MF_DMVW):   when ( "324 ANACOSTIA AVE SE" ) address_line1_text = "324 ANACOSTIA ROAD SE";
+23 The SAS System                                                                         15:38 Wednesday, December 31, 2014
+
+MPRINT(SEC8MF_DMVW):   otherwise end;
+MPRINT(SEC8MF_DMVW):   ** Separate files by state **;
+MPRINT(SEC8MF_DMVW):   select ( state_code );
+MPRINT(SEC8MF_DMVW):   when ( "DC" ) output HUD.Sec8MF_2014_11_dc;
+MPRINT(SEC8MF_DMVW):   when ( "MD" ) output HUD.Sec8MF_2014_11_md;
+MPRINT(SEC8MF_DMVW):   when ( "VA" ) output HUD.Sec8MF_2014_11_va;
+MPRINT(SEC8MF_DMVW):   when ( "WV" ) output HUD.Sec8MF_2014_11_wv;
+MPRINT(SEC8MF_DMVW):   otherwise ;
+MPRINT(SEC8MF_DMVW):   end;
+MPRINT(SEC8MF_DMVW):   run;
+
+WARNING: Current expir. date out of range: contract_number=MD06CS94010 address_line1_text=3615 FORDS LN
+tracs_current_expiration_date=01/01/1900  Will be set to missing (.U)
+NOTE: There were 1289 observations read from the data set WORK.SEC8MF_2014_11_US.
+      WHERE state_code in ('DC', 'MD', 'VA', 'WV');
+NOTE: The data set HUD.SEC8MF_2014_11_DC has 112 observations and 103 variables.
+NOTE: Compressing data set HUD.SEC8MF_2014_11_DC decreased size by 50.00 percent. 
+      Compressed is 7 pages; un-compressed would require 14 pages.
+NOTE: The data set HUD.SEC8MF_2014_11_MD has 466 observations and 103 variables.
+NOTE: Compressing data set HUD.SEC8MF_2014_11_MD decreased size by 60.38 percent. 
+      Compressed is 21 pages; un-compressed would require 53 pages.
+NOTE: The data set HUD.SEC8MF_2014_11_VA has 487 observations and 103 variables.
+NOTE: Compressing data set HUD.SEC8MF_2014_11_VA decreased size by 62.50 percent. 
+      Compressed is 21 pages; un-compressed would require 56 pages.
+NOTE: The data set HUD.SEC8MF_2014_11_WV has 224 observations and 103 variables.
+NOTE: Compressing data set HUD.SEC8MF_2014_11_WV decreased size by 57.69 percent. 
+      Compressed is 11 pages; un-compressed would require 26 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.14 seconds
+      cpu time            0.10 seconds
+      
+
+MPRINT(SEC8MF_DMVW):   ** Sort data sets **;
+MPRINT(SEC8MF_DMVW):   proc sort data=HUD.Sec8MF_2014_11_dc;
+MPRINT(SEC8MF_DMVW):   by contract_number;
+
+NOTE: There were 112 observations read from the data set HUD.SEC8MF_2014_11_DC.
+NOTE: SAS sort was used.
+NOTE: The data set HUD.SEC8MF_2014_11_DC has 112 observations and 103 variables.
+NOTE: Compressing data set HUD.SEC8MF_2014_11_DC decreased size by 50.00 percent. 
+      Compressed is 7 pages; un-compressed would require 14 pages.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+24 The SAS System                                                                         15:38 Wednesday, December 31, 2014
+
+MPRINT(SEC8MF_DMVW):   proc sort data=HUD.Sec8MF_2014_11_md;
+MPRINT(SEC8MF_DMVW):   by contract_number;
+
+NOTE: There were 466 observations read from the data set HUD.SEC8MF_2014_11_MD.
+NOTE: SAS sort was used.
+NOTE: The data set HUD.SEC8MF_2014_11_MD has 466 observations and 103 variables.
+NOTE: Compressing data set HUD.SEC8MF_2014_11_MD decreased size by 60.38 percent. 
+      Compressed is 21 pages; un-compressed would require 53 pages.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+MPRINT(SEC8MF_DMVW):   proc sort data=HUD.Sec8MF_2014_11_va;
+MPRINT(SEC8MF_DMVW):   by contract_number;
+NOTE: There were 487 observations read from the data set HUD.SEC8MF_2014_11_VA.
+NOTE: SAS sort was used.
+NOTE: The data set HUD.SEC8MF_2014_11_VA has 487 observations and 103 variables.
+NOTE: Compressing data set HUD.SEC8MF_2014_11_VA decreased size by 62.50 percent. 
+      Compressed is 21 pages; un-compressed would require 56 pages.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(SEC8MF_DMVW):   proc sort data=HUD.Sec8MF_2014_11_wv;
+MPRINT(SEC8MF_DMVW):   by contract_number;
+MPRINT(SEC8MF_DMVW):   ** Output basic file info **;
+MPRINT(FILE_INFO):   title2 "File = HUD.Sec8MF_2014_11_dc";
+
+NOTE: There were 224 observations read from the data set HUD.SEC8MF_2014_11_WV.
+NOTE: SAS sort was used.
+NOTE: The data set HUD.SEC8MF_2014_11_WV has 224 observations and 103 variables.
+NOTE: Compressing data set HUD.SEC8MF_2014_11_WV decreased size by 57.69 percent. 
+      Compressed is 11 pages; un-compressed would require 26 pages.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+MPRINT(FILE_INFO):   proc contents data=HUD.Sec8MF_2014_11_dc;
+MPRINT(FILE_INFO):   run;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+25 The SAS System                                                                         15:38 Wednesday, December 31, 2014
+
+      
+NOTE: The PROCEDURE CONTENTS printed pages 1-5.
+
+MPRINT(FILE_INFO):   proc print data=HUD.Sec8MF_2014_11_dc (obs=10);
+MPRINT(FILE_INFO):   title3 "Printing first 10 obs.";
+MPRINT(FILE_INFO):   run;
+
+NOTE: There were 10 observations read from the data set HUD.SEC8MF_2014_11_DC.
+NOTE: The PROCEDURE PRINT printed pages 6-12.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(FILE_INFO):   title3;
+MPRINT(FILE_INFO):   options nolabel;
+MPRINT(FILE_INFO):   proc means data=HUD.Sec8MF_2014_11_dc n sum mean stddev min max;
+MPRINT(FILE_INFO):   run;
+
+NOTE: Multiple concurrent threads will be used to summarize data.
+NOTE: There were 112 observations read from the data set HUD.SEC8MF_2014_11_DC.
+NOTE: The PROCEDURE MEANS printed page 13.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(FILE_INFO):   options label;
+MPRINT(FILE_INFO):   proc freq data=HUD.Sec8MF_2014_11_dc;
+MPRINT(FILE_INFO):   tables tracs_status extract_date tracs_overall_expire_quarter rent_to_FMR_description 
+contract_doc_type_code program_type_group_code program_type_name property_category primary_financing owner_company 
+mgmt_agent_company / missing;
+MPRINT(FILE_INFO):   run;
+
+NOTE: There were 112 observations read from the data set HUD.SEC8MF_2014_11_DC.
+NOTE: The PROCEDURE FREQ printed pages 14-17.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(FILE_INFO):   title2;
+107        
+108        run;
+109        
+110        proc compare base=HUD.Sec8mf_2014_10_dc compare=HUD.Sec8mf_2014_11_dc maxprint=(40,32000);
+26 The SAS System                                                                         15:38 Wednesday, December 31, 2014
+
+111          id contract_number;
+112          var
+113            owner_organization_name
+114            owner_individual_full_name
+115            mgmt_agent_org_name
+116            mgmt_agent_full_name
+117            assisted_units_count
+118            tracs_effective_date
+119            tracs_overall_expiration_date
+120            rent_to_FMR_description
+121            tracs_status
+122            property_id
+123            program_type_name;
+124        run;
+
+NOTE: There were 113 observations read from the data set HUD.SEC8MF_2014_10_DC.
+NOTE: There were 112 observations read from the data set HUD.SEC8MF_2014_11_DC.
+NOTE: The PROCEDURE COMPARE printed pages 18-21.
+NOTE: PROCEDURE COMPARE used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+125        
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           2.72 seconds
+      cpu time            1.76 seconds
+      

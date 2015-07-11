@@ -1,0 +1,16 @@
+HUD/Sec8MF_formats.sas:  NeighborhoodInfo DC                                             10:49 Monday, December 22, 2014   1
+
+                                            Contents of Catalog HUD.FORMATS
+ 
+ #    Name        Type       Level            Create Date          Modified Date    Description
+-----------------------------------------------------------------------------------------------------------------------
+ 1    S8UI2CAT    FORMAT         1    22Dec14:10:49:09       22Dec14:10:49:09       S8/MF UI status code (2 categories)
+ 2    S8UI4CAT    FORMAT         1    22Dec14:10:49:09       22Dec14:10:49:09       S8/MF UI status code (4 categories)
+ 3    S8DOCTY     FORMATC        1    22Dec14:10:49:09       22Dec14:10:49:09       S8/MF Document type of contract    
+ 4    S8EXQTR     FORMATC        1    22Dec14:10:49:09       22Dec14:10:49:09       S8/MF Contract expiration quarter  
+ 5    S8OWMGT     FORMATC        1    22Dec14:10:49:09       22Dec14:10:49:09       S8/MF Owner/manager company type   
+ 6    S8PGMGR     FORMATC        1    22Dec14:10:49:09       22Dec14:10:49:09       S8/MF Program type group           
+ 7    S8PGMNM     FORMATC        1    22Dec14:10:49:09       22Dec14:10:49:09       S8/MF Program name                 
+ 8    S8PRFIN     FORMATC        1    22Dec14:10:49:09       22Dec14:10:49:09       S8/MF Property financing           
+ 9    S8PRPCT     FORMATC        1    22Dec14:10:49:09       22Dec14:10:49:09       S8/MF Property category            
+10    S8STAT      FORMATC        1    22Dec14:10:49:09       22Dec14:10:49:09       S8/MF TRACS contract status        
