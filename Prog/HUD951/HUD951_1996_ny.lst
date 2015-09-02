@@ -1,0 +1,158 @@
+HUD/HUD951_1996_ny.sas:  DC Data Warehouse                                                13:47 Friday, October 22, 2004   1
+File = HUD.HUD951_1996_ny
+
+The CONTENTS Procedure
+
+Data Set Name: HUD.HUD951_1996_NY                                           Observations:         2449
+Member Type:   DATA                                                         Variables:            41  
+Engine:        V8                                                           Indexes:              0   
+Created:       13:47 Friday, October 22, 2004                               Observation Length:   304 
+Last Modified: 13:47 Friday, October 22, 2004                               Deleted Observations: 0   
+Protection:                                                                 Compressed:           NO  
+Data Set Type:                                                              Sorted:               NO  
+Label:         HUD-subsidized housing projects (HUD-951), NY, 1996                                    
+
+
+                  -----Engine/Host Dependent Information-----
+
+Data Set Page Size:         16384                                               
+Number of Data Set Pages:   47                                                  
+First Data Page:            1                                                   
+Max Obs per Page:           53                                                  
+Obs in First Data Page:     34                                                  
+Number of Data Set Repairs: 0                                                   
+File Name:                  D:\DCData\Libraries\HUD\Data\hud951_1996_ny.sas7bdat
+Release Created:            8.0202M0                                            
+Host Created:               WIN_PRO                                             
+
+
+                  -----Alphabetic List of Variables and Attributes-----
+ 
+ #    Variable    Type    Len    Pos    Format    Label
+-----------------------------------------------------------------------------------------
+31    ADCODE      Char      1    267              Adcode                                 
+33    ADDLAT      Num       8     88    12.6      Address Latitude                       
+34    ADDLONG     Num       8     96    12.6      Address Longitude                      
+ 7    ADDREC      Num       8      0              Number of add records in the Proj      
+ 8    AVELAT      Num       8      8    12.6      Project Average Latitude               
+10    AVELONG     Num       8     24    12.6      Project Average Longitude              
+29    BLOCK       Char      4    261              1990Census Block Code,unique w/in Tract
+19    CITYG       Char     13    221              City                                   
+24    CNTYG       Char      3    247              1990Census Cnty Code,unique w/in State 
+41    CODE        Char      9    291              Project Code                           
+37    CONGRD      Char      2    270              Congressnl District,unique w/in State  
+38    DIST        Num       8    112              Distance-addrs to Proj Median Centroid 
+30    ID          Char      2    265              Site ID from 951,unique w/in Proj      
+25    MCDCCD      Char      3    250              MCD/CCD,unique w/in County             
+12    MEDLAT      Num       8     40    12.6      Project Median Latitude                
+13    MEDLONG     Num       8     48    12.6      Project Median Longitude               
+HUD/HUD951_1996_ny.sas:  DC Data Warehouse                                                13:47 Friday, October 22, 2004   2
+File = HUD.HUD951_1996_ny
+
+The CONTENTS Procedure
+
+                  -----Alphabetic List of Variables and Attributes-----
+ 
+ #    Variable    Type    Len    Pos    Format    Label
+-----------------------------------------------------------------------------------------
+27    MSAG        Char      4    257              MSA,unique w/in US                     
+28    NTRACT      Num       8     80              1990Census NumTract Cd,unique w/in Cnty
+16    OFUNIT      Num       8     72              Official Units in the Project          
+39    ORIG951     Char     12    272              Original 951 Apartment                 
+26    PLACE       Char      4    253              Place Code,unique w/in State           
+ 4    PRGM        Char      1    131              Programs                               
+ 1    PRJI        Char      5    120              Identifying ProjCode Nos. (1-5)        
+ 2    PRJII       Char      3    125              Identifying ProjCode Nos. (6-8)        
+ 3    PRJIII      Char      3    128              Identifying ProjCode Nos. (9+)         
+ 6    PRJNAMEG    Char     30    143              Project Name                           
+36    QUALITY     Char      1    269              Quality of Address Latitude/Longitude  
+ 5    SECT8       Char     11    132              Cleaned Section8 Proj Number           
+32    SOURCE      Char      1    268              Source                                 
+20    STATE       Char      2    234              State Abbreviation                     
+23    STATECD     Char      2    245              1990Census State Code                  
+ 9    STDEVLAT    Num       8     16              St Dev of Proj Ave Latitude in deg     
+11    STDEVLON    Num       8     32              St Dev of Proj Average Longitude       
+17    STRNAME     Char     31    173              Street Name                            
+18    STRNUMB     Char     17    204              Street Number                          
+14    TOTUNIT     Num       8     56              Total Units on addr records            
+40    TRACTG      Char      7    284              1990Census Tract Code,unique w/in Cnty 
+35    UNITADD     Num       8    104              Units at address                       
+15    UNITGEO     Num       8     64              Total Units on Geocoded addr records   
+21    ZIP         Char      5    236              ZIP                                    
+22    ZIP4        Char      4    241              Add-On Zip                             
+HUD/HUD951_1996_ny.sas:  DC Data Warehouse                                                13:47 Friday, October 22, 2004   3
+File = HUD.HUD951_1996_ny
+Printing first 10 obs.
+
+ Obs PRJI  PRJII PRJIII PRGM    SECT8    PRJNAMEG ADDREC       AVELAT STDEVLAT      AVELONG STDEVLON       MEDLAT
+
+   1 01200  1NI          F                            5     40.671418   .0006    -73.865661   .0016     40.671350
+   2 01200  3NI          F   012003NIRAP              2     40.586134   .0007    -73.821983   .0010     40.586600
+   3 01200  5NI          F                            1     40.876700   .0000    -73.862100   .0000     40.876700
+   4 01201  4NI          F   012014NISUP            311     41.497588   .0013    -74.032307   .0020     41.497326
+   5 01201  7NI          F   012017NISUP              1     40.728238   .0000    -73.978477   .0000     40.728238
+   6 01201  8NI          F   012018NISUP              3     40.573488   .0002    -73.993525   .0006     40.573595
+   7 01201  9NI          F   012019NISUP              3     40.575495   .0016    -73.996315   .0013     40.574643
+   8 01202  0NI          F   012020NISUP              1     40.573200   .0000    -74.001600   .0000     40.573200
+   9 01202  4NI          F   012024NISUP              4     40.850353   .0017    -73.900290   .0010     40.850375
+  10 01202  5NI          F   012025NISUP              3     40.845658   .0010    -73.885515   .0004     40.846043
+
+ Obs      MEDLONG TOTUNIT UNITGEO OFUNIT STRNAME       STRNUMB    CITYG        STATE  ZIP  ZIP4 STATECD CNTYG MCDCCD PLACE
+
+   1   -73.866639   1500    1500   1525  LINCOLN AVE   735        BROOKLYN      NY   11208 4172   36     047   005   2505 
+   2   -73.821300    384     384    374  BEACH 98TH ST 319        FAR ROCKAWAY  NY   11694 2852   36     081   005   2505 
+   3   -73.862100    266     266    265  TILDEN ST     801        BRONX         NY   10467 6026   36     005   005   2505 
+   4   -74.032155   2805    2805    375  LAKE DR       33         NEWBURGH      NY   12550 5249   36     071   075   2455 
+   5   -73.978477    142     142    137  13TH ST       620     E  NEW YORK      NY   10009 3615   36     061   005   2505 
+   6   -73.993292    340     340    331  28TH ST       2980     W BROOKLYN      NY   11224 2045   36     047   005   2505 
+   7   -73.996535    493     493    484  30TH ST       2930     W BROOKLYN      NY   11224 1747   36     047   005   2505 
+   8   -74.001600    201     201    196  SURF AVE      3601       BROOKLYN      NY   11224 1462   36     047   005   2505 
+   9   -73.899525    554     554    534  WEBSTER AVE   1985       BRONX         NY   10457 4243   36     005   005   2505 
+  10   -73.885286    418     418    406  180TH ST      820     E  BRONX         NY   10460 1329   36     005   005   2505 
+
+ Obs MSAG  NTRACT BLOCK ID ADCODE SOURCE       ADDLAT      ADDLONG UNITADD QUALITY CONGRD DIST ORIG951 TRACTG    CODE
+
+   1 5600 1208.00  201       1      2       40.671245   -73.866761   295      1      10   0.01         1208.00 01200 1NI
+   2 5600  942.01  115       1      2       40.586600   -73.821300   192      1      09   0.00         0942.01 01200 3NI
+   3 5600  380.00  103       1      2       40.876700   -73.862100   266      1      17   0.00         0380.00 01200 5NI
+   4 5660    6.00  204       3      2       41.498600   -74.031700     3      1      26   0.09         0006.00 01201 4NI
+   5 5600   28.00  304       1      2       40.728238   -73.978477   142      1      12   0.00         0028.00 01201 7NI
+   6 5600  342.00  103       1      2       40.573595   -73.994195   132      1      08   0.00         0342.00 01201 8NI
+   7 5600  342.00  202       1      2       40.574643   -73.996535   186      1      08   0.00         0342.00 01201 9NI
+   8 5600  342.00  402       1      2       40.573200   -74.001600   201      1      08   0.00         0342.00 01202 0NI
+   9 5600  379.00  205       1      2       40.850375   -73.899525   103      2      16   0.00         0379.00 01202 4NI
+  10 5600  365.01  201       1      2       40.846043   -73.885286    77      1      16   0.00         0365.01 01202 5NI
+HUD/HUD951_1996_ny.sas:  DC Data Warehouse                                                13:47 Friday, October 22, 2004   4
+File = HUD.HUD951_1996_ny
+
+The MEANS Procedure
+
+Variable       N             Sum            Mean         Std Dev         Minimum         Maximum
+------------------------------------------------------------------------------------------------
+ADDREC      2449        36434.00      14.8770927      42.7761024       1.0000000     618.0000000
+AVELAT      2435       101197.94      41.5597287       1.0915445      40.5617390      44.9918160
+STDEVLAT    2429       2.1667000     0.000892013       0.0025889               0       0.0264000
+AVELONG     2435      -182043.12     -74.7610363       1.6368929     -79.4472030     -72.1779790
+STDEVLON    2429       3.0790000       0.0012676       0.0037933               0       0.0319000
+MEDLAT      2435       101198.24      41.5598522       1.0916558      40.5616450      44.9918160
+MEDLONG     2435      -182042.73     -74.7608754       1.6369066     -79.4472030     -72.1794000
+TOTUNIT     2449       605401.00     247.2033483     681.9499036               0        12647.00
+UNITGEO     2449       605401.00     247.2033483     681.9499036               0        12647.00
+OFUNIT      2449       453092.00     185.0110249     513.3123017               0        14908.00
+NTRACT      2449      1858338.14     758.8150837         1978.33               0         9927.00
+ADDLAT      2447       101704.75      41.5630351       1.0942703      40.5616450      44.9918160
+ADDLONG     2447      -182937.43     -74.7598831       1.6361875     -79.4472030     -72.1623520
+UNITADD     2449       155191.00      63.3691303      74.9508180               0     922.0000000
+DIST        2449         1537.00       0.6276031       7.5485205               0      99.9900000
+------------------------------------------------------------------------------------------------
+HUD/HUD951_1996_ny.sas:  DC Data Warehouse                                                13:47 Friday, October 22, 2004   5
+File = HUD.HUD951_1996_ny
+
+The FREQ Procedure
+
+                    State Abbreviation
+ 
+                                  Cumulative    Cumulative
+STATE    Frequency     Percent     Frequency      Percent
+----------------------------------------------------------
+NY           2449      100.00          2449       100.00  

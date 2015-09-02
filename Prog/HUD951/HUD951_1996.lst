@@ -1,0 +1,184 @@
+HUD/HUD951_1996.sas:  DC Data Warehouse                                                   13:44 Friday, October 22, 2004   1
+File = HUD.HUD951_1996_dc
+
+The CONTENTS Procedure
+
+Data Set Name: HUD.HUD951_1996_DC                                           Observations:          303 
+Member Type:   DATA                                                         Variables:             41  
+Engine:        V8                                                           Indexes:               0   
+Created:       13:45 Friday, October 22, 2004                               Observation Length:    300 
+Last Modified: 13:45 Friday, October 22, 2004                               Deleted Observations:  0   
+Protection:                                                                 Compressed:            CHAR
+Data Set Type:                                                              Reuse Space:           NO  
+Label:         HUD-subsidized housing projects (HUD-951), DC, 1996          Point to Observations: YES 
+                                                                            Sorted:                NO  
+
+
+                  -----Engine/Host Dependent Information-----
+
+Data Set Page Size:         16384                                               
+Number of Data Set Pages:   6                                                   
+Number of Data Set Repairs: 0                                                   
+File Name:                  D:\DCData\Libraries\HUD\Data\hud951_1996_dc.sas7bdat
+Release Created:            8.0202M0                                            
+Host Created:               WIN_PRO                                             
+
+
+                  -----Alphabetic List of Variables and Attributes-----
+ 
+ #    Variable    Type    Len    Pos    Format    Label
+-----------------------------------------------------------------------------------------
+31    ADCODE      Char      1    267              Adcode                                 
+33    ADDLAT      Num       8     88    12.6      Address Latitude                       
+34    ADDLONG     Num       8     96    12.6      Address Longitude                      
+ 7    ADDREC      Num       8      0              Number of add records in the Proj      
+ 8    AVELAT      Num       8      8    12.6      Project Average Latitude               
+10    AVELONG     Num       8     24    12.6      Project Average Longitude              
+29    BLOCK       Char      4    261              1990Census Block Code,unique w/in Tract
+19    CITYG       Char     13    221              City                                   
+24    CNTYG       Char      3    247              1990Census Cnty Code,unique w/in State 
+41    CODE        Char      9    291              Project Code                           
+37    CONGRD      Char      2    270              Congressnl District,unique w/in State  
+38    DIST        Num       8    112              Distance-addrs to Proj Median Centroid 
+30    ID          Char      2    265              Site ID from 951,unique w/in Proj      
+25    MCDCCD      Char      3    250              MCD/CCD,unique w/in County             
+12    MEDLAT      Num       8     40    12.6      Project Median Latitude                
+13    MEDLONG     Num       8     48    12.6      Project Median Longitude               
+27    MSAG        Char      4    257              MSA,unique w/in US                     
+28    NTRACT      Num       8     80              1990Census NumTract Cd,unique w/in Cnty
+HUD/HUD951_1996.sas:  DC Data Warehouse                                                   13:44 Friday, October 22, 2004   2
+File = HUD.HUD951_1996_dc
+
+The CONTENTS Procedure
+
+                  -----Alphabetic List of Variables and Attributes-----
+ 
+ #    Variable    Type    Len    Pos    Format    Label
+-----------------------------------------------------------------------------------------
+16    OFUNIT      Num       8     72              Official Units in the Project          
+39    ORIG951     Char     12    272              Original 951 Apartment                 
+26    PLACE       Char      4    253              Place Code,unique w/in State           
+ 4    PRGM        Char      1    131              Programs                               
+ 1    PRJI        Char      5    120              Identifying ProjCode Nos. (1-5)        
+ 2    PRJII       Char      3    125              Identifying ProjCode Nos. (6-8)        
+ 3    PRJIII      Char      3    128              Identifying ProjCode Nos. (9+)         
+ 6    PRJNAMEG    Char     30    143              Project Name                           
+36    QUALITY     Char      1    269              Quality of Address Latitude/Longitude  
+ 5    SECT8       Char     11    132              Cleaned Section8 Proj Number           
+32    SOURCE      Char      1    268              Source                                 
+20    STATE       Char      2    234              State Abbreviation                     
+23    STATECD     Char      2    245              1990Census State Code                  
+ 9    STDEVLAT    Num       8     16              St Dev of Proj Ave Latitude in deg     
+11    STDEVLON    Num       8     32              St Dev of Proj Average Longitude       
+17    STRNAME     Char     31    173              Street Name                            
+18    STRNUMB     Char     17    204              Street Number                          
+14    TOTUNIT     Num       8     56              Total Units on addr records            
+40    TRACTG      Char      7    284              1990Census Tract Code,unique w/in Cnty 
+35    UNITADD     Num       8    104              Units at address                       
+15    UNITGEO     Num       8     64              Total Units on Geocoded addr records   
+21    ZIP         Char      5    236              ZIP                                    
+22    ZIP4        Char      4    241              Add-On Zip                             
+HUD/HUD951_1996.sas:  DC Data Warehouse                                                   13:44 Friday, October 22, 2004   3
+File = HUD.HUD951_1996_dc
+Printing first 10 obs.
+
+Obs  PRJI    PRJII   PRJIII   PRGM      SECT8      PRJNAMEG                        ADDREC         AVELAT   STDEVLAT
+
+  1  00032    019              F     DC398023001   CAMPBELL HEIGHTS                   1        38.916700     .0000 
+  2  00032    023              F     DC398023019   WAH LUCK                           1        38.899500     .0000 
+  3  00032    028              F     DC39H001001   CARMEL PLAZA NORTH                 1        38.902200     .0000 
+  4  00035    110              F     DC39M000022   FAIRMONT-1 REHAB                   1        38.924300     .0000 
+  5  00035    113              F     DC39M000023   FAIRMONT-2 REHAB                   1        38.924300     .0000 
+  6  00035    122              F     DC390001013   FAIRCLIFF PLAZA                    8        38.922798     .0005 
+  7  00035    123              F     DC390001015   STONERIDGE APTS SEC II             3        38.885435     .0000 
+  8  00035    129              F     DC390001010   FORT LINCOLN SENIOR VILLAGE I      1        38.927652     .0000 
+
+Obs       AVELONG   STDEVLON         MEDLAT        MEDLONG   TOTUNIT   UNITGEO   OFUNIT               STRNAME
+
+  1    -77.034700     .0000       38.916700     -77.034700     171       171       170    15TH ST                      NW
+  2    -77.020300     .0000       38.899500     -77.020300     153       153       152    6TH ST                       NW
+  3    -77.014000     .0000       38.902200     -77.014000     133       133        40    K ST                         NW
+  4    -77.032800     .0000       38.924300     -77.032800     114       114       113    FAIRMONT ST                  NW
+  5    -77.032800     .0000       38.924300     -77.032800     103       103       103    FAIRMONT ST                  NW
+  6    -77.033268     .0004       38.922450     -77.033450     111       111       111    CLIFTON ST                   NW
+  7    -76.954770     .0000       38.885435     -76.954770     138       138        46    ANACOSTIA RD                 SE
+  8    -76.962348     .0000       38.927652     -76.962348     187       187       187    BLADENSBURG RD               NE
+
+Obs  STRNUMB    CITYG     STATE   ZIP   ZIP4  STATECD  CNTYG  MCDCCD  PLACE  MSAG  NTRACT  BLOCK  ID  ADCODE  SOURCE
+
+  1   2001    WASHINGTON   DC    20009  5828    11      001    100    0005   8840   43.00   103   AF    1       1   
+  2   800     WASHINGTON   DC    20001  3756    11      001    100    0005   8840   58.00   113   AA    1       1   
+  3   200     WASHINGTON   DC    20001  5501    11      001    100    0005   8840   47.00   402   AA    1       1   
+  4   1401    WASHINGTON   DC    20009  6967    11      001    100    0005   8840   37.00   104   AA    5       1   
+  5   1400    WASHINGTON   DC    20009  6966    11      001    100    0005   8840   37.00   105         1       1   
+  6   1424    WASHINGTON   DC    20009  4559    11      001    100    0005   8840   37.00   107         1       2   
+  7   327     WASHINGTON   DC    20019  7110    11      001    100    0005   8840   77.03   3           1       1   
+  8   3001    WASHINGTON   DC    20018  2235    11      001    100    0005   8840   90.01   122   AA    1       1   
+
+Obs        ADDLAT         ADDLONG    UNITADD    QUALITY    CONGRD    DIST    ORIG951    TRACTG       CODE
+
+  1     38.916700      -77.034700      171         1         01        0                0043.00    00032 019
+  2     38.899500      -77.020300      152         1         01        0                0058.00    00032 023
+  3     38.902200      -77.014000      133         1         01        0                0047.00    00032 028
+  4     38.924300      -77.032800      104         1         01        0                0037.00    00035 110
+  5     38.924300      -77.032800      103         1         01        0                0037.00    00035 113
+  6     38.922450      -77.033450       12         1         01        0                0037.00    00035 122
+  7     38.885435      -76.954770       15         2         01        0                0077.03    00035 123
+  8     38.927652      -76.962348      187         1         01        0                0090.01    00035 129
+HUD/HUD951_1996.sas:  DC Data Warehouse                                                   13:44 Friday, October 22, 2004   4
+File = HUD.HUD951_1996_dc
+Printing first 10 obs.
+
+Obs  PRJI    PRJII   PRJIII   PRGM      SECT8      PRJNAMEG                        ADDREC         AVELAT   STDEVLAT
+
+  9  00035    155              F     DC390001016   LINCOLN WESTMORELAND II           10        38.912366     .0001 
+ 10  00035    168              F     DC390003002                                     11        38.858388     .0005 
+
+Obs       AVELONG   STDEVLON         MEDLAT        MEDLONG   TOTUNIT   UNITGEO   OFUNIT               STRNAME
+
+  9    -77.023237     .0000       38.912300     -77.023200     122       122       121    R ST                         NW
+ 10    -76.997259     .0004       38.858700     -76.997512      94        94        94    WADE RD                      SE
+
+Obs  STRNUMB    CITYG     STATE   ZIP   ZIP4  STATECD  CNTYG  MCDCCD  PLACE  MSAG  NTRACT  BLOCK  ID  ADCODE  SOURCE
+
+  9   801     WASHINGTON   DC    20001  3138    11      001    100    0005   8840   49.01   102   AB    1       1   
+ 10   2714    WASHINGTON   DC    20020  5916    11      001    100    0005   8840   74.01   205         1       2   
+
+Obs        ADDLAT         ADDLONG    UNITADD    QUALITY    CONGRD    DIST    ORIG951    TRACTG       CODE
+
+  9     38.912300      -77.023200       12         1         01        0                0049.01    00035 155
+ 10     38.858700      -76.997586       12         1         01        0                0074.01    00035 168
+HUD/HUD951_1996.sas:  DC Data Warehouse                                                   13:44 Friday, October 22, 2004   5
+File = HUD.HUD951_1996_dc
+
+The MEANS Procedure
+
+Variable      N             Sum            Mean         Std Dev         Minimum         Maximum
+-----------------------------------------------------------------------------------------------
+ADDREC      303        15165.00      50.0495050      95.0338082       1.0000000     566.0000000
+AVELAT      303        11784.14      38.8915400       0.0316055      38.8264850      38.9572000
+STDEVLAT    303       0.1745000     0.000575908       0.0012941               0       0.0091000
+AVELONG     303       -23330.16     -76.9972382       0.0319979     -77.0825000     -76.9146600
+STDEVLON    303       0.2136000     0.000704950       0.0017941               0       0.0156000
+MEDLAT      303        11784.19      38.8917251       0.0317013      38.8267000      38.9572000
+MEDLONG     303       -23330.14     -76.9971551       0.0320052     -77.0825000     -76.9146600
+TOTUNIT     303        56219.00     185.5412541     213.9698966               0         1225.00
+UNITGEO     303        56219.00     185.5412541     213.9698966               0         1225.00
+OFUNIT      303        43731.00     144.3267327     131.5770448       1.0000000     672.0000000
+NTRACT      303        19987.80      65.9663366      23.8458905               0      99.0700000
+ADDLAT      303        11784.16      38.8916323       0.0316464      38.8279000      38.9572000
+ADDLONG     303       -23330.14     -76.9971724       0.0320136     -77.0825000     -76.9146600
+UNITADD     303        11867.00      39.1650165      72.0999065               0     369.0000000
+DIST        303       2.5600000       0.0084488       0.0558668               0       0.6800000
+-----------------------------------------------------------------------------------------------
+HUD/HUD951_1996.sas:  DC Data Warehouse                                                   13:44 Friday, October 22, 2004   6
+File = HUD.HUD951_1996_dc
+
+The FREQ Procedure
+
+                    State Abbreviation
+ 
+                                  Cumulative    Cumulative
+STATE    Frequency     Percent     Frequency      Percent
+----------------------------------------------------------
+DC            303      100.00           303       100.00  

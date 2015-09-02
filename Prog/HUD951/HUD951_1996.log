@@ -1,0 +1,202 @@
+1                                        The SAS System            13:44 Friday, October 22, 2004
+
+NOTE: Copyright (c) 1999-2001 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software Release 8.2 (TS2M0)
+      Licensed to THE URBAN INSTITUTE, Site 0015141001.
+NOTE: This session is executing on the WIN_PRO  platform.
+
+
+
+WARNING: Your system is scheduled to expire on November 12, 2004, which is 21 days from now.  
+         Please contact your SAS Software Representative to obtain your updated SETINIT 
+         information.  The SAS System will no longer function on or after that date.
+
+         will expire within 30 days. Please contact your SAS installation 
+         representative to have it renewed.
+
+         "D:\DCData\Libraries\HUD\Prog\HUD951_1996.sas" is associated will 
+         expire within 30 days. Please contact your SAS installation 
+         representative to have it renewed.
+NOTE: SAS initialization used:
+      real time           13.54 seconds
+      cpu time            1.56 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is D:\Personal Settings\My SAS Files\V8\Autoexnt.sas.
+
+
+NOTE: AUTOEXEC processing completed.
+
+1          ************************************************************************
+2          * Program:  HUD951_1996.sas
+3          * Library:  HUD
+4          * Project:  DC Data Warehouse
+5          * Author:   P. Tatian
+6          * Created:  10/21/04
+7          * Version:  SAS 8.2
+8          * Environment:  Windows
+9          *
+10         * Description:  Create DC, MD, VA, WV extracts from HUD 951 data file
+11         * (30 July 1996).
+12         *
+13         * Modifications:
+14         ************************************************************************;
+15         
+16         %include "K:\Metro\PTatian\DCData\SAS\Inc\Stdhead.sas";
+47        +
+48        +options ls=124 ps=48;    ** Landscape **;
+49        +
+2 The SAS System                                                                              13:44 Friday, October 22, 2004
+
+50        +** Output title **;
+51        +
+52        +title "&_library/&_program:  DC Data Warehouse";
+53        +
+NOTE: %INCLUDE (level 1) ending.
+54         
+55         ** Define libraries **;
+56         %DCData_lib( HUD )
+MPRINT(DCDATA_LIB):   options nomprint;
+NOTE: Libref HUDV6 was successfully assigned as follows: 
+      Engine:        V6 
+      Physical Name: D:\DCData\Libraries\HUD\Data
+NOTE: Libref HUDV8 was successfully assigned as follows: 
+      Engine:        V8 
+      Physical Name: D:\DCData\Libraries\HUD\Data
+NOTE: Libref HUD was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V8 
+      Physical Name(1): D:\DCData\Libraries\HUD\Data
+      Engine(2):        V6 
+      Physical Name(2): D:\DCData\Libraries\HUD\Data
+
+=====================================================================
+Current FmtSearch Option value:
+
+     WORK* LIBRARY* HUD
+
+   *implicitly included by default.
+
+=====================================================================
+Status of current catalogs:
+
+NOTE:    WORK.FORMATS DOES NOT EXIST
+NOTE:    LIBRARY.FORMATS DOES NOT EXIST
+NOTE:    HUD.FORMATS DOES NOT EXIST
+=====================================================================
+
+
+=====================================================================
+Current Sasautos Option value:
+
+     HUD DCAUTOS UIAUTOS SASAUTOS
+
+=====================================================================
+
+57         
+3 The SAS System                                                                              13:44 Friday, October 22, 2004
+
+58         libname cdrom v6 "E:\HUD-951 SAS files";
+NOTE: Libref CDROM was successfully assigned as follows: 
+      Engine:        V6 
+      Physical Name: E:\HUD-951 SAS files
+59         
+60         data
+61           HUD.HUD951_1996_dc (label="HUD-subsidized housing projects (HUD-951), DC, 1996")
+
+         installation representative to have it renewed.
+62           HUD.HUD951_1996_md (label="HUD-subsidized housing projects (HUD-951), MD, 1996")
+63           HUD.HUD951_1996_va (label="HUD-subsidized housing projects (HUD-951), VA, 1996")
+64           HUD.HUD951_1996_wv (label="HUD-subsidized housing projects (HUD-951), WV, 1996")
+65           ;
+66         
+67           set cdrom.PRJGEO;
+68         
+69           where state in ( "DC", "MD", "VA", "WV" );
+70         
+71           select ( state );
+72             when ( "DC" )
+73               output HUD.HUD951_1996_dc;
+74             when ( "MD" )
+75               output HUD.HUD951_1996_md;
+76             when ( "VA" )
+77               output HUD.HUD951_1996_va;
+78             when ( "WV" )
+79               output HUD.HUD951_1996_wv;
+80           end;
+81         
+82           format addlat addlong avelat avelong medlat medlong 12.6;
+83         
+84         run;
+
+NOTE: There were 2231 observations read from the data set CDROM.PRJGEO.
+      WHERE state in ('DC', 'MD', 'VA', 'WV');
+NOTE: The data set HUD.HUD951_1996_DC has 303 observations and 41 variables.
+NOTE: Compressing data set HUD.HUD951_1996_DC decreased size by 0.00 percent. 
+      Compressed is 6 pages; un-compressed would require 6 pages.
+NOTE: The data set HUD.HUD951_1996_MD has 769 observations and 41 variables.
+NOTE: Compressing data set HUD.HUD951_1996_MD decreased size by 20.00 percent. 
+      Compressed is 12 pages; un-compressed would require 15 pages.
+NOTE: The data set HUD.HUD951_1996_VA has 832 observations and 41 variables.
+NOTE: Compressing data set HUD.HUD951_1996_VA decreased size by 18.75 percent. 
+      Compressed is 13 pages; un-compressed would require 16 pages.
+NOTE: The data set HUD.HUD951_1996_WV has 327 observations and 41 variables.
+NOTE: Compressing data set HUD.HUD951_1996_WV decreased size by 14.29 percent. 
+4 The SAS System                                                                              13:44 Friday, October 22, 2004
+
+      Compressed is 6 pages; un-compressed would require 7 pages.
+NOTE: DATA statement used:
+      real time           11.39 seconds
+      cpu time            0.87 seconds
+      
+
+85         
+86         %File_info( data=HUD.HUD951_1996_dc, freqvars=state )
+
+         installation representative to have it renewed.
+
+NOTE: PROCEDURE CONTENTS used:
+      real time           2.67 seconds
+      cpu time            0.39 seconds
+      
+NOTE: The PROCEDURE CONTENTS printed pages 1-2.
+
+
+         installation representative to have it renewed.
+
+NOTE: There were 10 observations read from the data set HUD.HUD951_1996_DC.
+NOTE: The PROCEDURE PRINT printed pages 3-4.
+NOTE: PROCEDURE PRINT used:
+      real time           0.28 seconds
+      cpu time            0.09 seconds
+      
+
+
+         installation representative to have it renewed.
+
+NOTE: There were 303 observations read from the data set HUD.HUD951_1996_DC.
+NOTE: The PROCEDURE MEANS printed page 5.
+NOTE: PROCEDURE MEANS used:
+      real time           0.43 seconds
+      cpu time            0.06 seconds
+      
+
+
+         installation representative to have it renewed.
+
+NOTE: There were 303 observations read from the data set HUD.HUD951_1996_DC.
+NOTE: The PROCEDURE FREQ printed page 6.
+NOTE: PROCEDURE FREQ used:
+      real time           0.09 seconds
+      cpu time            0.06 seconds
+      
+5 The SAS System                                                                              13:44 Friday, October 22, 2004
+
+
+87         
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           33.28 seconds
+      cpu time            3.89 seconds
+      
