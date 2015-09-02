@@ -1,4 +1,4 @@
-1                                         The SAS System        15:34 Wednesday, September 2, 2015
+1                                         The SAS System        17:06 Wednesday, September 2, 2015
 
 NOTE: Copyright (c) 2002-2008 by SAS Institute Inc., Cary, NC, USA. 
 NOTE: SAS (r) Proprietary Software 9.2 (TS2M3) 
@@ -8,8 +8,8 @@ NOTE: This session is executing on the X64_VSPRO  platform.
 
 
 NOTE: SAS initialization used:
-      real time           0.64 seconds
-      cpu time            0.12 seconds
+      real time           0.85 seconds
+      cpu time            0.10 seconds
       
 
 NOTE: AUTOEXEC processing beginning; file is D:\Users\ptatian\Documents\My SAS 
@@ -46,7 +46,7 @@ NOTE: Libref _METADAT was successfully assigned as follows:
 68        +options ls=124 ps=48;    ** Landscape **;
 69        +
 70        +** Output title **;
-2 The SAS System                                                                          15:34 Wednesday, September 2, 2015
+2 The SAS System                                                                          17:06 Wednesday, September 2, 2015
 
 71        +
 72        +title "&_library/&_program:  NeighborhoodInfo DC";
@@ -94,7 +94,7 @@ Current Sasautos Option value:
 
 =====================================================================
 Current Sasautos Option value:
-3 The SAS System                                                                          15:34 Wednesday, September 2, 2015
+3 The SAS System                                                                          17:06 Wednesday, September 2, 2015
 
 
      TTAUTOS GENERA_L  GENERA_R DCAUTOS UIAUTOS SASAUTOS
@@ -142,7 +142,7 @@ Current Sasautos Option value:
 
 82         %DCData_lib( RealProp, local=n )
 MPRINT(DCDATA_LIB):   options nomprint;
-4 The SAS System                                                                          15:34 Wednesday, September 2, 2015
+4 The SAS System                                                                          17:06 Wednesday, September 2, 2015
 
 NOTE: Libref REALPR_R was successfully assigned as follows: 
       Engine:        V9 
@@ -185,12 +185,12 @@ Current Sasautos Option value:
 88         
 89           %let s8filedate = '25aug2015'd;
 90         
-91           %let upload = N;
+91           %let upload = Y;
 92         
 93           %let revisions = %str(New file.);
 94         
 95         *-------------------------------------------------------------------;
-5 The SAS System                                                                          15:34 Wednesday, September 2, 2015
+5 The SAS System                                                                          17:06 Wednesday, September 2, 2015
 
 96         
 97         
@@ -206,7 +206,7 @@ SEC8MF_READBASETBLS FOLDER L:\Libraries\HUD
 SEC8MF_READBASETBLS MONTH 08
 SEC8MF_READBASETBLS YEAR 2015
 GLOBAL _RECURSE 
-GLOBAL UPLOAD N
+GLOBAL UPLOAD Y
 GLOBAL _REMOTE_SESSION 0
 GLOBAL _REMOTE_BATCH_SUBMIT 0
 GLOBAL _DCDATA_L_DRIVE D
@@ -238,7 +238,7 @@ is_hospital_ind $1. is_nursing_home_ind $1. is_board_and_care_ind $1. is_assiste
 is_221d3_ind $1. is_221d4_ind $1. is_236_ind $1. is_non_insured_ind $1. is_bmir_ind $1. is_risk_sharing_ind $1. is_mip_ind 
 $1. is_co_insured_ind $1. ownership_effective_date 8. owner_participant_id 8. owner_company_type $20. 
 owner_individual_first_name $18. owner_individual_middle_name $18. owner_individual_last_name $20. 
-6 The SAS System                                                                          15:34 Wednesday, September 2, 2015
+6 The SAS System                                                                          17:06 Wednesday, September 2, 2015
 
 owner_individual_full_name $60. owner_individual_title_text $100. owner_organization_name $50. owner_address_line1 $45. 
 owner_address_line2 $45. owner_city_name $28. owner_state_code $2. owner_zip_code $5. owner_zip4_code $4. 
@@ -286,7 +286,7 @@ instruments associated with property are 202/811 grants/loans" is_hud_held_ind =
 associated with property are HUD-held loans" is_hud_owned_ind = "Property is HUD-owned" is_hospital_ind = "Any active 
 financing instruments associated with property are loans for a hospital" is_nursing_home_ind = "Any active financing 
 instruments associated with property are loans for a nursing home" is_board_and_care_ind = "Any active financing 
-7 The SAS System                                                                          15:34 Wednesday, September 2, 2015
+7 The SAS System                                                                          17:06 Wednesday, September 2, 2015
 
 instruments associated with property are loans for a board and care property" is_assisted_living_ind = "Any active 
 financing instruments associated with property are loans for an assisted living property" is_refinanced_ind = "Any active 
@@ -334,7 +334,7 @@ RULE:     ----+----1----+----2----+----3----+----4----+----5----+----6----+----7
 NOTE: Invalid data errors for file RP082015 occurred outside the printed range.
 NOTE: Increase available buffer lines with the INFILE n= option.
 hub_name_text=Denver servicing_site_name_text=Denver property_id=800003058 property_name_text=KENDALL HEIGHTS APTS I
-8 The SAS System                                                                          15:34 Wednesday, September 2, 2015
+8 The SAS System                                                                          17:06 Wednesday, September 2, 2015
 
 property_phone_number=(970)625-3974 address_line1_text=250 UTE AVE address_line2_text=  city_name_text=RIFLE state_code=CO
 zip_code=81650 zip4_code=  county_code=045 county_name_text=GARFIELD msa_code=0000 msa_name_text=Not In Metro Area
@@ -382,7 +382,7 @@ NOTE: Invalid data for mgmt_agent_participant_id in line 7264 290-312.
      201             ","WY","82520","    ","3073493011               ","                         ","jeffleafgr
      301  een@yahoo.com",334495,"Profit Motivated    ","Jeff              ","Leafgreen         ","Alan        
      401        ","Jeff Alan Leafgreen                                     "," ","                            
-9 The SAS System                                                                          15:34 Wednesday, September 2, 2015
+9 The SAS System                                                                          17:06 Wednesday, September 2, 2015
 
 RULE:     ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0              
      501                                                                          ","1850 Rodeo Dr.           
@@ -430,7 +430,7 @@ owner_address_line2=8101 Interstate 30 owner_city_name=Suite A owner_state_code=
 owner_main_phone_number_text=  owner_main_fax_number_text=501.280.0037 owner_email_text=501.603.0235
 mgmt_agent_participant_id=. mgmt_agent_company_type=254732 mgmt_agent_indv_first_name=Profit Motivated
 mgmt_agent_indv_last_name=  mgmt_agent_indv_middle_name=  mgmt_agent_full_name=  mgmt_agent_indv_title_text= 
-10 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+10 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 mgmt_agent_org_name=  mgmt_agent_address_line1=Intrepid Management, Inc. mgmt_agent_address_line2=8101 Interstate 30
 mgmt_agent_city_name=Suite A mgmt_agent_state_code=Li mgmt_agent_zip_code=AR mgmt_agent_zip4_code=7220
@@ -478,7 +478,7 @@ property_name_text=NESMITH PARK APARTMENTS property_phone_number=(256) 734-6400 
 address_line2_text=  city_name_text=CULLMAN state_code=AL zip_code=35055 zip4_code=3134 county_code=043
 county_name_text=Cullman msa_code=9999 msa_name_text=  congressional_district_code=04 placed_base_city_name_text=CULLMAN
 property_total_unit_count=53 property_category_name=Insured-Subsidized primary_financing_type=Insured
-11 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+11 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 associated_financing_number=06211190 is_insured_ind=Y is_202_811_ind=N is_hud_held_ind=N is_hud_owned_ind=N
 is_hospital_ind=N is_nursing_home_ind=N is_board_and_care_ind=N is_assisted_living_ind=N is_refinanced_ind=Y is_221d3_ind=N
@@ -526,7 +526,7 @@ NOTE: Invalid data for mgmt_agent_participant_id in line 13046 273-287.
 13047     Briarstone Apartm                                                  ","1625 Watercrest Dr.           
      101                 ","                                             ","Cumming                     ","GA"
      201  ,"30041","    ","954-913-1000             ","470-239-8357      ","jpfiles@aol.com" 282
-12 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+12 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 NOTE: Invalid data errors for file RP082015 occurred outside the printed range.
 NOTE: Increase available buffer lines with the INFILE n= option.
@@ -574,7 +574,7 @@ owner_organization_name="CENTER HOUSING III owner_address_line1=INC. owner_addre
 owner_city_name=4245 Forest Park Av owner_state_code=  owner_zip_code=ST. L owner_zip4_code=MO
 owner_main_phone_number_text=63108 owner_main_fax_number_text=  owner_email_text=(314) 880-5415 (direct)
 mgmt_agent_participant_id=. mgmt_agent_company_type=agriffard@independen mgmt_agent_indv_first_name=3750
-13 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+13 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 mgmt_agent_indv_last_name=Non-Profit mgmt_agent_indv_middle_name=  mgmt_agent_full_name=  mgmt_agent_indv_title_text= 
 mgmt_agent_org_name=  mgmt_agent_address_line1=  mgmt_agent_address_line2=INDEPENDENCE CENTER
@@ -622,7 +622,7 @@ NOTE: Invalid data for mgmt_agent_participant_id in line 15179 256-269.
 hub_name_text=Kansas City servicing_site_name_text=Kansas City property_id=800225094 property_name_text=Center II Apartments
 property_phone_number=314-880-5415 address_line1_text=4121 Laclede Ave address_line2_text=  city_name_text=St. Louis
 state_code=MO zip_code=63108 zip4_code=  county_code=510 county_name_text=Saint Louis City msa_code=7040
-14 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+14 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 msa_name_text=St. Louis, MO-IL MSA congressional_district_code=01 placed_base_city_name_text=Saint Louis
 property_total_unit_count=41 property_category_name=Insured-Subsidized primary_financing_type=Insured
@@ -670,7 +670,7 @@ mgmt_agent_city_name=Suite 200 mgmt_agent_state_code=Gr mgmt_agent_zip_code=NY m
 mgmt_agent_main_phone_number=  mgmt_agent_main_fax_number=212-835-9040 mgmt_agent_email_text=212-835-9059
 extract_date=08/25/2015 _ERROR_=1 _N_=17851
 NOTE: Invalid data for mgmt_agent_participant_id in line 18238 294-314.
-15 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+15 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 RULE:     ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0              
 18238     C/o Hilltop Management Group LLC                                                        ","3009 Bedf
@@ -718,7 +718,7 @@ associated_financing_number=034EE045 is_insured_ind=N is_202_811_ind=Y is_hud_he
 is_hospital_ind=N is_nursing_home_ind=N is_board_and_care_ind=N is_assisted_living_ind=N is_refinanced_ind=N is_221d3_ind=N
 is_221d4_ind=N is_236_ind=N is_non_insured_ind=N is_bmir_ind=N is_risk_sharing_ind=N is_mip_ind=N is_co_insured_ind=N
 ownership_effective_date=03/07/1998 owner_participant_id=208940 owner_company_type=Non-Profit owner_individual_first_name= 
-16 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+16 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 owner_individual_middle_name=  owner_individual_last_name=  owner_individual_full_name=  owner_individual_title_text= 
 owner_organization_name="Evangelical Senior Housing owner_address_line1=DBA: Manor Glen
@@ -766,7 +766,7 @@ NOTE: Invalid data for mgmt_agent_participant_id in line 22120 275-306.
      301  " 301
 NOTE: Invalid data errors for file RP082015 occurred outside the printed range.
 NOTE: Increase available buffer lines with the INFILE n= option.
-17 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+17 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 hub_name_text=Seattle servicing_site_name_text=Portland property_id=800017859 property_name_text=Providence Dethman House
 property_phone_number=  address_line1_text=1205 Montello Ave address_line2_text=  city_name_text=Hood River state_code=OR
@@ -814,7 +814,7 @@ mgmt_agent_city_name=800 Fifth Avenue, Suite 1200 mgmt_agent_state_code=  mgmt_a
 mgmt_agent_main_phone_number=98104 mgmt_agent_main_fax_number=  mgmt_agent_email_text=425-525-6639 extract_date=08/25/2015
 _ERROR_=1 _N_=22099
 NOTE: Invalid data for mgmt_agent_participant_id in line 22641 275-306.
-18 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+18 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 RULE:     ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0              
 22642     Providence Health & Services Washington                              ","800 Fifth Avenue, Suite 1200
@@ -862,7 +862,7 @@ owner_individual_full_name=  owner_individual_title_text=  owner_organization_na
 owner_address_line1=ST. LUKES ASSOCIATION owner_address_line2=800 Fifth Avenue Suite 1200 owner_city_name= 
 owner_state_code=Se owner_zip_code=WA owner_zip4_code=9810 owner_main_phone_number_text= 
 owner_main_fax_number_text=425-525-6639 owner_email_text=  mgmt_agent_participant_id=. mgmt_agent_company_type=7368
-19 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+19 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 mgmt_agent_indv_first_name=Non-Profit mgmt_agent_indv_last_name=  mgmt_agent_indv_middle_name=  mgmt_agent_full_name= 
 mgmt_agent_indv_title_text=  mgmt_agent_org_name=  mgmt_agent_address_line1="Providence Supportive Housing
@@ -905,12 +905,12 @@ NOTE: The data set WORK.MF_PROPERTIES_08_2015 has 22720 observations and 74 vari
 NOTE: Compressing data set WORK.MF_PROPERTIES_08_2015 decreased size by 70.70 percent. 
       Compressed is 740 pages; un-compressed would require 2526 pages.
 NOTE: DATA statement used (Total process time):
-      real time           0.67 seconds
-      cpu time            0.40 seconds
+      real time           0.74 seconds
+      cpu time            0.38 seconds
       
 
 MPRINT(SEC8MF_READBASETBLS):   * Universe of active assistance and Section 8 contracts in Multifamily Housing *;
-20 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+20 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 MPRINT(SEC8MF_READBASETBLS):   filename rc082015 "L:\Libraries\HUD\Raw\Sec8MF\2015-08\MF_Assistance___Sec8_Contracts.txt";
 MPRINT(SEC8MF_READBASETBLS):   data MF_S8Contracts_08_2015 (label="Sec 8 multifamily projects, contract-level data, extract 
@@ -958,7 +958,7 @@ program_type_group_name = "Program type group name (derived from program_type_gr
 rent gross amount to FMR gross amount" rent_to_FMR_description = "Rent to FMR ratio for assisted units" BR0_count = "Number 
 of units/beds for efficiency units that receive(d) assistance under this contract" BR1_count = "Number of units/beds for 
 one bedroom units that receive(d) assistance under this contract" BR2_count = "Number of units/beds for two bedroom units 
-21 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+21 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 that receive(d) assistance under this contract" BR3_count = "Number of units/beds for three bedroom units that receive(d) 
 assistance under this contract" BR4_count = "Number of units/beds for four bedroom units that receive(d) assistance under 
@@ -982,8 +982,8 @@ NOTE: The data set WORK.MF_S8CONTRACTS_08_2015 has 23506 observations and 32 var
 NOTE: Compressing data set WORK.MF_S8CONTRACTS_08_2015 decreased size by 43.16 percent. 
       Compressed is 291 pages; un-compressed would require 512 pages.
 NOTE: DATA statement used (Total process time):
-      real time           0.15 seconds
-      cpu time            0.14 seconds
+      real time           0.17 seconds
+      cpu time            0.15 seconds
       
 
 MPRINT(SEC8MF_READBASETBLS):   **Step2. Merge two base tables into one complete database of Contracts and Properties (See 
@@ -1006,7 +1006,7 @@ MPRINT(SEC8MF_NAT_MERGE):   by property_id;
 MPRINT(SEC8MF_NAT_MERGE):   run;
 
 NOTE: There were 23506 observations read from the data set WORK.MF_S8CONTRACTS_08_2015.
-22 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+22 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 NOTE: SAS sort was used.
 NOTE: The data set WORK.MF_S8CONTRACTS_08_2015 has 23506 observations and 32 variables.
@@ -1054,7 +1054,7 @@ MPRINT(SEC8MF_NAT_MERGE):   when ( 'Insured-Subsidized' ) property_category = 'I
 MPRINT(SEC8MF_NAT_MERGE):   when ( 'Other Subsidy Servicing Required (Only)' ) property_category = 'OTSSRO';
 MPRINT(SEC8MF_NAT_MERGE):   when ( 'Subsidized - Previously 202/811' ) property_category = 'SUB202';
 MPRINT(SEC8MF_NAT_MERGE):   when ( 'Subsidized - Previously Insured' ) property_category = 'SUBINS';
-23 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+23 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 MPRINT(SEC8MF_NAT_MERGE):   when ( 'Subsidized, No HUD Financing' ) property_category = 'SUBNOH';
 MPRINT(SEC8MF_NAT_MERGE):   when ( 'Subsidized-Green Retrofit' ) property_category = 'GREENR';
@@ -1102,7 +1102,7 @@ MPRINT(SEC8MF_NAT_MERGE):   ** Create coded management co. type var. to replace 
 MPRINT(SEC8MF_NAT_MERGE):   length mgmt_agent_company $ 2;
 MPRINT(SEC8MF_NAT_MERGE):   select ( mgmt_agent_company_type );
 MPRINT(SEC8MF_NAT_MERGE):   when ( 'Limited Dividend' ) mgmt_agent_company = 'LD';
-24 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+24 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 MPRINT(SEC8MF_NAT_MERGE):   when ( 'Non-Profit' ) mgmt_agent_company = 'NP';
 MPRINT(SEC8MF_NAT_MERGE):   when ( 'Other' ) mgmt_agent_company = 'OT';
@@ -1150,7 +1150,7 @@ mgmt_agent_company_type=333341
 WARNING: Invalid value for mgmt_agent_company_type: RecordNo=13802 contract_number=OR16T841002 property_id=800017871
 mgmt_agent_company_type=7368
 WARNING: Invalid value for mgmt_agent_company_type: RecordNo=13938 contract_number=OR16S911006 property_id=800018037
-25 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+25 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 mgmt_agent_company_type=timothy.zaricznyj@pr
 WARNING: Invalid value for mgmt_agent_company_type: RecordNo=16174 contract_number=TX59S951002 property_id=800020739
@@ -1189,8 +1189,8 @@ NOTE: The data set WORK.SEC8MF_2015_08_US has 23507 observations and 103 variabl
 NOTE: Compressing data set WORK.SEC8MF_2015_08_US decreased size by 65.33 percent. 
       Compressed is 906 pages; un-compressed would require 2613 pages.
 NOTE: DATA statement used (Total process time):
-      real time           0.24 seconds
-      cpu time            0.21 seconds
+      real time           0.23 seconds
+      cpu time            0.20 seconds
       
 
 MPRINT(SEC8MF_NAT_MERGE):   proc sort data=Sec8MF_2015_08_us;
@@ -1198,7 +1198,7 @@ MPRINT(SEC8MF_NAT_MERGE):   by contract_number;
 MPRINT(SEC8MF_READBASETBLS):   ** Check for duplicate contracts **;
 MPRINT(SEC8MF_READBASETBLS):   title2 'Duplicate Contracts';
 MPRINT(DUP_CHECK):   options nomprint;
-26 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+26 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 
 NOTE: There were 23507 observations read from the data set WORK.SEC8MF_2015_08_US.
@@ -1207,20 +1207,20 @@ NOTE: The data set WORK.SEC8MF_2015_08_US has 23507 observations and 103 variabl
 NOTE: Compressing data set WORK.SEC8MF_2015_08_US decreased size by 65.29 percent. 
       Compressed is 907 pages; un-compressed would require 2613 pages.
 NOTE: PROCEDURE SORT used (Total process time):
-      real time           0.27 seconds
-      cpu time            0.20 seconds
+      real time           0.24 seconds
+      cpu time            0.23 seconds
       
 
 NOTE: SAS threaded sort was used.
 NOTE: Table WORK._DUP_CHECK created, with 0 rows and 4 columns.
 
 NOTE: PROCEDURE SQL used (Total process time):
-      real time           0.07 seconds
-      cpu time            0.04 seconds
+      real time           0.03 seconds
+      cpu time            0.03 seconds
       
 
 NOTE: PROCEDURE SQL used (Total process time):
-      real time           0.01 seconds
+      real time           0.00 seconds
       cpu time            0.00 seconds
       
 
@@ -1230,7 +1230,7 @@ NOTE: [Dup_check] for BY variables CONTRACT_NUMBER.
 NOTE: No observations in data set WORK._DUP_CHECK.
 NOTE: PROCEDURE PRINT used (Total process time):
       real time           0.00 seconds
-      cpu time            0.01 seconds
+      cpu time            0.00 seconds
       
 
 
@@ -1246,11 +1246,11 @@ MPRINT(DUP_CHECK):   options nomprint;
 NOTE: SAS threaded sort was used.
 NOTE: Table WORK._DUP_CHECK created, with 0 rows and 4 columns.
 
-27 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+27 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 NOTE: PROCEDURE SQL used (Total process time):
       real time           0.04 seconds
-      cpu time            0.04 seconds
+      cpu time            0.06 seconds
       
 
 NOTE: PROCEDURE SQL used (Total process time):
@@ -1294,7 +1294,7 @@ MPRINT(SEC8MF_DMVW):   label RecordNo = "Record number (UI created)";
 MPRINT(SEC8MF_DMVW):   ** Address corrections **;
 MPRINT(SEC8MF_ADDR_CORRECT):   ** DC addresses only **;
 MPRINT(SEC8MF_ADDR_CORRECT):   if state_code = "DC" then do;
-28 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+28 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 MPRINT(SEC8MF_ADDR_CORRECT):   select ( address_line1_text );
 MPRINT(SEC8MF_ADDR_CORRECT):   when ( "2518 NW 17th ST NW" ) address_line1_text = "2518 17th ST NW";
@@ -1342,12 +1342,12 @@ NOTE: Compressing data set HUD.SEC8MF_2015_08_VA decreased size by 62.50 percent
       Compressed is 21 pages; un-compressed would require 56 pages.
 NOTE: The data set HUD.SEC8MF_2015_08_WV has 226 observations and 103 variables.
 NOTE: Compressing data set HUD.SEC8MF_2015_08_WV decreased size by 59.26 percent. 
-29 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+29 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
       Compressed is 11 pages; un-compressed would require 27 pages.
 NOTE: DATA statement used (Total process time):
       real time           0.15 seconds
-      cpu time            0.07 seconds
+      cpu time            0.09 seconds
       
 
 MPRINT(SEC8MF_DMVW):   ** Sort data sets **;
@@ -1360,8 +1360,8 @@ NOTE: The data set HUD.SEC8MF_2015_08_DC has 111 observations and 103 variables.
 NOTE: Compressing data set HUD.SEC8MF_2015_08_DC decreased size by 50.00 percent. 
       Compressed is 7 pages; un-compressed would require 14 pages.
 NOTE: PROCEDURE SORT used (Total process time):
-      real time           0.01 seconds
-      cpu time            0.01 seconds
+      real time           0.03 seconds
+      cpu time            0.00 seconds
       
 
 MPRINT(SEC8MF_DMVW):   proc sort data=HUD.Sec8MF_2015_08_md;
@@ -1373,8 +1373,8 @@ NOTE: The data set HUD.SEC8MF_2015_08_MD has 459 observations and 103 variables.
 NOTE: Compressing data set HUD.SEC8MF_2015_08_MD decreased size by 60.38 percent. 
       Compressed is 21 pages; un-compressed would require 53 pages.
 NOTE: PROCEDURE SORT used (Total process time):
-      real time           0.04 seconds
-      cpu time            0.01 seconds
+      real time           0.03 seconds
+      cpu time            0.03 seconds
       
 
 MPRINT(SEC8MF_DMVW):   proc sort data=HUD.Sec8MF_2015_08_va;
@@ -1386,11 +1386,11 @@ NOTE: Compressing data set HUD.SEC8MF_2015_08_VA decreased size by 62.50 percent
       Compressed is 21 pages; un-compressed would require 56 pages.
 NOTE: PROCEDURE SORT used (Total process time):
       real time           0.03 seconds
-      cpu time            0.01 seconds
+      cpu time            0.00 seconds
       
 
 MPRINT(SEC8MF_DMVW):   proc sort data=HUD.Sec8MF_2015_08_wv;
-30 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+30 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 MPRINT(SEC8MF_DMVW):   by contract_number;
 MPRINT(SEC8MF_DMVW):   ** Output basic file info **;
@@ -1402,8 +1402,8 @@ NOTE: The data set HUD.SEC8MF_2015_08_WV has 226 observations and 103 variables.
 NOTE: Compressing data set HUD.SEC8MF_2015_08_WV decreased size by 59.26 percent. 
       Compressed is 11 pages; un-compressed would require 27 pages.
 NOTE: PROCEDURE SORT used (Total process time):
-      real time           0.03 seconds
-      cpu time            0.00 seconds
+      real time           0.06 seconds
+      cpu time            0.04 seconds
       
 
 MPRINT(FILE_INFO):   proc contents data=HUD.Sec8MF_2015_08_dc;
@@ -1411,7 +1411,7 @@ MPRINT(FILE_INFO):   run;
 
 NOTE: PROCEDURE CONTENTS used (Total process time):
       real time           0.00 seconds
-      cpu time            0.01 seconds
+      cpu time            0.00 seconds
       
 NOTE: The PROCEDURE CONTENTS printed pages 1-5.
 
@@ -1423,7 +1423,7 @@ NOTE: There were 10 observations read from the data set HUD.SEC8MF_2015_08_DC.
 NOTE: The PROCEDURE PRINT printed pages 6-12.
 NOTE: PROCEDURE PRINT used (Total process time):
       real time           0.00 seconds
-      cpu time            0.00 seconds
+      cpu time            0.01 seconds
       
 
 MPRINT(FILE_INFO):   title3;
@@ -1435,10 +1435,10 @@ NOTE: Multiple concurrent threads will be used to summarize data.
 NOTE: There were 111 observations read from the data set HUD.SEC8MF_2015_08_DC.
 NOTE: The PROCEDURE MEANS printed page 13.
 NOTE: PROCEDURE MEANS used (Total process time):
-      real time           0.01 seconds
+      real time           0.00 seconds
       cpu time            0.01 seconds
       
-31 The SAS System                                                                         15:34 Wednesday, September 2, 2015
+31 The SAS System                                                                         17:06 Wednesday, September 2, 2015
 
 
 MPRINT(FILE_INFO):   options label;
@@ -1456,12 +1456,13 @@ NOTE: PROCEDURE FREQ used (Total process time):
       
 
 MPRINT(FILE_INFO):   title2;
+NOTE: [Sec8MF_dmvw] Metadata registration will be skipped because not running remote batch.
 110        
 111        run;
 112        
 
 NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
 NOTE: The SAS System used:
-      real time           3.53 seconds
-      cpu time            1.63 seconds
+      real time           3.59 seconds
+      cpu time            1.73 seconds
       
