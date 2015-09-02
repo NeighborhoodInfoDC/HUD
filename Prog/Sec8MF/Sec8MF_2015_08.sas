@@ -31,7 +31,7 @@
 
   %let s8filedate = '25aug2015'd;
   
-  %let upload = N;
+  %let upload = Y;
   
   %let revisions = %str(New file.);
 

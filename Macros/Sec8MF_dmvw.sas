@@ -27,6 +27,7 @@
                 Replaced month=, year= parameters with filedate=.
                 Renamed to %Sec8MF_dmvw().
   12/31/14 PAT  Added rent_to_fmr_description to freqvars=.
+  09/02/15 PAT  Check for remote batch submit before updating metadata.
 **************************************************************************/
 
 /** Macro Sec8MF_dmvw - Start Definition **/
@@ -136,39 +137,48 @@
 
   %if &upload = Y %then %do;
   
-    %Dc_update_meta_file(
-      ds_lib=HUD,
-      ds_name=Sec8MF_&year._&month._dc,
-      creator_process=Sec8MF_&year._&month..sas,
-      restrictions=None,
-      revisions=&revisions
-    )
+    %if &_REMOTE_BATCH_SUBMIT %then %do;
+  
+      %Dc_update_meta_file(
+        ds_lib=HUD,
+        ds_name=Sec8MF_&year._&month._dc,
+        creator_process=Sec8MF_&year._&month..sas,
+        restrictions=None,
+        revisions=&revisions
+      )
+      
+      %Dc_update_meta_file(
+        ds_lib=HUD,
+        ds_name=Sec8MF_&year._&month._md,
+        creator_process=Sec8MF_&year._&month..sas,
+        restrictions=None,
+        revisions=&revisions
+      )
+      
+      %Dc_update_meta_file(
+        ds_lib=HUD,
+        ds_name=Sec8MF_&year._&month._va,
+        creator_process=Sec8MF_&year._&month..sas,
+        restrictions=None,
+        revisions=&revisions
+      )
+      
+      %Dc_update_meta_file(
+        ds_lib=HUD,
+        ds_name=Sec8MF_&year._&month._wv,
+        creator_process=Sec8MF_&year._&month..sas,
+        restrictions=None,
+        revisions=&revisions
+      )
     
-    %Dc_update_meta_file(
-      ds_lib=HUD,
-      ds_name=Sec8MF_&year._&month._md,
-      creator_process=Sec8MF_&year._&month..sas,
-      restrictions=None,
-      revisions=&revisions
-    )
+      run;
+      
+    %end;
+    %else %do;
     
-    %Dc_update_meta_file(
-      ds_lib=HUD,
-      ds_name=Sec8MF_&year._&month._va,
-      creator_process=Sec8MF_&year._&month..sas,
-      restrictions=None,
-      revisions=&revisions
-    )
-    
-    %Dc_update_meta_file(
-      ds_lib=HUD,
-      ds_name=Sec8MF_&year._&month._wv,
-      creator_process=Sec8MF_&year._&month..sas,
-      restrictions=None,
-      revisions=&revisions
-    )
-    
-    run;
+      %note_mput( macro=Sec8MF_dmvw, msg=Metadata registration will be skipped because not running remote batch. )
+      
+    %end;
     
   %end;
 
