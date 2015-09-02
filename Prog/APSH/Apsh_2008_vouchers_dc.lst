@@ -1,0 +1,813 @@
+HUD/Apsh_2008_vouchers_dc.sas:  NeighborhoodInfo DC                                      16:51 Monday, February 21, 2011   1
+File = Hud.Apsh_2008_vouchers_dc
+
+The CONTENTS Procedure
+
+Data Set Name        HUD.APSH_2008_VOUCHERS_DC                                              Observations           190 
+Member Type          DATA                                                                   Variables              66  
+Engine               V8                                                                     Indexes                0   
+Created              Monday, February 21, 2011 04:51:12 PM                                  Observation Length     550 
+Last Modified        Monday, February 21, 2011 04:51:12 PM                                  Deleted Observations   0   
+Protection                                                                                  Compressed             CHAR
+Data Set Type                                                                               Reuse Space            NO  
+Label                A Picture of Subsidized Households, vouchers, tract-level, DC, 2008    Point to Observations  YES 
+Data Representation  WINDOWS_32                                                             Sorted                 YES 
+Encoding             wlatin1  Western (Windows)                                                                        
+
+
+                           Engine/Host Dependent Information
+
+Data Set Page Size          16384                                                      
+Number of Data Set Pages    6                                                          
+Number of Data Set Repairs  0                                                          
+File Name                   D:\DCData\Libraries\HUD\Data\apsh_2008_vouchers_dc.sas7bdat
+Release Created             9.0101M3                                                   
+Host Created                XP_PRO                                                     
+
+
+      Alphabetic List of Variables and Attributes
+ 
+ #    Variable                 Type    Len    Format
+
+66    Geo2000                  Char     11    $GEO00A.
+50    ave_util_allow           Num       8            
+59    cbsa                     Char      5            
+ 6    code                     Char     11            
+58    fedhse                   Char      2            
+65    ha_size                  Num       8            
+17    hh_income                Num       8            
+61    latitude                 Num       8            
+62    longitude                Num       8            
+48    months_from_movein       Num       8            
+11    months_since_report      Num       8            
+47    months_waiting           Num       8            
+ 5    name                     Char     60            
+ 9    number_reported          Num       8            
+21    pct_10k_lt15k            Num       8            
+22    pct_15k_lt20k            Num       8            
+31    pct_1adult               Num       8            
+HUD/Apsh_2008_vouchers_dc.sas:  NeighborhoodInfo DC                                      16:51 Monday, February 21, 2011   2
+File = Hud.Apsh_2008_vouchers_dc
+
+The CONTENTS Procedure
+
+      Alphabetic List of Variables and Attributes
+ 
+ #    Variable                 Type    Len    Format
+
+30    pct_2adults              Num       8            
+20    pct_5k_lt10k             Num       8            
+38    pct_age25_50             Num       8            
+39    pct_age51_61             Num       8            
+40    pct_age62plus            Num       8            
+41    pct_age85plus            Num       8            
+45    pct_asian                Num       8            
+51    pct_bed1                 Num       8            
+52    pct_bed2                 Num       8            
+53    pct_bed3                 Num       8            
+43    pct_black                Num       8            
+36    pct_disabled_all         Num       8            
+35    pct_disabled_ge62        Num       8            
+34    pct_disabled_lt62        Num       8            
+32    pct_female_head          Num       8            
+33    pct_female_head_child    Num       8            
+23    pct_ge20k                Num       8            
+46    pct_hispanic             Num       8            
+37    pct_lt24_head            Num       8            
+29    pct_lt30_median          Num       8            
+28    pct_lt50_median          Num       8            
+19    pct_lt5k                 Num       8            
+27    pct_median               Num       8            
+42    pct_minority             Num       8            
+12    pct_movein               Num       8            
+44    pct_native_american      Num       8            
+ 8    pct_occupied             Num       8            
+26    pct_other_maj            Num       8            
+54    pct_overhoused           Num       8            
+57    pct_ownsfd               Num       8            
+10    pct_reported             Num       8            
+49    pct_utility_allow        Num       8            
+24    pct_wage_maj             Num       8            
+25    pct_welf_maj             Num       8            
+13    people_per_unit          Num       8            
+14    people_total             Num       8            
+18    person_income            Num       8            
+64    pha_total_units          Num       8            
+60    placefips                Char      7            
+HUD/Apsh_2008_vouchers_dc.sas:  NeighborhoodInfo DC                                      16:51 Monday, February 21, 2011   3
+File = Hud.Apsh_2008_vouchers_dc
+
+The CONTENTS Procedure
+
+      Alphabetic List of Variables and Attributes
+ 
+ #    Variable                 Type    Len    Format
+
+ 2    program                  Char      1            
+ 3    program_label            Char      8            
+15    rent_per_month           Num       8            
+16    spending_per_month       Num       8            
+63    state                    Char      2            
+ 4    sub_program              Char      2            
+ 1    sumlevel                 Char      1            
+55    tminority                Num       8            
+ 7    total_units              Num       8            
+56    tpoverty                 Num       8            
+
+
+ Sort Information
+
+Sortedby       code
+Validated      YES 
+Character Set  ANSI
+HUD/Apsh_2008_vouchers_dc.sas:  NeighborhoodInfo DC                                      16:51 Monday, February 21, 2011   4
+File = Hud.Apsh_2008_vouchers_dc
+Printing first 10 obs.
+
+ 
+                     program_  sub_                                                          total_   pct_    number_
+Obs sumlevel program  label   program                    name                       code      units occupied reported
+
+  1    7        3       VO            DC DISTRICT OF COLUMBIA  CENSUS TRACT 1    11001000100    N       N        0   
+  2    7        3       VO            DC DISTRICT OF COLUMBIA  CENSUS TRACT 2.01 11001000201    N       N        0   
+  3    7        3       VO            DC DISTRICT OF COLUMBIA  CENSUS TRACT 2.02 11001000202    N       N        0   
+  4    7        3       VO            DC DISTRICT OF COLUMBIA  CENSUS TRACT 3    11001000300    N       N        0   
+  5    7        3       VO            DC DISTRICT OF COLUMBIA  CENSUS TRACT 4    11001000400    N       N        0   
+  6    7        3       VO            DC DISTRICT OF COLUMBIA  CENSUS TRACT 5.01 11001000501    N       N        0   
+  7    7        3       VO            DC DISTRICT OF COLUMBIA  CENSUS TRACT 5.02 11001000502    N       N        0   
+  8    7        3       VO            DC DISTRICT OF COLUMBIA  CENSUS TRACT 6    11001000600    N       N        1   
+  9    7        3       VO            DC DISTRICT OF COLUMBIA  CENSUS TRACT 7.01 11001000701    N       N        1   
+ 10    7        3       VO            DC DISTRICT OF COLUMBIA  CENSUS TRACT 7.02 11001000702    N       N        2   
+
+             months_
+      pct_    since_  pct_   people_ people_ rent_per_ spending_           person_          pct_5k_ pct_10k_ pct_15k_
+Obs reported  report movein per_unit  total    month   per_month hh_income  income pct_lt5k  lt10k    lt15k    lt20k
+
+  1     N       S       S       S       S        S         S         S        S        S       S        S        S   
+  2     N       S       S       S       S        S         S         S        S        S       S        S        S   
+  3     N       S       S       S       S        S         S         S        S        S       S        S        S   
+  4     N       S       S       S       S        S         S         S        S        S       S        S        S   
+  5     N       S       S       S       S        S         S         S        S        S       S        S        S   
+  6     N       S       S       S       S        S         S         S        S        S       S        S        S   
+  7     N       S       S       S       S        S         S         S        S        S       S        S        S   
+  8     N       S       S       S       S        S         S         S        S        S       S        S        S   
+  9     N       S       S       S       S        S         S         S        S        S       S        S        S   
+ 10     N       S       S       S       S        S         S         S        S        S       S        S        S   
+HUD/Apsh_2008_vouchers_dc.sas:  NeighborhoodInfo DC                                      16:51 Monday, February 21, 2011   5
+File = Hud.Apsh_2008_vouchers_dc
+Printing first 10 obs.
+
+                             pct_
+     pct_   pct_     pct_   other_  pct_  pct_lt50_ pct_lt30_   pct_   pct_  pct_female_ pct_female_ pct_disabled_
+Obs ge20k wage_maj welf_maj   maj  median   median    median  2adults 1adult     head     head_child      lt62
+
+  1   S       S        S       S      S       S         S        S       S        S           S            S      
+  2   S       S        S       S      S       S         S        S       S        S           S            S      
+  3   S       S        S       S      S       S         S        S       S        S           S            S      
+  4   S       S        S       S      S       S         S        S       S        S           S            S      
+  5   S       S        S       S      S       S         S        S       S        S           S            S      
+  6   S       S        S       S      S       S         S        S       S        S           S            S      
+  7   S       S        S       S      S       S         S        S       S        S           S            S      
+  8   S       S        S       S      S       S         S        S       S        S           S            S      
+  9   S       S        S       S      S       S         S        S       S        S           S            S      
+ 10   S       S        S       S      S       S         S        S       S        S           S            S      
+
+                                 pct_
+    pct_disabled_ pct_disabled_ lt24_   pct_     pct_      pct_      pct_     pct_    pct_ pct_native_  pct_   pct_
+Obs      ge62          all       head age25_50 age51_61 age62plus age85plus minority black   american  asian hispanic
+
+  1       S             S         S       S        S        S         S         S      S        S        S       S   
+  2       S             S         S       S        S        S         S         S      S        S        S       S   
+  3       S             S         S       S        S        S         S         S      S        S        S       S   
+  4       S             S         S       S        S        S         S         S      S        S        S       S   
+  5       S             S         S       S        S        S         S         S      S        S        S       S   
+  6       S             S         S       S        S        S         S         S      S        S        S       S   
+  7       S             S         S       S        S        S         S         S      S        S        S       S   
+  8       S             S         S       S        S        S         S         S      S        S        S       S   
+  9       S             S         S       S        S        S         S         S      S        S        S       S   
+ 10       S             S         S       S        S        S         S         S      S        S        S       S   
+HUD/Apsh_2008_vouchers_dc.sas:  NeighborhoodInfo DC                                      16:51 Monday, February 21, 2011   6
+File = Hud.Apsh_2008_vouchers_dc
+Printing first 10 obs.
+
+             months_
+    months_   from_   pct_utility_  ave_util_                                                                      pct_
+Obs waiting   movein      allow       allow    pct_bed1  pct_bed2  pct_bed3  pct_overhoused  tminority  tpoverty  ownsfd
+
+  1    S        S           S           S          S         S         S            S            14         5        6  
+  2    S        S           S           S          S         S         S            S            16        71        0  
+  3    S        S           S           S          S         S         S            S            11        24        8  
+  4    S        S           S           S          S         S         S            S            19        16        2  
+  5    S        S           S           S          S         S         S            S            14         3       45  
+  6    S        S           S           S          S         S         S            S            24         6        0  
+  7    S        S           S           S          S         S         S            S            16         4       13  
+  8    S        S           S           S          S         S         S            S            25         5       31  
+  9    S        S           S           S          S         S         S            S            21         6        4  
+ 10    S        S           S           S          S         S         S            S            29        19        0  
+
+ 
+                                                                      pha_total_
+Obs fedhse    cbsa     placefips    latitude    longitude    state       units      ha_size     Geo2000
+
+  1           47894      50000          N           N         DC           N           N       Tract 1   
+  2           47894      50000          N           N         DC           N           N       Tract 2.01
+  3           47894      50000          N           N         DC           N           N       Tract 2.02
+  4           47894      50000          N           N         DC           N           N       Tract 3   
+  5           47894      50000          N           N         DC           N           N       Tract 4   
+  6           47894      50000          N           N         DC           N           N       Tract 5.01
+  7           47894      50000          N           N         DC           N           N       Tract 5.02
+  8           47894      50000          N           N         DC           N           N       Tract 6   
+  9           47894      50000          N           N         DC           N           N       Tract 7.01
+ 10           47894      50000          N           N         DC           N           N       Tract 7.02
+HUD/Apsh_2008_vouchers_dc.sas:  NeighborhoodInfo DC                                      16:51 Monday, February 21, 2011   7
+File = Hud.Apsh_2008_vouchers_dc
+
+The MEANS Procedure
+
+Variable                   N             Sum            Mean         Std Dev         Minimum         Maximum
+------------------------------------------------------------------------------------------------------------
+total_units                0               .               .               .               .               .
+pct_occupied               0               .               .               .               .               .
+number_reported          190         4090.00      21.5263158      25.5340180               0     111.0000000
+pct_reported               0               .               .               .               .               .
+months_since_report      100     607.0000000       6.0700000       1.4719945       3.0000000      12.0000000
+pct_movein               100         8986.00      89.8600000      10.0423547      35.0000000     100.0000000
+people_per_unit          100     263.2000000       2.6320000       0.6075086       1.2000000       4.5000000
+people_total             100         9922.00      99.2200000      60.2520933      20.0000000     278.0000000
+rent_per_month           100        39666.00     396.6600000      99.7526456     258.0000000     803.0000000
+spending_per_month       100       142472.00         1424.72     261.7127379     927.0000000         2019.00
+hh_income                100         1491.80      14.9180000       3.1401081       9.1000000      24.9000000
+person_income            100     572.5000000       5.7250000       1.3613997       3.3000000      10.9000000
+pct_lt5k                 100         1853.00      18.5300000       8.1951636               0      38.0000000
+pct_5k_lt10k             100         3131.00      31.3100000      10.8074937               0      67.0000000
+pct_10k_lt15k            100         1560.00      15.6000000       7.2557884               0      38.0000000
+pct_15k_lt20k            100     938.0000000       9.3800000       5.5373479               0      28.0000000
+pct_ge20k                100         2512.00      25.1200000      11.7191719               0      60.0000000
+pct_wage_maj             100         3057.00      30.5700000      10.4420043       7.0000000      58.0000000
+pct_welf_maj             100         1587.00      15.8700000       8.2897710               0      38.0000000
+pct_other_maj            100         4742.00      47.4200000      11.0198902      16.0000000      75.0000000
+pct_median               100         1637.00      16.3700000       3.3864108      10.0000000      27.0000000
+pct_lt50_median          100         9722.00      97.2200000       3.2053617      85.0000000     100.0000000
+pct_lt30_median          100         8380.00      83.8000000       8.5469588      53.0000000     100.0000000
+pct_2adults              100     164.0000000       1.6400000       2.4309453               0      13.0000000
+pct_1adult               100     416.0000000       4.1600000       5.5244544               0      40.0000000
+pct_female_head          100     878.0000000       8.7800000       8.2518195               0      55.0000000
+pct_female_head_child    100     560.0000000       5.6000000       6.1167100               0      45.0000000
+pct_disabled_lt62        100     396.0000000       3.9600000       5.2124947               0      28.0000000
+pct_disabled_ge62        100         1600.00      16.0000000      36.8452949               0     100.0000000
+pct_disabled_all         100     258.0000000       2.5800000       3.2135446               0      23.0000000
+pct_lt24_head            100         8985.00      89.8500000       9.5878448      40.0000000     100.0000000
+pct_age25_50             100     685.0000000       6.8500000       6.8643053               0      45.0000000
+pct_age51_61             100     247.0000000       2.4700000       3.8388103               0      19.0000000
+pct_age62plus            100      92.0000000       0.9200000       2.0922174               0       9.0000000
+pct_age85plus            100               0               0               0               0               0
+pct_minority             100         1012.00      10.1200000       9.7765748               0      65.0000000
+pct_black                100     941.0000000       9.4100000       8.0692645               0      50.0000000
+pct_native_american      100       1.0000000       0.0100000       0.1000000               0       1.0000000
+pct_asian                100               0               0               0               0               0
+pct_hispanic             100      72.0000000       0.7200000       3.1142553               0      24.0000000
+------------------------------------------------------------------------------------------------------------
+HUD/Apsh_2008_vouchers_dc.sas:  NeighborhoodInfo DC                                      16:51 Monday, February 21, 2011   8
+File = Hud.Apsh_2008_vouchers_dc
+
+The MEANS Procedure
+
+Variable                   N             Sum            Mean         Std Dev         Minimum         Maximum
+------------------------------------------------------------------------------------------------------------
+months_waiting            60         2897.00      48.2833333      36.9287411       2.0000000     135.0000000
+months_from_movein        90         5086.00      56.5111111      25.0734850      17.0000000     127.0000000
+pct_utility_allow        100         8577.00      85.7700000      20.7300373               0     100.0000000
+ave_util_allow           100        17388.00     173.8800000      64.0439054               0     402.0000000
+pct_bed1                  90         2455.00      27.2777778      31.4299749               0     100.0000000
+pct_bed2                  90         2807.00      31.1888889      34.6892771               0     100.0000000
+pct_bed3                  90         3744.00      41.6000000      37.6527003               0     100.0000000
+pct_overhoused           100     106.0000000       1.0600000       2.1594051               0      10.0000000
+tminority                184        13726.00      74.5978261      31.7209692               0     100.0000000
+tpoverty                 184         3992.00      21.6956522      15.4783396               0      90.0000000
+pct_ownsfd               179         2143.00      11.9720670      19.1153889               0      86.0000000
+latitude                   0               .               .               .               .               .
+longitude                  0               .               .               .               .               .
+pha_total_units            0               .               .               .               .               .
+ha_size                    0               .               .               .               .               .
+------------------------------------------------------------------------------------------------------------
+HUD/Apsh_2008_vouchers_dc.sas:  NeighborhoodInfo DC                                      16:51 Monday, February 21, 2011   9
+File = Hud.Apsh_2008_vouchers_dc
+
+The FREQ Procedure
+
+                                  Cumulative    Cumulative
+state    Frequency     Percent     Frequency      Percent
+----------------------------------------------------------
+DC            190      100.00           190       100.00  
+
+
+                                     Cumulative    Cumulative
+sumlevel    Frequency     Percent     Frequency      Percent
+-------------------------------------------------------------
+7                190      100.00           190       100.00  
+
+
+                                    Cumulative    Cumulative
+program    Frequency     Percent     Frequency      Percent
+------------------------------------------------------------
+3               190      100.00           190       100.00  
+
+
+program_                             Cumulative    Cumulative
+label       Frequency     Percent     Frequency      Percent
+-------------------------------------------------------------
+VO               190      100.00           190       100.00  
+
+
+sub_                                Cumulative    Cumulative
+program    Frequency     Percent     Frequency      Percent
+------------------------------------------------------------
+                190      100.00           190       100.00  
+
+
+                                   Cumulative    Cumulative
+fedhse    Frequency     Percent     Frequency      Percent
+-----------------------------------------------------------
+               190      100.00           190       100.00  
+
+
+                                  Cumulative    Cumulative
+cbsa     Frequency     Percent     Frequency      Percent
+----------------------------------------------------------
+47894         188       98.95           188        98.95  
+99998           2        1.05           190       100.00  
+HUD/Apsh_2008_vouchers_dc.sas:  NeighborhoodInfo DC                                      16:51 Monday, February 21, 2011  10
+File = Hud.Apsh_2008_vouchers_dc
+
+The FREQ Procedure
+
+                                      Cumulative    Cumulative
+placefips    Frequency     Percent     Frequency      Percent
+--------------------------------------------------------------
+50000             188       98.95           188        98.95  
+99998               2        1.05           190       100.00  
+
+
+                                    Cumulative    Cumulative
+ha_size    Frequency     Percent     Frequency      Percent
+------------------------------------------------------------
+      N         190      100.00           190       100.00  
+HUD/Apsh_2008_vouchers_dc.sas:  NeighborhoodInfo DC                                      16:51 Monday, February 21, 2011  11
+File = Hud.Apsh_2008_vouchers_dc
+
+The FREQ Procedure
+
+                                        Cumulative    Cumulative
+code           Frequency     Percent     Frequency      Percent
+----------------------------------------------------------------
+11001000100           1        0.53             1         0.53  
+11001000201           1        0.53             2         1.05  
+11001000202           1        0.53             3         1.58  
+11001000300           1        0.53             4         2.11  
+11001000400           1        0.53             5         2.63  
+11001000501           1        0.53             6         3.16  
+11001000502           1        0.53             7         3.68  
+11001000600           1        0.53             8         4.21  
+11001000701           1        0.53             9         4.74  
+11001000702           1        0.53            10         5.26  
+11001000801           1        0.53            11         5.79  
+11001000802           1        0.53            12         6.32  
+11001000901           1        0.53            13         6.84  
+11001000902           1        0.53            14         7.37  
+11001001001           1        0.53            15         7.89  
+11001001002           1        0.53            16         8.42  
+11001001100           1        0.53            17         8.95  
+11001001200           1        0.53            18         9.47  
+11001001301           1        0.53            19        10.00  
+11001001302           1        0.53            20        10.53  
+11001001401           1        0.53            21        11.05  
+11001001402           1        0.53            22        11.58  
+11001001500           1        0.53            23        12.11  
+11001001600           1        0.53            24        12.63  
+11001001701           1        0.53            25        13.16  
+11001001702           1        0.53            26        13.68  
+11001001801           1        0.53            27        14.21  
+11001001803           1        0.53            28        14.74  
+11001001804           1        0.53            29        15.26  
+11001001901           1        0.53            30        15.79  
+11001001902           1        0.53            31        16.32  
+11001002001           1        0.53            32        16.84  
+11001002002           1        0.53            33        17.37  
+11001002101           1        0.53            34        17.89  
+11001002102           1        0.53            35        18.42  
+11001002201           1        0.53            36        18.95  
+11001002202           1        0.53            37        19.47  
+11001002301           1        0.53            38        20.00  
+11001002302           1        0.53            39        20.53  
+11001002400           1        0.53            40        21.05  
+HUD/Apsh_2008_vouchers_dc.sas:  NeighborhoodInfo DC                                      16:51 Monday, February 21, 2011  12
+File = Hud.Apsh_2008_vouchers_dc
+
+The FREQ Procedure
+
+                                        Cumulative    Cumulative
+code           Frequency     Percent     Frequency      Percent
+----------------------------------------------------------------
+11001002501           1        0.53            41        21.58  
+11001002502           1        0.53            42        22.11  
+11001002600           1        0.53            43        22.63  
+11001002701           1        0.53            44        23.16  
+11001002702           1        0.53            45        23.68  
+11001002801           1        0.53            46        24.21  
+11001002802           1        0.53            47        24.74  
+11001002900           1        0.53            48        25.26  
+11001003000           1        0.53            49        25.79  
+11001003100           1        0.53            50        26.32  
+11001003200           1        0.53            51        26.84  
+11001003301           1        0.53            52        27.37  
+11001003302           1        0.53            53        27.89  
+11001003400           1        0.53            54        28.42  
+11001003500           1        0.53            55        28.95  
+11001003600           1        0.53            56        29.47  
+11001003700           1        0.53            57        30.00  
+11001003800           1        0.53            58        30.53  
+11001003900           1        0.53            59        31.05  
+11001004001           1        0.53            60        31.58  
+11001004002           1        0.53            61        32.11  
+11001004100           1        0.53            62        32.63  
+11001004201           1        0.53            63        33.16  
+11001004202           1        0.53            64        33.68  
+11001004300           1        0.53            65        34.21  
+11001004400           1        0.53            66        34.74  
+11001004600           1        0.53            67        35.26  
+11001004700           1        0.53            68        35.79  
+11001004801           1        0.53            69        36.32  
+11001004802           1        0.53            70        36.84  
+11001004901           1        0.53            71        37.37  
+11001004902           1        0.53            72        37.89  
+11001005000           1        0.53            73        38.42  
+11001005100           1        0.53            74        38.95  
+11001005201           1        0.53            75        39.47  
+11001005202           1        0.53            76        40.00  
+11001005301           1        0.53            77        40.53  
+11001005302           1        0.53            78        41.05  
+11001005401           1        0.53            79        41.58  
+11001005402           1        0.53            80        42.11  
+HUD/Apsh_2008_vouchers_dc.sas:  NeighborhoodInfo DC                                      16:51 Monday, February 21, 2011  13
+File = Hud.Apsh_2008_vouchers_dc
+
+The FREQ Procedure
+
+                                        Cumulative    Cumulative
+code           Frequency     Percent     Frequency      Percent
+----------------------------------------------------------------
+11001005500           1        0.53            81        42.63  
+11001005600           1        0.53            82        43.16  
+11001005701           1        0.53            83        43.68  
+11001005702           1        0.53            84        44.21  
+11001005800           1        0.53            85        44.74  
+11001005900           1        0.53            86        45.26  
+11001006001           1        0.53            87        45.79  
+11001006002           1        0.53            88        46.32  
+11001006100           1        0.53            89        46.84  
+11001006201           1        0.53            90        47.37  
+11001006202           1        0.53            91        47.89  
+11001006301           1        0.53            92        48.42  
+11001006302           1        0.53            93        48.95  
+11001006400           1        0.53            94        49.47  
+11001006500           1        0.53            95        50.00  
+11001006600           1        0.53            96        50.53  
+11001006700           1        0.53            97        51.05  
+11001006801           1        0.53            98        51.58  
+11001006802           1        0.53            99        52.11  
+11001006804           1        0.53           100        52.63  
+11001006900           1        0.53           101        53.16  
+11001007000           1        0.53           102        53.68  
+11001007100           1        0.53           103        54.21  
+11001007200           1        0.53           104        54.74  
+11001007301           1        0.53           105        55.26  
+11001007302           1        0.53           106        55.79  
+11001007304           1        0.53           107        56.32  
+11001007308           1        0.53           108        56.84  
+11001007401           1        0.53           109        57.37  
+11001007403           1        0.53           110        57.89  
+11001007404           1        0.53           111        58.42  
+11001007406           1        0.53           112        58.95  
+11001007407           1        0.53           113        59.47  
+11001007408           1        0.53           114        60.00  
+11001007409           1        0.53           115        60.53  
+11001007502           1        0.53           116        61.05  
+11001007503           1        0.53           117        61.58  
+11001007504           1        0.53           118        62.11  
+11001007601           1        0.53           119        62.63  
+11001007603           1        0.53           120        63.16  
+HUD/Apsh_2008_vouchers_dc.sas:  NeighborhoodInfo DC                                      16:51 Monday, February 21, 2011  14
+File = Hud.Apsh_2008_vouchers_dc
+
+The FREQ Procedure
+
+                                        Cumulative    Cumulative
+code           Frequency     Percent     Frequency      Percent
+----------------------------------------------------------------
+11001007604           1        0.53           121        63.68  
+11001007605           1        0.53           122        64.21  
+11001007703           1        0.53           123        64.74  
+11001007707           1        0.53           124        65.26  
+11001007708           1        0.53           125        65.79  
+11001007709           1        0.53           126        66.32  
+11001007803           1        0.53           127        66.84  
+11001007804           1        0.53           128        67.37  
+11001007806           1        0.53           129        67.89  
+11001007807           1        0.53           130        68.42  
+11001007808           1        0.53           131        68.95  
+11001007809           1        0.53           132        69.47  
+11001007901           1        0.53           133        70.00  
+11001007903           1        0.53           134        70.53  
+11001008001           1        0.53           135        71.05  
+11001008002           1        0.53           136        71.58  
+11001008100           1        0.53           137        72.11  
+11001008200           1        0.53           138        72.63  
+11001008301           1        0.53           139        73.16  
+11001008302           1        0.53           140        73.68  
+11001008402           1        0.53           141        74.21  
+11001008410           1        0.53           142        74.74  
+11001008500           1        0.53           143        75.26  
+11001008600           1        0.53           144        75.79  
+11001008701           1        0.53           145        76.32  
+11001008702           1        0.53           146        76.84  
+11001008802           1        0.53           147        77.37  
+11001008803           1        0.53           148        77.89  
+11001008804           1        0.53           149        78.42  
+11001008903           1        0.53           150        78.95  
+11001008904           1        0.53           151        79.47  
+11001008905           1        0.53           152        80.00  
+11001009000           1        0.53           153        80.53  
+11001009101           1        0.53           154        81.05  
+11001009102           1        0.53           155        81.58  
+11001009201           1        0.53           156        82.11  
+11001009203           1        0.53           157        82.63  
+11001009204           1        0.53           158        83.16  
+11001009301           1        0.53           159        83.68  
+11001009302           1        0.53           160        84.21  
+HUD/Apsh_2008_vouchers_dc.sas:  NeighborhoodInfo DC                                      16:51 Monday, February 21, 2011  15
+File = Hud.Apsh_2008_vouchers_dc
+
+The FREQ Procedure
+
+                                        Cumulative    Cumulative
+code           Frequency     Percent     Frequency      Percent
+----------------------------------------------------------------
+11001009400           1        0.53           161        84.74  
+11001009501           1        0.53           162        85.26  
+11001009503           1        0.53           163        85.79  
+11001009504           1        0.53           164        86.32  
+11001009505           1        0.53           165        86.84  
+11001009507           1        0.53           166        87.37  
+11001009508           1        0.53           167        87.89  
+11001009509           1        0.53           168        88.42  
+11001009601           1        0.53           169        88.95  
+11001009602           1        0.53           170        89.47  
+11001009603           1        0.53           171        90.00  
+11001009604           1        0.53           172        90.53  
+11001009700           1        0.53           173        91.05  
+11001009801           1        0.53           174        91.58  
+11001009802           1        0.53           175        92.11  
+11001009803           1        0.53           176        92.63  
+11001009804           1        0.53           177        93.16  
+11001009806           1        0.53           178        93.68  
+11001009807           1        0.53           179        94.21  
+11001009808           1        0.53           180        94.74  
+11001009809           1        0.53           181        95.26  
+11001009901           1        0.53           182        95.79  
+11001009902           1        0.53           183        96.32  
+11001009903           1        0.53           184        96.84  
+11001009904           1        0.53           185        97.37  
+11001009905           1        0.53           186        97.89  
+11001009906           1        0.53           187        98.42  
+11001009907           1        0.53           188        98.95  
+11001999999           1        0.53           189        99.47  
+11999999999           1        0.53           190       100.00  
+HUD/Apsh_2008_vouchers_dc.sas:  NeighborhoodInfo DC                                      16:51 Monday, February 21, 2011  16
+File = Hud.Apsh_2008_vouchers_dc
+
+The FREQ Procedure
+
+                                        Cumulative    Cumulative
+Geo2000        Frequency     Percent     Frequency      Percent
+----------------------------------------------------------------
+                      2        1.05             2         1.05  
+Tract 1               1        0.53             3         1.58  
+Tract 2.01            1        0.53             4         2.11  
+Tract 2.02            1        0.53             5         2.63  
+Tract 3               1        0.53             6         3.16  
+Tract 4               1        0.53             7         3.68  
+Tract 5.01            1        0.53             8         4.21  
+Tract 5.02            1        0.53             9         4.74  
+Tract 6               1        0.53            10         5.26  
+Tract 7.01            1        0.53            11         5.79  
+Tract 7.02            1        0.53            12         6.32  
+Tract 8.01            1        0.53            13         6.84  
+Tract 8.02            1        0.53            14         7.37  
+Tract 9.01            1        0.53            15         7.89  
+Tract 9.02            1        0.53            16         8.42  
+Tract 10.01           1        0.53            17         8.95  
+Tract 10.02           1        0.53            18         9.47  
+Tract 11              1        0.53            19        10.00  
+Tract 12              1        0.53            20        10.53  
+Tract 13.01           1        0.53            21        11.05  
+Tract 13.02           1        0.53            22        11.58  
+Tract 14.01           1        0.53            23        12.11  
+Tract 14.02           1        0.53            24        12.63  
+Tract 15              1        0.53            25        13.16  
+Tract 16              1        0.53            26        13.68  
+Tract 17.01           1        0.53            27        14.21  
+Tract 17.02           1        0.53            28        14.74  
+Tract 18.01           1        0.53            29        15.26  
+Tract 18.03           1        0.53            30        15.79  
+Tract 18.04           1        0.53            31        16.32  
+Tract 19.01           1        0.53            32        16.84  
+Tract 19.02           1        0.53            33        17.37  
+Tract 20.01           1        0.53            34        17.89  
+Tract 20.02           1        0.53            35        18.42  
+Tract 21.01           1        0.53            36        18.95  
+Tract 21.02           1        0.53            37        19.47  
+Tract 22.01           1        0.53            38        20.00  
+Tract 22.02           1        0.53            39        20.53  
+Tract 23.01           1        0.53            40        21.05  
+Tract 23.02           1        0.53            41        21.58  
+HUD/Apsh_2008_vouchers_dc.sas:  NeighborhoodInfo DC                                      16:51 Monday, February 21, 2011  17
+File = Hud.Apsh_2008_vouchers_dc
+
+The FREQ Procedure
+
+                                        Cumulative    Cumulative
+Geo2000        Frequency     Percent     Frequency      Percent
+----------------------------------------------------------------
+Tract 24              1        0.53            42        22.11  
+Tract 25.01           1        0.53            43        22.63  
+Tract 25.02           1        0.53            44        23.16  
+Tract 26              1        0.53            45        23.68  
+Tract 27.01           1        0.53            46        24.21  
+Tract 27.02           1        0.53            47        24.74  
+Tract 28.01           1        0.53            48        25.26  
+Tract 28.02           1        0.53            49        25.79  
+Tract 29              1        0.53            50        26.32  
+Tract 30              1        0.53            51        26.84  
+Tract 31              1        0.53            52        27.37  
+Tract 32              1        0.53            53        27.89  
+Tract 33.01           1        0.53            54        28.42  
+Tract 33.02           1        0.53            55        28.95  
+Tract 34              1        0.53            56        29.47  
+Tract 35              1        0.53            57        30.00  
+Tract 36              1        0.53            58        30.53  
+Tract 37              1        0.53            59        31.05  
+Tract 38              1        0.53            60        31.58  
+Tract 39              1        0.53            61        32.11  
+Tract 40.01           1        0.53            62        32.63  
+Tract 40.02           1        0.53            63        33.16  
+Tract 41              1        0.53            64        33.68  
+Tract 42.01           1        0.53            65        34.21  
+Tract 42.02           1        0.53            66        34.74  
+Tract 43              1        0.53            67        35.26  
+Tract 44              1        0.53            68        35.79  
+Tract 46              1        0.53            69        36.32  
+Tract 47              1        0.53            70        36.84  
+Tract 48.01           1        0.53            71        37.37  
+Tract 48.02           1        0.53            72        37.89  
+Tract 49.01           1        0.53            73        38.42  
+Tract 49.02           1        0.53            74        38.95  
+Tract 50              1        0.53            75        39.47  
+Tract 51              1        0.53            76        40.00  
+Tract 52.01           1        0.53            77        40.53  
+Tract 52.02           1        0.53            78        41.05  
+Tract 53.01           1        0.53            79        41.58  
+Tract 53.02           1        0.53            80        42.11  
+Tract 54.01           1        0.53            81        42.63  
+HUD/Apsh_2008_vouchers_dc.sas:  NeighborhoodInfo DC                                      16:51 Monday, February 21, 2011  18
+File = Hud.Apsh_2008_vouchers_dc
+
+The FREQ Procedure
+
+                                        Cumulative    Cumulative
+Geo2000        Frequency     Percent     Frequency      Percent
+----------------------------------------------------------------
+Tract 54.02           1        0.53            82        43.16  
+Tract 55              1        0.53            83        43.68  
+Tract 56              1        0.53            84        44.21  
+Tract 57.01           1        0.53            85        44.74  
+Tract 57.02           1        0.53            86        45.26  
+Tract 58              1        0.53            87        45.79  
+Tract 59              1        0.53            88        46.32  
+Tract 60.01           1        0.53            89        46.84  
+Tract 60.02           1        0.53            90        47.37  
+Tract 61              1        0.53            91        47.89  
+Tract 62.01           1        0.53            92        48.42  
+Tract 62.02           1        0.53            93        48.95  
+Tract 63.01           1        0.53            94        49.47  
+Tract 63.02           1        0.53            95        50.00  
+Tract 64              1        0.53            96        50.53  
+Tract 65              1        0.53            97        51.05  
+Tract 66              1        0.53            98        51.58  
+Tract 67              1        0.53            99        52.11  
+Tract 68.01           1        0.53           100        52.63  
+Tract 68.02           1        0.53           101        53.16  
+Tract 68.04           1        0.53           102        53.68  
+Tract 69              1        0.53           103        54.21  
+Tract 70              1        0.53           104        54.74  
+Tract 71              1        0.53           105        55.26  
+Tract 72              1        0.53           106        55.79  
+Tract 73.01           1        0.53           107        56.32  
+Tract 73.02           1        0.53           108        56.84  
+Tract 73.04           1        0.53           109        57.37  
+Tract 73.08           1        0.53           110        57.89  
+Tract 74.01           1        0.53           111        58.42  
+Tract 74.03           1        0.53           112        58.95  
+Tract 74.04           1        0.53           113        59.47  
+Tract 74.06           1        0.53           114        60.00  
+Tract 74.07           1        0.53           115        60.53  
+Tract 74.08           1        0.53           116        61.05  
+Tract 74.09           1        0.53           117        61.58  
+Tract 75.02           1        0.53           118        62.11  
+Tract 75.03           1        0.53           119        62.63  
+Tract 75.04           1        0.53           120        63.16  
+Tract 76.01           1        0.53           121        63.68  
+HUD/Apsh_2008_vouchers_dc.sas:  NeighborhoodInfo DC                                      16:51 Monday, February 21, 2011  19
+File = Hud.Apsh_2008_vouchers_dc
+
+The FREQ Procedure
+
+                                        Cumulative    Cumulative
+Geo2000        Frequency     Percent     Frequency      Percent
+----------------------------------------------------------------
+Tract 76.03           1        0.53           122        64.21  
+Tract 76.04           1        0.53           123        64.74  
+Tract 76.05           1        0.53           124        65.26  
+Tract 77.03           1        0.53           125        65.79  
+Tract 77.07           1        0.53           126        66.32  
+Tract 77.08           1        0.53           127        66.84  
+Tract 77.09           1        0.53           128        67.37  
+Tract 78.03           1        0.53           129        67.89  
+Tract 78.04           1        0.53           130        68.42  
+Tract 78.06           1        0.53           131        68.95  
+Tract 78.07           1        0.53           132        69.47  
+Tract 78.08           1        0.53           133        70.00  
+Tract 78.09           1        0.53           134        70.53  
+Tract 79.01           1        0.53           135        71.05  
+Tract 79.03           1        0.53           136        71.58  
+Tract 80.01           1        0.53           137        72.11  
+Tract 80.02           1        0.53           138        72.63  
+Tract 81              1        0.53           139        73.16  
+Tract 82              1        0.53           140        73.68  
+Tract 83.01           1        0.53           141        74.21  
+Tract 83.02           1        0.53           142        74.74  
+Tract 84.02           1        0.53           143        75.26  
+Tract 84.10           1        0.53           144        75.79  
+Tract 85              1        0.53           145        76.32  
+Tract 86              1        0.53           146        76.84  
+Tract 87.01           1        0.53           147        77.37  
+Tract 87.02           1        0.53           148        77.89  
+Tract 88.02           1        0.53           149        78.42  
+Tract 88.03           1        0.53           150        78.95  
+Tract 88.04           1        0.53           151        79.47  
+Tract 89.03           1        0.53           152        80.00  
+Tract 89.04           1        0.53           153        80.53  
+Tract 89.05           1        0.53           154        81.05  
+Tract 90              1        0.53           155        81.58  
+Tract 91.01           1        0.53           156        82.11  
+Tract 91.02           1        0.53           157        82.63  
+Tract 92.01           1        0.53           158        83.16  
+Tract 92.03           1        0.53           159        83.68  
+Tract 92.04           1        0.53           160        84.21  
+Tract 93.01           1        0.53           161        84.74  
+HUD/Apsh_2008_vouchers_dc.sas:  NeighborhoodInfo DC                                      16:51 Monday, February 21, 2011  20
+File = Hud.Apsh_2008_vouchers_dc
+
+The FREQ Procedure
+
+                                        Cumulative    Cumulative
+Geo2000        Frequency     Percent     Frequency      Percent
+----------------------------------------------------------------
+Tract 93.02           1        0.53           162        85.26  
+Tract 94              1        0.53           163        85.79  
+Tract 95.01           1        0.53           164        86.32  
+Tract 95.03           1        0.53           165        86.84  
+Tract 95.04           1        0.53           166        87.37  
+Tract 95.05           1        0.53           167        87.89  
+Tract 95.07           1        0.53           168        88.42  
+Tract 95.08           1        0.53           169        88.95  
+Tract 95.09           1        0.53           170        89.47  
+Tract 96.01           1        0.53           171        90.00  
+Tract 96.02           1        0.53           172        90.53  
+Tract 96.03           1        0.53           173        91.05  
+Tract 96.04           1        0.53           174        91.58  
+Tract 97              1        0.53           175        92.11  
+Tract 98.01           1        0.53           176        92.63  
+Tract 98.02           1        0.53           177        93.16  
+Tract 98.03           1        0.53           178        93.68  
+Tract 98.04           1        0.53           179        94.21  
+Tract 98.06           1        0.53           180        94.74  
+Tract 98.07           1        0.53           181        95.26  
+Tract 98.08           1        0.53           182        95.79  
+Tract 98.09           1        0.53           183        96.32  
+Tract 99.01           1        0.53           184        96.84  
+Tract 99.02           1        0.53           185        97.37  
+Tract 99.03           1        0.53           186        97.89  
+Tract 99.04           1        0.53           187        98.42  
+Tract 99.05           1        0.53           188        98.95  
+Tract 99.06           1        0.53           189        99.47  
+Tract 99.07           1        0.53           190       100.00  

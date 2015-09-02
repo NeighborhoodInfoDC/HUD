@@ -1,0 +1,342 @@
+1                                         The SAS System         18:14 Wednesday, December 5, 2007
+
+NOTE: Copyright (c) 2002-2003 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) 9.1 (TS1M3)
+      Licensed to THE URBAN INSTITUTE, Site 0038838128.
+NOTE: This session is executing on the WIN_PRO  platform.
+
+
+
+NOTE: SAS 9.1.3 Service Pack 4
+
+NOTE: SAS initialization used:
+      real time           16.84 seconds
+      cpu time            0.64 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is D:\Personal Settings\My SAS Files\V9\Autoexnt.sas.
+
+
+NOTE: AUTOEXEC processing completed.
+
+1          /**************************************************************************
+2           Program:  Vouchers_sum_tr00.sas
+3           Library:  HUD
+4           Project:  NeighborhoodInfo DC
+5           Author:   P. Tatian
+6           Created:  12/05/07
+7           Version:  SAS 9.1
+8           Environment:  Windows
+9          
+10          Description:  Read in data provided by HUD on housing vouchers in
+11         census tracts for Dec. 2004.
+12         
+13          Modifications:
+14         **************************************************************************/
+15         
+16         %include "K:\Metro\PTatian\DCData\SAS\Inc\Stdhead.sas";
+48        +
+49        +options ls=124 ps=48;    ** Landscape **;
+50        +
+51        +** Output title **;
+52        +
+53        +title "&_library/&_program:  NeighborhoodInfo DC";
+54        +
+55        +** Define General library for local session only **;
+56        +
+57        +%DCData_lib( General, env=windows, macdef=dcautos uiautos sasautos )
+MPRINT(DCDATA_LIB):   options nomprint;
+2 The SAS System                                                                           18:14 Wednesday, December 5, 2007
+
+NOTE: Libref GENERAV6 was successfully assigned as follows: 
+      Engine:        V6 
+      Physical Name: D:\DCData\Libraries\General\Data
+NOTE: Libref GENERAV8 was successfully assigned as follows: 
+      Engine:        V8 
+      Physical Name: D:\DCData\Libraries\General\Data
+NOTE: Libref GENERAL was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V8 
+      Physical Name(1): D:\DCData\Libraries\General\Data
+      Engine(2):        V6 
+      Physical Name(2): D:\DCData\Libraries\General\Data
+
+=====================================================================
+Current FmtSearch Option value:
+
+     WORK* LIBRARY* GENERAL
+
+   *implicitly included by default.
+
+=====================================================================
+Status of current catalogs:
+
+NOTE:    WORK.FORMATS DOES NOT EXIST
+NOTE:    LIBRARY.FORMATS DOES NOT EXIST
+NOTE:    GENERAL.FORMATS EXISTS
+=====================================================================
+
+
+=====================================================================
+Current Sasautos Option value:
+
+     GENERAL DCAUTOS UIAUTOS SASAUTOS
+
+=====================================================================
+
+58        +
+NOTE: %INCLUDE (level 1) ending.
+59         
+60         ** Define libraries **;
+61         %DCData_lib( HUD )
+MPRINT(DCDATA_LIB):   options nomprint;
+NOTE: Libref HUDV6 was successfully assigned as follows: 
+      Engine:        V6 
+      Physical Name: D:\DCData\Libraries\HUD\Data
+NOTE: Libref HUDV8 was successfully assigned as follows: 
+3 The SAS System                                                                           18:14 Wednesday, December 5, 2007
+
+      Engine:        V8 
+      Physical Name: D:\DCData\Libraries\HUD\Data
+NOTE: Libref HUD was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V8 
+      Physical Name(1): D:\DCData\Libraries\HUD\Data
+      Engine(2):        V6 
+      Physical Name(2): D:\DCData\Libraries\HUD\Data
+
+=====================================================================
+Current FmtSearch Option value:
+
+     WORK* LIBRARY* GENERAL HUD
+
+   *implicitly included by default.
+
+=====================================================================
+Status of current catalogs:
+
+NOTE:    WORK.FORMATS DOES NOT EXIST
+NOTE:    LIBRARY.FORMATS DOES NOT EXIST
+NOTE:    GENERAL.FORMATS EXISTS
+NOTE:    HUD.FORMATS EXISTS
+=====================================================================
+
+
+=====================================================================
+Current Sasautos Option value:
+
+     HUD GENERAL DCAUTOS UIAUTOS SASAUTOS
+
+=====================================================================
+
+62         
+63         data Vouchers_dc_tract (compress=no) Vouchers_dc_notract (compress=no);
+64         
+65           set Hud.scantract_suppressed
+66                (where=(FIPSST='11')
+67                 rename=(total=Total_2004));
+68         
+69           if put( geo2000, $geo00v. ) = '' then do;
+70             %warn_put( msg="Invalid 2000 tract ID: " _n_= geo2000= total_2004= )
+MPRINT(WARN_PUT):   put "WARN" "ING:" " " "Invalid 2000 tract ID: " _n_= geo2000= total_2004=;
+71             geo2000 = '';
+72           end;
+73         
+4 The SAS System                                                                           18:14 Wednesday, December 5, 2007
+
+74           if geo2000 = '' then output Vouchers_dc_notract;
+75           else output Vouchers_dc_tract;
+76         
+77           label geo2000 = 'Full census tract ID (2000): ssccctttttt';
+78         
+79           format geo2000 $geo00a.;
+80         
+81           keep geo2000 Total_2004;
+82         
+83         run;
+
+WARNING: Invalid 2000 tract ID: _N_=1 geo2000=11001000000 Total_2004=191
+NOTE: There were 150 observations read from the data set HUD.SCANTRACT_SUPPRESSED.
+      WHERE FIPSST='11';
+NOTE: The data set WORK.VOUCHERS_DC_TRACT has 149 observations and 2 variables.
+NOTE: The data set WORK.VOUCHERS_DC_NOTRACT has 1 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           1.09 seconds
+      cpu time            0.14 seconds
+      
+
+84         
+85         proc summary data=Vouchers_dc_tract nway completetypes;
+86           class geo2000;
+87           var Total_2004;
+88           output out=Vouchers_dc_tract_sum sum=Total_2004_org;
+89         
+
+NOTE: There were 149 observations read from the data set WORK.VOUCHERS_DC_TRACT.
+NOTE: The data set WORK.VOUCHERS_DC_TRACT_SUM has 149 observations and 4 variables.
+NOTE: Compressing data set WORK.VOUCHERS_DC_TRACT_SUM increased size by 50.00 percent. 
+      Compressed is 3 pages; un-compressed would require 2 pages.
+NOTE: PROCEDURE SUMMARY used (Total process time):
+      real time           0.17 seconds
+      cpu time            0.03 seconds
+      
+
+90         proc print;
+91         
+
+NOTE: There were 149 observations read from the data set WORK.VOUCHERS_DC_TRACT_SUM.
+NOTE: The PROCEDURE PRINT printed pages 1-4.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.39 seconds
+      cpu time            0.06 seconds
+      
+5 The SAS System                                                                           18:14 Wednesday, December 5, 2007
+
+
+92         proc summary data=Vouchers_dc_notract nway;
+93           var Total_2004;
+94           output out=Vouchers_dc_notract_total (drop=_type_ _freq_) sum=Total_2004_notract;
+95         
+
+WARNING: Compression was disabled for data set WORK.VOUCHERS_DC_NOTRACT_TOTAL because compression overhead would increase 
+         the size of the data set.
+NOTE: There were 1 observations read from the data set WORK.VOUCHERS_DC_NOTRACT.
+NOTE: The data set WORK.VOUCHERS_DC_NOTRACT_TOTAL has 1 observations and 1 variables.
+NOTE: PROCEDURE SUMMARY used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.03 seconds
+      
+
+96         proc print;
+97         
+
+NOTE: There were 1 observations read from the data set WORK.VOUCHERS_DC_NOTRACT_TOTAL.
+NOTE: The PROCEDURE PRINT printed page 5.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+98         proc summary data=Vouchers_dc_tract nway;
+99           var Total_2004;
+100          output out=Vouchers_dc_tract_total (drop=_type_ _freq_) sum=Total_2004_tract;
+101        
+
+WARNING: Compression was disabled for data set WORK.VOUCHERS_DC_TRACT_TOTAL because compression overhead would increase the 
+         size of the data set.
+NOTE: There were 149 observations read from the data set WORK.VOUCHERS_DC_TRACT.
+NOTE: The data set WORK.VOUCHERS_DC_TRACT_TOTAL has 1 observations and 1 variables.
+NOTE: PROCEDURE SUMMARY used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.01 seconds
+      
+
+102        proc print;
+103        
+
+NOTE: There were 1 observations read from the data set WORK.VOUCHERS_DC_TRACT_TOTAL.
+NOTE: The PROCEDURE PRINT printed page 6.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+6 The SAS System                                                                           18:14 Wednesday, December 5, 2007
+
+      cpu time            0.00 seconds
+      
+
+104        proc sort data=Vouchers_dc_tract_sum;
+105          by descending total_2004_org;
+106        
+
+NOTE: There were 149 observations read from the data set WORK.VOUCHERS_DC_TRACT_SUM.
+NOTE: SAS sort was used.
+NOTE: The data set WORK.VOUCHERS_DC_TRACT_SUM has 149 observations and 4 variables.
+NOTE: Compressing data set WORK.VOUCHERS_DC_TRACT_SUM increased size by 50.00 percent. 
+      Compressed is 3 pages; un-compressed would require 2 pages.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.01 seconds
+      
+
+107        data Hud.Vouchers_sum_tr00 (label="Housing choice voucher summary, DC, Census tract (2000)");
+108        
+109          retain _run_total_2004_notract;
+110        
+111          set Vouchers_dc_tract_sum;
+112        
+113          if _n_ = 1 then do;
+114            set Vouchers_dc_notract_total;
+115            set Vouchers_dc_tract_total;
+116            _run_total_2004_notract = Total_2004_tract;
+117          end;
+118        
+119          if Total_2004_org = . then Total_2004 = 0;
+120        
+121          if Total_2004_org > 0 and _run_total_2004_notract > 0 then do;
+122            _add = min( ceil( Total_2004_notract * ( Total_2004_org / Total_2004_tract ) ), _run_total_2004_notract );
+123            Total_2004 = sum( Total_2004_org, _add );
+124            _run_total_2004_notract = _run_total_2004_notract - _add;
+125          end;
+126          else
+127            Total_2004 = Total_2004_org;
+128        
+129        run;
+
+NOTE: There were 149 observations read from the data set WORK.VOUCHERS_DC_TRACT_SUM.
+NOTE: There were 1 observations read from the data set WORK.VOUCHERS_DC_NOTRACT_TOTAL.
+NOTE: There were 1 observations read from the data set WORK.VOUCHERS_DC_TRACT_TOTAL.
+NOTE: The data set HUD.VOUCHERS_SUM_TR00 has 149 observations and 9 variables.
+NOTE: Compressing data set HUD.VOUCHERS_SUM_TR00 decreased size by 0.00 percent. 
+7 The SAS System                                                                           18:14 Wednesday, December 5, 2007
+
+      Compressed is 4 pages; un-compressed would require 4 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.12 seconds
+      cpu time            0.03 seconds
+      
+
+130        
+131        %File_info( data=Hud.Vouchers_sum_tr00 )
+MPRINT(FILE_INFO):   title2 "File = Hud.Vouchers_sum_tr00";
+MPRINT(FILE_INFO):   proc contents data=Hud.Vouchers_sum_tr00;
+MPRINT(FILE_INFO):   run;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.15 seconds
+      cpu time            0.04 seconds
+      
+NOTE: The PROCEDURE CONTENTS printed page 7.
+
+MPRINT(FILE_INFO):   proc print data=Hud.Vouchers_sum_tr00 (obs=10);
+MPRINT(FILE_INFO):   title3 "Printing first 10 obs.";
+MPRINT(FILE_INFO):   run;
+
+NOTE: There were 10 observations read from the data set HUD.VOUCHERS_SUM_TR00.
+NOTE: The PROCEDURE PRINT printed page 8.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(FILE_INFO):   title3;
+MPRINT(FILE_INFO):   options nolabel;
+MPRINT(FILE_INFO):   proc means data=Hud.Vouchers_sum_tr00 n sum mean stddev min max;
+MPRINT(FILE_INFO):   run;
+
+NOTE: There were 149 observations read from the data set HUD.VOUCHERS_SUM_TR00.
+NOTE: The PROCEDURE MEANS printed page 9.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(FILE_INFO):   options label;
+MPRINT(FILE_INFO):   title2;
+132        
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+8 The SAS System                                                                           18:14 Wednesday, December 5, 2007
+
+NOTE: The SAS System used:
+      real time           20.18 seconds
+      cpu time            1.35 seconds
+      

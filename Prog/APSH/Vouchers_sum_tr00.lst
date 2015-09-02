@@ -1,0 +1,68 @@
+HUD/Vouchers_sum_tr00.sas:  NeighborhoodInfo DC                                         10:37 Thursday, December 6, 2007   1
+File = Hud.Vouchers_sum_tr00
+
+The CONTENTS Procedure
+
+Data Set Name        HUD.VOUCHERS_SUM_TR00                                      Observations           188 
+Member Type          DATA                                                       Variables              2   
+Engine               V8                                                         Indexes                0   
+Created              Thu, Dec 06, 2007 10:37:14 AM                              Observation Length     19  
+Last Modified        Thu, Dec 06, 2007 10:37:14 AM                              Deleted Observations   0   
+Protection                                                                      Compressed             CHAR
+Data Set Type                                                                   Reuse Space            NO  
+Label                Housing choice voucher summary, DC, Census tract (2000)    Point to Observations  YES 
+Data Representation  WINDOWS_32                                                 Sorted                 YES 
+Encoding             wlatin1  Western (Windows)                                                            
+
+
+                         Engine/Host Dependent Information
+
+Data Set Page Size          4096                                                   
+Number of Data Set Pages    3                                                      
+Number of Data Set Repairs  0                                                      
+File Name                   D:\DCData\Libraries\HUD\Data\vouchers_sum_tr00.sas7bdat
+Release Created             9.0101M3                                               
+Host Created                WIN_PRO                                                
+
+
+                      Alphabetic List of Variables and Attributes
+ 
+#    Variable      Type    Len    Format      Label
+
+2    Total_2004    Num       8                Voucher households, 12/2004             
+1    geo2000       Char     11    $GEO00A.    Full census tract ID (2000): ssccctttttt
+
+
+   Sort Information
+
+Sortedby       geo2000
+Validated      YES    
+Character Set  ANSI   
+HUD/Vouchers_sum_tr00.sas:  NeighborhoodInfo DC                                         10:37 Thursday, December 6, 2007   2
+File = Hud.Vouchers_sum_tr00
+Printing first 10 obs.
+
+                     Total_
+Obs     geo2000       2004
+
+  1    Tract 1          0  
+  2    Tract 2.01       0  
+  3    Tract 2.02       0  
+  4    Tract 3          2  
+  5    Tract 4          0  
+  6    Tract 5.01       0  
+  7    Tract 5.02       0  
+  8    Tract 6          2  
+  9    Tract 7.01       0  
+ 10    Tract 7.02       0  
+HUD/Vouchers_sum_tr00.sas:  NeighborhoodInfo DC                                         10:37 Thursday, December 6, 2007   3
+File = Hud.Vouchers_sum_tr00
+
+The MEANS Procedure
+
+                          Analysis Variable : Total_2004 
+ 
+  N             Sum            Mean         Std Dev         Minimum         Maximum
+-----------------------------------------------------------------------------------
+188         8540.00      45.4255319      61.2558393               0     526.0000000
+-----------------------------------------------------------------------------------

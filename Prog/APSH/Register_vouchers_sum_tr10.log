@@ -1,0 +1,218 @@
+1                                                          The SAS System                           19:18 Wednesday, October 1, 2014
+
+NOTE: Unable to open SASUSER.REGSTRY. WORK.REGSTRY will be opened instead.
+NOTE: All registry changes will be lost at the end of the session.
+
+WARNING: Unable to copy SASUSER registry to WORK registry. Because of this, you will not see registry customizations during this 
+         session.
+NOTE: Unable to open SASUSER.PROFILE. WORK.PROFILE will be opened instead.
+NOTE: All profile changes will be lost at the end of the session.
+NOTE: Copyright (c) 2002-2008 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.2 (TS2M3) 
+      Licensed to THE URBAN INSTITUTE, Site 70097024.
+NOTE: This session is executing on the X64_VSPRO  platform.
+
+
+
+NOTE: SAS initialization used:
+      real time           1.01 seconds
+      cpu time            0.34 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is V:\WINAPPS\SAS 9.2 64-bit Depot\AUTOEXEC.SAS.
+
+
+NOTE: AUTOEXEC processing completed.
+
+1          /**************************************************************************
+2           Program:  Register_vouchers_sum_2013_tr10.sas
+3           Library:  HUD
+4           Project:  DMPED
+5           Author:   M. Woluchem
+6           Created:  10/01/14
+7           Version:  SAS 9.2
+8           Environment:  Local Windows session (desktop)
+9          
+10          Description:  Register HUD.Vouchers_sum_tr10 data set with
+11         metadata system.
+12         
+13          Modifications:
+14         **************************************************************************/
+15         
+16         %include "L:\SAS\Inc\StdLocal.sas";
+NOTE: Libref _METADAT was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: L:\Libraries\Metadata\Data
+59        +
+60        +options ls=124 ps=48;    ** Landscape **;
+61        +
+2 The SAS System                                                                            19:18 Wednesday, October 1, 2014
+
+62        +** Output title **;
+63        +
+64        +title "&_library/&_program:  NeighborhoodInfo DC";
+65        +
+66        +** Define General library for local session only **;
+67        +
+68        +%DCData_lib( General, env=windows, macdef=dcautos uiautos sasautos )
+MPRINT(DCDATA_LIB):   options nomprint;
+NOTE: Libref GENERA_L was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: D:\DCData\Libraries\General\Data
+NOTE: Libref GENERA_R was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: L:\Libraries\General\Data
+NOTE: Libref GENERAL was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): D:\DCData\Libraries\General\Data
+      Engine(2):        V9 
+      Physical Name(2): L:\Libraries\General\Data
+
+=====================================================================
+Current FmtSearch Option value:
+
+     WORK* LIBRARY* GENERAL
+
+   *implicitly included by default.
+
+=====================================================================
+Status of current catalogs:
+
+NOTE:    WORK.FORMATS DOES NOT EXIST
+NOTE:    LIBRARY.FORMATS DOES NOT EXIST
+NOTE:    GENERAL.FORMATS EXISTS
+=====================================================================
+
+
+=====================================================================
+Current Sasautos Option value:
+
+     GENERA_L DCAUTOS UIAUTOS SASAUTOS
+
+=====================================================================
+
+
+=====================================================================
+3 The SAS System                                                                            19:18 Wednesday, October 1, 2014
+
+Current Sasautos Option value:
+
+     GENERA_L  GENERA_R DCAUTOS UIAUTOS SASAUTOS
+
+=====================================================================
+
+69        +
+70        +%let _userid = %sysfunc( putc( %lowcase(&SYSUSERID), $longusr. ) );
+NOTE: %INCLUDE (level 1) ending.
+71         
+72         ** Define libraries **;
+73         %DCData_lib( HUD, local=n )
+MPRINT(DCDATA_LIB):   options nomprint;
+NOTE: Libref HUD_R was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: L:\Libraries\HUD\Data
+NOTE: Libref HUD was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): L:\Libraries\HUD\Data
+
+=====================================================================
+Current FmtSearch Option value:
+
+     WORK* LIBRARY* GENERAL HUD
+
+   *implicitly included by default.
+
+=====================================================================
+Status of current catalogs:
+
+NOTE:    WORK.FORMATS DOES NOT EXIST
+NOTE:    LIBRARY.FORMATS DOES NOT EXIST
+NOTE:    GENERAL.FORMATS EXISTS
+NOTE:    HUD.FORMATS EXISTS
+=====================================================================
+
+
+=====================================================================
+Current Sasautos Option value:
+
+     HUD_R GENERA_L GENERA_R DCAUTOS UIAUTOS SASAUTOS
+
+=====================================================================
+
+74         
+4 The SAS System                                                                            19:18 Wednesday, October 1, 2014
+
+75         %Dc_update_meta_file(
+66             %let restrict_param = <b><font color=""#FF0000"">Confidential</font></b>%nrstr(&nbsp;&nbsp;-&nbsp;&nbsp;)<a
+66       ! href=""restrictions_%lowcase(&ds_lib).html"">File restrictions</a>;
+                __
+                49
+NOTE 49-169: The meaning of an identifier after a quoted string may change in a future SAS release.  Inserting white space 
+             between a quoted string and the succeeding identifier is recommended.
+
+76           ds_lib=HUD,
+77           ds_name=Vouchers_sum_2013_tr10,
+78           creator_process=Vouchers_sum_2013_tr10,
+79           restrictions=None,
+80           revisions=%str(New file.)
+81         )
+NOTE: [DC_update_meta_file] Data set will be processed from remote library (HUD_R).
+NOTE: [DC_update_meta_file] _userid=mwoluchem
+NOTE: [Push_option] System option MPRINT saved.
+MPRINT(UPDATE_METADATA_FILE):   options nomprint;
+NOTE: [Push_option] System option OBS=9223372036854775807 saved.
+NOTE: [Update_metadata_file] OPTIONS OBS set to MAX for metadata processing.
+NOTE: [Dataset_exists] The data set _metadat.meta_libs (DATA) exists.
+NOTE: [Data_to_format] Starting macro.
+
+NOTE: There were 40 observations read from the data set _METADAT.META_LIBS.
+NOTE: The data set WORK._CNTLIN has 41 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.01 seconds
+      
+
+NOTE: Format $LIBCHK has been output.
+
+NOTE: PROCEDURE FORMAT used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.00 seconds
+      
+NOTE: There were 41 observations read from the data set WORK._CNTLIN.
+
+
+NOTE: Deleting WORK._CNTLIN (memtype=DATA).
+NOTE: PROCEDURE DATASETS used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.01 seconds
+      
+
+NOTE: [Data_to_format] Exiting macro.
+5 The SAS System                                                                            19:18 Wednesday, October 1, 2014
+
+
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+NOTE: [Dataset_exists] The data set hud_r.Vouchers_sum_2013_tr10 (DATA) does not exist.
+NOTE: [Dataset_exists] The data set hud_r.Vouchers_sum_2013_tr10 (VIEW) does not exist.
+ERROR: [Update_metadata_file] The data set hud_r.Vouchers_sum_2013_tr10 does not exist.
+ERROR: [Update_metadata_file] Data set HUD.Vouchers_sum_2013_tr10 was not registered with metadata system.
+NOTE: [Pop_option] System option OBS=9223372036854775807 restored.
+NOTE: [Pop_option] System option MPRINT restored.
+NOTE: [Update_metadata_file] Macro Update_metadata_file() exiting.
+NOTE: [DC_update_meta_file] Exiting macro.
+82         
+83         run;
+
+ERROR: Errors printed on page 5.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           1.46 seconds
+      cpu time            0.51 seconds
+      

@@ -1,0 +1,350 @@
+HUD/Vouchers_sum_all.sas:  NeighborhoodInfo DC                                          19:18 Wednesday, October 1, 2014   1
+File = HUD.Vouchers_sum__city
+
+The CONTENTS Procedure
+
+Data Set Name        HUD.VOUCHERS_SUM__CITY                            Observations          0  
+Member Type          DATA                                              Variables             1  
+Engine               V9                                                Indexes               0  
+Created              Wed, Oct 01, 2014 07:04:34 PM                     Observation Length    1  
+Last Modified        Wed, Oct 01, 2014 07:04:34 PM                     Deleted Observations  0  
+Protection                                                             Compressed            NO 
+Data Set Type                                                          Sorted                YES
+Label                Housing choice voucher summary, DC, City total                             
+Data Representation  WINDOWS_64                                                                 
+Encoding             wlatin1  Western (Windows)                                                 
+
+
+                      Engine/Host Dependent Information
+
+Data Set Page Size          4096                                             
+Number of Data Set Pages    1                                                
+First Data Page             1                                                
+Max Obs per Page            3619                                             
+Obs in First Data Page      0                                                
+Number of Data Set Repairs  0                                                
+Filename                    L:\Libraries\HUD\Data\vouchers_sum__city.sas7bdat
+Release Created             9.0202M3                                         
+Host Created                X64_VSPRO                                        
+
+
+        Alphabetic List of Variables and Attributes
+ 
+#    Variable    Type    Len    Format    Label
+
+1    City        Char      1    $CITY.    Washington, D.C.
+
+
+ Sort Information
+
+Sortedby       City
+Validated      NO  
+Character Set  ANSI
+HUD/Vouchers_sum_all.sas:  NeighborhoodInfo DC                                          19:18 Wednesday, October 1, 2014   2
+File = HUD.Vouchers_sum__eor
+
+The CONTENTS Procedure
+
+Data Set Name        HUD.VOUCHERS_SUM__EOR                                              Observations          0 
+Member Type          DATA                                                               Variables             0 
+Engine               V9                                                                 Indexes               0 
+Created              Wed, Oct 01, 2014 07:04:43 PM                                      Observation Length    0 
+Last Modified        Wed, Oct 01, 2014 07:04:43 PM                                      Deleted Observations  0 
+Protection                                                                              Compressed            NO
+Data Set Type                                                                           Sorted                NO
+Label                Housing choice voucher summary, DC, East of the Anacostia River                            
+Data Representation  WINDOWS_64                                                                                 
+Encoding             wlatin1  Western (Windows)                                                                 
+
+
+                     Engine/Host Dependent Information
+
+Data Set Page Size          4096                                            
+Number of Data Set Pages    1                                               
+First Data Page             1                                               
+Max Obs per Page            3616                                            
+Obs in First Data Page      0                                               
+Number of Data Set Repairs  0                                               
+Filename                    L:\Libraries\HUD\Data\vouchers_sum__eor.sas7bdat
+Release Created             9.0202M3                                        
+Host Created                X64_VSPRO                                       
+HUD/Vouchers_sum_all.sas:  NeighborhoodInfo DC                                          19:18 Wednesday, October 1, 2014   3
+File = HUD.Vouchers_sum__wd02
+
+The CONTENTS Procedure
+
+Data Set Name        HUD.VOUCHERS_SUM__WD02                             Observations          0 
+Member Type          DATA                                               Variables             0 
+Engine               V9                                                 Indexes               0 
+Created              Wed, Oct 01, 2014 07:04:52 PM                      Observation Length    0 
+Last Modified        Wed, Oct 01, 2014 07:04:52 PM                      Deleted Observations  0 
+Protection                                                              Compressed            NO
+Data Set Type                                                           Sorted                NO
+Label                Housing choice voucher summary, DC, Ward (2002)                            
+Data Representation  WINDOWS_64                                                                 
+Encoding             wlatin1  Western (Windows)                                                 
+
+
+                      Engine/Host Dependent Information
+
+Data Set Page Size          4096                                             
+Number of Data Set Pages    1                                                
+First Data Page             1                                                
+Max Obs per Page            3616                                             
+Obs in First Data Page      0                                                
+Number of Data Set Repairs  0                                                
+Filename                    L:\Libraries\HUD\Data\vouchers_sum__wd02.sas7bdat
+Release Created             9.0202M3                                         
+Host Created                X64_VSPRO                                        
+HUD/Vouchers_sum_all.sas:  NeighborhoodInfo DC                                          19:18 Wednesday, October 1, 2014   4
+File = HUD.Vouchers_sum__wd12
+
+The CONTENTS Procedure
+
+Data Set Name        HUD.VOUCHERS_SUM__WD12                             Observations          0 
+Member Type          DATA                                               Variables             0 
+Engine               V9                                                 Indexes               0 
+Created              Wed, Oct 01, 2014 07:05:02 PM                      Observation Length    0 
+Last Modified        Wed, Oct 01, 2014 07:05:02 PM                      Deleted Observations  0 
+Protection                                                              Compressed            NO
+Data Set Type                                                           Sorted                NO
+Label                Housing choice voucher summary, DC, Ward (2012)                            
+Data Representation  WINDOWS_64                                                                 
+Encoding             wlatin1  Western (Windows)                                                 
+
+
+                      Engine/Host Dependent Information
+
+Data Set Page Size          4096                                             
+Number of Data Set Pages    1                                                
+First Data Page             1                                                
+Max Obs per Page            3616                                             
+Obs in First Data Page      0                                                
+Number of Data Set Repairs  0                                                
+Filename                    L:\Libraries\HUD\Data\vouchers_sum__wd12.sas7bdat
+Release Created             9.0202M3                                         
+Host Created                X64_VSPRO                                        
+HUD/Vouchers_sum_all.sas:  NeighborhoodInfo DC                                          19:18 Wednesday, October 1, 2014   5
+File = HUD.Vouchers_sum__zip
+
+The CONTENTS Procedure
+
+Data Set Name        HUD.VOUCHERS_SUM__ZIP                                     Observations          0 
+Member Type          DATA                                                      Variables             0 
+Engine               V9                                                        Indexes               0 
+Created              Wed, Oct 01, 2014 07:05:11 PM                             Observation Length    0 
+Last Modified        Wed, Oct 01, 2014 07:05:11 PM                             Deleted Observations  0 
+Protection                                                                     Compressed            NO
+Data Set Type                                                                  Sorted                NO
+Label                Housing choice voucher summary, DC, ZIP code (5 digit)                            
+Data Representation  WINDOWS_64                                                                        
+Encoding             wlatin1  Western (Windows)                                                        
+
+
+                     Engine/Host Dependent Information
+
+Data Set Page Size          4096                                            
+Number of Data Set Pages    1                                               
+First Data Page             1                                               
+Max Obs per Page            3616                                            
+Obs in First Data Page      0                                               
+Number of Data Set Repairs  0                                               
+Filename                    L:\Libraries\HUD\Data\vouchers_sum__zip.sas7bdat
+Release Created             9.0202M3                                        
+Host Created                X64_VSPRO                                       
+HUD/Vouchers_sum_all.sas:  NeighborhoodInfo DC                                          19:18 Wednesday, October 1, 2014   6
+File = HUD.Vouchers_sum__psa04
+
+The CONTENTS Procedure
+
+Data Set Name        HUD.VOUCHERS_SUM__PSA04                                           Observations          0 
+Member Type          DATA                                                              Variables             0 
+Engine               V9                                                                Indexes               0 
+Created              Wed, Oct 01, 2014 07:05:19 PM                                     Observation Length    0 
+Last Modified        Wed, Oct 01, 2014 07:05:19 PM                                     Deleted Observations  0 
+Protection                                                                             Compressed            NO
+Data Set Type                                                                          Sorted                NO
+Label                Housing choice voucher summary, DC, Police Service Area (2004)                            
+Data Representation  WINDOWS_64                                                                                
+Encoding             wlatin1  Western (Windows)                                                                
+
+
+                      Engine/Host Dependent Information
+
+Data Set Page Size          4096                                              
+Number of Data Set Pages    1                                                 
+First Data Page             1                                                 
+Max Obs per Page            3616                                              
+Obs in First Data Page      0                                                 
+Number of Data Set Repairs  0                                                 
+Filename                    L:\Libraries\HUD\Data\vouchers_sum__psa04.sas7bdat
+Release Created             9.0202M3                                          
+Host Created                X64_VSPRO                                         
+HUD/Vouchers_sum_all.sas:  NeighborhoodInfo DC                                          19:18 Wednesday, October 1, 2014   7
+File = HUD.Vouchers_sum__psa12
+
+The CONTENTS Procedure
+
+Data Set Name        HUD.VOUCHERS_SUM__PSA12                                           Observations          0 
+Member Type          DATA                                                              Variables             0 
+Engine               V9                                                                Indexes               0 
+Created              Wed, Oct 01, 2014 07:05:28 PM                                     Observation Length    0 
+Last Modified        Wed, Oct 01, 2014 07:05:28 PM                                     Deleted Observations  0 
+Protection                                                                             Compressed            NO
+Data Set Type                                                                          Sorted                NO
+Label                Housing choice voucher summary, DC, Police Service Area (2012)                            
+Data Representation  WINDOWS_64                                                                                
+Encoding             wlatin1  Western (Windows)                                                                
+
+
+                      Engine/Host Dependent Information
+
+Data Set Page Size          4096                                              
+Number of Data Set Pages    1                                                 
+First Data Page             1                                                 
+Max Obs per Page            3616                                              
+Obs in First Data Page      0                                                 
+Number of Data Set Repairs  0                                                 
+Filename                    L:\Libraries\HUD\Data\vouchers_sum__psa12.sas7bdat
+Release Created             9.0202M3                                          
+Host Created                X64_VSPRO                                         
+HUD/Vouchers_sum_all.sas:  NeighborhoodInfo DC                                          19:18 Wednesday, October 1, 2014   8
+File = HUD.Vouchers_sum__anc02
+
+The CONTENTS Procedure
+
+Data Set Name        HUD.VOUCHERS_SUM__ANC02                                                        Observations          0 
+Member Type          DATA                                                                           Variables             0 
+Engine               V9                                                                             Indexes               0 
+Created              Wed, Oct 01, 2014 07:05:36 PM                                                  Observation Length    0 
+Last Modified        Wed, Oct 01, 2014 07:05:36 PM                                                  Deleted Observations  0 
+Protection                                                                                          Compressed            NO
+Data Set Type                                                                                       Sorted                NO
+Label                Housing choice voucher summary, DC, Advisory Neighborhood Commission (2002)                            
+Data Representation  WINDOWS_64                                                                                             
+Encoding             wlatin1  Western (Windows)                                                                             
+
+
+                      Engine/Host Dependent Information
+
+Data Set Page Size          4096                                              
+Number of Data Set Pages    1                                                 
+First Data Page             1                                                 
+Max Obs per Page            3616                                              
+Obs in First Data Page      0                                                 
+Number of Data Set Repairs  0                                                 
+Filename                    L:\Libraries\HUD\Data\vouchers_sum__anc02.sas7bdat
+Release Created             9.0202M3                                          
+Host Created                X64_VSPRO                                         
+HUD/Vouchers_sum_all.sas:  NeighborhoodInfo DC                                          19:18 Wednesday, October 1, 2014   9
+File = HUD.Vouchers_sum__anc12
+
+The CONTENTS Procedure
+
+Data Set Name        HUD.VOUCHERS_SUM__ANC12                                                        Observations          0 
+Member Type          DATA                                                                           Variables             0 
+Engine               V9                                                                             Indexes               0 
+Created              Wed, Oct 01, 2014 07:05:47 PM                                                  Observation Length    0 
+Last Modified        Wed, Oct 01, 2014 07:05:47 PM                                                  Deleted Observations  0 
+Protection                                                                                          Compressed            NO
+Data Set Type                                                                                       Sorted                NO
+Label                Housing choice voucher summary, DC, Advisory Neighborhood Commission (2012)                            
+Data Representation  WINDOWS_64                                                                                             
+Encoding             wlatin1  Western (Windows)                                                                             
+
+
+                      Engine/Host Dependent Information
+
+Data Set Page Size          4096                                              
+Number of Data Set Pages    1                                                 
+First Data Page             1                                                 
+Max Obs per Page            3616                                              
+Obs in First Data Page      0                                                 
+Number of Data Set Repairs  0                                                 
+Filename                    L:\Libraries\HUD\Data\vouchers_sum__anc12.sas7bdat
+Release Created             9.0202M3                                          
+Host Created                X64_VSPRO                                         
+HUD/Vouchers_sum_all.sas:  NeighborhoodInfo DC                                          19:18 Wednesday, October 1, 2014  10
+File = HUD.Vouchers_sum__cltr00
+
+The CONTENTS Procedure
+
+Data Set Name        HUD.VOUCHERS_SUM__CLTR00                                                       Observations          0 
+Member Type          DATA                                                                           Variables             0 
+Engine               V9                                                                             Indexes               0 
+Created              Wed, Oct 01, 2014 07:05:57 PM                                                  Observation Length    0 
+Last Modified        Wed, Oct 01, 2014 07:05:57 PM                                                  Deleted Observations  0 
+Protection                                                                                          Compressed            NO
+Data Set Type                                                                                       Sorted                NO
+Label                Housing choice voucher summary, DC, Neighborhood cluster (tract-based, 2000)                           
+Data Representation  WINDOWS_64                                                                                             
+Encoding             wlatin1  Western (Windows)                                                                             
+
+
+                       Engine/Host Dependent Information
+
+Data Set Page Size          4096                                               
+Number of Data Set Pages    1                                                  
+First Data Page             1                                                  
+Max Obs per Page            3616                                               
+Obs in First Data Page      0                                                  
+Number of Data Set Repairs  0                                                  
+Filename                    L:\Libraries\HUD\Data\vouchers_sum__cltr00.sas7bdat
+Release Created             9.0202M3                                           
+Host Created                X64_VSPRO                                          
+HUD/Vouchers_sum_all.sas:  NeighborhoodInfo DC                                          19:18 Wednesday, October 1, 2014  11
+File = HUD.Vouchers_sum__vp12
+
+The CONTENTS Procedure
+
+Data Set Name        HUD.VOUCHERS_SUM__VP12                                        Observations          0 
+Member Type          DATA                                                          Variables             0 
+Engine               V9                                                            Indexes               0 
+Created              Wed, Oct 01, 2014 07:06:06 PM                                 Observation Length    0 
+Last Modified        Wed, Oct 01, 2014 07:06:06 PM                                 Deleted Observations  0 
+Protection                                                                         Compressed            NO
+Data Set Type                                                                      Sorted                NO
+Label                Housing choice voucher summary, DC, Voting Precinct (2012)                            
+Data Representation  WINDOWS_64                                                                            
+Encoding             wlatin1  Western (Windows)                                                            
+
+
+                      Engine/Host Dependent Information
+
+Data Set Page Size          4096                                             
+Number of Data Set Pages    1                                                
+First Data Page             1                                                
+Max Obs per Page            3616                                             
+Obs in First Data Page      0                                                
+Number of Data Set Repairs  0                                                
+Filename                    L:\Libraries\HUD\Data\vouchers_sum__vp12.sas7bdat
+Release Created             9.0202M3                                         
+Host Created                X64_VSPRO                                        
+HUD/Vouchers_sum_all.sas:  NeighborhoodInfo DC                                          19:18 Wednesday, October 1, 2014  12
+File = HUD.Vouchers_sum__tr00
+
+The CONTENTS Procedure
+
+Data Set Name        HUD.VOUCHERS_SUM__TR00                                     Observations          0 
+Member Type          DATA                                                       Variables             0 
+Engine               V9                                                         Indexes               0 
+Created              Wed, Oct 01, 2014 07:06:20 PM                              Observation Length    0 
+Last Modified        Wed, Oct 01, 2014 07:06:20 PM                              Deleted Observations  0 
+Protection                                                                      Compressed            NO
+Data Set Type                                                                   Sorted                NO
+Label                Housing choice voucher summary, DC, Census tract (2000)                            
+Data Representation  WINDOWS_64                                                                         
+Encoding             wlatin1  Western (Windows)                                                         
+
+
+                      Engine/Host Dependent Information
+
+Data Set Page Size          4096                                             
+Number of Data Set Pages    1                                                
+First Data Page             1                                                
+Max Obs per Page            3616                                             
+Obs in First Data Page      0                                                
+Number of Data Set Repairs  0                                                
+Filename                    L:\Libraries\HUD\Data\vouchers_sum__tr00.sas7bdat
+Release Created             9.0202M3                                         
+Host Created                X64_VSPRO                                        

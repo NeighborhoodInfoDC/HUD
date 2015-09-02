@@ -1,0 +1,251 @@
+1                                                          The SAS System                           19:17 Wednesday, October 1, 2014
+
+NOTE: Unable to open SASUSER.REGSTRY. WORK.REGSTRY will be opened instead.
+NOTE: All registry changes will be lost at the end of the session.
+
+WARNING: Unable to copy SASUSER registry to WORK registry. Because of this, you will not see registry customizations during this 
+         session.
+NOTE: Unable to open SASUSER.PROFILE. WORK.PROFILE will be opened instead.
+NOTE: All profile changes will be lost at the end of the session.
+NOTE: Copyright (c) 2002-2008 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.2 (TS2M3) 
+      Licensed to THE URBAN INSTITUTE, Site 70097024.
+NOTE: This session is executing on the X64_VSPRO  platform.
+
+
+
+NOTE: SAS initialization used:
+      real time           0.99 seconds
+      cpu time            0.34 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is V:\WINAPPS\SAS 9.2 64-bit Depot\AUTOEXEC.SAS.
+
+
+NOTE: AUTOEXEC processing completed.
+
+1          /**************************************************************************
+2           Program:  HUDVouchers.sas
+3           Library:  HUD
+4           Project:  DMPED
+5           Author:   M. Woluchem
+6           Created:  10/01/14
+7           Version:  SAS 9.1
+8           Environment:  Windows
+9           Description:  Prepares HUD voucher cata for DMPED parcel profile
+10          Modifications:
+11         **************************************************************************/
+12         
+13         %include "L:\SAS\Inc\StdLocal.sas";
+NOTE: Libref _METADAT was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: L:\Libraries\Metadata\Data
+56        +
+57        +options ls=124 ps=48;    ** Landscape **;
+58        +
+59        +** Output title **;
+60        +
+61        +title "&_library/&_program:  NeighborhoodInfo DC";
+2 The SAS System                                                                            19:17 Wednesday, October 1, 2014
+
+62        +
+63        +** Define General library for local session only **;
+64        +
+65        +%DCData_lib( General, env=windows, macdef=dcautos uiautos sasautos )
+MPRINT(DCDATA_LIB):   options nomprint;
+NOTE: Libref GENERA_L was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: D:\DCData\Libraries\General\Data
+NOTE: Libref GENERA_R was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: L:\Libraries\General\Data
+NOTE: Libref GENERAL was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): D:\DCData\Libraries\General\Data
+      Engine(2):        V9 
+      Physical Name(2): L:\Libraries\General\Data
+
+=====================================================================
+Current FmtSearch Option value:
+
+     WORK* LIBRARY* GENERAL
+
+   *implicitly included by default.
+
+=====================================================================
+Status of current catalogs:
+
+NOTE:    WORK.FORMATS DOES NOT EXIST
+NOTE:    LIBRARY.FORMATS DOES NOT EXIST
+NOTE:    GENERAL.FORMATS EXISTS
+=====================================================================
+
+
+=====================================================================
+Current Sasautos Option value:
+
+     GENERA_L DCAUTOS UIAUTOS SASAUTOS
+
+=====================================================================
+
+
+=====================================================================
+Current Sasautos Option value:
+
+     GENERA_L  GENERA_R DCAUTOS UIAUTOS SASAUTOS
+3 The SAS System                                                                            19:17 Wednesday, October 1, 2014
+
+
+=====================================================================
+
+66        +
+67        +%let _userid = %sysfunc( putc( %lowcase(&SYSUSERID), $longusr. ) );
+NOTE: %INCLUDE (level 1) ending.
+68         
+69         ** Define libraries **;
+70         %DCData_lib( HUD, local=n )
+MPRINT(DCDATA_LIB):   options nomprint;
+NOTE: Libref HUD_R was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: L:\Libraries\HUD\Data
+NOTE: Libref HUD was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): L:\Libraries\HUD\Data
+
+=====================================================================
+Current FmtSearch Option value:
+
+     WORK* LIBRARY* GENERAL HUD
+
+   *implicitly included by default.
+
+=====================================================================
+Status of current catalogs:
+
+NOTE:    WORK.FORMATS DOES NOT EXIST
+NOTE:    LIBRARY.FORMATS DOES NOT EXIST
+NOTE:    GENERAL.FORMATS EXISTS
+NOTE:    HUD.FORMATS EXISTS
+=====================================================================
+
+
+=====================================================================
+Current Sasautos Option value:
+
+     HUD_R GENERA_L GENERA_R DCAUTOS UIAUTOS SASAUTOS
+
+=====================================================================
+
+71         
+72         libname Hudraw "&_dcdata_r_path\HUD\Raw\APSH";
+NOTE: Libref HUDRAW was successfully assigned as follows: 
+      Engine:        V9 
+4 The SAS System                                                                            19:17 Wednesday, October 1, 2014
+
+      Physical Name: L:\Libraries\HUD\Raw\APSH
+73         
+74         data Vouchers_dc_tract (compress=no);
+75         
+76           set Hudraw.HUDVouchersbyTract (rename=(code=Geo2010 subsidized_units_available=total_units));
+77         
+78           if put( geo2010, $geo10v. ) = '' then do;
+                              ________
+                              484
+WARNING: Variable Geo2010 has already been defined as numeric.
+NOTE 484-185: Format GEO10V was not found or could not be loaded.
+
+79             %warn_put( msg="Invalid 2010 tract ID: " _n_= geo2010= total_units= )
+MPRINT(WARN_PUT):   put "WARN" "ING:" " " "Invalid 2010 tract ID: " _n_= geo2010= total_units=;
+80             geo2010 = '';
+81           end;
+82         
+83           output Vouchers_dc_tract;
+WARNING: Variable Geo2010 has already been defined as numeric.
+84         
+85           label geo2010 = 'Full census tract ID (2010): ssccctttttt';
+86         
+87           format geo2010 $geo10a.;
+                            ________
+                            484
+NOTE 484-185: Format GEO10A was not found or could not be loaded.
+
+88         
+89           keep geo2010 Total_units;
+90         
+91         run;
+
+NOTE: Character values have been converted to numeric values at the places given by: (Line):(Column).
+      80:15   
+NOTE: There were 180 observations read from the data set HUDRAW.HUDVOUCHERSBYTRACT.
+NOTE: The data set WORK.VOUCHERS_DC_TRACT has 180 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.01 seconds
+      
+
+92         
+93         proc sort data=Vouchers_dc_tract
+94         	out=Hud.Vouchers_sum_tr10;
+95           by geo2010;
+96         
+5 The SAS System                                                                            19:17 Wednesday, October 1, 2014
+
+97         %File_info( data=Hud.Vouchers_sum_tr10 )
+MPRINT(FILE_INFO):   title2 "File = Hud.Vouchers_sum_tr10";
+
+NOTE: Compression was disabled for data set HUD.VOUCHERS_SUM_TR10 because compression overhead would increase the size of 
+      the data set.
+NOTE: There were 180 observations read from the data set WORK.VOUCHERS_DC_TRACT.
+NOTE: SAS sort was used.
+NOTE: The data set HUD.VOUCHERS_SUM_TR10 has 180 observations and 2 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.14 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(FILE_INFO):   proc contents data=Hud.Vouchers_sum_tr10;
+MPRINT(FILE_INFO):   run;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.32 seconds
+      cpu time            0.03 seconds
+      
+NOTE: The PROCEDURE CONTENTS printed page 1.
+
+MPRINT(FILE_INFO):   proc print data=Hud.Vouchers_sum_tr10 (obs=10);
+MPRINT(FILE_INFO):   title3 "Printing first 10 obs.";
+MPRINT(FILE_INFO):   run;
+
+NOTE: There were 10 observations read from the data set HUD.VOUCHERS_SUM_TR10.
+NOTE: The PROCEDURE PRINT printed page 2.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(FILE_INFO):   title3;
+MPRINT(FILE_INFO):   options nolabel;
+MPRINT(FILE_INFO):   proc means data=Hud.Vouchers_sum_tr10 n sum mean stddev min max;
+MPRINT(FILE_INFO):   run;
+
+NOTE: Multiple concurrent threads will be used to summarize data.
+NOTE: There were 180 observations read from the data set HUD.VOUCHERS_SUM_TR10.
+NOTE: The PROCEDURE MEANS printed page 3.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.03 seconds
+      
+
+6 The SAS System                                                                            19:17 Wednesday, October 1, 2014
+
+MPRINT(FILE_INFO):   options label;
+MPRINT(FILE_INFO):   title2;
+98         
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           2.31 seconds
+      cpu time            0.52 seconds
+      

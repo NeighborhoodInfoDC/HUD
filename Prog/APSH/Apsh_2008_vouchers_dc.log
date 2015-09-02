@@ -1,0 +1,371 @@
+1                                         The SAS System           16:51 Monday, February 21, 2011
+
+NOTE: Copyright (c) 2002-2003 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) 9.1 (TS1M3)
+      Licensed to THE URBAN INSTITUTE, Site 0038838128.
+NOTE: This session is executing on the XP_PRO  platform.
+
+
+
+NOTE: SAS 9.1.3 Service Pack 4
+
+NOTE: SAS initialization used:
+      real time           1.40 seconds
+      cpu time            0.29 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is D:\Personal Settings\My SAS Files\V9\Autoexnt.sas.
+
+
+NOTE: AUTOEXEC processing completed.
+
+1          /**************************************************************************
+2           Program:  Apsh_2008_vouchers_dc.sas
+3           Library:  HUD
+4           Project:  NeighborhoodInfo DC
+5           Author:   P. Tatian
+6           Created:  02/21/11
+7           Version:  SAS 9.1
+8           Environment:  Windows
+9          
+10          Description:  Read APSH 2008 data on housing vouchers for DC.
+11         
+12          Modifications:
+13         **************************************************************************/
+14         
+15         %include "K:\Metro\PTatian\DCData\SAS\Inc\Stdhead.sas";
+47        +
+48        +options ls=124 ps=48;    ** Landscape **;
+49        +
+50        +** Output title **;
+51        +
+52        +title "&_library/&_program:  NeighborhoodInfo DC";
+53        +
+54        +** Define General library for local session only **;
+55        +
+56        +%DCData_lib( General, env=windows, macdef=dcautos uiautos sasautos )
+MPRINT(DCDATA_LIB):   options nomprint;
+NOTE: Libref GENERAV6 was successfully assigned as follows: 
+2 The SAS System                                                                             16:51 Monday, February 21, 2011
+
+      Engine:        V6 
+      Physical Name: D:\DCData\Libraries\General\Data
+NOTE: Libref GENERAV8 was successfully assigned as follows: 
+      Engine:        V8 
+      Physical Name: D:\DCData\Libraries\General\Data
+NOTE: Libref GENERAL was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V8 
+      Physical Name(1): D:\DCData\Libraries\General\Data
+      Engine(2):        V6 
+      Physical Name(2): D:\DCData\Libraries\General\Data
+
+=====================================================================
+Current FmtSearch Option value:
+
+     WORK* LIBRARY* GENERAL
+
+   *implicitly included by default.
+
+=====================================================================
+Status of current catalogs:
+
+NOTE:    WORK.FORMATS DOES NOT EXIST
+NOTE:    LIBRARY.FORMATS DOES NOT EXIST
+NOTE:    GENERAL.FORMATS EXISTS
+=====================================================================
+
+
+=====================================================================
+Current Sasautos Option value:
+
+     GENERAL DCAUTOS UIAUTOS SASAUTOS
+
+=====================================================================
+
+57        +
+58        +%let _userid = %sysfunc( putc( %lowcase(&SYSUSERID), $longusr. ) );
+NOTE: %INCLUDE (level 1) ending.
+59         
+60         ** Define libraries **;
+61         %DCData_lib( HUD )
+MPRINT(DCDATA_LIB):   options nomprint;
+NOTE: Libref HUDV6 was successfully assigned as follows: 
+      Engine:        V6 
+      Physical Name: D:\DCData\Libraries\HUD\Data
+NOTE: Libref HUDV8 was successfully assigned as follows: 
+3 The SAS System                                                                             16:51 Monday, February 21, 2011
+
+      Engine:        V8 
+      Physical Name: D:\DCData\Libraries\HUD\Data
+NOTE: Libref HUD was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V8 
+      Physical Name(1): D:\DCData\Libraries\HUD\Data
+      Engine(2):        V6 
+      Physical Name(2): D:\DCData\Libraries\HUD\Data
+
+=====================================================================
+Current FmtSearch Option value:
+
+     WORK* LIBRARY* GENERAL HUD
+
+   *implicitly included by default.
+
+=====================================================================
+Status of current catalogs:
+
+NOTE:    WORK.FORMATS DOES NOT EXIST
+NOTE:    LIBRARY.FORMATS DOES NOT EXIST
+NOTE:    GENERAL.FORMATS EXISTS
+NOTE:    HUD.FORMATS EXISTS
+=====================================================================
+
+
+=====================================================================
+Current Sasautos Option value:
+
+     HUD GENERAL DCAUTOS UIAUTOS SASAUTOS
+
+=====================================================================
+
+62         
+63         *options obs=10;
+64         
+65         filename fimport "D:\DCData\Libraries\HUD\Raw\APSH_2008\tract_vouchers_2008.txt" lrecl=2000;
+66         
+67         data tract_vouchers_2008;
+68         
+69           infile fimport dsd stopover firstobs=2;
+70         
+71           input
+72             sumlevel : $1.
+73             program : $1.
+74             program_label : $8.
+4 The SAS System                                                                             16:51 Monday, February 21, 2011
+
+75             sub_program : $2.
+76             name : $60.
+77             code : $11.
+78             total_units
+79             pct_occupied
+80             number_reported
+81             pct_reported
+82             months_since_report
+83             pct_movein
+84             people_per_unit
+85             people_total
+86             rent_per_month
+87             spending_per_month
+88             hh_income
+89             person_income
+90             pct_lt5k
+91             pct_5k_lt10k
+92             pct_10k_lt15k
+93             pct_15k_lt20k
+94             pct_ge20k
+95             pct_wage_maj
+96             pct_welf_maj
+97             pct_other_maj
+98             pct_median
+99             pct_lt50_median
+100            pct_lt30_median
+101            pct_2adults
+102            pct_1adult
+103            pct_female_head
+104            pct_female_head_child
+105            pct_disabled_lt62
+106            pct_disabled_ge62
+107            pct_disabled_all
+108            pct_lt24_head
+109            pct_age25_50
+110            pct_age51_61
+111            pct_age62plus
+112            pct_age85plus
+113            pct_minority
+114            pct_black
+115            pct_native_american
+116            pct_asian
+117            pct_hispanic
+118            months_waiting
+119            months_from_movein
+120            pct_utility_allow
+5 The SAS System                                                                             16:51 Monday, February 21, 2011
+
+121            ave_util_allow
+122            pct_bed1
+123            pct_bed2
+124            pct_bed3
+125            pct_overhoused
+126            tminority
+127            tpoverty
+128            pct_ownsfd
+129            fedhse : $2.
+130            cbsa : $5.
+131            placefips : $7.
+132            latitude
+133            longitude
+134            state : $2.
+135            pha_total_units
+136            ha_size
+137          ;
+138        
+139          ** Keep only DC tracts **;
+140        
+141          if state = 'DC';
+142        
+143          ** Standard tract var **;
+144        
+145          Geo2000 = put( code, $geo00v. );
+146        
+147          format Geo2000 $geo00a.;
+148        
+149          ** Recode numeric var missing values **;
+150        
+151          array a{*}
+152            total_units pct_occupied number_reported pct_reported
+153            months_since_report pct_movein people_per_unit people_total
+154            rent_per_month spending_per_month hh_income person_income
+155            pct_lt5k pct_5k_lt10k pct_10k_lt15k pct_15k_lt20k pct_ge20k
+156            pct_wage_maj pct_welf_maj pct_other_maj pct_median
+157            pct_lt50_median pct_lt30_median pct_2adults pct_1adult
+158            pct_female_head pct_female_head_child pct_disabled_lt62
+159            pct_disabled_ge62 pct_disabled_all pct_lt24_head
+160            pct_age25_50 pct_age51_61 pct_age62plus pct_age85plus
+161            pct_minority pct_black pct_native_american pct_asian
+162            pct_hispanic months_waiting months_from_movein
+163            pct_utility_allow ave_util_allow pct_bed1 pct_bed2 pct_bed3
+164            pct_overhoused tminority tpoverty pct_ownsfd
+165            latitude longitude pha_total_units ha_size
+166          ;
+6 The SAS System                                                                             16:51 Monday, February 21, 2011
+
+167        
+168          do i = 1 to dim( a );
+169            select ( a{i} );
+170              when ( -1 ) a{i} = .n;  /** Not applicable **/
+171              when ( -2 ) a{i} = .u;  /** Unknown/Don't know **/
+172              when ( -3 ) a{i} = .g;  /** No geocode **/
+173              when ( -4 ) a{i} = .s;  /** Supressed **/
+174              when ( -5 ) a{i} = .r;  /** Non-reporting **/
+175              otherwise
+176                /** Do nothing **/;
+177            end;
+178          end;
+179        
+180          ** Recode character var missing values **;
+181        
+182          array b{*} sub_program fedhse;
+183        
+184          do i = 1 to dim( b );
+185            if b{i} = '-1' then b{i} = '';
+186          end;
+187        
+188          drop i;
+189        
+190        run;
+
+NOTE: The infile FIMPORT is:
+      File Name=D:\DCData\Libraries\HUD\Raw\APSH_2008\tract_vouchers_2008.txt,
+      RECFM=V,LRECL=2000
+
+NOTE: 69421 records were read from the infile FIMPORT.
+      The minimum record length was 345.
+      The maximum record length was 394.
+NOTE: The data set WORK.TRACT_VOUCHERS_2008 has 190 observations and 66 variables.
+NOTE: Compressing data set WORK.TRACT_VOUCHERS_2008 decreased size by 25.00 percent. 
+      Compressed is 6 pages; un-compressed would require 8 pages.
+NOTE: DATA statement used (Total process time):
+      real time           1.00 seconds
+      cpu time            0.76 seconds
+      
+
+191        
+192        proc sort data=tract_vouchers_2008 out=Hud.Apsh_2008_vouchers_dc (label="A Picture of Subsidized Households,
+192      ! vouchers, tract-level, DC, 2008");
+193          by code;
+194        
+195        /*
+7 The SAS System                                                                             16:51 Monday, February 21, 2011
+
+196        proc import out=tract_vouchers_2008
+197            datafile=fimport
+198            dbms=csv replace;
+199          datarow=2;
+200          getnames=yes;
+201        
+202        run;
+203        */
+204        
+205        %File_info(
+206          data=Hud.Apsh_2008_vouchers_dc,
+207          freqvars=state sumlevel program program_label sub_program fedhse cbsa placefips ha_size code geo2000 )
+MPRINT(FILE_INFO):   title2 "File = Hud.Apsh_2008_vouchers_dc";
+
+NOTE: There were 190 observations read from the data set WORK.TRACT_VOUCHERS_2008.
+NOTE: SAS sort was used.
+NOTE: The data set HUD.APSH_2008_VOUCHERS_DC has 190 observations and 66 variables.
+NOTE: Compressing data set HUD.APSH_2008_VOUCHERS_DC decreased size by 25.00 percent. 
+      Compressed is 6 pages; un-compressed would require 8 pages.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(FILE_INFO):   proc contents data=Hud.Apsh_2008_vouchers_dc;
+MPRINT(FILE_INFO):   run;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.21 seconds
+      cpu time            0.03 seconds
+      
+NOTE: The PROCEDURE CONTENTS printed pages 1-3.
+
+MPRINT(FILE_INFO):   proc print data=Hud.Apsh_2008_vouchers_dc (obs=10);
+MPRINT(FILE_INFO):   title3 "Printing first 10 obs.";
+MPRINT(FILE_INFO):   run;
+
+NOTE: There were 10 observations read from the data set HUD.APSH_2008_VOUCHERS_DC.
+NOTE: The PROCEDURE PRINT printed pages 4-6.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(FILE_INFO):   title3;
+MPRINT(FILE_INFO):   options nolabel;
+8 The SAS System                                                                             16:51 Monday, February 21, 2011
+
+MPRINT(FILE_INFO):   proc means data=Hud.Apsh_2008_vouchers_dc n sum mean stddev min max;
+MPRINT(FILE_INFO):   run;
+
+NOTE: Multiple concurrent threads will be used to summarize data.
+NOTE: There were 190 observations read from the data set HUD.APSH_2008_VOUCHERS_DC.
+NOTE: The PROCEDURE MEANS printed pages 7-8.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.04 seconds
+      
+
+MPRINT(FILE_INFO):   options label;
+MPRINT(FILE_INFO):   proc freq data=Hud.Apsh_2008_vouchers_dc;
+MPRINT(FILE_INFO):   tables state sumlevel program program_label sub_program fedhse cbsa placefips ha_size code geo2000 / 
+missing;
+MPRINT(FILE_INFO):   run;
+
+NOTE: There were 190 observations read from the data set HUD.APSH_2008_VOUCHERS_DC.
+NOTE: The PROCEDURE FREQ printed pages 9-20.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(FILE_INFO):   title2;
+208        
+209        run;
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           3.45 seconds
+      cpu time            1.23 seconds
+      

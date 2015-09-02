@@ -1,0 +1,70 @@
+HUD/Vouchers_sum_tr10.sas:  NeighborhoodInfo DC                                         19:17 Wednesday, October 1, 2014   1
+File = Hud.Vouchers_sum_tr10
+
+The CONTENTS Procedure
+
+Data Set Name        HUD.VOUCHERS_SUM_TR10            Observations          180
+Member Type          DATA                             Variables             2  
+Engine               V9                               Indexes               0  
+Created              Wed, Oct 01, 2014 07:17:32 PM    Observation Length    16 
+Last Modified        Wed, Oct 01, 2014 07:17:32 PM    Deleted Observations  0  
+Protection                                            Compressed            NO 
+Data Set Type                                         Sorted                YES
+Label                                                                          
+Data Representation  WINDOWS_64                                                
+Encoding             wlatin1  Western (Windows)                                
+
+
+                     Engine/Host Dependent Information
+
+Data Set Page Size          4096                                            
+Number of Data Set Pages    2                                               
+First Data Page             1                                               
+Max Obs per Page            252                                             
+Obs in First Data Page      174                                             
+Number of Data Set Repairs  0                                               
+Filename                    L:\Libraries\HUD\Data\vouchers_sum_tr10.sas7bdat
+Release Created             9.0202M3                                        
+Host Created                X64_VSPRO                                       
+
+
+                      Alphabetic List of Variables and Attributes
+ 
+#    Variable       Type    Len    Format     Label
+
+1    Geo2010        Num       8    GEO10A.    Full census tract ID (2010): ssccctttttt
+2    total_units    Num       4                                                       
+
+
+   Sort Information
+
+Sortedby       Geo2010
+Validated      YES    
+Character Set  ANSI   
+HUD/Vouchers_sum_tr10.sas:  NeighborhoodInfo DC                                         19:17 Wednesday, October 1, 2014   2
+File = Hud.Vouchers_sum_tr10
+Printing first 10 obs.
+
+                      total_
+Obs      Geo2010       units
+
+  1    11001000100       .  
+  2    11001000201       .  
+  3    11001000202       .  
+  4    11001000300       .  
+  5    11001000400       .  
+  6    11001000501       .  
+  7    11001000502       .  
+  8    11001000600       1  
+  9    11001000701       3  
+ 10    11001000702       6  
+HUD/Vouchers_sum_tr10.sas:  NeighborhoodInfo DC                                         19:17 Wednesday, October 1, 2014   3
+File = Hud.Vouchers_sum_tr10
+
+The MEANS Procedure
+
+Variable         N             Sum            Mean         Std Dev         Minimum         Maximum
+--------------------------------------------------------------------------------------------------
+Geo2010        180    1.9811801E12     11006555992     74460614.57     11001000100     11999999999
+total_units    152        14341.00      94.3486842      96.3101543       1.0000000     516.0000000
+--------------------------------------------------------------------------------------------------
