@@ -9,6 +9,8 @@ Doc/
 # SAS files
 *.sas7bdat
 *.sas7bcat
+*.log
+*.lst
 
 # MS Office
 *.doc
@@ -20,6 +22,7 @@ Doc/
 *.mdb
 *.mdbx
 *.pdf
+*.rtf
 
 # Raw files
 *.csv
