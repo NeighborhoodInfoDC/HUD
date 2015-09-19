@@ -43,13 +43,13 @@
   %let month = %sysfunc( month( &filedate ), z2. );
   %let year  = %sysfunc( year( &filedate ), z4. );
   %let filedate_fmt = %sysfunc( putn( &filedate, mmddyyd10. ) );
+  %let ds_label = HUD-insured mortgages, &filedate_fmt update; 
 
 data 
-  MFIS_&year._&month._dc
-  MFIS_&year._&month._md
-  MFIS_&year._&month._va
-  MFIS_&year._&month._wv
-  SOACAT (keep=_SOA_cat_sub_cat)
+  MFIS_&year._&month._dc (label="&ds_label, DC")
+  MFIS_&year._&month._md (label="&ds_label, MD")
+  MFIS_&year._&month._va (label="&ds_label, VA")
+  MFIS_&year._&month._wv (label="&ds_label, WV")
   ;
 
   infile "&folder\raw\mfis\rm-a_&filedate_fmt..csv" dsd stopover lrecl=2000 firstobs=2;
@@ -92,8 +92,14 @@ data
   else Tax_credit_finc = 0;
   
   retain Extract_date &filedate; 
+  
+  length SOA_cat_sub_cat $ 20;
 
-  _SOA_cat_sub_cat = tranwrd( compbl( _SOA_cat_sub_cat ), '/ ', '/' );
+  SOA_cat_sub_cat = put( upcase( compress( _SOA_cat_sub_cat, " .()-&" ) ), $mfis_soacat2cod. );
+  
+  if SOA_cat_sub_cat = "" then do;
+    %warn_put( macro=, msg="SOA category description not found in code list. " _n_= _SOA_cat_sub_cat= SOA_code= )
+  end;
   
   ** Separate files by state **;
   
@@ -105,9 +111,8 @@ data
     otherwise /** Do not save obs. **/;
   end;
   
-  OUTPUT SOACAT;
-
   label
+    Extract_date = "Update file extract date"
     HUD_project_number = "HUD project ID number"
     Premise_id = "HUD premise ID number"
     Property_name = "Property name"
@@ -115,7 +120,7 @@ data
     Property_city = "Property city"
     Property_state = "Property state"
     Property_zip = "Property ZIP code"
-    Units = "Number of total units (or total beds for health and hospital care)"
+    Units = "Number of total units or total beds for health and hospital care"
     Initial_endorsement_date = "Initial mortgage endorsement date"
     Final_endorsement_date = "Final mortgage endorsement date"
     Original_mortgage_amount = "Original mortgage amount ($)"
@@ -132,16 +137,17 @@ data
     Servicer_city = "Servicer city"
     Servicer_state = "Servicer state"
     SOA_code = "Section of the Act code"
-    _SOA_cat_sub_cat = "Section of the Act category/subcategory"
+    SOA_cat_sub_cat = "Section of the Act category/subcategory"
     TE_bond_finc = "Mortgage financed with tax exempt bonds"
     Tax_credit_finc = "Mortgage includes low income housing tax credits";
 
   format Initial_endorsement_date Final_endorsement_date First_payment_date 
          Maturity_date Extract_date mmddyy10.
          TE_bond_finc Tax_credit_finc dyesno.
-         SOA_code $mfis_soa.;
+         SOA_code $mfis_soa. 
+         SOA_cat_sub_cat $mfis_soacat.;
 
-   drop _TE _TC;
+   drop _TE _TC _SOA: ;
    
 run;
 
@@ -149,28 +155,8 @@ run;
   data=MFIS_&year._&month._dc, 
   printobs=5,
   freqvars=property_state holder_state servicer_state SOA_code 
-           _SOA_cat_sub_cat TE_bond_finc tax_credit_finc extract_date 
+           SOA_cat_sub_cat TE_bond_finc tax_credit_finc extract_date 
 )
-
-proc freq data=MFIS_&year._&month._dc;
-  tables _SOA_cat_sub_cat * SOA_code / list nocum nopercent;
-run;
-
-proc summary data=SOACAT nway;
-  class _SOA_cat_sub_cat;
-  output out=A (drop=_type_);
-run;
-
-filename fexport "C:\DCData\Libraries\HUD\Doc\MFIS\SOACAT.CSV" lrecl=256;
-
-proc export data=A
-    outfile=fexport
-    dbms=csv replace;
-
-run;
-
-filename fexport clear;
-
 
 
 ENDSAS;
