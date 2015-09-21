@@ -20,6 +20,59 @@
 
 proc format library=HUD;
 
+  value $mfis_term_type
+    "11" = "Prepayment"
+    "12" = "Supersession"
+    "13" = "Non-conveyed"
+    "14" = "Cancelled"
+    "15" = "Conveyance"
+    "17" = "Correction/cancellation"
+    "18" = "Maturity"
+    "19" = "Assignment"
+    "20" = "Acquired"
+    "21" = "Voluntary"
+    "22" = "Transfer with reinsurance"
+    "23" = "Partial releases"
+    "24" = "Coinsurance claim"
+    "26" = "Nonpayment of MIP"
+    "32" = "Coinsurance conv to full insurance"
+    "42" = "Partial payment of claim"
+    "50" = "Demo re engineering w/o partial claim"
+    "51" = "Demo re engineering w/partial claim"
+    "52" = "OMHAR re engineering w/o partial claim"
+    "53" = "OMHAR re engineering w/partial claim"
+    "54" = "OMHAR re engineering w/partial claim & supplemental"
+    "60" = "Missing termination type-old case"
+    "69" = "Risk share claim"
+    "99" = "Change to correct SOA and project number";
+  
+  value $mfis_desc2term_type
+    "PREPAYMENT" = "11"
+    "SUPERSESSION" = "12"
+    "NON-CONVEYED" = "13"
+    "CANCELLED" = "14"
+    "CONVEYANCE" = "15"
+    "CORRECTION/CANCELLATION" = "17"
+    "MATURITY" = "18"
+    "ASSIGNMENT" = "19"
+    "ACQUIRED" = "20"
+    "VOLUNTARY" = "21"
+    "TRANSFER WITH REINSURANCE" = "22"
+    "PARTIAL RELEASES" = "23"
+    "COINSURANCE CLAIM" = "24"
+    "NONPAYMENT OF MIP" = "26"
+    "COINSURANCE CONV TO FULL INSURANCE" = "32"
+    "PARTIAL PAYMENT OF CLAIM" = "42"
+    "DEMO RE ENGINEERING W/O PARTIAL CLAIM" = "50"
+    "DEMO RE ENGINEERING W/PARTIAL CLAIM" = "51"
+    "OMHAR RE ENGINEERING W/O PARTIAL CLAIM" = "52"
+    "OMHAR RE ENGINEERING W/PARTIAL CLAIM" = "53"
+    "OMHAR RE ENGINEERING W/PARTIAL CLAIM & SUPPLEMENTAL" = "54"
+    "MISSING TERMINATION TYPE-OLD CASE" = "60"
+    "RISK SHARE CLAIM" = "69"
+    "CHANGE TO CORRECT SOA AND PROJECT NUMBER" = "99"
+    other = "";
+  
   value $mfis_soa (notsorted)
     "ZPE" = "202 Capital Advance for Elderly"
     "ZPD" = "811 Capital Advance for Disabled"
@@ -291,6 +344,8 @@ proc format library=HUD;
 run;
 
 proc catalog catalog=HUD.Formats;
+  modify mfis_term_type (desc="MFIS termination type code") / entrytype=formatc;
+  modify mfis_desc2term_type (desc="MFIS convert desc to term type code") / entrytype=formatc;
   modify mfis_soa (desc="MFIS section of act code") / entrytype=formatc;
   modify mfis_soacat (desc="MFIS section of act category code") / entrytype=formatc;
   modify mfis_soacat2cod (desc="MFIS convert SOA cat text to code") / entrytype=formatc;
