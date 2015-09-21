@@ -35,14 +35,9 @@
   %let year  = %sysfunc( year( &filedate ), z4. );
   %let filedate_fmt = %sysfunc( putn( &filedate, mmddyyd10. ) );
   %let ds_label = HUD-insured mortgages, &filedate_fmt update; 
-
-  data 
-    MFIS_&year._&month._dc (label="&ds_label, DC")
-    MFIS_&year._&month._md (label="&ds_label, MD")
-    MFIS_&year._&month._va (label="&ds_label, VA")
-    MFIS_&year._&month._wv (label="&ds_label, WV")
-    ;
-
+  
+  data Active;
+  
     infile "&folder\raw\mfis\rm-a_&filedate_fmt..csv" dsd stopover lrecl=2000 firstobs=2;
 
     input 
@@ -73,6 +68,84 @@
       _SOA_cat_sub_cat : $80.
       _TE : $2.
       _TC : $2.;
+
+    if Property_state in ( 'DC', 'MD', 'VA', 'WV' );
+  
+  run;
+  
+  data Terminated;
+  
+    infile "&folder\raw\mfis\rm-t_&filedate_fmt..csv" dsd stopover lrecl=2000 firstobs=2;
+
+    input 
+      HUD_project_number : $40.
+      Premise_id : $16.
+      Property_name : $40.
+      Property_street : $40.
+      Property_city : $40.
+      Property_state : $2.
+      Property_zip : $5.
+      Units : 8.
+      Initial_endorsement_date : mmddyy10.
+      Final_endorsement_date : mmddyy10. 
+      Original_mortgage_amount : comma24.
+      First_payment_date : mmddyy10.
+      Maturity_date : mmddyy10.
+      Term_in_months : 8.
+      Interest_rate : 8.2    
+      Holder_name : $40.
+      Holder_city : $40.
+      Holder_state : $2.
+      Servicer_name : $40.
+      Servicer_city : $40.
+      Servicer_state : $2.
+      SOA_code : $3.
+      _SOA_cat_sub_cat : $80.
+      Term_type : $2.
+      _Term_type_descr : $80.
+      _Type : $80.
+      Term_date : mmddyy10.
+      _TE : $2.
+      _TC : $2.
+      MFIS_status : $1.;
+
+    if Property_state in ( 'DC', 'MD', 'VA', 'WV' );
+    
+    if Term_type = 'G4' then do;
+      Term_type = put( upcase( compbl( _Term_type_descr ) ), $mfis_desc2term_type. );
+      PUT "G4: " Term_type= $MFIS_TERM_TYPE. _Term_type_descr=;
+      if Term_type = "" then do;
+        %warn_put( macro=MFIS_read_update_file, msg=_n_= "Term_type=G4 description not found. " _Term_type_descr= )
+      end;
+    end;
+    
+    length Claim_type $ 1;
+    
+    Claim_type = _Type;
+    
+    drop _Term_type_descr;
+
+  run;
+  
+  %FILE_INFO( DATA=TERMINATED, FREQVARS=TERM_TYPE MFIS_STATUS )
+  
+  data 
+    MFIS_&year._&month._dc (label="&ds_label, DC")
+    MFIS_&year._&month._md (label="&ds_label, MD")
+    MFIS_&year._&month._va (label="&ds_label, VA")
+    MFIS_&year._&month._wv (label="&ds_label, WV")
+    ;
+    
+    set Active (in=inA) Terminated;
+    
+    if inA then do;
+      MFIS_status = 'A';
+      Term_date = .n;
+    end;
+    else do;
+      Current_principal_and_interest = .n;
+      Amortized_principal_balance = .n;
+    end;
 
     length TE_bond_finc Tax_credit_finc 4.;
     
@@ -134,12 +207,15 @@
       Tax_credit_finc = "Mortgage includes low income housing tax credits";
 
     format Initial_endorsement_date Final_endorsement_date First_payment_date 
-           Maturity_date Extract_date mmddyy10.
+           Maturity_date Extract_date Term_date mmddyy10.
            TE_bond_finc Tax_credit_finc dyesno.
            SOA_code $mfis_soa. 
-           SOA_cat_sub_cat $mfis_soacat.;
+           SOA_cat_sub_cat $mfis_soacat.
+           MFIS_status $mfis_status.
+           Term_type $mfis_term_type.
+           Claim_type $mfis_claim_type.;
 
-     drop _TE _TC _SOA: ;
+     drop _TE _TC _SOA: _Type;
      
   run;
   
