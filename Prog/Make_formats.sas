@@ -24,6 +24,10 @@ proc format library=HUD;
     "A" = "Active"
     "T" = "Terminated";
     
+  value $mfis_claim_type
+    "C" = "Claim"
+    "N" = "Nonclaim";
+    
   value $mfis_term_type
     "11" = "Prepayment"
     "12" = "Supersession"
@@ -378,6 +382,7 @@ run;
 
 proc catalog catalog=HUD.Formats;
   modify mfis_status (desc="MFIS mortgage status") / entrytype=formatc;
+  modify mfis_claim_type (desc="MFIS termination claim type") / entrytype=formatc;
   modify mfis_term_type (desc="MFIS termination type code") / entrytype=formatc;
   modify mfis_desc2term_type (desc="MFIS convert desc to term type code") / entrytype=formatc;
   modify mfis_soa (desc="MFIS section of act code") / entrytype=formatc;
