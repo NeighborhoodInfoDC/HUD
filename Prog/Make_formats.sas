@@ -75,7 +75,7 @@ proc format library=HUD;
     "MISSING TERMINATION TYPE-OLD CASE" = "60"
     "RISK SHARE CLAIM" = "69"
     "CHANGE TO CORRECT SOA AND PROJECT NUMBER" = "99"
-    other = "";
+    other = " ";
   
   value $mfis_soa (notsorted)
     "ZPE" = "202 Capital Advance for Elderly"
@@ -343,7 +343,7 @@ proc format library=HUD;
     "542CHFARISKSHARINGEXISTING" = "542CHFARSE"
     "542CHFARISKSHARINGRECENTCOMP" = "542CHFARSRC"
     "QPERISKSHARINGFFBEXISTING" = "542BQPERSFFBE"
-    other = "";
+    other = " ";
 
 run;
 
