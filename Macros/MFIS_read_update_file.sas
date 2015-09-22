@@ -204,7 +204,11 @@
       SOA_code = "Section of the Act code"
       SOA_cat_sub_cat = "Section of the Act category/subcategory"
       TE_bond_finc = "Mortgage financed with tax exempt bonds"
-      Tax_credit_finc = "Mortgage includes low income housing tax credits";
+      Tax_credit_finc = "Mortgage includes low income housing tax credits"
+      Claim_type = "Termination claim type"
+      MFIS_status = "Mortgage status"
+      Term_date = "Termination date"
+      Term_type = "Termination type";
 
     format Initial_endorsement_date Final_endorsement_date First_payment_date 
            Maturity_date Extract_date Term_date mmddyy10.
@@ -256,7 +260,8 @@
       data=HUD.MFIS_&year._&month._dc, 
       printobs=5,
       freqvars=property_state holder_state servicer_state SOA_code 
-               SOA_cat_sub_cat TE_bond_finc tax_credit_finc extract_date 
+               SOA_cat_sub_cat TE_bond_finc tax_credit_finc MFIS_status
+               Term_type Claim_type extract_date 
     )
   
   /**** TEMPORARY ****
@@ -304,7 +309,8 @@
       data=MFIS_&year._&month._dc, 
       printobs=5,
       freqvars=property_state holder_state servicer_state SOA_code 
-               SOA_cat_sub_cat TE_bond_finc tax_credit_finc extract_date 
+               SOA_cat_sub_cat TE_bond_finc tax_credit_finc MFIS_status
+               Term_type Claim_type extract_date 
     )
   
   %end;
