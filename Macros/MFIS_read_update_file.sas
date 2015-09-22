@@ -127,7 +127,7 @@
 
   run;
   
-  %FILE_INFO( DATA=TERMINATED, FREQVARS=TERM_TYPE MFIS_STATUS )
+  ** Combine Active and Terminated projects, write state files **;
   
   data 
     MFIS_&year._&month._dc (label="&ds_label, DC")
