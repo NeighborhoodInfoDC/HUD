@@ -1,5 +1,5 @@
 /**************************************************************************
- Program:  MFIS_yyyy_mm.sas
+ Program:  MFIS_2015_08.sas
  Library:  HUD
  Project:  NeighborhoodInfo DC
  Author:   P. Tatian
@@ -13,14 +13,11 @@
  Modifications:
 **************************************************************************/
 
-/*%include "L:\SAS\Inc\StdLocal.sas";*/
-%include "C:\DCData\SAS\Inc\StdLocal.sas";
+%include "L:\SAS\Inc\StdLocal.sas";
 
 ** Define libraries **;
 %DCData_lib( HUD, local=n )
 %DCData_lib( RealProp, local=n )
-
-%LET _REMOTE_BATCH_SUBMIT = 1;  %*** TEMPORARY ****;
 
 
 *--- EDIT PARAMETERS BELOW -----------------------------------------;

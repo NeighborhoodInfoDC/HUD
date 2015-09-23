@@ -264,7 +264,6 @@
                Term_type Claim_type extract_date 
     )
   
-  /**** TEMPORARY ****
     %Dc_update_meta_file(
       ds_lib=HUD,
       ds_name=MFIS_&year._&month._dc,
@@ -296,7 +295,6 @@
       restrictions=None,
       revisions=&revisions
     )
-    *********************************/
   
     run;
       
