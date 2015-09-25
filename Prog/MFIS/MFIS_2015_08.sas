@@ -24,7 +24,8 @@
 
 %MFIS_read_update_file( 
   filedate = '31aug2015'd,  /** Enter date of HUD database as SAS date value, ex: '25nov2014'd **/
-  finalize = Y
+  finalize = Y,
+  revisions = %str(Rerun after creating formats.)
 )
   
 run;
