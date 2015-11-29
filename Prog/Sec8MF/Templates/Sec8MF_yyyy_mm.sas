@@ -16,6 +16,7 @@
   10/19/14 PAT Updated for SAS1.
   12/23/14 PAT New version incorporating %sec8mf_readbasetbls() and
                %Sec8MF_dmvw() macros.
+  11/29/15 PAT Upload=Y is now the default. 
 **************************************************************************/
 
 %include "L:\SAS\Inc\StdLocal.sas";
@@ -31,8 +32,6 @@
 
   %let s8filedate = 'ddmmmyyyy'd;
   
-  %let upload = N;
-  
   %let revisions = %str(New file.);
 
 *-------------------------------------------------------------------;
@@ -47,7 +46,7 @@
 
 %Sec8MF_dmvw( 
   filedate=&s8filedate,
-  upload=&upload,
+  upload=Y,
   revisions=&revisions 
 )
 
