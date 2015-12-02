@@ -22,8 +22,8 @@
 %include "L:\SAS\Inc\StdLocal.sas";
 
 ** Define libraries **;
-%DCData_lib( HUD, local=n )
-%DCData_lib( RealProp, local=n )
+%DCData_lib( HUD )
+%DCData_lib( RealProp )
 
 
 *--- EDIT PARAMETERS BELOW -----------------------------------------;
