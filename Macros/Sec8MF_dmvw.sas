@@ -35,11 +35,11 @@
 %macro Sec8MF_dmvw( 
   filedate=,   /** As of date of HUD database (SAS date value) **/
   s8folder=,   /** NO LONGER IN USE **/ 
-  upload=N,    /** Upload and register file with metadata (Y/N) **/
+  upload=Y,    /** Upload and register file with metadata (Y/N) **/
   revisions=   /** Metadata revision description **/
   );
 
-  %local month year;
+  %local month year outlib;
   
   %let month = %sysfunc( putn( %sysfunc( month( &filedate ) ), z2. ) );
   %let year = %sysfunc( year( &filedate ) );
@@ -55,17 +55,25 @@
     %err_mput( macro=Sec8MF_dmvw, msg=Filedate= invalid year. Filedate=&filedate Year=&year )
     %goto exit_macro;
   %end;
+  
+  %if &upload = Y and not &_remote_batch_submit %then %do;
+    %warn_mput( macro=Sec8mf_dmvw, msg=%str(Not a remote batch submit session. Upload= will be set to N.) )
+    %let upload = N;
+  %end;
 
   ** Create separate data sets for DC, MD, VA, and WV **;
+  
+  %if &upload = Y %then %let outlib = HUD;
+  %else %let outlib = WORK;
 
   data 
-    HUD.Sec8MF_&year._&month._dc
+    &outlib..Sec8MF_&year._&month._dc
       (label="Sec 8 multifamily contracts w/property data, &month-&year update, DC")
-    HUD.Sec8MF_&year._&month._md
+    &outlib..Sec8MF_&year._&month._md
       (label="Sec 8 multifamily contracts w/property data, &month-&year update, MD")
-    HUD.Sec8MF_&year._&month._va
+    &outlib..Sec8MF_&year._&month._va
       (label="Sec 8 multifamily contracts w/property data, &month-&year update, VA")
-    HUD.Sec8MF_&year._&month._wv
+    &outlib..Sec8MF_&year._&month._wv
       (label="Sec 8 multifamily contracts w/property data, &month-&year update, WV")
     ;
 
@@ -104,10 +112,10 @@
     ** Separate files by state **;
     
     select ( state_code );
-      when ( "DC" ) output HUD.Sec8MF_&year._&month._dc;
-      when ( "MD" ) output HUD.Sec8MF_&year._&month._md;
-      when ( "VA" ) output HUD.Sec8MF_&year._&month._va;
-      when ( "WV" ) output HUD.Sec8MF_&year._&month._wv;
+      when ( "DC" ) output &outlib..Sec8MF_&year._&month._dc;
+      when ( "MD" ) output &outlib..Sec8MF_&year._&month._md;
+      when ( "VA" ) output &outlib..Sec8MF_&year._&month._va;
+      when ( "WV" ) output &outlib..Sec8MF_&year._&month._wv;
       otherwise /** Do not save obs. **/;
     end;
     
@@ -115,21 +123,21 @@
   
   ** Sort data sets **;
   
-  proc sort data=HUD.Sec8MF_&year._&month._dc;
+  proc sort data=&outlib..Sec8MF_&year._&month._dc;
     by contract_number;
     
-  proc sort data=HUD.Sec8MF_&year._&month._md;
+  proc sort data=&outlib..Sec8MF_&year._&month._md;
     by contract_number;
 
-  proc sort data=HUD.Sec8MF_&year._&month._va;
+  proc sort data=&outlib..Sec8MF_&year._&month._va;
     by contract_number;
 
-  proc sort data=HUD.Sec8MF_&year._&month._wv;
+  proc sort data=&outlib..Sec8MF_&year._&month._wv;
     by contract_number;
 
   ** Output basic file info **;
 
-  %File_info( data=HUD.Sec8MF_&year._&month._dc, 
+  %File_info( data=&outlib..Sec8MF_&year._&month._dc, 
               freqvars=tracs_status extract_date tracs_overall_expire_quarter
                        rent_to_FMR_description
                        contract_doc_type_code program_type_group_code program_type_name
