@@ -1,9 +1,9 @@
 /**************************************************************************
- Program:  LIHTC_2013.sas
+ Program:  LIHTC_yyyy.sas
  Library:  HUD
  Project:  NeighborhoodInfo DC
- Author:   P. Tatian
- Created:  12/15/15
+ Author:   
+ Created:  
  Version:  SAS 9.2
  Environment:  Local Windows session (desktop)
  
@@ -19,5 +19,5 @@
 %DCData_lib( HUD )
 
 
-%Lihtc_read_update_file( year=2013, filedate='18jun2015'd )
+%Lihtc_read_update_file( year=yyyy, filedate= )
 
