@@ -50,7 +50,7 @@ proc format library=HUD;
     1 = "4 percent (30 percent present value)"
     2 = "9 percent (70 percent present value)"
     3 = "Both 4 percent and 9 percent "
-    4 = "TCEP only";
+    4 = "Tax credit exchange program (TCEP) only";
     
   value lihtc_metro
     1 = "Metro/non-central city"
