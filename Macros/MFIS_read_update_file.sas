@@ -17,7 +17,7 @@
 %macro MFIS_read_update_file( 
   filedate=,                      /** File extract date (SAS date value) **/
   folder=&_dcdata_r_path\HUD,     /** Folder for input raw files **/ 
-  finalize=N,                     /** Upload and register file with metadata (Y/N) **/
+  finalize=Y,                     /** Upload and register file with metadata (Y/N) **/
   revisions=%str(New file.)       /** Metadata revision description **/
   );
   
