@@ -2,8 +2,8 @@
  Program:  MFIS_yyyy_mm.sas
  Library:  HUD
  Project:  NeighborhoodInfo DC
- Author:   
- Created:  
+ Author:   Katya Abazajian
+ Created:  2/25/16
  Version:  SAS 9.2
  Environment:  Local Windows session (desktop)
  
