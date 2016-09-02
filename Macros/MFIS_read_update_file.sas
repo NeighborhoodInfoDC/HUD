@@ -39,8 +39,39 @@
   data Active;
   
     infile "&folder\raw\mfis\rm-a_&filedate_fmt..csv" dsd stopover lrecl=2000 firstobs=2;
-
-/*    input 
+	%if &filedate >= '31jul2016'd %then %do;
+	  input 
+      HUD_project_number : $40.
+      Property_name : $40.
+      Property_street : $40.
+      Property_city : $40.
+      Property_state : $2.
+      Property_zip : $5.
+      Units : 8.
+      Initial_endorsement_date : mmddyy10.
+      Final_endorsement_date : mmddyy10. 
+      Original_mortgage_amount : comma24.
+      First_payment_date : mmddyy10.
+      Maturity_date : mmddyy10.
+      Term_in_months : 8.
+      Interest_rate : 8.2    
+      Current_principal_and_interest : comma24.2
+      Amortized_principal_balance :  comma24.2
+      Holder_name : $40.
+      Holder_city : $40.
+      Holder_state : $2.
+      Servicer_name : $40.
+      Servicer_city : $40.
+      Servicer_state : $2.
+      SOA_code : $3.
+      _SOA_cat_sub_cat : $80.
+      _TE : $2.
+      _TC : $2.;
+	length premise_id $ 16;
+	premise_id = '';
+	%end;
+	%else %do;
+	  input 
       HUD_project_number : $40.
       Premise_id : $16.
       Property_name : $40.
@@ -68,35 +99,8 @@
       _SOA_cat_sub_cat : $80.
       _TE : $2.
       _TC : $2.;
-*/
-	  input 
-      HUD_project_number : $40.
-     
-      Property_name : $40.
-      Property_street : $40.
-      Property_city : $40.
-      Property_state : $2.
-      Property_zip : $5.
-      Units : 8.
-      Initial_endorsement_date : mmddyy10.
-      Final_endorsement_date : mmddyy10. 
-      Original_mortgage_amount : comma24.
-      First_payment_date : mmddyy10.
-      Maturity_date : mmddyy10.
-      Term_in_months : 8.
-      Interest_rate : 8.2    
-      Current_principal_and_interest : comma24.2
-      Amortized_principal_balance :  comma24.2
-      Holder_name : $40.
-      Holder_city : $40.
-      Holder_state : $2.
-      Servicer_name : $40.
-      Servicer_city : $40.
-      Servicer_state : $2.
-      SOA_code : $3.
-      _SOA_cat_sub_cat : $80.
-      _TE : $2.
-      _TC : $2.;
+
+	%end;
     if Property_state in ( 'DC', 'MD', 'VA', 'WV' );
   
   run;
@@ -104,8 +108,42 @@
   data Terminated;
   
     infile "&folder\raw\mfis\rm-t_&filedate_fmt..csv" dsd stopover lrecl=2000 firstobs=2;
-
-   /* input 
+	%if &filedate >= '31jul2016'd %then %do;
+	  input 
+      HUD_project_number : $40.
+      Property_name : $40.
+      Property_street : $40.
+      Property_city : $40.
+      Property_state : $2.
+      Property_zip : $5.
+      Units : 8.
+      Initial_endorsement_date : mmddyy10.
+      Final_endorsement_date : mmddyy10. 
+      Original_mortgage_amount : comma24.
+      First_payment_date : mmddyy10.
+      Maturity_date : mmddyy10.
+      Term_in_months : 8.
+      Interest_rate : 8.2    
+      Holder_name : $40.
+      Holder_city : $40.
+      Holder_state : $2.
+      Servicer_name : $40.
+      Servicer_city : $40.
+      Servicer_state : $2.
+      SOA_code : $3.
+      _SOA_cat_sub_cat : $80.
+      Term_type : $2.
+      _Term_type_descr : $80.
+      _Type : $80.
+      Term_date : mmddyy10.
+      _TE : $2.
+      _TC : $2.
+      MFIS_status : $1.;
+		length premise_id $ 16;
+		premise_id = '';
+	  %end;
+	  %else %do;
+	  input 
       HUD_project_number : $40.
       Premise_id : $16.
       Property_name : $40.
@@ -136,37 +174,7 @@
       _TE : $2.
       _TC : $2.
       MFIS_status : $1.;
-*/
-	   input 
-      HUD_project_number : $40.
-      Property_name : $40.
-      Property_street : $40.
-      Property_city : $40.
-      Property_state : $2.
-      Property_zip : $5.
-      Units : 8.
-      Initial_endorsement_date : mmddyy10.
-      Final_endorsement_date : mmddyy10. 
-      Original_mortgage_amount : comma24.
-      First_payment_date : mmddyy10.
-      Maturity_date : mmddyy10.
-      Term_in_months : 8.
-      Interest_rate : 8.2    
-      Holder_name : $40.
-      Holder_city : $40.
-      Holder_state : $2.
-      Servicer_name : $40.
-      Servicer_city : $40.
-      Servicer_state : $2.
-      SOA_code : $3.
-      _SOA_cat_sub_cat : $80.
-      Term_type : $2.
-      _Term_type_descr : $80.
-      _Type : $80.
-      Term_date : mmddyy10.
-      _TE : $2.
-      _TC : $2.
-      MFIS_status : $1.;
+	%end;
 
     if Property_state in ( 'DC', 'MD', 'VA', 'WV' );
     
@@ -234,44 +242,11 @@
       when ( "WV" ) output MFIS_&year._&month._wv;
       otherwise /** Do not save obs. **/;
     end;
- /*   
-    label
+
+	  label
       Extract_date = "Update file extract date"
       HUD_project_number = "HUD project ID number"
-      Premise_id = "HUD premise ID number"
-      Property_name = "Property name"
-      Property_street = "Property street address"
-      Property_city = "Property city"
-      Property_state = "Property state"
-      Property_zip = "Property ZIP code"
-      Units = "Number of total units or total beds for health and hospital care"
-      Initial_endorsement_date = "Initial mortgage endorsement date"
-      Final_endorsement_date = "Final mortgage endorsement date"
-      Original_mortgage_amount = "Original mortgage amount ($)"
-      First_payment_date = "First payment date"
-      Maturity_date = "Mortgage maturity date"
-      Term_in_months = "Mortgage term (months)"
-      Interest_rate = "Interest rate (%)"
-      Current_principal_and_interest = "Monthly principal and interest payment ($)"
-      Amortized_principal_balance = "Amortized unpaid principal balance ($)"
-      Holder_name = "Note holder name"
-      Holder_city = "Note holder city"
-      Holder_state = "Note holder state"
-      Servicer_name = "Servicer name"
-      Servicer_city = "Servicer city"
-      Servicer_state = "Servicer state"
-      SOA_code = "Section of the Act code"
-      SOA_cat_sub_cat = "Section of the Act category/subcategory"
-      TE_bond_finc = "Mortgage financed with tax exempt bonds"
-      Tax_credit_finc = "Mortgage includes low income housing tax credits"
-      Claim_type = "Termination claim type"
-      MFIS_status = "Mortgage status"
-      Term_date = "Termination date"
-      Term_type = "Termination type";
-*/
-	    label
-      Extract_date = "Update file extract date"
-      HUD_project_number = "HUD project ID number"
+	  Premise_id = "HUD premise ID number"
       Property_name = "Property name"
       Property_street = "Property street address"
       Property_city = "Property city"
@@ -327,19 +302,7 @@
     by HUD_project_number;
 
   ** Check for duplicates **;
-  /*
-  %Dup_check(
-    data=MFIS_&year._&month._dc,
-    by=HUD_project_number,
-    id=Premise_id Property_name,
-    out=_dup_check,
-    listdups=Y,
-    count=dup_check_count,
-    quiet=N,
-    debug=N
-  )
-  */
-    
+
   %Dup_check(
     data=MFIS_&year._&month._dc,
     by=HUD_project_number,
