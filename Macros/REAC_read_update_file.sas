@@ -131,13 +131,10 @@
       select REAC_&year._&month._dc REAC_&year._&month._md 
              REAC_&year._&month._va REAC_&year._&month._wv;
     quit;
-/*What's the purpose of this statement / what vars from REAC file should go here? - KA*/
     %File_info( 
       data=HUD.REAC_&year._&month._dc, 
       printobs=5,
-      freqvars=property_state holder_state servicer_state SOA_code 
-               SOA_cat_sub_cat TE_bond_finc tax_credit_finc MFIS_status
-               Term_type Claim_type extract_date 
+      freqvars=state_code  inspec_score_1  inspec_score_2  inspec_score_3
     )
   
     %Dc_update_meta_file(
@@ -178,13 +175,10 @@
   %else %do;
     
     %note_mput( macro=REAC_read_update_file, msg=Data sets will not be finalized. )
-  /*Same question as above - KA */    
     %File_info( 
       data=MFIS_&year._&month._dc, 
       printobs=5,
-      freqvars=property_state holder_state servicer_state SOA_code 
-               SOA_cat_sub_cat TE_bond_finc tax_credit_finc MFIS_status
-               Term_type Claim_type extract_date 
+      freqvars=state_code  inspec_score_1  inspec_score_2  inspec_score_3
     )
   
   %end;
