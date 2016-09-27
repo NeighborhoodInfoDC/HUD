@@ -12,7 +12,7 @@
  Modifications:
 **************************************************************************/
 
-/** Macro MFIS_read_update_file - Start Definition **/
+/** Macro REAC_read_update_file - Start Definition **/
 
 %macro REAC_read_update_file( 
   filedate=,                      /** File extract date (SAS date value) **/
@@ -43,13 +43,13 @@
       rems_property_id : $9.
       inspec_id_1 : $6.
 	  inspec_score_1 : $5.
-      release_date_1 : mmddyy10.
+      release_date_1 : $10.
       inspec_id_2 : $6.
       inspec_score_2 : $5.
-      release_date_2 : mmddyy10.
+      release_date_2 : $10.
 	  inspec_id_3 : $6.
 	  inspec_score_3 : $5.
-	  release_date_3 : mmddyy10.
+	  release_date_3 : $10.
       property_name : $40.
       state_name : $15.
       city : $15.
@@ -71,7 +71,7 @@
     
     ** Separate files by state **;
     
-    select ( Property_state );
+    select ( state_code );
       when ( "DC" ) output REAC_&year._&month._dc;
       when ( "MD" ) output REAC_&year._&month._md;
       when ( "VA" ) output REAC_&year._&month._va;
@@ -100,16 +100,7 @@
   
   proc sort data=REAC_&year._&month._dc;
     by rems_property_id;
-
-  proc sort data=REAC_&year._&month._md;
-    by rems_property_id;
-
-  proc sort data=REAC_&year._&month._va;
-    by rems_property_id;
-
-  proc sort data=REAC_&year._&month._wv;
-    by rems_property_id;
-
+	run;
   ** Check for duplicates **;
 
   %Dup_check(
@@ -156,7 +147,7 @@
     %Dc_update_meta_file(
       ds_lib=HUD,
       ds_name=REAC_&year._&month._va,
-      creator_process=MFIS_&year._&month..sas,
+      creator_process=REAC_&year._&month..sas,
       restrictions=None,
       revisions=&revisions
     )
@@ -176,7 +167,7 @@
     
     %note_mput( macro=REAC_read_update_file, msg=Data sets will not be finalized. )
     %File_info( 
-      data=MFIS_&year._&month._dc, 
+      data=REAC_&year._&month._dc, 
       printobs=5,
       freqvars=state_code  inspec_score_1  inspec_score_2  inspec_score_3
     )
@@ -185,7 +176,7 @@
     
   %exit_macro:
 
-%mend MFIS_read_update_file;
+%mend REAC_read_update_file;
 
 /** End Macro Definition **/
 
