@@ -39,7 +39,7 @@
   data Active;
   
     infile "&folder\raw\mfis\rm-a_&filedate_fmt..csv" dsd stopover lrecl=2000 firstobs=2;
-	%if &filedate >= '31jul2016'd %then %do;
+	%if %sysevalf( &filedate ) >= %sysevalf( '31jul2016'd ) %then %do;
 	  input 
       HUD_project_number : $40.
       Property_name : $40.
@@ -108,7 +108,7 @@
   data Terminated;
   
     infile "&folder\raw\mfis\rm-t_&filedate_fmt..csv" dsd stopover lrecl=2000 firstobs=2;
-	%if &filedate >= '31jul2016'd %then %do;
+	%if %sysevalf( &filedate ) >= %sysevalf( '31jul2016'd ) %then %do;
 	  input 
       HUD_project_number : $40.
       Property_name : $40.
