@@ -1,5 +1,3 @@
-*.bak
-
 # DCData subfolders 
 Data/
 Maps/
@@ -12,6 +10,7 @@ Prog/Temp/
 *.sas7bcat
 *.log
 *.lst
+*.lis
 
 # MS Office
 *.doc
@@ -49,3 +48,10 @@ Prog/Temp/
 # Archives
 *.zip
 *.rar
+
+# Temporary
+*.bak
+
+# Other
+*.bat
+Thumbs.db
