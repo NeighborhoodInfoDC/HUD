@@ -49,3 +49,10 @@ Prog/Temp/
 # Archives
 *.zip
 *.rar
+
+# Temporary
+*.bak
+
+# Other
+*.bat
+Thumbs.db
