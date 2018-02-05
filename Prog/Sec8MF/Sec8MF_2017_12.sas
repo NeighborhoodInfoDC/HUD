@@ -1,9 +1,9 @@
 /**************************************************************************
- Program:  Sec8MF_yyyy_mm.sas
+ Program:  Sec8MF_2017_12.sas
  Library:  HUD
  Project:  NeighborhoodInfo DC
- Author:   
- Created:  
+ Author:   Noah Strayer	
+ Created:  1/3/18
  Version:  SAS 9.2
  Environment:  Local Windows session (desktop)
  
