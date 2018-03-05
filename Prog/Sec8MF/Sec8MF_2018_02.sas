@@ -1,9 +1,9 @@
 /**************************************************************************
- Program:  Sec8MF_yyyy_mm.sas
+ Program:  Sec8MF_2018_02.sas
  Library:  HUD
  Project:  NeighborhoodInfo DC
- Author:   
- Created:  
+ Author:   Noah Strayer
+ Created:  3/5/2018
  Version:  SAS 9.2
  Environment:  Local Windows session (desktop)
  
@@ -30,7 +30,7 @@
 
   ** Enter date of HUD database as SAS date value, ex: '25nov2014'd **;
 
-  %let s8filedate = 'ddmmmyyyy'd;
+  %let s8filedate = '27feb2018'd;
   
   %let revisions = %str(New file.);
 
