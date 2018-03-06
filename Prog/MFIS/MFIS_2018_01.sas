@@ -2,8 +2,8 @@
  Program:  MFIS_2018_01.sas
  Library:  HUD
  Project:  NeighborhoodInfo DC
- Author:   
- Created:  
+ Author:   Noah Strayer	
+ Created:  2/5/2018
  Version:  SAS 9.2
  Environment:  Local Windows session (desktop)
  
