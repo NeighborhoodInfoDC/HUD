@@ -11,6 +11,7 @@
 
  Modifications:
   09/26/14 PAT Updated for SAS1 server.
+  5/23/18  YS  add new geography(Stanton Commons) to summary
 **************************************************************************/
 
 %include "L:\SAS\Inc\StdLocal.sas";
@@ -20,8 +21,8 @@
 
 %Create_all_summary_from_tracts( 
 
-  register=N,
-  revisions=%str(New file.),
+  register=Y,
+  revisions=%str(Add Stantoncommons to summary),
   creator_process=Vouchers_sum_all.sas,
   restrictions=None,
   tract_yr=2010,
