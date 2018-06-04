@@ -21,7 +21,7 @@
 
 %Create_all_summary_from_tracts( 
 
-  register=N,
+  register=Y,
   revisions=%str(Add Stantoncommons to summary),
   creator_process=Vouchers_sum_all.sas,
   restrictions=None,
