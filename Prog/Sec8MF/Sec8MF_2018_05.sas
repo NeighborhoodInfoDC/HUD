@@ -46,7 +46,6 @@
 
 %Sec8MF_dmvw( 
   filedate=&s8filedate,
-  upload=Y,
   revisions=&revisions 
 )
 

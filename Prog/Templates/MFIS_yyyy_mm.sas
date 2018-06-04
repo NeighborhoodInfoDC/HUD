@@ -1,16 +1,15 @@
 /**************************************************************************
  Program:  MFIS_yyyy_mm.sas
  Library:  HUD
- Project:  NeighborhoodInfo DC
+ Project:  Urban-Greater DC
  Author:   
  Created:  
- Version:  SAS 9.2
+ Version:  SAS 9.4
  Environment:  Local Windows session (desktop)
  
  Description:  Compile HUD-insured multifamily mortgage data.
  Creates files for DC, MD, VA, and WV.
  
- Modifications:
 **************************************************************************/
 
 %include "L:\SAS\Inc\StdLocal.sas";
