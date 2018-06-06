@@ -1,15 +1,22 @@
 /**************************************************************************
  Program:  Sec8MF_yyyy_mm.sas
  Library:  HUD
- Project:  Urban-Greater DC
+ Project:  NeighborhoodInfo DC
  Author:   
  Created:  
- Version:  SAS 9.4
+ Version:  SAS 9.2
  Environment:  Local Windows session (desktop)
  
  Description:  Compile Section 8 multifamily contract/project data.
  Creates files for DC, MD, VA, and WV.
  
+ NB:  Change upload=Y for final batch run.
+
+ Modifications:
+  10/19/14 PAT Updated for SAS1.
+  12/23/14 PAT New version incorporating %sec8mf_readbasetbls() and
+               %Sec8MF_dmvw() macros.
+  11/29/15 PAT Upload=Y is now the default. 
 **************************************************************************/
 
 %include "L:\SAS\Inc\StdLocal.sas";
@@ -23,7 +30,7 @@
 
   ** Enter date of HUD database as SAS date value, ex: '25nov2014'd **;
 
-  %let s8filedate = 'ddmmmyyyy'd;
+  %let s8filedate = '31may2018'd;
   
   %let revisions = %str(New file.);
 

@@ -35,7 +35,7 @@
 %macro Sec8MF_dmvw( 
   filedate=,   /** As of date of HUD database (SAS date value) **/
   s8folder=,   /** NO LONGER IN USE **/ 
-  upload=Y,    /** Upload and register file with metadata (Y/N) **/
+  upload=,    /** NO LONGER IN USE **/
   revisions=   /** Metadata revision description **/
   );
 
@@ -43,8 +43,6 @@
   
   %let month = %sysfunc( putn( %sysfunc( month( &filedate ) ), z2. ) );
   %let year = %sysfunc( year( &filedate ) );
-
-  %let upload = %upcase( &upload );
 
   %if %length( &month ) ~= 2 %then %do;
     %err_mput( macro=Sec8MF_dmvw, msg=Filedate= invalid month. Filedate=&filedate Month=&month )
@@ -56,25 +54,13 @@
     %goto exit_macro;
   %end;
   
-  %if &upload = Y and not &_remote_batch_submit %then %do;
-    %warn_mput( macro=Sec8mf_dmvw, msg=%str(Not a remote batch submit session. Upload= will be set to N.) )
-    %let upload = N;
-  %end;
-
   ** Create separate data sets for DC, MD, VA, and WV **;
   
-  %if &upload = Y %then %let outlib = HUD;
-  %else %let outlib = WORK;
-
   data 
-    &outlib..Sec8MF_&year._&month._dc
-      (label="Sec 8 multifamily contracts w/property data, &month-&year update, DC")
-    &outlib..Sec8MF_&year._&month._md
-      (label="Sec 8 multifamily contracts w/property data, &month-&year update, MD")
-    &outlib..Sec8MF_&year._&month._va
-      (label="Sec 8 multifamily contracts w/property data, &month-&year update, VA")
-    &outlib..Sec8MF_&year._&month._wv
-      (label="Sec 8 multifamily contracts w/property data, &month-&year update, WV")
+    Sec8MF_&year._&month._dc
+    Sec8MF_&year._&month._md
+    Sec8MF_&year._&month._va
+    Sec8MF_&year._&month._wv
     ;
 
     set Sec8MF_&year._&month._us;
@@ -112,82 +98,47 @@
     ** Separate files by state **;
     
     select ( state_code );
-      when ( "DC" ) output &outlib..Sec8MF_&year._&month._dc;
-      when ( "MD" ) output &outlib..Sec8MF_&year._&month._md;
-      when ( "VA" ) output &outlib..Sec8MF_&year._&month._va;
-      when ( "WV" ) output &outlib..Sec8MF_&year._&month._wv;
+      when ( "DC" ) output Sec8MF_&year._&month._dc;
+      when ( "MD" ) output Sec8MF_&year._&month._md;
+      when ( "VA" ) output Sec8MF_&year._&month._va;
+      when ( "WV" ) output Sec8MF_&year._&month._wv;
       otherwise /** Do not save obs. **/;
     end;
     
   run;
   
-  ** Sort data sets **;
+  ** Finalize data sets **;
   
-  proc sort data=&outlib..Sec8MF_&year._&month._dc;
-    by contract_number;
-    
-  proc sort data=&outlib..Sec8MF_&year._&month._md;
-    by contract_number;
+  %local stlist i v;
 
-  proc sort data=&outlib..Sec8MF_&year._&month._va;
-    by contract_number;
+  %let stlist = dc md va wv;
+  %let i = 1;
+  %let v = %scan( &stlist, &i );
 
-  proc sort data=&outlib..Sec8MF_&year._&month._wv;
-    by contract_number;
+  %do %until ( &v = );
 
-  ** Output basic file info **;
+    %Finalize_data_set( 
+      /** Finalize data set parameters **/
+      data=Sec8MF_&year._&month._&v,
+      out=Sec8MF_&year._&month._&v,
+      outlib=HUD,
+      label="Sec 8 multifamily contracts w/property data, &month-&year update, %upcase(&v)",
+      sortby=contract_number,
+      /** Metadata parameters **/
+      restrictions=None,
+      revisions=%str(&revisions),
+      /** File info parameters **/
+      printobs=0,
+      freqvars=
+        tracs_status extract_date tracs_overall_expire_quarter
+        rent_to_FMR_description contract_doc_type_code
+        program_type_group_code program_type_name property_category
+        primary_financing owner_company mgmt_agent_company
+    )
 
-  %File_info( data=&outlib..Sec8MF_&year._&month._dc, 
-              freqvars=tracs_status extract_date tracs_overall_expire_quarter
-                       rent_to_FMR_description
-                       contract_doc_type_code program_type_group_code program_type_name
-                       property_category primary_financing owner_company mgmt_agent_company )
+    %let i = %eval( &i + 1 );
+    %let v = %scan( &stlist, &i );
 
-  %if &upload = Y %then %do;
-  
-    %if &_REMOTE_BATCH_SUBMIT %then %do;
-  
-      %Dc_update_meta_file(
-        ds_lib=HUD,
-        ds_name=Sec8MF_&year._&month._dc,
-        creator_process=Sec8MF_&year._&month..sas,
-        restrictions=None,
-        revisions=&revisions
-      )
-      
-      %Dc_update_meta_file(
-        ds_lib=HUD,
-        ds_name=Sec8MF_&year._&month._md,
-        creator_process=Sec8MF_&year._&month..sas,
-        restrictions=None,
-        revisions=&revisions
-      )
-      
-      %Dc_update_meta_file(
-        ds_lib=HUD,
-        ds_name=Sec8MF_&year._&month._va,
-        creator_process=Sec8MF_&year._&month..sas,
-        restrictions=None,
-        revisions=&revisions
-      )
-      
-      %Dc_update_meta_file(
-        ds_lib=HUD,
-        ds_name=Sec8MF_&year._&month._wv,
-        creator_process=Sec8MF_&year._&month..sas,
-        restrictions=None,
-        revisions=&revisions
-      )
-    
-      run;
-      
-    %end;
-    %else %do;
-    
-      %note_mput( macro=Sec8MF_dmvw, msg=Metadata registration will be skipped because not running remote batch. )
-      
-    %end;
-    
   %end;
 
   %exit_macro:
