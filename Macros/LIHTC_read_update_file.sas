@@ -20,31 +20,10 @@
   filedate=,                      /** File extract date (SAS date value) **/
   folder=&_dcdata_r_path\HUD\Raw\LIHTC,     /** Folder for input raw files **/ 
   rawfile = lihtcpub,             /** Name of input data set **/
-  finalize=Y,                     /** Upload and register file with metadata (Y/N) **/
+  finalize=,                     /** No longer in use**/
   revisions=%str(New file.)       /** Metadata revision description **/
 );
 
-  %** Check parameters **;
-  
-  %if not( &year >= 1990 and &year <= %sysfunc( year( %sysfunc( today() ) ) ) ) %then %do;
-    %err_mput( macro=LIHTC_read_update_file,
-               msg=Must provide a valid placed in service through year: YEAR=&year.. )
-    %goto exit_macro;
-  %end;
- 
-  %if not( %sysevalf( &filedate >= '01jan1990'd ) and %sysevalf( &filedate <= %sysfunc( today() ) ) ) %then %do;
-    %err_mput( macro=LIHTC_read_update_file,
-               msg=Must provide a valid file extract date: FILEDATE=&filedate.. )
-    %goto exit_macro;
-  %end;
- 
-  %let finalize = %upcase( &finalize );
-  
-  %if &finalize = Y and not &_REMOTE_BATCH_SUBMIT %then %do;
-    %warn_mput( macro=LIHTC_read_update_file,
-                msg=Not remote batch submit session. Finalize will be set to N. )
-    %let finalize = N;
-  %end;
   
   %** Define local macro variables **;
   
@@ -211,7 +190,7 @@
       X = "Unknown var X"
       Y = "Unknown var Y"
       Z = "Unknown var Z"
-      YRMISFLG = "Unknown var YRMISFLG"
+      YRMISFLG = "Unknown var YRMISFLG";
     
     format 
       credit lihtc_credit.
@@ -250,7 +229,6 @@
   run;
   title2;
 
-  %if &finalize = Y %then %do;
 
   ** Check for duplicates (DC only) **;
   
