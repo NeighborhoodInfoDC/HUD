@@ -19,5 +19,5 @@
 %DCData_lib( HUD )
 
 
-%Lihtc_read_update_file( year=2016, filedate='20jun2018'd )
+%Lihtc_read_update_file( year=2016, filedate='20jun2018'd, rawfile = lihtcpub, revisions=%str(New file.))
 
