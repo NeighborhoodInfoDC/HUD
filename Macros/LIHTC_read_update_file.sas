@@ -9,7 +9,8 @@
  
  Description:  Autocall macro to read LIHTC update file.
 
- Modifications:
+ Modifications: 
+6.21.18 - MC Updated for 2016 File Structure
 **************************************************************************/
 
 /** Macro LIHTC_read_update_file - Start Definition **/
@@ -19,31 +20,10 @@
   filedate=,                      /** File extract date (SAS date value) **/
   folder=&_dcdata_r_path\HUD\Raw\LIHTC,     /** Folder for input raw files **/ 
   rawfile = lihtcpub,             /** Name of input data set **/
-  finalize=Y,                     /** Upload and register file with metadata (Y/N) **/
+  finalize=,                     /** No longer in use**/
   revisions=%str(New file.)       /** Metadata revision description **/
 );
 
-  %** Check parameters **;
-  
-  %if not( &year >= 1990 and &year <= %sysfunc( year( %sysfunc( today() ) ) ) ) %then %do;
-    %err_mput( macro=LIHTC_read_update_file,
-               msg=Must provide a valid placed in service through year: YEAR=&year.. )
-    %goto exit_macro;
-  %end;
- 
-  %if not( %sysevalf( &filedate >= '01jan1990'd ) and %sysevalf( &filedate <= %sysfunc( today() ) ) ) %then %do;
-    %err_mput( macro=LIHTC_read_update_file,
-               msg=Must provide a valid file extract date: FILEDATE=&filedate.. )
-    %goto exit_macro;
-  %end;
- 
-  %let finalize = %upcase( &finalize );
-  
-  %if &finalize = Y and not &_REMOTE_BATCH_SUBMIT %then %do;
-    %warn_mput( macro=LIHTC_read_update_file,
-                msg=Not remote batch submit session. Finalize will be set to N. )
-    %let finalize = N;
-  %end;
   
   %** Define local macro variables **;
   
@@ -65,10 +45,7 @@
     ;
 
     set rawlihtc.&rawfile
-          (where=(upcase(PROJ_ST) in ( 'DC', 'MD', 'VA', 'WV' ))
-           rename=(HOME_IDISI=HOME_IDISID
-                   TCAP_IDISI=TCAP_IDISID
-                   CDBG_IDISI=CDBG_IDISID));
+          (where=(upcase(PROJ_ST) in ( 'DC', 'MD', 'VA', 'WV' )));
     
     retain Extract_date &filedate;
     
@@ -142,7 +119,7 @@
       CO_ZIP = "Contact's zip"
       CO_TEL = "Contact's telephone"
       LATITUDE = "Latitude: degrees decimal"
-      LONGITUDE = "Longitude: degrees decimal"
+      LONGITUD = "Longitude: degrees decimal"
       REG = "Census Region"
       MSA = "MSA/PMSA Number (1999)"
       CBSA = "Core Based Statistical Area (CBSA) Lowest Level Code"
@@ -157,7 +134,6 @@
       ST2000 = "2000 State FIPS Code"
       CNTY2000 = "2000 County FIPS Code"
       TRCT2000 = "2000 Census Tract Number"
-      BG2000 = "2000 Census Block Group Number"
       FIPS2010 = "Unique 2010 Census Tract ID"
       ST2010 = "2010 State FIPS Code"
       CNTY2010 = "2010 County FIPS Code"
@@ -179,24 +155,16 @@
       BASIS = "Increase in eligible basis"
       BOND = "Tax-exempt bond received"
       MFF_RA = "HUD Multi-Family financing/rental assistance"
-      MFF_RA_ID = "HUD Multi-Family financing/rental assistance Property ID"
       FMHA_514 = "FmHA (RHS) Section 514 loan"
-      RDNUM_514 = "FmHA (RHS) Section 514 loan number"
       FMHA_515 = "FmHA (RHS) Section 515 loan"
-      RDNUM_515 = "FmHA (RHS) Section 515 loan number"
       FMHA_538 = "FmHA (RHS) Section 538 loan"
-      RDNUM_538 = "FmHA (RHS) Section 538 loan number"
       HOME = "HOME Investment Partnership Program funds"
       HOME_AMT = "Dollar amount of HOME funds"
-      HOME_IDISID = "HOME Investment Partnership Program funds IDIS ID"
       TCAP = "Tax Credit Assistance Program (TCAP) funds"
       TCAP_AMT = "TCAP Amount"
-      TCAP_IDISID = "TCAP ISIS ID"
       CDBG = "Community Development Block Grant (CDBG) funds"
       CDBG_AMT = "Dollar amount of CDBG funds"
-      CDBG_IDISID = "Community Development Block Grant (CDBG) funds IDIS ID"
       FHA = "FHA-insured loan"
-      FHA_NUM = "FHA loan number"
       HOPEVI = "Forms part of a HOPEVI development"
       HPVI_AMT = "Dollar amount of HOPEVI funds for development or building costs"
       TCEP = "TCEP funds"
@@ -222,8 +190,7 @@
       X = "Unknown var X"
       Y = "Unknown var Y"
       Z = "Unknown var Z"
-      YRMISFLG = "Unknown var YRMISFLG"
-      N_TOTAL = "Unknown var N_TOTAL";
+      YRMISFLG = "Unknown var YRMISFLG";
     
     format 
       credit lihtc_credit.
@@ -252,15 +219,7 @@
   proc sort data=LIHTC_&year._wv;
     by HUD_ID;
 
-  ** Check for duplicates (DC only) **;
-  
-  %Dup_check(
-    data=LIHTC_&year._dc,
-    by=HUD_ID,
-    id=project
-  )
-  
-  ** Print data notes (DC only) **;
+ ** Print data notes (DC only) **;
 
   proc print data=LIHTC_&year._dc;
     where datanote ~= "";
@@ -270,57 +229,45 @@
   run;
   title2;
 
-  %if &finalize = Y %then %do;
-  
-    proc datasets library=HUD memtype=(data) nolist;
-      copy in=work out=HUD;
-      select LIHTC_&year._dc LIHTC_&year._md 
-             LIHTC_&year._va LIHTC_&year._wv;
-    quit;
 
-    %File_info( data=HUD.LIHTC_&year._dc, printobs=5, freqvars=credit dda inc_ceil metro rentassist type yr_pis yr_alloc &recode_yesno nonprog )
+  ** Check for duplicates (DC only) **;
   
-    %Dc_update_meta_file(
-      ds_lib=HUD,
-      ds_name=LIHTC_&year._dc,
-      creator_process=LIHTC_&year..sas,
-      restrictions=None,
-      revisions=&revisions
-    )
-    
-    %Dc_update_meta_file(
-      ds_lib=HUD,
-      ds_name=LIHTC_&year._md,
-      creator_process=LIHTC_&year..sas,
-      restrictions=None,
-      revisions=&revisions
-    )
-    
-    %Dc_update_meta_file(
-      ds_lib=HUD,
-      ds_name=LIHTC_&year._va,
-      creator_process=LIHTC_&year..sas,
-      restrictions=None,
-      revisions=&revisions
-    )
-    
-    %Dc_update_meta_file(
-      ds_lib=HUD,
-      ds_name=LIHTC_&year._wv,
-      creator_process=LIHTC_&year..sas,
-      restrictions=None,
-      revisions=&revisions
-    )
+  %Dup_check(
+    data=LIHTC_&year._dc,
+    by=HUD_ID,
+    id=project
+  )
   
-    run;
-      
-  %end;
-  %else %do;
-    
-    %note_mput( macro=LIHTC_read_update_file, msg=Data sets will not be finalized. )
-      
-    %File_info( data=LIHTC_&year._dc, printobs=5, freqvars=credit dda inc_ceil metro rentassist type yr_pis yr_alloc &recode_yesno nonprog )
+
+  ** Finalize data sets **;
   
+  %local stlist i v;
+
+  %let stlist = dc md va wv;
+  %let i = 1;
+  %let v = %scan( &stlist, &i );
+
+  %do %until ( &v = );
+
+    %Finalize_data_set( 
+      /** Finalize data set parameters **/
+      data=LIHTC_&year._&v,
+      out=LIHTC_&year._&v,
+      outlib=HUD,
+      label="&ds_label, %upcase(&v)",
+      sortby=HUD_ID,
+      /** Metadata parameters **/
+      restrictions=None,
+      revisions=%str(&revisions),
+      /** File info parameters **/
+      printobs=0,
+      freqvars=
+        credit dda inc_ceil metro rentassist type yr_pis yr_alloc &recode_yesno nonprog
+    )
+
+    %let i = %eval( &i + 1 );
+    %let v = %scan( &stlist, &i );
+
   %end;
     
   %exit_macro:
