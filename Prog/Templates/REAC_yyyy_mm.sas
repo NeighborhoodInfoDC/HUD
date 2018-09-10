@@ -22,7 +22,7 @@
 
 *--- EDIT PARAMETERS BELOW -----------------------------------------;
 
-%MFIS_read_update_file( 
+%REAC_read_update_file( 
   filedate = 'ddmmmyyyy'd,  /** Enter date of HUD database as SAS date value, ex: '25nov2014'd **/
   revisions = %str(New file.)
 )
