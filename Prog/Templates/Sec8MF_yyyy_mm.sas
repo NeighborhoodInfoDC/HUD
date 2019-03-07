@@ -1,5 +1,5 @@
 /**************************************************************************
- Program:  MFIS_yyyy_mm.sas
+ Program:  Sec8MF_yyyy_mm.sas
  Library:  HUD
  Project:  Urban-Greater DC
  Author:   
@@ -8,7 +8,7 @@
  Environment:  Local Windows session (desktop)
  GitHub issue:  
  
- Description:  Compile HUD-insured multifamily mortgage data.
+ Description:  Compile Section 8 multifamily contract/project data.
  Creates files for DC, MD, VA, and WV.
  
 **************************************************************************/
@@ -22,9 +22,26 @@
 
 *--- EDIT PARAMETERS BELOW -----------------------------------------;
 
-%MFIS_read_update_file( 
-  filedate = 'ddmmmyyyy'd,  /** Enter date of HUD database as SAS date value, ex: '25nov2014'd **/
-  revisions = %str(New file.)
-)
+  ** Enter date of HUD database as SAS date value, ex: '25nov2014'd **;
+
+  %let s8filedate = 'ddmmmyyyy'd;
   
+  %let revisions = %str(New file.);
+
+*-------------------------------------------------------------------;
+
+
+*--- MAIN PROGRAM --------------------------------------------------;
+
+%sec8mf_readbasetbls( 
+  filedate=&s8filedate,
+  folder=&_dcdata_r_path\HUD
+)
+
+%Sec8MF_dmvw( 
+  filedate=&s8filedate,
+  revisions=&revisions 
+)
+
 run;
+
