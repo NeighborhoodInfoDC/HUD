@@ -6,6 +6,7 @@
  Created:  9/22/16
  Version:  SAS 9.4
  Environment:  Local Windows session (desktop)
+ GitHub issue:  
  
  Description:  Compile REAC scores data.
  Creates files for DC, MD, VA, and WV.
