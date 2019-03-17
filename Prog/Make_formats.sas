@@ -405,7 +405,7 @@ proc format library=HUD;
     
     /** APSH formats **/
     
-    $apsh_sumlevel
+    value $apsh_sumlevel
       '01' = "U.S. total"
       '03' = "State total, including D.C. and outlying areas"
       '04' = "Public housing agency (PHA)"
@@ -417,7 +417,7 @@ proc format library=HUD;
       '10' = "Zipcode"
       '11' = "Congressional District";
       
-    $apsh_program
+    value $apsh_program
       '1' = "Summary of all HUD programs"
       '2' = "Public housing"
       '3' = "Housing choice vouchers"
@@ -428,7 +428,7 @@ proc format library=HUD;
       '8' = "202/PRAC"
       '9' = "811/PRAC";
 
-    $apsh_sub_program
+    value $apsh_sub_program
       'LMSA' = "Loan management set-aside"
       '202/8' = "Section 202/8"
       'PD' = "Property disposition"
@@ -441,7 +441,7 @@ proc format library=HUD;
       '811/PRAC' = "Section 811 capital advance/project rental assistance contract"
       'NA' = "Not applicable";
 
-    $apsh_ha_size
+    value $apsh_ha_size
       '1' = "Agencies with 1-99 units"
       '2' = "100-299 units"
       '3' = "300-499 units"
