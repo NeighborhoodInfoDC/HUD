@@ -15,7 +15,7 @@
 %include "L:\SAS\Inc\StdLocal.sas";
 
 ** Define libraries **;
-%DCData_lib( HUD, local=n )
+%DCData_lib( HUD )
 
 proc format library=HUD;
 
@@ -402,6 +402,55 @@ proc format library=HUD;
     "TITLEX1002LANDDEVELOPMENT"= "TX1002LD"
     "TITLEXIGROUPPRACTICE"= "TXIGRPPR"
     other = " ";
+    
+    /** APSH formats **/
+    
+    value $apsh_sumlevel
+      '01' = "U.S. total"
+      '03' = "State total, including D.C. and outlying areas"
+      '04' = "Public housing agency (PHA)"
+      '05' = "Core Based Statistical Areas (CBSA)"
+      '06' = "Projects (multifamily assisted or public housing)"
+      '07' = "Census tract"
+      '08' = "City, or census-designated place-CDP"
+      '09' = "County"
+      '10' = "Zipcode"
+      '11' = "Congressional District";
+      
+    value $apsh_program
+      '1' = "Summary of all HUD programs"
+      '2' = "Public housing"
+      '3' = "Housing choice vouchers"
+      '4' = "Moderate rehabilitation"
+      '5' = "Project based section 8"
+      '6' = "RentSup/RAP"
+      '7' = "S236/BMIR"
+      '8' = "202/PRAC"
+      '9' = "811/PRAC";
+
+    value $apsh_sub_program
+      'LMSA' = "Loan management set-aside"
+      '202/8' = "Section 202/8"
+      'PD' = "Property disposition"
+      'NC/SR' = "New construction and substantial rehabilitation"
+      'SUP' = "Rent supplement"
+      'RAP' = "Rental assistance program"
+      'S236' = "Section 236"
+      'BMIR' = "Below market interest rate"
+      '202/PRAC' = "Section 202 capital advance/project rental assistance contract"
+      '811/PRAC' = "Section 811 capital advance/project rental assistance contract"
+      'NA' = "Not applicable";
+
+    value $apsh_ha_size
+      '1' = "Agencies with 1-99 units"
+      '2' = "100-299 units"
+      '3' = "300-499 units"
+      '4' = "500-999 units"
+      '5' = "1,000-2,999 units"
+      '6' = "3,000-4,999 units"
+      '7' = "5,000-9,999 units"
+      '8' = "10,000-29,999 units"
+      '9' = "30,000+ units";
 
 run;
 
@@ -413,6 +462,10 @@ proc catalog catalog=HUD.Formats;
   modify mfis_soa (desc="MFIS section of act code") / entrytype=formatc;
   modify mfis_soacat (desc="MFIS section of act category code") / entrytype=formatc;
   modify mfis_soacat2cod (desc="MFIS convert SOA cat text to code") / entrytype=formatc;
+  modify apsh_sumlevel (desc="APSH summary level") / entrytype=formatc;
+  modify apsh_program (desc="APSH assisted housing program") / entrytype=formatc;
+  modify apsh_sub_program (desc="APSH subprogram type") / entrytype=formatc;
+  modify apsh_ha_size (desc="APSH housing agency size") / entrytype=formatc;
   contents;
 quit;
 
