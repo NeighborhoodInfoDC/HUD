@@ -464,7 +464,7 @@ proc catalog catalog=HUD.Formats;
   modify mfis_soacat2cod (desc="MFIS convert SOA cat text to code") / entrytype=formatc;
   modify apsh_sumlevel (desc="APSH summary level") / entrytype=formatc;
   modify apsh_program (desc="APSH assisted housing program") / entrytype=formatc;
-  modify apsh_program (desc="APSH subprogram type") / entrytype=formatc;
+  modify apsh_sub_program (desc="APSH subprogram type") / entrytype=formatc;
   modify apsh_ha_size (desc="APSH housing agency size") / entrytype=formatc;
   contents;
 quit;
