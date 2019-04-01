@@ -36,6 +36,10 @@
   %let filedate_fmt = %sysfunc( putn( &filedate, mmddyyd10. ) );
   %let ds_label = HUD REAC Scores, &filedate_fmt update; 
   
+  %put &filedate;
+	
+  %if &filedate < '06feb2019'd %then %do;
+
   data rawscores;
   
     infile "&folder\raw\reac\&filedate_fmt.\reacphyinspecscorreldates.csv" dsd stopover lrecl=2000 firstobs=2;
@@ -58,8 +62,35 @@
     if state_code in ( 'DC', 'MD', 'VA', 'WV' );
   
   run;
+  %end;
+  %else %do;
 
+  data rawscores;
   
+    infile "&folder\raw\reac\&filedate_fmt.\mf_inspection_report.csv" dsd stopover lrecl=2000 firstobs=2;
+	  input 
+	  property_name : $40.
+	  state_name : $15.
+	  city : $15.
+	  state_code : $2.
+	  rems_property_id : $9.
+      inspec_id_1 : $6.
+	  inspec_score_1 : $5.
+      release_date_1 : $10.
+      inspec_id_2 : $6.
+      inspec_score_2 : $5.
+      release_date_2 : $10.
+	  inspec_id_3 : $6.
+	  inspec_score_3 : $5.
+	  release_date_3 : $10.  
+      
+      ;
+    if state_code in ( 'DC', 'MD', 'VA', 'WV' );
+  
+  run;
+
+    %end;
+
   data 
     REAC_&year._&month._dc (label="&ds_label, DC")
     REAC_&year._&month._md (label="&ds_label, MD")
@@ -125,6 +156,7 @@
     %File_info( 
       data=HUD.REAC_&year._&month._dc, 
       printobs=5,
+      stats=,
       freqvars=state_code  inspec_score_1  inspec_score_2  inspec_score_3
     )
   
@@ -169,6 +201,7 @@
     %File_info( 
       data=REAC_&year._&month._dc, 
       printobs=5,
+      stats=,
       freqvars=state_code  inspec_score_1  inspec_score_2  inspec_score_3
     )
   
@@ -179,4 +212,3 @@
 %mend REAC_read_update_file;
 
 /** End Macro Definition **/
-
