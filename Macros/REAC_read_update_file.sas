@@ -156,6 +156,7 @@
     %File_info( 
       data=HUD.REAC_&year._&month._dc, 
       printobs=5,
+      stats=,
       freqvars=state_code  inspec_score_1  inspec_score_2  inspec_score_3
     )
   
@@ -200,6 +201,7 @@
     %File_info( 
       data=REAC_&year._&month._dc, 
       printobs=5,
+      stats=,
       freqvars=state_code  inspec_score_1  inspec_score_2  inspec_score_3
     )
   
