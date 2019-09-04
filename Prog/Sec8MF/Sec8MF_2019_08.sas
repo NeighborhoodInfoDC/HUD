@@ -1,9 +1,9 @@
 /**************************************************************************
- Program:  Sec8MF_yyyy_mm.sas
+ Program:  Sec8MF_2019_08.sas
  Library:  HUD
  Project:  Urban-Greater DC
- Author:   
- Created:  
+ Author:   W. Oliver
+ Created:  9/4/2019
  Version:  SAS 9.4
  Environment:  Local Windows session (desktop)
  GitHub issue:  
