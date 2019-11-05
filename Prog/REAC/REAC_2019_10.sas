@@ -1,5 +1,5 @@
 /**************************************************************************
- Program:  REAC_2019_11.sas
+ Program:  REAC_2019_10.sas
  Library:  HUD
  Project:  NeighborhoodInfo DC
  Author:   W.Oliver
@@ -24,7 +24,7 @@
 *--- EDIT PARAMETERS BELOW -----------------------------------------;
 
 %REAC_read_update_file( 
-  filedate = '30nov2019'd,  /** Enter date of HUD database as SAS date value, ex: '25nov2014'd **/
+  filedate = '31oct2019'd,  /** Enter date of HUD database as SAS date value, ex: '25nov2014'd **/
   revisions = %str(New file.)
 )
   
