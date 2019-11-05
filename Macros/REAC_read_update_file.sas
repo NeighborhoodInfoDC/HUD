@@ -153,7 +153,7 @@
       property_name = "Property Name"
       state_name = "State"
       city = "City"
-      state_code = "State Code"
+      state_code = "State Code";
 
      
   run;
