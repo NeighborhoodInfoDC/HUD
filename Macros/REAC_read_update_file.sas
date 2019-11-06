@@ -63,6 +63,35 @@
   
   run;
   %end;
+
+   %if &filedate => '31oct2019'd %then %do;
+
+   data rawscores;
+  
+    infile "&folder\raw\reac\&filedate_fmt.\mf_inspection_report.csv" dsd stopover lrecl=2000 firstobs=2;
+	  input 
+      rems_property_id : $9.
+	  has_active_financing_ind : $2.
+	  has_active_assistance_ind : $2.
+      inspec_id_1 : $6.
+	  inspec_score_1 : $5.
+      release_date_1 : $10.
+      inspec_id_2 : $6.
+      inspec_score_2 : $5.
+      release_date_2 : $10.
+	  inspec_id_3 : $6.
+	  inspec_score_3 : $5.
+	  release_date_3 : $10.
+      property_name : $40.
+      state_name : $15.
+      city : $15.
+      state_code : $2.
+      ;
+    if state_code in ( 'DC', 'MD', 'VA', 'WV' );
+  
+  run;
+  %end;
+
   %else %do;
 
   data rawscores;
@@ -124,7 +153,7 @@
       property_name = "Property Name"
       state_name = "State"
       city = "City"
-      state_code = "State Code"
+      state_code = "State Code";
 
      
   run;
