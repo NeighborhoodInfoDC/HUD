@@ -101,6 +101,7 @@
   		is_risk_sharing_ind $1.
   		is_mip_ind $1.
   		is_co_insured_ind $1.
+		is_opportunity_zone_ind $1.
   		ownership_effective_date 8.
   		owner_participant_id 8.
   		owner_company_type $20.
@@ -176,6 +177,7 @@
   		is_risk_sharing_ind $
   		is_mip_ind $
   		is_co_insured_ind $
+		is_opportunity_zone_ind $
   		ownership_effective_date : mmddyy.
   		owner_participant_id
   		owner_company_type $
@@ -263,6 +265,7 @@
       is_risk_sharing_ind = "Any active financing instruments associated with property are risk sharing loans"
       is_mip_ind = "Any active financing instruments associated with property are MIP loans"
       is_co_insured_ind = "Any active financing associated with property is a co-insured loan"
+	  is_opportunity_zone_ind = "Opportunity Zone Indicator"
       ownership_effective_date = "Most recent effective date associated with property owner"
       owner_participant_id = "Identifier for owner having most recent effective date for property"
       owner_company_type = "Type of owner company"
