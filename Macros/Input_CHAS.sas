@@ -80,12 +80,13 @@ data chas_&yrs_._ntnl;
 	tractc = put(tract,z6.);
 	placec = put(place,z5.);
 
-	if sumlevel in (50,140) then do;
+	if sumlevel =50 then do;
 		ucounty = statec || cntyc;
 	end;
 
 	if sumlevel = 140  then do;
 		geo2010 = substr(geoid,8,11);
+		ucounty = substr(geoid,8,5);
 	end;
 
 	if sumlevel = 160 then do;
