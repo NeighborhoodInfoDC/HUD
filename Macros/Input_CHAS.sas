@@ -52,6 +52,9 @@
 	data table_all_&gcode.;
 		merge &tablelist.;
 		by geoid;
+		%if &gcode. = 140 %then %do;
+			sumlevel = 140;
+		%end;
 	run;
 
 %mend geo_chas;
@@ -82,7 +85,7 @@ data chas_&yrs_._ntnl;
 	end;
 
 	if sumlevel = 140  then do;
-		geo2010 = statec || cntyc || tractc;
+		geo2010 = substr(geoid,8,11);
 	end;
 
 	if sumlevel = 160 then do;
