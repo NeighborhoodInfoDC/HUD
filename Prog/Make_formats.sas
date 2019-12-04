@@ -134,7 +134,6 @@ proc format library=HUD;
     "ZSM" = "241a Improvement/Addition on 223(f) Apts"
     "ZSN" = "241a Improvement/Addition on 231 Elderly Hsg"
     "ZSR" = "241a Improvement/Addition on 236"
-    "TCH" = "234(d) NC/SR Condo"
     "HRC" = "207 Mobile Home Park "
     "XTX" = "223d 10yr Operating Loss"
     "XTD" = "223d 2yr Operating Loss on 207 Mobile Home Park"
