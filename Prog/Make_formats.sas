@@ -9,7 +9,7 @@
  
  Description:  Create HUD library formats.
 
- Modifications:
+ Modifications: 12/5/2019 - Added YHC code
 **************************************************************************/
 
 %include "L:\SAS\Inc\StdLocal.sas";
