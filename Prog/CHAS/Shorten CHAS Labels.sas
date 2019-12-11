@@ -201,6 +201,9 @@ data Datadictionary_labels;
 	tnum=substr(Column_Name,1,2);
 	if tnum="T6" then delete;
 
+	/* Drop unneeded geo vars */
+	if Column_Name in ("CTY","MCD","CONCIT") then delete;
+
 	fulllabel = left(trim(Description_1))||""||left(trim(Description_2))||left(trim(Description_3))||left(trim(Description_4))||left(trim(Description_5));
 	labelstatement = left(trim(Column_Name))||"="||""""||left(trim(fulllabel))||"""";
 run;
