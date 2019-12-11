@@ -77,7 +77,6 @@ data chas_&yrs_._ntnl;
 	/* Create standard geo IDs */
 	statec = put(st,z2.);
 	cntyc = put(cnty,z3.);
-	tractc = put(tract,z6.);
 	placec = put(place,z5.);
 
 	if sumlevel =50 then do;
@@ -93,7 +92,7 @@ data chas_&yrs_._ntnl;
 		uplace = statec || placec;
 	end;
 
-	drop statec cntyc tractc placec;
+	drop statec cntyc placec;
 
 	label geo2010 = Census tract (2010)
 		  ucounty = County

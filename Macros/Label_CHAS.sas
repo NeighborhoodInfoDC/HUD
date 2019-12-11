@@ -20,7 +20,6 @@ geoid="Unique geographic id."
 NAME="Jurisdiction name."
 ST="State FIPS. 2 digits."
 place="Place FIPS. 5 digits. Included only at sum level 155 and 160."
-tract="Tract FIPS. 6 digits. Only at sum level 140."
 T1_est1="Total: Occupied housing units"
 T1_est2="Owner occupied"
 T1_est3="Owner occupied AND has 1 or more of the 4 HU problems"
@@ -5199,6 +5198,10 @@ T18C_moe98="Margin of error for estimate T18C_est98"
 T18C_moe99="Margin of error for estimate T18C_est99"
 T18C_moe100="Margin of error for estimate T18C_est100"
 T18C_moe101="Margin of error for estimate T18C_est101"
+
+%if %upcase( &yrs ) = 2012THRU2016 %then %do;
+tract="Tract FIPS. 6 digits. Only at sum level 140."
+ %end;
 
 ;
 
