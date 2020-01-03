@@ -99,6 +99,9 @@ data chas_&yrs_._ntnl;
 		  uplace = Place
 	;
 
+	/* Drop now unneeded numeric geo IDs */
+	drop cnty st place tract;
+
 run;
 
 /* Save final summary file */
