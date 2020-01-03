@@ -12,7 +12,10 @@
 
 **************************************************************************/
 
+** Define raw libraries **;
+%let rawpath = &_dcdata_r_path.\HUD\Raw\CHAS;
 libname chasraw "&rawpath.";
+
 
 /* Take the data diciontary from HUD and combine all the description variables in to a single column */
 %macro makebiglist ();
