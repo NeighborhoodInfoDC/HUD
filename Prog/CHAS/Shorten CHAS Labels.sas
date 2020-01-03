@@ -12,6 +12,9 @@
 
 **************************************************************************/
 
+%include "L:\SAS\Inc\StdLocal.sas"; 
+%DCData_lib( HUD )
+
 ** Define raw libraries **;
 %let rawpath = &_dcdata_r_path.\HUD\Raw\CHAS;
 libname chasraw "&rawpath.";
