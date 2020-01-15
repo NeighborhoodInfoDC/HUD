@@ -22,7 +22,7 @@
 %let years_dash = %sysfunc(translate(&years., '-', '_' ));
 
 data ch_test;
-	set hud.Chas_&years._ntnl ;
+	set hud.Chas_&years._ntnl (where=(geoid = "05000US11001"));
 
 	/* Supply */
 	all_units_tot_&years. = sum(of T1_est1 T14A_est1 T14B_est1);
@@ -154,190 +154,342 @@ data ch_test;
 
 
 	/* Supply vs Demand */
-	rent030_inc030_allbr_&years. = T15C_est5;
-	rent3050_inc030_allbr_&years. = T15C_est26;
-	rent5080_inc030_allbr_&years. = T15C_est47;
-	rent80pl_inc030_allbr_&years. = T15C_est68;
+	rnt030_inc030_allbr_&years. = T15C_est5;
+	rnt3050_inc030_allbr_&years. = T15C_est26;
+	rnt5080_inc030_allbr_&years. = T15C_est47;
+	rnt80pl_inc030_allbr_&years. = T15C_est68;
 
-	rent030_inc3050_allbr_&years. = T15C_est9;
-	rent3050_inc30t0_allbr_&years. = T15C_est30;
-	rent5080_inc3050_allbr_&years. = T15C_est51;
-	rent80pl_inc3050_allbr_&years. = T15C_est72;
+	rnt030_inc3050_allbr_&years. = T15C_est9;
+	rnt3050_inc3050_allbr_&years. = T15C_est30;
+	rnt5080_inc3050_allbr_&years. = T15C_est51;
+	rnt80pl_inc3050_allbr_&years. = T15C_est72;
 
-	rent030_inc5080_allbr_&years. = T15C_est13;
-	rent3050_inc5080_allbr_&years. = T15C_est34;
-	rent5080_inc5080_allbr_&years. = T15C_est55;
-	rent80pl_inc5080_allbr_&years. = T15C_est76;
+	rnt030_inc5080_allbr_&years. = T15C_est13;
+	rnt3050_inc5080_allbr_&years. = T15C_est34;
+	rnt5080_inc5080_allbr_&years. = T15C_est55;
+	rnt80pl_inc5080_allbr_&years. = T15C_est76;
 
-	rent030_inc80100_allbr_&years. = T15C_est17;
-	rent3050_inc80100_allbr_&years. = T15C_est38;
-	rent5080_inc80100_allbr_&years. = T15C_est59;
-	rent80pl_inc80100_allbr_&years. = T15C_est80;
+	rnt030_inc80100_allbr_&years. = T15C_est17;
+	rnt3050_inc80100_allbr_&years. = T15C_est38;
+	rnt5080_inc80100_allbr_&years. = T15C_est59;
+	rnt80pl_inc80100_allbr_&years. = T15C_est80;
 
-	rent030_inc100pl_allbr_&years. = T15C_est21;
-	rent3050_inc100pl_allbr_&years. = T15C_est42;
-	rent5080_inc100pl_allbr_&years. = T15C_est63;
-	rent80pl_inc100pl_allbr_&years. = T15C_est84;
+	rnt030_inc100pl_allbr_&years. = T15C_est21;
+	rnt3050_inc100pl_allbr_&years. = T15C_est42;
+	rnt5080_inc100pl_allbr_&years. = T15C_est63;
+	rnt80pl_inc100pl_allbr_&years. = T15C_est84;
 
-	rent030_inc030_01br_&years. = T15C_est6;
-	rent3050_inc030_01br_&years. = T15C_est27;
-	rent5080_inc030_01br_&years. = T15C_est48;
-	rent80pl_inc030_01br_&years. = T15C_est69;
+	rnt030_inc030_01br_&years. = T15C_est6;
+	rnt3050_inc030_01br_&years. = T15C_est27;
+	rnt5080_inc030_01br_&years. = T15C_est48;
+	rnt80pl_inc030_01br_&years. = T15C_est69;
 
-	rent030_inc3050_01br_&years. = T15C_est10;
-	rent3050_inc3050_01br_&years. = T15C_est31;
-	rent5080_inc3050_01br_&years. = T15C_est52;
-	rent80pl_inc3050_01br_&years. = T15C_est73;
+	rnt030_inc3050_01br_&years. = T15C_est10;
+	rnt3050_inc3050_01br_&years. = T15C_est31;
+	rnt5080_inc3050_01br_&years. = T15C_est52;
+	rnt80pl_inc3050_01br_&years. = T15C_est73;
 
-	rent030_inc5080_01br_&years. = T15C_est14;
-	rent3050_inc5080_01br_&years. = T15C_est35;
-	rent5080_inc5080_01br_&years. = T15C_est56;
-	rent80pl_inc5080_01br_&years. = T15C_est77;
+	rnt030_inc5080_01br_&years. = T15C_est14;
+	rnt3050_inc5080_01br_&years. = T15C_est35;
+	rnt5080_inc5080_01br_&years. = T15C_est56;
+	rnt80pl_inc5080_01br_&years. = T15C_est77;
 
-	rent030_inc80100_01br_&years. = T15C_est18;
-	rent3050_inc80100_01br_&years. = T15C_est39;
-	rent5080_inc80100_01br_&years. = T15C_est60;
-	rent80pl_inc80100_01br_&years. = T15C_est81;
+	rnt030_inc80100_01br_&years. = T15C_est18;
+	rnt3050_inc80100_01br_&years. = T15C_est39;
+	rnt5080_inc80100_01br_&years. = T15C_est60;
+	rnt80pl_inc80100_01br_&years. = T15C_est81;
 
-	rent030_inc100pl_01br_&years. = T15C_est22;
-	rent3050_inc100pl_01br_&years. = T15C_est43;
-	rent5080_inc100pl_01br_&years. = T15C_est64;
-	rent80pl_inc100pl_01br_&years. = T15C_est85;
+	rnt030_inc100pl_01br_&years. = T15C_est22;
+	rnt3050_inc100pl_01br_&years. = T15C_est43;
+	rnt5080_inc100pl_01br_&years. = T15C_est64;
+	rnt80pl_inc100pl_01br_&years. = T15C_est85;
 
-	rent030_inc030_2br_&years. = T15C_est7;
-	rent3050_inc030_2br_&years. = T15C_est28;
-	rent5080_inc030_2br_&years. = T15C_est49;
-	rent80pl_inc030_2br_&years. = T15C_est70;
+	rnt030_inc030_2br_&years. = T15C_est7;
+	rnt3050_inc030_2br_&years. = T15C_est28;
+	rnt5080_inc030_2br_&years. = T15C_est49;
+	rnt80pl_inc030_2br_&years. = T15C_est70;
 
-	rent030_inc3050_2br_&years. = T15C_est11;
-	rent3050_inc3050_2br_&years. = T15C_est32;
-	rent5080_inc3050_2br_&years. = T15C_est53;
-	rent80pl_inc3050_2br_&years. = T15C_est74;
+	rnt030_inc3050_2br_&years. = T15C_est11;
+	rnt3050_inc3050_2br_&years. = T15C_est32;
+	rnt5080_inc3050_2br_&years. = T15C_est53;
+	rnt80pl_inc3050_2br_&years. = T15C_est74;
 
-	rent030_inc5080_2br_&years. = T15C_est15;
-	rent3050_inc5080_2br_&years. = T15C_est36;
-	rent580_inc5080_2br_&years. = T15C_est57;
-	rent80pl_inc5080_2br_&years. = T15C_est78;
+	rnt030_inc5080_2br_&years. = T15C_est15;
+	rnt3050_inc5080_2br_&years. = T15C_est36;
+	rnt5080_inc5080_2br_&years. = T15C_est57;
+	rnt80pl_inc5080_2br_&years. = T15C_est78;
 
-	rent030_inc80100_2br_&years. = T15C_est19;
-	rent3050_inc80100_2br_&years. = T15C_est40;
-	rent5080_inc80100_2br_&years. = T15C_est61;
-	rent80pl_inc80100_2br_&years. = T15C_est82;
+	rnt030_inc80100_2br_&years. = T15C_est19;
+	rnt3050_inc80100_2br_&years. = T15C_est40;
+	rnt5080_inc80100_2br_&years. = T15C_est61;
+	rnt80pl_inc80100_2br_&years. = T15C_est82;
 
-	rent030_inc100pl_2br_&years. = T15C_est23;
-	rent3050_inc100pl_2br_&years. = T15C_est44;
-	rent5080_inc100pl_2br_&years. = T15C_est65;
-	rent80pl_inc100pl_2br_&years. = T15C_est86;
+	rnt030_inc100pl_2br_&years. = T15C_est23;
+	rnt3050_inc100pl_2br_&years. = T15C_est44;
+	rnt5080_inc100pl_2br_&years. = T15C_est65;
+	rnt80pl_inc100pl_2br_&years. = T15C_est86;
 
-	rent030_inc030_3br_&years. = T15C_est8;
-	rent3050_inc030_3br_&years. = T15C_est29;
-	rent5080_inc030_3br_&years. = T15C_est50;
-	rent80pl_inc030_3br_&years. = T15C_est71;
+	rnt030_inc030_3br_&years. = T15C_est8;
+	rnt3050_inc030_3br_&years. = T15C_est29;
+	rnt5080_inc030_3br_&years. = T15C_est50;
+	rnt80pl_inc030_3br_&years. = T15C_est71;
 
-	rent030_inc3050_3br_&years. = T15C_est12;
-	rent3050_inc3050_3br_&years. = T15C_est33;
-	rent5080_inc3050_3br_&years. = T15C_est54;
-	rent80pl_inc3050_3br_&years. = T15C_est75;
+	rnt030_inc3050_3br_&years. = T15C_est12;
+	rnt3050_inc3050_3br_&years. = T15C_est33;
+	rnt5080_inc3050_3br_&years. = T15C_est54;
+	rnt80pl_inc3050_3br_&years. = T15C_est75;
 
-	rent030_inc5080_3br_&years. = T15C_est16;
-	rent3050_inc5080_3br_&years. = T15C_est37;
-	rent5080_inc5080_3br_&years. = T15C_est58;
-	rent80pl_inc5080_3br_&years. = T15C_est79;
+	rnt030_inc5080_3br_&years. = T15C_est16;
+	rnt3050_inc5080_3br_&years. = T15C_est37;
+	rnt5080_inc5080_3br_&years. = T15C_est58;
+	rnt80pl_inc5080_3br_&years. = T15C_est79;
 
-	rent030_inc80100_3br_&years. = T15C_est20;
-	rent3050_inc80100_3br_&years. = T15C_est41;
-	rent5080_inc80100_3br_&years. = T15C_est62;
-	rent80pl_inc80100_3br_&years. = T15C_est83;
+	rnt030_inc80100_3br_&years. = T15C_est20;
+	rnt3050_inc80100_3br_&years. = T15C_est41;
+	rnt5080_inc80100_3br_&years. = T15C_est62;
+	rnt80pl_inc80100_3br_&years. = T15C_est83;
 
-	rent030_inc100pl_3br_&years. = T15C_est24;
-	rent3050_inc100pl_3br_&years. = T15C_est45;
-	rent5080_inc100pl_3br_&years. = T15C_est66;
-	rent80pl_inc100pl_3br_&years. = T15C_est87;
+	rnt030_inc100pl_3br_&years. = T15C_est24;
+	rnt3050_inc100pl_3br_&years. = T15C_est45;
+	rnt5080_inc100pl_3br_&years. = T15C_est66;
+	rnt80pl_inc100pl_3br_&years. = T15C_est87;
+
+	inc030_allbr_&years. = sum(of T15C_est5 T15C_est26 T15C_est47 T15C_est68);
+	inc3050_allbr_&years. = sum(of T15C_est9 T15C_est30 T15C_est51 T15C_est72);
+	inc5080_allbr_&years. = sum(of T15C_est13 T15C_est34 T15C_est55 T15C_est76);
+	inc80100_allbr_&years. = sum(of T15C_est17 T15C_est38 T15C_est59 T15C_est80);
+	inc100pl_allbr_&years. = sum(of T15C_est21 T15C_est42 T15C_est63 T15C_est84 );
+
+	inc030_01br_&years. = sum(of T15C_est6 T15C_est27 T15C_est48 T15C_est69 );
+	inc3050_01br_&years. = sum(of T15C_est10 T15C_est31 T15C_est52 T15C_est73);
+	inc5080_01br_&years. = sum(of T15C_est14 T15C_est35 T15C_est56 T15C_est77);
+	inc80100_01br_&years. = sum(of T15C_est18 T15C_est39 T15C_est60 T15C_est81);
+	inc100pl_01br_&years. = sum(of T15C_est22 T15C_est43 T15C_est64 T15C_est85);
+
+	inc030_2br_&years. = sum(of T15C_est7 T15C_est28 T15C_est49 T15C_est70);
+	inc3050_2br_&years. = sum(of T15C_est11 T15C_est32 T15C_est53 T15C_est74);
+	inc5080_2br_&years. = sum(of T15C_est15 T15C_est36 T15C_est57 T15C_est78);
+	inc80100_2br_&years. = sum(of T15C_est19 T15C_est40 T15C_est61 T15C_est82);
+	inc100pl_2br_&years. = sum(of T15C_est23 T15C_est44 T15C_est65 T15C_est86);
+
+	inc030_3br_&years. = sum(of T15C_est8 T15C_est29 T15C_est50 T15C_est71);
+	inc3050_3br_&years. = sum(of T15C_est12 T15C_est33 T15C_est54 T15C_est75);
+	inc5080_3br_&years. = sum(of T15C_est16 T15C_est37 T15C_est58 T15C_est79 );
+	inc80100_3br_&years. = sum(of T15C_est20 T15C_est41 T15C_est62 T15C_est83);
+	inc100pl_3br_&years. = sum(of T15C_est24 T15C_est45 T15C_est66 T15C_est87);
 
 	label
-	rent030_inc030_allbr_&years. = "Rent level 0-30%, household income 0-30%, &years_dash."
-	rent3050_inc030_allbr_&years. = "Rent level 30-50%, household income 0-30%, &years_dash."
-	rent5080_inc030_allbr_&years. = "Rent level 50-80%, household income 0-30%, &years_dash."
-	rent80pl_inc030_allbr_&years. = "Rent level 80%+, household income 0-30%, &years_dash."
-	rent030_inc3050_allbr_&years. = "Rent level 0-30%, household income 30-50%, &years_dash."
-	rent3050_inc30t0_allbr_&years. = "Rent level 30-50%, household income 30-50%, &years_dash."
-	rent5080_inc3050_allbr_&years. = "Rent level 50-80%, household income 30-50%, &years_dash."
-	rent80pl_inc3050_allbr_&years. = "Rent level 80%+, household income 30-50%, &years_dash."
-	rent030_inc5080_allbr_&years. = "Rent level 0-30%, household income 50-80%, &years_dash."
-	rent3050_inc5080_allbr_&years. = "Rent level 30-50%, household income 50-80%, &years_dash."
-	rent5080_inc5080_allbr_&years. = "Rent level 50-80%, household income 50-80%, &years_dash."
-	rent80pl_inc5080_allbr_&years. = "Rent level 80%+, household income 50-80%, &years_dash."
-	rent030_inc80100_allbr_&years. = "Rent level 0-30%, household income 80-100%, &years_dash."
-	rent3050_inc80100_allbr_&years. = "Rent level 30-50%, household income 80-100%, &years_dash."
-	rent5080_inc80100_allbr_&years. = "Rent level 50-80%, household income 80-100%, &years_dash."
-	rent80pl_inc80100_allbr_&years. = "Rent level 80%+, household income 80-100%, &years_dash."
-	rent030_inc100pl_allbr_&years. = "Rent level 0-30%, household income 100%+, &years_dash."
-	rent3050_inc100pl_allbr_&years. = "Rent level 30-50%, household income 100%+, &years_dash."
-	rent5080_inc100pl_allbr_&years. = "Rent level 50-80%, household income 100%+, &years_dash."
-	rent80pl_inc100pl_allbr_&years. = "Rent level 80%+, household income 100%+, &years_dash."
-	rent030_inc030_01br_&years. = "Rent level 0-30%, household income 0-30%, 0-1 bedrooms, &years_dash."
-	rent3050_inc030_01br_&years. = "Rent level 30-50%, household income 0-30%, 0-1 bedrooms, &years_dash."
-	rent5080_inc030_01br_&years. = "Rent level 50-80%, household income 0-30%, 0-1 bedrooms, &years_dash."
-	rent80pl_inc030_01br_&years. = "Rent level 80%+, household income 0-30%, 0-1 bedrooms, &years_dash."
-	rent030_inc3050_01br_&years. = "Rent level 0-30%, household income 30-50%, 0-1 bedrooms, &years_dash."
-	rent3050_inc3050_01br_&years. = "Rent level 30-50%, household income 30-50%, 0-1 bedrooms, &years_dash."
-	rent5080_inc3050_01br_&years. = "Rent level 50-80%, household income 30-50%, 0-1 bedrooms, &years_dash."
-	rent80pl_inc3050_01br_&years. = "Rent level 80%+, household income 30-50%, 0-1 bedrooms, &years_dash."
-	rent030_inc5080_01br_&years. = "Rent level 0-30%, household income 50-80%, 0-1 bedrooms, &years_dash."
-	rent3050_inc5080_01br_&years. = "Rent level 30-50%, household income 50-80%, 0-1 bedrooms, &years_dash."
-	rent5080_inc5080_01br_&years. = "Rent level 50-80%, household income 50-80%, 0-1 bedrooms, &years_dash."
-	rent80pl_inc5080_01br_&years. = "Rent level 80%+, household income 50-80%, 0-1 bedrooms, &years_dash."
-	rent030_inc80100_01br_&years. = "Rent level 0-30%, household income 80-100%, 0-1 bedrooms, &years_dash."
-	rent3050_inc80100_01br_&years. = "Rent level 30-50%, household income 80-100%, 0-1 bedrooms, &years_dash."
-	rent5080_inc80100_01br_&years. = "Rent level 50-80%, household income 80-100%, 0-1 bedrooms, &years_dash."
-	rent80pl_inc80100_01br_&years. = "Rent level 80%+, household income 80-100%, 0-1 bedrooms, &years_dash."
-	rent030_inc100pl_01br_&years. = "Rent level 0-30%, household income 100%+, 0-1 bedrooms, &years_dash."
-	rent3050_inc100pl_01br_&years. = "Rent level 30-50%, household income 100%+, 0-1 bedrooms, &years_dash."
-	rent5080_inc100pl_01br_&years. = "Rent level 50-80%, household income 100%+, 0-1 bedrooms, &years_dash."
-	rent80pl_inc100pl_01br_&years. = "Rent level 80%+, household income 100%+, 0-1 bedrooms, &years_dash."
-	rent030_inc030_2br_&years. = "Rent level 0-30%, household income 0-30%, 2 bedrooms, &years_dash."
-	rent3050_inc030_2br_&years. = "Rent level 30-50%, household income 0-30%, 2 bedrooms, &years_dash."
-	rent5080_inc030_2br_&years. = "Rent level 50-80%, household income 0-30%, 2 bedrooms, &years_dash."
-	rent80pl_inc030_2br_&years. = "Rent level 80%+, household income 0-30%, 2 bedrooms, &years_dash."
-	rent030_inc3050_2br_&years. = "Rent level 0-30%, household income 30-50%, 2 bedrooms, &years_dash."
-	rent3050_inc3050_2br_&years. = "Rent level 30-50%, household income 30-50%, 2 bedrooms, &years_dash."
-	rent5080_inc3050_2br_&years. = "Rent level 50-80%, household income 30-50%, 2 bedrooms, &years_dash."
-	rent80pl_inc3050_2br_&years. = "Rent level 80%+, household income 30-50%, 2 bedrooms, &years_dash."
-	rent030_inc5080_2br_&years. = "Rent level 0-30%, household income 50-80%, 2 bedrooms, &years_dash."
-	rent3050_inc5080_2br_&years. = "Rent level 30-50%, household income 50-80%, 2 bedrooms, &years_dash."
-	rent580_inc5080_2br_&years. = "Rent level 50-80%, household income 50-80%, 2 bedrooms, &years_dash."
-	rent80pl_inc5080_2br_&years. = "Rent level 80%+, household income 50-80%, 2 bedrooms, &years_dash."
-	rent030_inc80100_2br_&years. = "Rent level 0-30%, household income 80-100%, 2 bedrooms, &years_dash."
-	rent3050_inc80100_2br_&years. = "Rent level 30-50%, household income 80-100%, 2 bedrooms, &years_dash."
-	rent5080_inc80100_2br_&years. = "Rent level 50-80%, household income 80-100%, 2 bedrooms, &years_dash."
-	rent80pl_inc80100_2br_&years. = "Rent level 80%+, household income 80-100%, 2 bedrooms, &years_dash."
-	rent030_inc100pl_2br_&years. = "Rent level 0-30%, household income 100%+, 3+ bedrooms, &years_dash."
-	rent3050_inc100pl_2br_&years. = "Rent level 30-50%, household income 100%+, 3+ bedrooms, &years_dash."
-	rent5080_inc100pl_2br_&years. = "Rent level 50-80%, household income 100%+, 3+ bedrooms, &years_dash."
-	rent80pl_inc100pl_2br_&years. = "Rent level 80%+, household income 100%+, 3+ bedrooms, &years_dash."
-	rent030_inc030_3br_&years. = "Rent level 0-30%, household income 0-30%, 3+ bedrooms, &years_dash."
-	rent3050_inc030_3br_&years. = "Rent level 30-50%, household income 0-30%, 3+ bedrooms, &years_dash."
-	rent5080_inc030_3br_&years. = "Rent level 50-80%, household income 0-30%, 3+ bedrooms, &years_dash."
-	rent80pl_inc030_3br_&years. = "Rent level 80%+, household income 0-30%, 3+ bedrooms, &years_dash."
-	rent030_inc3050_3br_&years. = "Rent level 0-30%, household income 30-50%, 3+ bedrooms, &years_dash."
-	rent3050_inc3050_3br_&years. = "Rent level 30-50%, household income 30-50%, 3+ bedrooms, &years_dash."
-	rent5080_inc3050_3br_&years. = "Rent level 50-80%, household income 30-50%, 3+ bedrooms, &years_dash."
-	rent80pl_inc3050_3br_&years. = "Rent level 80%+, household income 30-50%, 3+ bedrooms, &years_dash."
-	rent030_inc5080_3br_&years. = "Rent level 0-30%, household income 50-80%, 3+ bedrooms, &years_dash."
-	rent3050_inc5080_3br_&years. ="Rent level 30-50%, household income 50-80%, 3+ bedrooms, &years_dash."
-	rent5080_inc5080_3br_&years. = "Rent level 50-80%, household income 50-80%, 3+ bedrooms, &years_dash."
-	rent80pl_inc5080_3br_&years. = "Rent level 80%+, household income 50-80%, 3+ bedrooms, &years_dash."
-	rent030_inc80100_3br_&years. = "Rent level 0-30%, household income 80-100%, 3+ bedrooms, &years_dash."
-	rent3050_inc80100_3br_&years. = "Rent level 30-50%, household income 80-100%, 3+ bedrooms, &years_dash."
-	rent5080_inc80100_3br_&years. = "Rent level 50-80%, household income 80-100%, 3+ bedrooms, &years_dash."
-	rent80pl_inc80100_3br_&years. = "Rent level 80%+, household income 80-100%, 3+ bedrooms, &years_dash."
-	rent030_inc100pl_3br_&years. = "Rent level 0-30%, household income 100%+, 3+ bedrooms, &years_dash."
-	rent3050_inc100pl_3br_&years. = "Rent level 30-50%, household income 100%+, 3+ bedrooms, &years_dash."
-	rent5080_inc100pl_3br_&years. = "Rent level 50-80%, household income 100%+, 3+ bedrooms, &years_dash."
-	rent80pl_inc100pl_3br_&years. = "Rent level 80%+, household income 100%+, 3+ bedrooms, &years_dash."
+	rnt030_inc030_allbr_&years. = "Rent level 0-30%, household income 0-30%, &years_dash."
+	rnt3050_inc030_allbr_&years. = "Rent level 30-50%, household income 0-30%, &years_dash."
+	rnt5080_inc030_allbr_&years. = "Rent level 50-80%, household income 0-30%, &years_dash."
+	rnt80pl_inc030_allbr_&years. = "Rent level 80%+, household income 0-30%, &years_dash."
+	rnt030_inc3050_allbr_&years. = "Rent level 0-30%, household income 30-50%, &years_dash."
+	rnt3050_inc3050_allbr_&years. = "Rent level 30-50%, household income 30-50%, &years_dash."
+	rnt5080_inc3050_allbr_&years. = "Rent level 50-80%, household income 30-50%, &years_dash."
+	rnt80pl_inc3050_allbr_&years. = "Rent level 80%+, household income 30-50%, &years_dash."
+	rnt030_inc5080_allbr_&years. = "Rent level 0-30%, household income 50-80%, &years_dash."
+	rnt3050_inc5080_allbr_&years. = "Rent level 30-50%, household income 50-80%, &years_dash."
+	rnt5080_inc5080_allbr_&years. = "Rent level 50-80%, household income 50-80%, &years_dash."
+	rnt80pl_inc5080_allbr_&years. = "Rent level 80%+, household income 50-80%, &years_dash."
+	rnt030_inc80100_allbr_&years. = "Rent level 0-30%, household income 80-100%, &years_dash."
+	rnt3050_inc80100_allbr_&years. = "Rent level 30-50%, household income 80-100%, &years_dash."
+	rnt5080_inc80100_allbr_&years. = "Rent level 50-80%, household income 80-100%, &years_dash."
+	rnt80pl_inc80100_allbr_&years. = "Rent level 80%+, household income 80-100%, &years_dash."
+	rnt030_inc100pl_allbr_&years. = "Rent level 0-30%, household income 100%+, &years_dash."
+	rnt3050_inc100pl_allbr_&years. = "Rent level 30-50%, household income 100%+, &years_dash."
+	rnt5080_inc100pl_allbr_&years. = "Rent level 50-80%, household income 100%+, &years_dash."
+	rnt80pl_inc100pl_allbr_&years. = "Rent level 80%+, household income 100%+, &years_dash."
+	rnt030_inc030_01br_&years. = "Rent level 0-30%, household income 0-30%, 0-1 bedrooms, &years_dash."
+	rnt3050_inc030_01br_&years. = "Rent level 30-50%, household income 0-30%, 0-1 bedrooms, &years_dash."
+	rnt5080_inc030_01br_&years. = "Rent level 50-80%, household income 0-30%, 0-1 bedrooms, &years_dash."
+	rnt80pl_inc030_01br_&years. = "Rent level 80%+, household income 0-30%, 0-1 bedrooms, &years_dash."
+	rnt030_inc3050_01br_&years. = "Rent level 0-30%, household income 30-50%, 0-1 bedrooms, &years_dash."
+	rnt3050_inc3050_01br_&years. = "Rent level 30-50%, household income 30-50%, 0-1 bedrooms, &years_dash."
+	rnt5080_inc3050_01br_&years. = "Rent level 50-80%, household income 30-50%, 0-1 bedrooms, &years_dash."
+	rnt80pl_inc3050_01br_&years. = "Rent level 80%+, household income 30-50%, 0-1 bedrooms, &years_dash."
+	rnt030_inc5080_01br_&years. = "Rent level 0-30%, household income 50-80%, 0-1 bedrooms, &years_dash."
+	rnt3050_inc5080_01br_&years. = "Rent level 30-50%, household income 50-80%, 0-1 bedrooms, &years_dash."
+	rnt5080_inc5080_01br_&years. = "Rent level 50-80%, household income 50-80%, 0-1 bedrooms, &years_dash."
+	rnt80pl_inc5080_01br_&years. = "Rent level 80%+, household income 50-80%, 0-1 bedrooms, &years_dash."
+	rnt030_inc80100_01br_&years. = "Rent level 0-30%, household income 80-100%, 0-1 bedrooms, &years_dash."
+	rnt3050_inc80100_01br_&years. = "Rent level 30-50%, household income 80-100%, 0-1 bedrooms, &years_dash."
+	rnt5080_inc80100_01br_&years. = "Rent level 50-80%, household income 80-100%, 0-1 bedrooms, &years_dash."
+	rnt80pl_inc80100_01br_&years. = "Rent level 80%+, household income 80-100%, 0-1 bedrooms, &years_dash."
+	rnt030_inc100pl_01br_&years. = "Rent level 0-30%, household income 100%+, 0-1 bedrooms, &years_dash."
+	rnt3050_inc100pl_01br_&years. = "Rent level 30-50%, household income 100%+, 0-1 bedrooms, &years_dash."
+	rnt5080_inc100pl_01br_&years. = "Rent level 50-80%, household income 100%+, 0-1 bedrooms, &years_dash."
+	rnt80pl_inc100pl_01br_&years. = "Rent level 80%+, household income 100%+, 0-1 bedrooms, &years_dash."
+	rnt030_inc030_2br_&years. = "Rent level 0-30%, household income 0-30%, 2 bedrooms, &years_dash."
+	rnt3050_inc030_2br_&years. = "Rent level 30-50%, household income 0-30%, 2 bedrooms, &years_dash."
+	rnt5080_inc030_2br_&years. = "Rent level 50-80%, household income 0-30%, 2 bedrooms, &years_dash."
+	rnt80pl_inc030_2br_&years. = "Rent level 80%+, household income 0-30%, 2 bedrooms, &years_dash."
+	rnt030_inc3050_2br_&years. = "Rent level 0-30%, household income 30-50%, 2 bedrooms, &years_dash."
+	rnt3050_inc3050_2br_&years. = "Rent level 30-50%, household income 30-50%, 2 bedrooms, &years_dash."
+	rnt5080_inc3050_2br_&years. = "Rent level 50-80%, household income 30-50%, 2 bedrooms, &years_dash."
+	rnt80pl_inc3050_2br_&years. = "Rent level 80%+, household income 30-50%, 2 bedrooms, &years_dash."
+	rnt030_inc5080_2br_&years. = "Rent level 0-30%, household income 50-80%, 2 bedrooms, &years_dash."
+	rnt3050_inc5080_2br_&years. = "Rent level 30-50%, household income 50-80%, 2 bedrooms, &years_dash."
+	rnt5080_inc5080_2br_&years. = "Rent level 50-80%, household income 50-80%, 2 bedrooms, &years_dash."
+	rnt80pl_inc5080_2br_&years. = "Rent level 80%+, household income 50-80%, 2 bedrooms, &years_dash."
+	rnt030_inc80100_2br_&years. = "Rent level 0-30%, household income 80-100%, 2 bedrooms, &years_dash."
+	rnt3050_inc80100_2br_&years. = "Rent level 30-50%, household income 80-100%, 2 bedrooms, &years_dash."
+	rnt5080_inc80100_2br_&years. = "Rent level 50-80%, household income 80-100%, 2 bedrooms, &years_dash."
+	rnt80pl_inc80100_2br_&years. = "Rent level 80%+, household income 80-100%, 2 bedrooms, &years_dash."
+	rnt030_inc100pl_2br_&years. = "Rent level 0-30%, household income 100%+, 3+ bedrooms, &years_dash."
+	rnt3050_inc100pl_2br_&years. = "Rent level 30-50%, household income 100%+, 3+ bedrooms, &years_dash."
+	rnt5080_inc100pl_2br_&years. = "Rent level 50-80%, household income 100%+, 3+ bedrooms, &years_dash."
+	rnt80pl_inc100pl_2br_&years. = "Rent level 80%+, household income 100%+, 3+ bedrooms, &years_dash."
+	rnt030_inc030_3br_&years. = "Rent level 0-30%, household income 0-30%, 3+ bedrooms, &years_dash."
+	rnt3050_inc030_3br_&years. = "Rent level 30-50%, household income 0-30%, 3+ bedrooms, &years_dash."
+	rnt5080_inc030_3br_&years. = "Rent level 50-80%, household income 0-30%, 3+ bedrooms, &years_dash."
+	rnt80pl_inc030_3br_&years. = "Rent level 80%+, household income 0-30%, 3+ bedrooms, &years_dash."
+	rnt030_inc3050_3br_&years. = "Rent level 0-30%, household income 30-50%, 3+ bedrooms, &years_dash."
+	rnt3050_inc3050_3br_&years. = "Rent level 30-50%, household income 30-50%, 3+ bedrooms, &years_dash."
+	rnt5080_inc3050_3br_&years. = "Rent level 50-80%, household income 30-50%, 3+ bedrooms, &years_dash."
+	rnt80pl_inc3050_3br_&years. = "Rent level 80%+, household income 30-50%, 3+ bedrooms, &years_dash."
+	rnt030_inc5080_3br_&years. = "Rent level 0-30%, household income 50-80%, 3+ bedrooms, &years_dash."
+	rnt3050_inc5080_3br_&years. ="Rent level 30-50%, household income 50-80%, 3+ bedrooms, &years_dash."
+	rnt5080_inc5080_3br_&years. = "Rent level 50-80%, household income 50-80%, 3+ bedrooms, &years_dash."
+	rnt80pl_inc5080_3br_&years. = "Rent level 80%+, household income 50-80%, 3+ bedrooms, &years_dash."
+	rnt030_inc80100_3br_&years. = "Rent level 0-30%, household income 80-100%, 3+ bedrooms, &years_dash."
+	rnt3050_inc80100_3br_&years. = "Rent level 30-50%, household income 80-100%, 3+ bedrooms, &years_dash."
+	rnt5080_inc80100_3br_&years. = "Rent level 50-80%, household income 80-100%, 3+ bedrooms, &years_dash."
+	rnt80pl_inc80100_3br_&years. = "Rent level 80%+, household income 80-100%, 3+ bedrooms, &years_dash."
+	rnt030_inc100pl_3br_&years. = "Rent level 0-30%, household income 100%+, 3+ bedrooms, &years_dash."
+	rnt3050_inc100pl_3br_&years. = "Rent level 30-50%, household income 100%+, 3+ bedrooms, &years_dash."
+	rnt5080_inc100pl_3br_&years. = "Rent level 50-80%, household income 100%+, 3+ bedrooms, &years_dash."
+	rnt80pl_inc100pl_3br_&years. = "Rent level 80%+, household income 100%+, 3+ bedrooms, &years_dash."
+	inc030_allbr_&years. = "Renter household income 0-30%, &years_dash."
+	inc3050_allbr_&years. = "Renter household income 30-50%, &years_dash."
+	inc5080_allbr_&years. = "Renter household income 50-80%, &years_dash."
+	inc80100_allbr_&years. = "Renter household income 80-100%, &years_dash."
+	inc100pl_allbr_&years. = "Renter household income 100%+, &years_dash."
+	inc030_01br_&years. = "Renter household income 0-30%, 0-1 bedrooms, &years_dash."
+	inc3050_01br_&years. = "Renter household income 30-50%, 0-1 bedrooms, &years_dash."
+	inc5080_01br_&years. = "Renter household income 50-80%, 0-1 bedrooms, &years_dash."
+	inc80100_01br_&years. = "Renter household income 80-100%, 0-1 bedrooms, &years_dash."
+	inc100pl_01br_&years. = "Renter household income 100%+, 0-1 bedrooms, &years_dash."
+	inc030_2br_&years. = "Renter household income 0-30%, 2 bedrooms, &years_dash."
+	inc3050_2br_&years. = "Renter household income 30-50%, 2 bedrooms, &years_dash."
+	inc5080_2br_&years. = "Renter household income 50-80%, 2 bedrooms, &years_dash."
+	inc80100_2br_&years. = "Renter household income 80-100%, 2 bedrooms, &years_dash."
+	inc100pl_2br_&years. = "Renter household income 100%+, 2 bedrooms, &years_dash."
+	inc030_3br_&years. = "Renter household income 0-30%, 3+ bedrooms, &years_dash."
+	inc3050_3br_&years. = "Renter household income 30-50%, 3+ bedrooms, &years_dash."
+	inc5080_3br_&years. = "Renter household income 50-80%, 3+ bedrooms, &years_dash."
+	inc80100_3br_&years. = "Renter household income 80-100%, 3+ bedrooms, &years_dash."
+	inc100pl_3br_&years. = "Renter household income 100%+, 3+ bedrooms, &years_dash."
 	;
 
+	%Pct_calc( var=Prnt030_inc030_allbr, label=% renter households with rent level 0-30% household income 0-30%, num=rnt030_inc030_allbr, den=inc030_allbr, years= &years. );
+	%Pct_calc( var=Prnt3050_inc030_allbr, label=% renter households with rent level 30-50% household income 0-30%, num=rnt3050_inc030_allbr, den=inc030_allbr, years= &years. );
+	%Pct_calc( var=Prnt5080_inc030_allbr, label=% renter households with rent level 50-80% household income 0-30%, num=rnt5080_inc030_allbr, den=inc030_allbr, years= &years. );
+	%Pct_calc( var=Prnt80pl_inc030_allbr, label=% renter households with rent level 80%+ household income 0-30%, num=rnt80pl_inc030_allbr, den=inc030_allbr, years= &years. );
+
+	%Pct_calc( var=Prnt030_inc3050_allbr, label=% renter households with rent level 0-30% household income 30-50%, num=rnt030_inc3050_allbr, den=inc3050_allbr, years= &years. );
+	%Pct_calc( var=Prnt3050_inc3050_allbr, label=% renter households with rent level 30-50% household income 30-50%, num=rnt3050_inc3050_allbr, den=inc3050_allbr, years= &years. );
+	%Pct_calc( var=Prnt5080_inc3050_allbr, label=% renter households with rent level 50-80% household income 30-50%, num=rnt5080_inc3050_allbr, den=inc3050_allbr, years= &years. );
+	%Pct_calc( var=Prnt80pl_inc3050_allbr, label=% renter households with rent level 80%+ household income 30-50%, num=rnt80pl_inc3050_allbr, den=inc3050_allbr, years= &years. );
+
+	%Pct_calc( var=Prnt030_inc5080_allbr, label=% renter households with rent level 0-30% household income 50-80%, num=rnt030_inc5080_allbr, den=inc5080_allbr, years= &years. );
+	%Pct_calc( var=Prnt3050_inc5080_allbr, label=% renter households with rent level 30-50% household income 50-80%, num=rnt3050_inc5080_allbr, den=inc5080_allbr, years= &years. );
+	%Pct_calc( var=Prnt5080_inc5080_allbr, label=% renter households with rent level 50-80% household income 50-80%, num=rnt5080_inc5080_allbr, den=inc5080_allbr, years= &years. );
+	%Pct_calc( var=Prnt80pl_inc5080_allbr, label=% renter households with rent level 80%+ household income 50-80%, num=rnt80pl_inc5080_allbr, den=inc5080_allbr, years= &years. );
+
+	%Pct_calc( var=Prnt030_inc80100_allbr, label=% renter households with rent level 0-30% household income 80-100%, num=rnt030_inc80100_allbr, den=inc80100_allbr, years= &years. );
+	%Pct_calc( var=Prnt3050_inc80100_allbr, label=% renter households with rent level 30-50% household income 80-100%, num=rnt3050_inc80100_allbr, den=inc80100_allbr, years= &years. );
+	%Pct_calc( var=Prnt5080_inc80100_allbr, label=% renter households with rent level 50-80% household income 80-100%, num=rnt5080_inc80100_allbr, den=inc80100_allbr, years= &years. );
+	%Pct_calc( var=Prnt80pl_inc80100_allbr, label=% renter households with rent level 80%+ household income 80-100%, num=rnt80pl_inc80100_allbr, den=inc80100_allbr, years= &years. );
+
+	%Pct_calc( var=Prnt030_inc100pl_allbr, label=% renter households with rent level 0-30% household income 100%+, num=rnt030_inc100pl_allbr, den=inc100pl_allbr, years= &years. );
+	%Pct_calc( var=Prnt3050_inc100pl_allbr, label=% renter households with rent level 30-50% household income 100%+, num=rnt3050_inc100pl_allbr, den=inc100pl_allbr, years= &years. );
+	%Pct_calc( var=Prnt5080_inc100pl_allbr, label=% renter households with rent level 50-80% household income 100%+, num=rnt5080_inc100pl_allbr, den=inc100pl_allbr, years= &years. );
+	%Pct_calc( var=Prnt80pl_inc100pl_allbr, label=% renter households with rent level 80%+ household income 100%+, num=rnt80pl_inc100pl_allbr, den=inc100pl_allbr, years= &years. );
+
+	%Pct_calc( var=Prnt030_inc030_01br, label=% renter households with rent level 0-30% household income 0-30% 0-1 bedrooms, num=rnt030_inc030_01br, den=inc030_01br, years= &years. );
+	%Pct_calc( var=Prnt3050_inc030_01br, label=% renter households with rent level 30-50% household income 0-30% 0-1 bedrooms, num=rnt3050_inc030_01br, den=inc030_01br, years= &years. );
+	%Pct_calc( var=Prnt5080_inc030_01br, label=% renter households with rent level 50-80% household income 0-30% 0-1 bedrooms, num=rnt5080_inc030_01br, den=inc030_01br, years= &years. );
+	%Pct_calc( var=Prnt80pl_inc030_01br, label=% renter households with rent level 80%+ household income 0-30% 0-1 bedrooms, num=rnt80pl_inc030_01br, den=inc030_01br, years= &years. );
+
+	%Pct_calc( var=Prnt030_inc3050_01br, label=% renter households with rent level 0-30% household income 30-50% 0-1 bedrooms, num=rnt030_inc3050_01br, den=inc3050_01br, years= &years. );
+	%Pct_calc( var=Prnt3050_inc3050_01br, label=% renter households with rent level 30-50% household income 30-50% 0-1 bedrooms, num=rnt3050_inc3050_01br, den=inc3050_01br, years= &years. );
+	%Pct_calc( var=Prnt5080_inc3050_01br, label=% renter households with rent level 50-80% household income 30-50% 0-1 bedrooms, num=rnt5080_inc3050_01br, den=inc3050_01br, years= &years. );
+	%Pct_calc( var=Prnt80pl_inc3050_01br, label=% renter households with rent level 80%+ household income 30-50% 0-1 bedrooms, num=rnt80pl_inc3050_01br, den=inc3050_01br, years= &years. );
+
+	%Pct_calc( var=Prnt030_inc5080_01br, label=% renter households with rent level 0-30% household income 50-80% 0-1 bedrooms, num=rnt030_inc5080_01br, den=inc5080_01br, years= &years. );
+	%Pct_calc( var=Prnt3050_inc5080_01br, label=% renter households with rent level 30-50% household income 50-80% 0-1 bedrooms, num=rnt3050_inc5080_01br, den=inc5080_01br, years= &years. );
+	%Pct_calc( var=Prnt5080_inc5080_01br, label=% renter households with rent level 50-80% household income 50-80% 0-1 bedrooms, num=rnt5080_inc5080_01br, den=inc5080_01br, years= &years. );
+	%Pct_calc( var=Prnt80pl_inc5080_01br, label=% renter households with rent level 80%+ household income 50-80% 0-1 bedrooms, num=rnt80pl_inc5080_01br, den=inc5080_01br, years= &years. );
+
+	%Pct_calc( var=Prnt030_inc80100_01br, label=% renter households with rent level 0-30% household income 80-100% 0-1 bedrooms, num=rnt030_inc80100_01br, den=inc80100_01br, years= &years. );
+	%Pct_calc( var=Prnt3050_inc80100_01br, label=% renter households with rent level 30-50% household income 80-100% 0-1 bedrooms, num=rnt3050_inc80100_01br, den=inc80100_01br, years= &years. );
+	%Pct_calc( var=Prnt5080_inc80100_01br, label=% renter households with rent level 50-80% household income 80-100% 0-1 bedrooms, num=rnt5080_inc80100_01br, den=inc80100_01br, years= &years. );
+	%Pct_calc( var=Prnt80pl_inc80100_01br, label=% renter households with rent level 80%+ household income 80-100% 0-1 bedrooms, num=rnt80pl_inc80100_01br, den=inc80100_01br, years= &years. );
+
+	%Pct_calc( var=Prnt030_inc100pl_01br, label=% renter households with rent level 0-30% household income 100%+ 0-1 bedrooms, num=rnt030_inc100pl_01br, den=inc100pl_01br, years= &years. );
+	%Pct_calc( var=Prnt3050_inc100pl_01br, label=% renter households with rent level 30-50% household income 100%+ 0-1 bedrooms, num=rnt3050_inc100pl_01br, den=inc100pl_01br, years= &years. );
+	%Pct_calc( var=Prnt5080_inc100pl_01br, label=% renter households with rent level 50-80% household income 100%+ 0-1 bedrooms, num=rnt5080_inc100pl_01br, den=inc100pl_01br, years= &years. );
+	%Pct_calc( var=Prnt80pl_inc100pl_01br, label=% renter households with rent level 80%+ household income 100%+ 0-1 bedrooms, num=rnt80pl_inc100pl_01br, den=inc100pl_01br, years= &years. );
+
+	%Pct_calc( var=Prnt030_inc030_2br, label=% renter households with rent level 0-30% household income 0-30% 2 bedrooms, num=rnt030_inc030_2br, den=inc030_2br, years= &years. );
+	%Pct_calc( var=Prnt3050_inc030_2br, label=% renter households with rent level 30-50% household income 0-30% 2 bedrooms, num=rnt3050_inc030_2br, den=inc030_2br, years= &years. );
+	%Pct_calc( var=Prnt5080_inc030_2br, label=% renter households with rent level 50-80% household income 0-30% 2 bedrooms, num=rnt5080_inc030_2br, den=inc030_2br, years= &years. );
+	%Pct_calc( var=Prnt80pl_inc030_2br, label=% renter households with rent level 80%+ household income 0-30% 2 bedrooms, num=rnt80pl_inc030_2br, den=inc030_2br, years= &years. );
+
+	%Pct_calc( var=Prnt030_inc3050_2br, label=% renter households with rent level 0-30% household income 30-50% 2 bedrooms, num=rnt030_inc3050_2br, den=inc3050_2br, years= &years. );
+	%Pct_calc( var=Prnt3050_inc3050_2br, label=% renter households with rent level 30-50% household income 30-50% 2 bedrooms, num=rnt3050_inc3050_2br, den=inc3050_2br, years= &years. );
+	%Pct_calc( var=Prnt5080_inc3050_2br, label=% renter households with rent level 50-80% household income 30-50% 2 bedrooms, num=rnt5080_inc3050_2br, den=inc3050_2br, years= &years. );
+	%Pct_calc( var=Prnt80pl_inc3050_2br, label=% renter households with rent level 80%+ household income 30-50% 2 bedrooms, num=rnt80pl_inc3050_2br, den=inc3050_2br, years= &years. );
+
+	%Pct_calc( var=Prnt030_inc5080_2br, label=% renter households with rent level 0-30% household income 50-80% 2 bedrooms, num=rnt030_inc5080_2br, den=inc5080_2br, years= &years. );
+	%Pct_calc( var=Prnt3050_inc5080_2br, label=% renter households with rent level 30-50% household income 50-80% 2 bedrooms, num=rnt3050_inc5080_2br, den=inc5080_2br, years= &years. );
+	%Pct_calc( var=Prnt5080_inc5080_2br, label=% renter households with rent level 50-80% household income 50-80% 2 bedrooms, num=rnt5080_inc5080_2br, den=inc5080_2br, years= &years. );
+	%Pct_calc( var=Prnt80pl_inc5080_2br, label=% renter households with rent level 80%+ household income 50-80% 2 bedrooms, num=rnt80pl_inc5080_2br, den=inc5080_2br, years= &years. );
+
+	%Pct_calc( var=Prnt030_inc80100_2br, label=% renter households with rent level 0-30% household income 80-100% 2 bedrooms, num=rnt030_inc80100_2br, den=inc80100_2br, years= &years. );
+	%Pct_calc( var=Prnt3050_inc80100_2br, label=% renter households with rent level 30-50% household income 80-100% 2 bedrooms, num=rnt3050_inc80100_2br, den=inc80100_2br, years= &years. );
+	%Pct_calc( var=Prnt5080_inc80100_2br, label=% renter households with rent level 50-80% household income 80-100% 2 bedrooms, num=rnt5080_inc80100_2br, den=inc80100_2br, years= &years. );
+	%Pct_calc( var=Prnt80pl_inc80100_2br, label=% renter households with rent level 80%+ household income 80-100% 2 bedrooms, num=rnt80pl_inc80100_2br, den=inc80100_2br, years= &years. );
+
+	%Pct_calc( var=Prnt030_inc100pl_2br, label=% renter households with rent level 0-30% household income 100%+ 2 bedrooms, num=rnt030_inc100pl_2br, den=inc100pl_2br, years= &years. );
+	%Pct_calc( var=Prnt3050_inc100pl_2br, label=% renter households with rent level 30-50% household income 100%+ 2 bedrooms, num=rnt3050_inc100pl_2br, den=inc100pl_2br, years= &years. );
+	%Pct_calc( var=Prnt5080_inc100pl_2br, label=% renter households with rent level 50-80% household income 100%+ 2 bedrooms, num=rnt5080_inc100pl_2br, den=inc100pl_2br, years= &years. );
+	%Pct_calc( var=Prnt80pl_inc100pl_2br, label=% renter households with rent level 80%+ household income 100%+ 2 bedrooms, num=rnt80pl_inc100pl_2br, den=inc100pl_2br, years= &years. );
+
+	%Pct_calc( var=Prnt030_inc030_3br, label=% renter households with rent level 0-30% household income 0-30% 3+ bedrooms, num=rnt030_inc030_3br, den=inc030_3br, years= &years. );
+	%Pct_calc( var=Prnt3050_inc030_3br, label=% renter households with rent level 30-50% household income 0-30% 3+ bedrooms, num=rnt3050_inc030_3br, den=inc030_3br, years= &years. );
+	%Pct_calc( var=Prnt5080_inc030_3br, label=% renter households with rent level 50-80% household income 0-30% 3+ bedrooms, num=rnt5080_inc030_3br, den=inc030_3br, years= &years. );
+	%Pct_calc( var=Prnt80pl_inc030_3br, label=% renter households with rent level 80%+ household income 0-30% 3+ bedrooms, num=rnt80pl_inc030_3br, den=inc030_3br, years= &years. );
+
+	%Pct_calc( var=Prnt030_inc3050_3br, label=% renter households with rent level 0-30% household income 30-50% 3+ bedrooms, num=rnt030_inc3050_3br, den=inc3050_3br, years= &years. );
+	%Pct_calc( var=Prnt3050_inc3050_3br, label=% renter households with rent level 30-50% household income 30-50% 3+ bedrooms, num=rnt3050_inc3050_3br, den=inc3050_3br, years= &years. );
+	%Pct_calc( var=Prnt5080_inc3050_3br, label=% renter households with rent level 50-80% household income 30-50% 3+ bedrooms, num=rnt5080_inc3050_3br, den=inc3050_3br, years= &years. );
+	%Pct_calc( var=Prnt80pl_inc3050_3br, label=% renter households with rent level 80%+ household income 30-50% 3+ bedrooms, num=rnt80pl_inc3050_3br, den=inc3050_3br, years= &years. );
+
+	%Pct_calc( var=Prnt030_inc5080_3br, label=% renter households with rent level 0-30% household income 50-80% 3+ bedrooms, num=rnt030_inc5080_3br, den=inc5080_3br, years= &years. );
+	%Pct_calc( var=Prnt3050_inc5080_3br, label=% renter households with rent level 30-50% household income 50-80% 3+ bedrooms, num=rnt3050_inc5080_3br, den=inc5080_3br, years= &years. );
+	%Pct_calc( var=Prnt5080_inc5080_3br, label=% renter households with rent level 50-80% household income 50-80% 3+ bedrooms, num=rnt5080_inc5080_3br, den=inc5080_3br, years= &years. );
+	%Pct_calc( var=Prnt80pl_inc5080_3br, label=% renter households with rent level 80%+ household income 50-80% 3+ bedrooms, num=rnt80pl_inc5080_3br, den=inc5080_3br, years= &years. );
+
+	%Pct_calc( var=Prnt030_inc80100_3br, label=% renter households with rent level 0-30% household income 80-100% 3+ bedrooms, num=rnt030_inc80100_3br, den=inc80100_3br, years= &years. );
+	%Pct_calc( var=Prnt3050_inc80100_3br, label=% renter households with rent level 30-50% household income 80-100% 3+ bedrooms, num=rnt3050_inc80100_3br, den=inc80100_3br, years= &years. );
+	%Pct_calc( var=Prnt5080_inc80100_3br, label=% renter households with rent level 50-80% household income 80-100% 3+ bedrooms, num=rnt5080_inc80100_3br, den=inc80100_3br, years= &years. );
+	%Pct_calc( var=Prnt80pl_inc80100_3br, label=% renter households with rent level 80%+ household income 80-100% 3+ bedrooms, num=rnt80pl_inc80100_3br, den=inc80100_3br, years= &years. );
+
+	%Pct_calc( var=Prnt030_inc100pl_3br, label=% renter households with rent level 0-30% household income 100%+ 3+ bedrooms, num=rnt030_inc100pl_3br, den=inc100pl_3br, years= &years. );
+	%Pct_calc( var=Prnt3050_inc100pl_3br, label=% renter households with rent level 30-50% household income 100%+ 3+ bedrooms, num=rnt3050_inc100pl_3br, den=inc100pl_3br, years= &years. );
+	%Pct_calc( var=Prnt5080_inc100pl_3br, label=% renter households with rent level 50-80% household income 100%+ 3+ bedrooms, num=rnt5080_inc100pl_3br, den=inc100pl_3br, years= &years. );
+	%Pct_calc( var=Prnt80pl_inc100pl_3br, label=% renter households with rent level 80%+ household income 100%+ 3+ bedrooms, num=rnt80pl_inc100pl_3br, den=inc100pl_3br, years= &years. );
+
+
 	/* Demand - Affordability */
+	renter_cb_&years. = sum(of T8_est7 T8_est10 T8_est20 T8_est23 T8_est33 T8_est36 T8_est46 T8_est49 T8_est59 T8_est62);
+	renter_scb_&years. = sum(of T8_est10 T8_est23 T8_est36 T8_est49 T8_est62);
+	renter_ncb_&years. = sum(of T8_est13 T8_est26 T8_est39 T8_est52 T8_est65);
+	renter_noprob_&years. = sum(of T16_est91 T16_est95 T16_est99 T16_est103 T16_est107 T16_est112 T16_est116 T16_est120 T16_est124
+							T16_est128 T16_est133 T16_est137 T16_est141 T16_est145 T16_est149 T16_est154 T16_est158 T16_est162 T16_est166 T16_est170);
+
+
 	renter_inc030_&years. = T8_est69;
 	renter_inc3050_&years. = T8_est82;
 	renter_inc5080_&years. = T8_est95; 
@@ -408,6 +560,10 @@ data ch_test;
 	renter_hasplumb_scb_&years. = sum(of T8_est78 T8_est91 T8_est104 T8_est117 T8_est130);
 
 	label
+	renter_cb_&years. = "Renter occupied units, cost burdened, &years_dash."
+	renter_scb_&years. = "Renter occupied units, severely cost burdened, &years_dash."
+	renter_ncb_&years. = "Renter occupied units, no cost burden computed, &years_dash."
+	renter_noprob_&years. = "Renter occupied units, no housing problems, &years_dash."
 	renter_inc030_&years. = "Renter occupied units, household income 0-30%, &years_dash."
 	renter_inc3050_&years. = "Renter occupied units, household income 30-50%, &years_dash."
 	renter_inc5080_&years. = "Renter occupied units, household income 50-80%, &years_dash."
@@ -456,63 +612,150 @@ data ch_test;
 	renter_hasplumb_scb_&years. = "Renter occupied units, has complete plumbing and kitchen facilities, severely cost burdened, &years_dash."
 	;
 
+	%Pct_calc( var=Prenter_inc030_cb, label=% Renter occupied units household income 0-30% cost burdened, num=renter_inc030_cb, den=renter_cb, years= &years. );
+	%Pct_calc( var=Prenter_inc3050_cb, label=% Renter occupied units household income 30-50% cost burdened, num=renter_inc3050_cb, den=renter_cb, years= &years. );
+	%Pct_calc( var=Prenter_inc5080_cb, label=% Renter occupied units household income 50-80% cost burdened, num=renter_inc5080_cb, den=renter_cb, years= &years. );
+	%Pct_calc( var=Prenter_inc80100_cb, label=% Renter occupied units household income 80-410% cost burdened, num=renter_inc80100_cb, den=renter_cb, years= &years. );
+	%Pct_calc( var=Prenter_inc100pl_cb, label=% Renter occupied units household income 100%+ cost burdened, num=renter_inc100pl_cb, den=renter_cb, years= &years. );
+
+	%Pct_calc( var=Prenter_inc030_scb, label=% Renter occupied units household income 0-30% no cost burden computed, num=renter_inc030_scb, den=renter_scb, years= &years. );
+	%Pct_calc( var=Prenter_inc3050_scb, label=% Renter occupied units household income 30-50% no cost burden computed, num=renter_inc3050_scb, den=renter_scb, years= &years. );
+	%Pct_calc( var=Prenter_inc5080_scb, label=% Renter occupied units household income 50-80% no cost burden computed, num=renter_inc5080_scb, den=renter_scb, years= &years. );
+	%Pct_calc( var=Prenter_inc80100_scb, label=% Renter occupied units household income 80-410% no cost burden computed, num=renter_inc80100_scb, den=renter_scb, years= &years. );
+	%Pct_calc( var=Prenter_inc100pl_scb, label=% Renter occupied units household income 100%+ no cost burden computed, num=renter_inc100pl_scb, den=renter_scb, years= &years. );
+
+	%Pct_calc( var=Prenter_inc030_ncb, label=% Renter occupied units household income 0-30% no cost burden computed, num=renter_inc030_ncb, den=renter_ncb, years= &years. );
+	%Pct_calc( var=Prenter_inc3050_ncb, label=% Renter occupied units household income 30-50% no cost burden computed, num=renter_inc3050_ncb, den=renter_ncb, years= &years. );
+	%Pct_calc( var=Prenter_inc5080_ncb, label=% Renter occupied units household income 50-80% no cost burden computed, num=renter_inc5080_ncb, den=renter_ncb, years= &years. );
+	%Pct_calc( var=Prenter_inc80100_ncb, label=% Renter occupied units household income 80-410% no cost burden computed, num=renter_inc80100_ncb, den=renter_ncb, years= &years. );
+	%Pct_calc( var=Prenter_inc100pl_ncb, label=% Renter occupied units household income 100%+ no cost burden computed, num=renter_inc100pl_ncb, den=renter_ncb, years= &years. );
+
+	%Pct_calc( var=Prenter_eldfam_cb, label=% Renter occupied units elderly family cost burdened, num=renter_eldfam_cb, den=renter_cb, years= &years. );
+	%Pct_calc( var=Prenter_smfam_cb, label=% Renter occupied units small family cost burdened, num=renter_smfam_cb, den=renter_cb, years= &years. );
+	%Pct_calc( var=Prenter_lgfam_cb, label=% Renter occupied units large family cost burdened, num=renter_lgfam_cb, den=renter_cb, years= &years. );
+	%Pct_calc( var=Prenter_eldnf_cb, label=% Renter occupied units elderly non-family cost burdened, num=renter_eldnf_cb, den=renter_cb, years= &years. );
+	%Pct_calc( var=Prenter_othhh_cb, label=% Renter occupied units other household cost burdened, num=renter_othhh_cb, den=renter_cb, years= &years. );
+
+	%Pct_calc( var=Prenter_eldfam_scb, label=% Renter occupied units elderly family cost burdened, num=renter_eldfam_scb, den=renter_scb, years= &years. );
+	%Pct_calc( var=Prenter_smfam_scb, label=% Renter occupied units small family cost burdened, num=renter_smfam_scb, den=renter_scb, years= &years. );
+	%Pct_calc( var=Prenter_lgfam_scb, label=% Renter occupied units large family cost burdened, num=renter_lgfam_scb, den=renter_scb, years= &years. );
+	%Pct_calc( var=Prenter_eldnf_scb, label=% Renter occupied units elderly non-family cost burdened, num=renter_eldnf_scb, den=renter_scb, years= &years. );
+	%Pct_calc( var=Prenter_othhh_scb, label=% Renter occupied units other household cost burdened, num=renter_othhh_scb, den=renter_scb, years= &years. );
+
+	%Pct_calc( var=Prenter_eldfam_noprob, label=% Renter occupied units elderly family no housing problems, num=renter_eldfam_noprob, den=renter_noprob, years= &years. );
+	%Pct_calc( var=Prenter_smfam_noprob, label=% Renter occupied units small family no housing problems, num=renter_smfam_noprob, den=renter_noprob, years= &years. );
+	%Pct_calc( var=Prenter_lgfam_noprob, label=% Renter occupied units large family no housing problems, num=renter_lgfam_noprob, den=renter_noprob, years= &years. );
+	%Pct_calc( var=Prenter_eldnf_noprob, label=% Renter occupied units elderly non-family no housing problems, num=renter_eldnf_noprob, den=renter_noprob, years= &years. );
+	%Pct_calc( var=Prenter_othhh_noprob, label=% Renter occupied units other household no housing problems, num=renter_othhh_noprob, den=renter_noprob, years= &years. );
+
+	%Pct_calc( var=Prenter_noplumb_cb, label=% Renter occupied units household lacks complete plumbing and kitchen facilities and cost burdened, num=renter_noplumb_cb, den=renter_cb, years= &years. );
+	%Pct_calc( var=Prenter_hasplumb_cb, label=% Renter occupied units household has complete plumbing and kitchen facilities and cost and cost burdened, num=renter_hasplumb_cb, den=renter_cb, years= &years. );
+
+	%Pct_calc( var=Prenter_noplumb_scb, label=% Renter occupied units household lacks complete plumbing and kitchen facilities and cost burdened, num=renter_noplumb_scb, den=renter_scb, years= &years. );
+	%Pct_calc( var=Prenter_hasplumb_scb, label=% Renter occupied units household has complete plumbing and kitchen facilities and cost and cost burdened, num=renter_hasplumb_scb, den=renter_scb, years= &years. );
+
+
 	/* Demand - Size */
-	renter_inc030_lte1_&years. = T10_est68;
-	renter_inc3050_lte1_&years. = T10_est72;
-	renter_inc5080_lte1_&years. = T10_est76;
-	renter_inc80100_lte1_&years. = T10_est80;
-	renter_inc100pl_lte1_&years. = T10_est84;
+	rentr_lte1_&years. = T10_est67;
+	rentr_lte15_&years. = T10_est88;
+	rentr_gt15_&years. = T10_est109;
 
-	renter_inc030_lte15_&years. = T10_est89;
-	renter_inc3050_lte15_&years. = T10_est93;
-	renter_inc5080_lte15_&years. = T10_est97;
-	renter_inc80100_lte15_&years. = T10_est101;
-	renter_inc100pl_lte15_&years. = T10_est105;
+	rentr_inc030_lte1_&years. = T10_est68;
+	rentr_inc3050_lte1_&years. = T10_est72;
+	rentr_inc5080_lte1_&years. = T10_est76;
+	rentr_inc80100_lte1_&years. = T10_est80;
+	rentr_inc100pl_lte1_&years. = T10_est84;
 
-	renter_inc030_gt15_&years. = T10_est110;
-	renter_inc3050_gt15_&years. = T10_est114;
-	renter_inc5080_gt15_&years. = T10_est118;
-	renter_inc80100_gt15_&years. = T10_est122;
-	renter_inc100pl_gt15_&years. = T10_est126;
+	rentr_inc030_lte15_&years. = T10_est89;
+	rentr_inc3050_lte15_&years. = T10_est93;
+	rentr_inc5080_lte15_&years. = T10_est97;
+	rentr_inc80100_lte15_&years. = T10_est101;
+	rentr_inc100pl_lte15_&years. = T10_est105;
 
-	renter_inc030_lte1_1fam_&years. = T10_est69;
-	renter_inc030_lte1_sfam_&years. = T10_est70;
-	renter_inc030_lte1_nfam_&years. = T10_est71;
+	rentr_inc030_gt15_&years. = T10_est110;
+	rentr_inc3050_gt15_&years. = T10_est114;
+	rentr_inc5080_gt15_&years. = T10_est118;
+	rentr_inc80100_gt15_&years. = T10_est122;
+	rentr_inc100pl_gt15_&years. = T10_est126;
 
-	renter_inc030_lte15_1fam_&years. = T10_est90;
-	renter_inc030_lte15_sfam_&years. = T10_est91;
-	renter_inc030_lte15_nfam_&years. = T10_est92;
+	rentr_inc030_1fam_&years. = sum(of T10_est69 T10_est90 T10_est111);
+	rentr_inc030_sfam_&years. = sum(of T10_est70 T10_est91 T10_est112);
+	rentr_inc030_nfam_&years. = sum(of T10_est71 T10_est92 T10_est113);
 
-	renter_inc030_gt15_1fam_&years. = T10_est111;
-	renter_inc030_gt15_sfam_&years. = T10_est112;
-	renter_inc030_gt15_nfam_&years. = T10_est113;
+	rentr_inc030_lte1_1fam_&years. = T10_est69;
+	rentr_inc030_lte1_sfam_&years. = T10_est70;
+	rentr_inc030_lte1_nfam_&years. = T10_est71;
+
+	rentr_inc030_lte15_1fam_&years. = T10_est90;
+	rentr_inc030_lte15_sfam_&years. = T10_est91;
+	rentr_inc030_lte15_nfam_&years. = T10_est92;
+
+	rentr_inc030_gt15_1fam_&years. = T10_est111;
+	rentr_inc030_gt15_sfam_&years. = T10_est112;
+	rentr_inc030_gt15_nfam_&years. = T10_est113;
 
 	label
-	renter_inc030_lte1_&years. = "Renter occupied units, household income 0-30%, persons per room less than or equal 1%, &years_dash."
-	renter_inc3050_lte1_&years. = "Renter occupied units, household income 30-50%, persons per room less than or equal 1%, &years_dash."
-	renter_inc5080_lte1_&years. = "Renter occupied units, household income 50-80%, persons per room less than or equal 1%, &years_dash."
-	renter_inc80100_lte1_&years. = "Renter occupied units, household income 80-100%, persons per room less than or equal 1%, &years_dash."
-	renter_inc100pl_lte1_&years. = "Renter occupied units, household income 100%+, persons per room less than or equal 1%, &years_dash."
-	renter_inc030_lte15_&years. = "Renter occupied units, household income 0-30%, persons per room greater than 1% less than or equal 1.5%, &years_dash."
-	renter_inc3050_lte15_&years. = "Renter occupied units, household income 30-50%, persons per room greater than 1% less than or equal 1.5%, &years_dash."
-	renter_inc5080_lte15_&years. = "Renter occupied units, household income 50-80%, persons per room greater than 1% less than or equal 1.5%, &years_dash."
-	renter_inc80100_lte15_&years. = "Renter occupied units, household income 80-100%, persons per room greater than 1% less than or equal 1.5%, &years_dash."
-	renter_inc100pl_lte15_&years. = "Renter occupied units, household income 100%+, persons per room greater than 1% less than or equal 1.5%, &years_dash."
-	renter_inc030_gt15_&years. = "Renter occupied units, household income 0-30%, persons per room greater than 1.5%, &years_dash."
-	renter_inc3050_gt15_&years. = "Renter occupied units, household income 30-50%, persons per room greater than 1.5%, &years_dash."
-	renter_inc5080_gt15_&years. = "Renter occupied units, household income 50-80%, persons per room greater than 1.5%, &years_dash."
-	renter_inc80100_gt15_&years. = "Renter occupied units, household income 80-100%, persons per room greater than 1.5%, &years_dash."
-	renter_inc100pl_gt15_&years. = "Renter occupied units, household income 100%+, persons per room greater than 1.5%, &years_dash."
-	renter_inc030_lte1_1fam_&years. = "Renter occupied units, one family, persons per room less than or equal 1%, &years_dash."
-	renter_inc030_lte1_sfam_&years. = "Renter occupied units, one family with subfamily or more than 1 family, persons per room less than or equal 1%, &years_dash."
-	renter_inc030_lte1_nfam_&years. = "Renter occupied units, non-family, persons per room less than or equal 1%, &years_dash."
-	renter_inc030_lte15_1fam_&years. = "Renter occupied units, one family, persons per room greater than 1% less than or equal 1.5%, &years_dash."
-	renter_inc030_lte15_sfam_&years. = "Renter occupied units, one family with subfamily or more than 1 family, persons per room greater than 1% less than or equal 1.5%, &years_dash."
-	renter_inc030_lte15_nfam_&years. = "Renter occupied units, non-family, persons per room greater than 1% less than or equal 1.5%, &years_dash."
-	renter_inc030_gt15_1fam_&years. = "Renter occupied units, one family, persons per room greater than 1% less than or equal 1.5%, &years_dash."
-	renter_inc030_gt15_sfam_&years. = "Renter occupied units, one family with subfamily or more than 1 family, persons per room greater than 1% less than or equal 1.5%, &years_dash."
-	renter_inc030_gt15_nfam_&years. = "Renter occupied units, non-family, persons per room greater than 1% less than or equal 1.5%, &years_dash."
+	rentr_lte1_&years. = "Renter occupied units, persons per room less than or equal 1, &years_dash."
+	rentr_lte15_&years. = "Renter occupied units, persons per room greater than 1 less than or equal 1.5, &years_dash."
+	rentr_gt15_&years. = "Renter occupied units, persons per room greater than 1.5, &years_dash."
+	rentr_inc030_lte1_&years. = "Renter occupied units, household income 0-30%, persons per room less than or equal 1, &years_dash."
+	rentr_inc3050_lte1_&years. = "Renter occupied units, household income 30-50%, persons per room less than or equal 1, &years_dash."
+	rentr_inc5080_lte1_&years. = "Renter occupied units, household income 50-80%, persons per room less than or equal 1, &years_dash."
+	rentr_inc80100_lte1_&years. = "Renter occupied units, household income 80-100%, persons per room less than or equal 1, &years_dash."
+	rentr_inc100pl_lte1_&years. = "Renter occupied units, household income 100%+, persons per room less than or equal 1, &years_dash."
+	rentr_inc030_lte15_&years. = "Renter occupied units, household income 0-30%, persons per room greater than 1 less than or equal 1.5, &years_dash."
+	rentr_inc3050_lte15_&years. = "Renter occupied units, household income 30-50%, persons per room greater than 1 less than or equal 1.5, &years_dash."
+	rentr_inc5080_lte15_&years. = "Renter occupied units, household income 50-80%, persons per room greater than 1 less than or equal 1.5, &years_dash."
+	rentr_inc80100_lte15_&years. = "Renter occupied units, household income 80-100%, persons per room greater than 1 less than or equal 1.5, &years_dash."
+	rentr_inc100pl_lte15_&years. = "Renter occupied units, household income 100%+, persons per room greater than 1 less than or equal 1.5, &years_dash."
+	rentr_inc030_gt15_&years. = "Renter occupied units, household income 0-30%, persons per room greater than 1.5, &years_dash."
+	rentr_inc3050_gt15_&years. = "Renter occupied units, household income 30-50%, persons per room greater than 1.5, &years_dash."
+	rentr_inc5080_gt15_&years. = "Renter occupied units, household income 50-80%, persons per room greater than 1.5, &years_dash."
+	rentr_inc80100_gt15_&years. = "Renter occupied units, household income 80-100%, persons per room greater than 1.5, &years_dash."
+	rentr_inc100pl_gt15_&years. = "Renter occupied units, household income 100%+, persons per room greater than 1.5, &years_dash."
+	rentr_inc030_1fam_&years. = "Renter occupied units, household income 0-30%, one family, &years_dash."
+	rentr_inc030_sfam_&years. = "Renter occupied units, household income 0-30%, one family with subfamily or more than 1 family, &years_dash."
+	rentr_inc030_nfam_&years. = "Renter occupied units, household income 0-30%, non-family, &years_dash."
+	rentr_inc030_lte1_1fam_&years. = "Renter occupied units, household income 0-30%, one family, persons per room less than or equal 1, &years_dash."
+	rentr_inc030_lte1_sfam_&years. = "Renter occupied units, household income 0-30%, one family with subfamily or more than 1 family, persons per room less than or equal 1, &years_dash."
+	rentr_inc030_lte1_nfam_&years. = "Renter occupied units, household income 0-30%, non-family, persons per room less than or equal 1, &years_dash."
+	rentr_inc030_lte15_1fam_&years. = "Renter occupied units, household income 0-30%, one family, persons per room greater than 1 less than or equal 1.5, &years_dash."
+	rentr_inc030_lte15_sfam_&years. = "Renter occupied units, household income 0-30%, one family with subfamily or more than 1 family, persons per room greater than 1 less than or equal 1.5, &years_dash."
+	rentr_inc030_lte15_nfam_&years. = "Renter occupied units, household income 0-30%, non-family, persons per room greater than 1 less than or equal 1.5, &years_dash."
+	rentr_inc030_gt15_1fam_&years. = "Renter occupied units, household income 0-30%, one family, persons per room greater than 1.5, &years_dash."
+	rentr_inc030_gt15_sfam_&years. = "Renter occupied units, household income 0-30%, one family with subfamily or more than 1 family, persons per room greater 1.5, &years_dash."
+	rentr_inc030_gt15_nfam_&years. = "Renter occupied units, household income 0-30%, non-family, persons per room greater than 1.5, &years_dash."
 	;
+
+	%Pct_calc( var=Prentr_inc030_lte1, label=% Renter occupied units household income 0-30% persons per room less than or equal 1, num=rentr_inc030_lte1, den=rentr_lte1, years= &years. );
+	%Pct_calc( var=Prentr_inc3050_lte1, label=% Renter occupied units household income 30-50% persons per room less than or equal 1, num=rentr_inc3050_lte1, den=rentr_lte1, years= &years. );
+	%Pct_calc( var=Prentr_inc5080_lte1, label=% Renter occupied units household income 50-80% persons per room less than or equal 1, num=rentr_inc5080_lte1, den=rentr_lte1, years= &years. );
+	%Pct_calc( var=Prentr_inc80100_lte1, label=% Renter occupied units household income 80-100% persons per room less than or equal 1, num=rentr_inc80100_lte1, den=rentr_lte1, years= &years. );
+	%Pct_calc( var=Prentr_inc100pl_lte1, label=% Renter occupied units household income 100%+ persons per room less than or equal 1, num=rentr_inc100pl_lte1, den=rentr_lte1, years= &years. );
+
+	%Pct_calc( var=Prentr_inc030_lte15, label=% Renter occupied units household income 0-30% persons per room greater than 1 less than or equal 1.5, num=rentr_inc030_lte15, den=rentr_lte15, years= &years. );
+	%Pct_calc( var=Prentr_inc3050_lte15, label=% Renter occupied units household income 30-50% persons per room greater than 1 less than or equal 1.5, num=rentr_inc3050_lte15, den=rentr_lte15, years= &years. );
+	%Pct_calc( var=Prentr_inc5080_lte15, label=% Renter occupied units household income 50-80% persons per room greater than 1 less than or equal 1.5, num=rentr_inc5080_lte15, den=rentr_lte15, years= &years. );
+	%Pct_calc( var=Prentr_inc80100_lte15, label=% Renter occupied units household income 80-100% persons per room greater than 1 less than or equal 1.5, num=rentr_inc80100_lte15, den=rentr_lte15, years= &years. );
+	%Pct_calc( var=Prentr_inc100pl_lte15, label=% Renter occupied units household income 100%+ persons per room greater than 1 less than or equal 1.5, num=rentr_inc100pl_lte15, den=rentr_lte15, years= &years. );
+
+	%Pct_calc( var=Prentr_inc030_gt15, label=% Renter occupied units household income 0-30% persons per room greater than 1.5, num=rentr_inc030_gt15, den=rentr_gt15, years= &years. );
+	%Pct_calc( var=Prentr_inc3050_gt15, label=% Renter occupied units household income 30-50% persons per room greater than 1.5, num=rentr_inc3050_gt15, den=rentr_gt15, years= &years. );
+	%Pct_calc( var=Prentr_inc5080_gt15, label=% Renter occupied units household income 50-80% persons per room greater than 1.5, num=rentr_inc5080_gt15, den=rentr_gt15, years= &years. );
+	%Pct_calc( var=Prentr_inc80100_gt15, label=% Renter occupied units household income 80-100% persons per room greater than 1.5, num=rentr_inc80100_gt15, den=rentr_gt15, years= &years. );
+	%Pct_calc( var=Prentr_inc100pl_gt15, label=% Renter occupied units household income 100%+ persons per room greater than 1.5, num=rentr_inc100pl_gt15, den=rentr_gt15, years= &years. );
+
+	%Pct_calc( var=Prentr_inc030_lte1_1fam, label=% Renter occupied units household income 0-30% one family persons per room less than or equal 1, num=rentr_inc030_lte1_1fam, den=rentr_inc030_lte1, years= &years. );
+	%Pct_calc( var=Prentr_inc030_lte1_sfam, label=% Renter occupied units household income 0-30% one family with subfamily persons per room less than or equal 1, num=rentr_inc030_lte1_sfam, den=rentr_inc030_lte1, years= &years. );
+	%Pct_calc( var=Prentr_inc030_lte1_nfam, label=% Renter occupied units household income 0-30% non-family persons per room less than or equal 1, num=rentr_inc030_lte1_nfam, den=rentr_inc030_lte1, years= &years. );
+
+	%Pct_calc( var=Prentr_inc030_lte15_1fam, label=% Renter occupied units household income 0-30% one family persons per room greater than 1 less than or equal 1.5, num=rentr_inc030_lte15_sfam, den=rentr_inc030_lte15, years= &years. );
+	%Pct_calc( var=Prentr_inc030_lte15_sfam, label=% Renter occupied units household income 0-30% one family with subfamily persons per room greater than 1 less than or equal 1.5, num=rentr_inc030_lte15_sfam, den=rentr_inc030_lte15, years= &years. );
+	%Pct_calc( var=Prentr_inc030_lte15_nfam, label=% Renter occupied units household income 0-30% non-family persons per room greater than 1 less than or equal 1.5, num=rentr_inc030_lte15_nfam, den=rentr_inc030_lte15, years= &years. );
+
+	%Pct_calc( var=Prentr_inc030_gt15_1fam, label=% Renter occupied units household income 0-30% one family persons per room greater than 1.5, num=rentr_inc030_gt15_1fam, den=rentr_inc030_gt15, years= &years. );
+	%Pct_calc( var=Prentr_inc030_gt15_sfam, label=% Renter occupied units household income 0-30% one family with subfamily persons per room greater than 1.5, num=rentr_inc030_gt15_sfam, den=rentr_inc030_gt15, years= &years. );
+	%Pct_calc( var=Prentr_inc030_gt15_nfam, label=% Renter occupied units household income 0-30% non-family persons per room greater than 1.5, num=rentr_inc030_gt15_nfam, den=rentr_inc030_gt15, years= &years. );
 
 
 	/* Demand - Age */
