@@ -17,20 +17,22 @@
 %DCData_lib( HUD )
 
 
-%macro chas_summary_vars (years);
+%macro chas_summary_vars (years=, out=);
 
 %let years_dash = %sysfunc(translate(&years., '-', '_' ));
 
-data ch_test;
-	set hud.Chas_&years._ntnl (where=(geoid = "05000US11001"));
+data &out._&years.;
+	set hud.Chas_&years._ntnl ;
 
 	/* Supply */
 	all_units_tot_&years. = sum(of T1_est1 T14A_est1 T14B_est1);
 	occ_units_tot_&years. = T1_est1;
 	owner_units_tot_&years. = T1_est2;
 	forsale_units_tot_&years. = T14A_est1;
+	own_forsale_units_tot_&years. = sum(of T1_est2 T14A_est1);
 	renter_unit_tot_&years. = T1_est126;
 	forrent_units_tot_&years. = T14B_est1;
+	rent_forrent_units_tot_&years. = sum(of T1_est126 T14B_est1);
 
 	renter_unit_aff30_&years. = T15C_est4;
 	forrent_units_aff30_&years. = sum(of T17B_est3 T17B_est8 T17B_est13 T17B_est18);
@@ -89,8 +91,10 @@ data ch_test;
 			occ_units_tot_&years. = "All occupied housing units, &years_dash."
 			owner_units_tot_&years. = "Owner-occupied housing units, &years_dash."
 			forsale_units_tot_&years. = "Vacant housing units for sale, &years_dash."
+			own_forsale_units_tot_&years. = "Owner-occupied housing units and vacant housing units for sale, &years_dash."
 			renter_unit_tot_&years. = "Renter-occupied housing units, &years_dash."
 			forrent_units_tot_&years. = "Vacant housing units for rent, &years_dash."
+			rent_forrent_units_tot_&years. = "Renter-occupied housing units and vacant housing units for rent, &years_dash."
 			rental_comb_aff30_&years. = "Renter-occupied and for-rent units affordable at 30% AMI, &years_dash."
 			rental_comb_aff50_&years. = "Renter-occupied and for-rent units affordable at 50% AMI, &years_dash."
 			sales_comb_aff50_&years. = "Owner-occupied and for-rent units affordable at 50% AMI, &years_dash."
@@ -122,19 +126,19 @@ data ch_test;
 			owner_allbr_aff50_&years. = "Owner-occupied housing units affordable at 50% AMI, &years_dash."
 			;
 
-	%Pct_calc( var=Powner_units_tot, label=% Owner-occupied housing units, num=owner_units_tot, den=all_units_tot, years= &years. );
-	%Pct_calc( var=Pforsale_units_tot, label=% Vacant housing units for sale, num=forsale_units_tot, den=all_units_tot, years= &years. );
-	%Pct_calc( var=Prenter_unit_tot, label=% Renter-occupied housing units, num=renter_unit_tot, den=all_units_tot, years= &years. );
-	%Pct_calc( var=Pforrent_units_tot, label=% Vacant housing units for rent, num=forrent_units_tot, den=all_units_tot, years= &years. );
+	%Pct_calc( var=Powner_units_tot, label=% Owner-occupied housing units, num=owner_units_tot, den=occ_units_tot, years= &years. );
+	%Pct_calc( var=Pforsale_units_tot, label=% Vacant housing units for sale, num=forsale_units_tot, den=own_forsale_units_tot, years= &years. );
+	%Pct_calc( var=Prenter_unit_tot, label=% Renter-occupied housing units, num=renter_unit_tot, den=occ_units_tot, years= &years. );
+	%Pct_calc( var=Pforrent_units_tot, label=% Vacant housing units for rent, num=forrent_units_tot, den=rent_forrent_units_tot, years= &years. );
 
-	%Pct_calc( var=Prenter_unit_aff30, label=% Renter-occupied housing units affordable at 30% AMI, num=renter_unit_aff30, den=tot_aff30, years= &years. );
-	%Pct_calc( var=Pforrent_units_aff30, label=% For-rent housing units affordable at 30% AMI, num=forrent_units_aff30, den=tot_aff30, years= &years. );
+	%Pct_calc( var=Prenter_unit_aff30, label=% Renter-occupied housing units affordable at 30% AMI, num=renter_unit_aff30, den=renter_unit_tot, years= &years. );
+	%Pct_calc( var=Pforrent_units_aff30, label=% For-rent housing units affordable at 30% AMI, num=forrent_units_aff30, den=renter_unit_tot, years= &years. );
 
-	%Pct_calc( var=Prenter_unit_aff50, label=% Renter-occupied housing units affordable at 50% AMI, num=renter_unit_aff50, den=tot_aff50, years= &years. );
-	%Pct_calc( var=Pforrent_units_aff50, label=% For-rent housing units affordable at 50% AMI, num=forrent_units_aff50, den=tot_aff50, years= &years. );
+	%Pct_calc( var=Prenter_unit_aff50, label=% Renter-occupied housing units affordable at 50% AMI, num=renter_unit_aff50, den=renter_unit_tot, years= &years. );
+	%Pct_calc( var=Pforrent_units_aff50, label=% For-rent housing units affordable at 50% AMI, num=forrent_units_aff50, den=renter_unit_tot, years= &years. );
 
-	%Pct_calc( var=Powner_unit_aff50, label=% Owner-occupied housing units affordable at 50% AMI, num=owner_unit_aff50, den=tot_aff50, years= &years. );
-	%Pct_calc( var=Pforsale_units_aff50, label=% For-sale housing units affordable at 50% AMI, num=forsale_units_aff50, den=tot_aff50, years= &years. );
+	%Pct_calc( var=Powner_unit_aff50, label=% Owner-occupied housing units affordable at 50% AMI, num=owner_unit_aff50, den=owner_units_tot, years= &years. );
+	%Pct_calc( var=Pforsale_units_aff50, label=% For-sale housing units affordable at 50% AMI, num=forsale_units_aff50, den=owner_units_tot, years= &years. );
 
 	%Pct_calc( var=Prenter_01br_tot, label=% Renter-occupied 0-1 bedroom housing units, num=renter_01br_tot, den=renter_unit_tot, years= &years. );
 	%Pct_calc( var=Prenter_2br_tot, label=% Renter-occupied 2 bedroom housing units, num=renter_2br_tot, den=renter_unit_tot, years= &years. );
@@ -759,6 +763,13 @@ data ch_test;
 
 
 	/* Demand - Age */
+
+	renter_bt00_&years. = T12_est109;
+	renter_bt8099_&years. = T12_est130;
+	renter_bt6079_&years. = T12_est151;
+	renter_bt4059_&years. = T12_est172;
+	renter_bt39_&years. = T12_est193;
+
 	renter_inc050_bt00_&years. = T12_est110;
 	renter_inc050_bt8099_&years. = T12_est131;
 	renter_inc050_bt6079_&years. = T12_est152;
@@ -807,6 +818,11 @@ data ch_test;
 	renter_scb_bt39_&years. = sum(of T12_est197 T12_est202 T12_est207 T12_est212);
 
 	label 
+	renter_bt00_&years. = "Renter occupied units, built 2000 or later, &years_dash."
+	renter_bt8099_&years. = "Renter occupied units, built 1980-1999, &years_dash."
+	renter_bt6079_&years. = "Renter occupied units, built 1960-1979, &years_dash."
+	renter_bt4059_&years. = "Renter occupied units, built 1940-1959, &years_dash."
+	renter_bt39_&years. = "Renter occupied units, built 1940-1959, &years_dash."
 	renter_inc050_bt00_&years. = "Renter occupied units, household income 0-50%, built 2000 or later, &years_dash."
 	renter_inc050_bt8099_&years. = "Renter occupied units, household income 0-50%, built 1980-1999, &years_dash."
 	renter_inc050_bt6079_&years. = "Renter occupied units, household income 0-50%, built 1960-1979, &years_dash."
@@ -844,7 +860,59 @@ data ch_test;
 	renter_scb_bt39_&years. = "Renter occupied units, severely cost burdened, built 1939 or earlier, &years_dash."
 	;
 
+	%Pct_calc( var=Prenter_inc050_bt00, label=% Renter occupied units household income 0-50% built 2000 or later, num=renter_inc050_bt00, den=renter_bt00, years= &years. );
+	%Pct_calc( var=Prenter_inc5080_bt00, label=% Renter occupied units household income 50-80% built 2000 or later, num=renter_inc5080_bt00, den=renter_bt00, years= &years. );
+	%Pct_calc( var=Prenter_inc80120_bt00, label=% Renter occupied units household income 80-120% built 2000 or later, num=renter_inc80120_bt00, den=renter_bt00, years= &years. );
+	%Pct_calc( var=Prenter_inc120pl_bt00, label=% Renter occupied units household income 120%+ built 2000 or later, num=renter_inc120pl_bt00, den=renter_bt00, years= &years. );
+
+	%Pct_calc( var=Prenter_inc050_bt8099, label=% Renter occupied units household income 0-50% built 1980-1999, num=renter_inc050_bt8099, den=renter_bt8099, years= &years. );
+	%Pct_calc( var=Prenter_inc5080_bt8099, label=% Renter occupied units household income 50-80% built 1980-1999, num=renter_inc5080_bt8099, den=renter_bt8099, years= &years. );
+	%Pct_calc( var=Prenter_inc80120_bt8099, label=% Renter occupied units household income 80-120% built 1980-1999, num=renter_inc80120_bt8099, den=renter_bt8099, years= &years. );
+	%Pct_calc( var=Prenter_inc120pl_bt8099, label=% Renter occupied units household income 120%+ built 1980-1999, num=renter_inc120pl_bt8099, den=renter_bt8099, years= &years. );
+
+	%Pct_calc( var=Prenter_inc050_bt6079, label=% Renter occupied units household income 0-50% built 1960-1979, num=renter_inc050_bt6079, den=renter_bt6079, years= &years. );
+	%Pct_calc( var=Prenter_inc5080_bt6079, label=% Renter occupied units household income 50-80% built 1960-1979, num=renter_inc5080_bt6079, den=renter_bt6079, years= &years. );
+	%Pct_calc( var=Prenter_inc80120_bt6079, label=% Renter occupied units household income 80-120% built 1960-1979, num=renter_inc80120_bt6079, den=renter_bt6079, years= &years. );
+	%Pct_calc( var=Prenter_inc120pl_bt6079, label=% Renter occupied units household income 120%+ built 1960-1979, num=renter_inc120pl_bt6079, den=renter_bt6079, years= &years. );
+
+	%Pct_calc( var=Prenter_inc050_bt39, label=% Renter occupied units household income 0-50% built 1939 or earlier, num=renter_inc050_bt39, den=renter_bt39, years= &years. );
+	%Pct_calc( var=Prenter_inc5080_bt39, label=% Renter occupied units household income 50-80% built 1939 or earlier, num=renter_inc5080_bt39, den=renter_bt39, years= &years. );
+	%Pct_calc( var=Prenter_inc80120_bt39, label=% Renter occupied units household income 80-120% built 1939 or earlier, num=renter_inc80120_bt39, den=renter_bt39, years= &years. );
+	%Pct_calc( var=Prenter_inc120pl_bt39, label=% Renter occupied units household income 120%+ built 1939 or earlier, num=renter_inc120pl_bt39, den=renter_bt39, years= &years. );
+
+	%Pct_calc( var=Prenter_ncb_bt00, label=% Renter occupied units NOT cost burdened built 2000 or later, num=renter_ncb_bt00, den=renter_bt00, years= &years. );
+	%Pct_calc( var=Prenter_cb_bt00, label=% Renter occupied units cost burdened built 2000 or later, num=renter_cb_bt00, den=renter_bt00, years= &years. );
+	%Pct_calc( var=Prenter_scb_bt00, label=% Renter occupied units severely cost burdened built 2000 or later, num=renter_scb_bt00, den=renter_bt00, years= &years. );
+
+	%Pct_calc( var=Prenter_ncb_bt8099, label=% Renter occupied units NOT cost burdened built 2000 or later, num=renter_ncb_bt8099, den=renter_bt8099, years= &years. );
+	%Pct_calc( var=Prenter_cb_bt8099, label=% Renter occupied units cost burdened built 2000 or later, num=renter_cb_bt8099, den=renter_bt8099, years= &years. );
+	%Pct_calc( var=Prenter_scb_bt8099, label=% Renter occupied units severely cost burdened built 2000 or later, num=renter_scb_bt8099, den=renter_bt8099, years= &years. );
+
+	%Pct_calc( var=Prenter_ncb_bt6079, label=% Renter occupied units NOT cost burdened built 2000 or later, num=renter_ncb_bt6079, den=renter_bt6079, years= &years. );
+	%Pct_calc( var=Prenter_cb_bt6079, label=% Renter occupied units cost burdened built 2000 or later, num=renter_cb_bt6079, den=renter_bt6079, years= &years. );
+	%Pct_calc( var=Prenter_scb_bt6079, label=% Renter occupied units severely cost burdened built 2000 or later, num=renter_scb_bt6079, den=renter_bt6079, years= &years. );
+
+	%Pct_calc( var=Prenter_ncb_bt39, label=% Renter occupied units NOT cost burdened built 2000 or later, num=renter_ncb_bt39, den=renter_bt39, years= &years. );
+	%Pct_calc( var=Prenter_cb_bt39, label=% Renter occupied units cost burdened built 2000 or later, num=renter_cb_bt39, den=renter_bt39, years= &years. );
+	%Pct_calc( var=Prenter_scb_bt39, label=% Renter occupied units severely cost burdened built 2000 or later, num=renter_scb_bt39, den=renter_bt39, years= &years. );
+
+
 	/* Race */
+	renter_wht_&years. = sum(of T1_est129 T1_est137 T1_est145 T1_est153 T1_est161 T1_est170 T1_est178 T1_est186 T1_est194 T1_est202
+							T1_est211 T1_est219 T1_est227 T1_est235 T1_est243);
+	renter_blk_&years. = sum(of T1_est130 T1_est138 T1_est146 T1_est154 T1_est162 T1_est171 T1_est179 T1_est187 T1_est195 T1_est203
+							T1_est212 T1_est220 T1_est228 T1_est236 T1_est244);
+	renter_api_&years. = sum(of T1_est131 T1_est133 T1_est139 T1_est141 T1_est147 T1_est149 T1_est155 T1_est157 T1_est163 T1_est165
+							T1_est172 T1_est174 T1_est180 T1_est182 T1_est188 T1_est190 T1_est196 T1_est198 T1_est204 T1_est206 T1_est213
+							T1_est215 T1_est221 T1_est223 T1_est229 T1_est231 T1_est237 T1_est239 T1_est245 T1_est247); 
+	renter_aia_&years. = sum(of T1_est132 T1_est140 T1_est148 T1_est156 T1_est164 T1_est173 T1_est181 T1_est189 T1_est197 T1_est205
+							T1_est214 T1_est222 T1_est230 T1_est238 T1_est246);
+	renter_his_&years. = sum(of T1_est134 T1_est142 T1_est150 T1_est158 T1_est166 T1_est175 T1_est183 T1_est191 T1_est199 T1_est207
+							T1_est216 T1_est224 T1_est232 T1_est240 T1_est248);
+	renter_oth_&years. = sum(of T1_est135 T1_est143 T1_est151 T1_est159 T1_est167 T1_est176 T1_est184 T1_est192 T1_est200 T1_est208
+							T1_est217 T1_est225 T1_est233 T1_est241 T1_est249);
+
+
 	renter_inc030_wht_&years. = sum(of T1_est129 T1_est170 T1_est211);
 	renter_inc3050_wht_&years. = sum(of T1_est137 T1_est178 T1_est219);
 	renter_inc5080_wht_&years. = sum(of T1_est145 T1_est186 T1_est227);
@@ -869,11 +937,11 @@ data ch_test;
 	renter_inc80100_aia_&years. = sum(of T1_est156 T1_est197 T1_est238);
 	renter_inc100pl_aia_&years. = sum(of T1_est164 T1_est205 T1_est246);
 
-	renter_inc030_hisp_&years. = sum(of T1_est134 T1_est175 T1_est216);
-	renter_inc3050_hisp_&years. = sum(of T1_est142 T1_est183 T1_est224);
-	renter_inc5080_hisp_&years. = sum(of T1_est150 T1_est191 T1_est232);
-	renter_inc80100_hisp_&years. = sum(of T1_est158 T1_est199 T1_est240);
-	renter_inc100pl_hisp_&years. = sum(of T1_est166 T1_est207 T1_est248);
+	renter_inc030_his_&years. = sum(of T1_est134 T1_est175 T1_est216);
+	renter_inc3050_his_&years. = sum(of T1_est142 T1_est183 T1_est224);
+	renter_inc5080_his_&years. = sum(of T1_est150 T1_est191 T1_est232);
+	renter_inc80100_his_&years. = sum(of T1_est158 T1_est199 T1_est240);
+	renter_inc100pl_his_&years. = sum(of T1_est166 T1_est207 T1_est248);
 
 	renter_inc030_oth_&years. = sum(of T1_est135 T1_est176 T1_est217);
 	renter_inc3050_oth_&years. = sum(of T1_est143 T1_est184 T1_est225);
@@ -897,15 +965,21 @@ data ch_test;
 	renter_inc030_0prob_aia_&years. = T1_est173;
 	renter_inc030_nc_aia_&years. = T1_est214;
 
-	renter_inc030_1prob_hisp_&years. = T1_est134;
-	renter_inc030_0prob_hisp_&years. = T1_est175;
-	renter_inc030_nc_hisp_&years. = T1_est216;
+	renter_inc030_1prob_his_&years. = T1_est134;
+	renter_inc030_0prob_his_&years. = T1_est175;
+	renter_inc030_nc_his_&years. = T1_est216;
 
 	renter_inc030_1prob_oth_&years. = T1_est135;
 	renter_inc030_0prob_oth_&years. = T1_est176;
 	renter_inc030_nc_oth_&years. = T1_est217;
 
 	label
+	renter_wht_&years. = "Renter occupied units, White alone non-Hispanic, &years_dash."
+	renter_blk_&years. = "Renter occupied units, Black or African-American alone non-Hispanic, &years_dash."
+	renter_api_&years. = "Renter occupied units, Asian or pacific islander alone non-Hispanic, &years_dash."
+	renter_aia_&years. = "Renter occupied units, American Indian or Alaska Native alone non-Hispanic, &years_dash."
+	renter_his_&years. = "Renter occupied units, Hispanic, &years_dash."
+	renter_oth_&years. = "Renter occupied units, Other race, &years_dash."
 	renter_inc030_wht_&years. = "Renter occupied units, household income 0-30%, White alone non-Hispanic, &years_dash."
 	renter_inc3050_wht_&years. = "Renter occupied units, household income 30-50%, White alone non-Hispanic, &years_dash."
 	renter_inc5080_wht_&years. = "Renter occupied units, household income 50-80%, White alone non-Hispanic, &years_dash."
@@ -926,11 +1000,11 @@ data ch_test;
 	renter_inc5080_aia_&years. = "Renter occupied units, household income 50-80%, American Indian or Alaska Native alone non-Hispanic, &years_dash."
 	renter_inc80100_aia_&years. = "Renter occupied units, household income 80%-100%, American Indian or Alaska Native alone non-Hispanic, &years_dash."
 	renter_inc100pl_aia_&years. = "Renter occupied units, household income 100%+, American Indian or Alaska Native alone non-Hispanic, &years_dash."
-	renter_inc030_hisp_&years. = "Renter occupied units, household income 0-30%, Hispanic, &years_dash."
-	renter_inc3050_hisp_&years. = "Renter occupied units, household income 30-50%, Hispanic, &years_dash."
-	renter_inc5080_hisp_&years. = "Renter occupied units, household income 50-80%, Hispanic, &years_dash."
-	renter_inc80100_hisp_&years. = "Renter occupied units, household income 80%-100%, Hispanic, &years_dash."
-	renter_inc100pl_hisp_&years. = "Renter occupied units, household income 100%+, Hispanic, &years_dash."
+	renter_inc030_his_&years. = "Renter occupied units, household income 0-30%, Hispanic, &years_dash."
+	renter_inc3050_his_&years. = "Renter occupied units, household income 30-50%, Hispanic, &years_dash."
+	renter_inc5080_his_&years. = "Renter occupied units, household income 50-80%, Hispanic, &years_dash."
+	renter_inc80100_his_&years. = "Renter occupied units, household income 80%-100%, Hispanic, &years_dash."
+	renter_inc100pl_his_&years. = "Renter occupied units, household income 100%+, Hispanic, &years_dash."
 	renter_inc030_oth_&years. = "Renter occupied units, household income 0-30%, Other race, &years_dash."
 	renter_inc3050_oth_&years. = "Renter occupied units, household income 30-50%, Other race, &years_dash."
 	renter_inc5080_oth_&years. = "Renter occupied units, household income 50-80%, Other race, &years_dash."
@@ -948,17 +1022,81 @@ data ch_test;
 	renter_inc030_1prob_aia_&years. = "Renter occupied units, household income 0-30%, American Indian or Alaska Native alone non-Hispanic, 1 or more of the 4 housing unit problems, &years_dash."
 	renter_inc030_0prob_aia_&years. = "Renter occupied units, household income 0-30%, American Indian or Alaska Native alone non-Hispanic, none of the 4 housing unit problems, &years_dash."
 	renter_inc030_nc_aia_&years. = "Renter occupied units, household income 0-30%, American Indian or Alaska Native alone non-Hispanic, cost burden not computed, household has none of the other housing problems, &years_dash."
-	renter_inc030_1prob_hisp_&years. = "Renter occupied units, household income 0-30%, Hispanic, 1 or more of the 4 housing unit problems, &years_dash."
-	renter_inc030_0prob_hisp_&years. = "Renter occupied units, household income 0-30%, Hispanic, none of the 4 housing unit problems, &years_dash."
-	renter_inc030_nc_hisp_&years. = "Renter occupied units, household income 0-30%, Hispanic, cost burden not computed, household has none of the other housing problems, &years_dash."
+	renter_inc030_1prob_his_&years. = "Renter occupied units, household income 0-30%, Hispanic, 1 or more of the 4 housing unit problems, &years_dash."
+	renter_inc030_0prob_his_&years. = "Renter occupied units, household income 0-30%, Hispanic, none of the 4 housing unit problems, &years_dash."
+	renter_inc030_nc_his_&years. = "Renter occupied units, household income 0-30%, Hispanic, cost burden not computed, household has none of the other housing problems, &years_dash."
 	renter_inc030_1prob_oth_&years. = "Renter occupied units, household income 0-30%, Other race, 1 or more of the 4 housing unit problems, &years_dash."
 	renter_inc030_0prob_oth_&years. = "Renter occupied units, household income 0-30%,Other race, none of the 4 housing unit problems, &years_dash."
 	renter_inc030_nc_oth_&years. = "Renter occupied units, household income 0-30%, Other race, cost burden not computed, household has none of the other housing problems, &years_dash."
 	;
 
+	%Pct_calc( var=Prenter_inc030_wht, label=% Renter occupied units household income 0-30% White alone non-Hispanic, num=renter_inc030_wht, den=renter_wht, years= &years. );
+	%Pct_calc( var=Prenter_inc3050_wht, label=% Renter occupied units household income 30-50% White alone non-Hispanic, num=renter_inc3050_wht, den=renter_wht, years= &years. );
+	%Pct_calc( var=Prenter_inc5080_wht, label=% Renter occupied units household income 50-80% White alone non-Hispanic, num=renter_inc5080_wht, den=renter_wht, years= &years. );
+	%Pct_calc( var=Prenter_inc80100_wht, label=% Renter occupied units household income 80-100% White alone non-Hispanic, num=renter_inc80100_wht, den=renter_wht, years= &years. );
+	%Pct_calc( var=Prenter_inc100pl_wht, label=% Renter occupied units household income 100%+ White alone non-Hispanic, num=renter_inc100pl_wht, den=renter_wht, years= &years. );
+
+	%Pct_calc( var=Prenter_inc030_blk, label=% Renter occupied units household income 0-30% Black or African-American alone non-Hispanic, num=renter_inc030_blk, den=renter_blk, years= &years. );
+	%Pct_calc( var=Prenter_inc3050_blk, label=% Renter occupied units household income 30-50% Black or African-American alone non-Hispanic, num=renter_inc3050_blk, den=renter_blk, years= &years. );
+	%Pct_calc( var=Prenter_inc5080_blk, label=% Renter occupied units household income 50-80% Black or African-American alone non-Hispanic, num=renter_inc5080_blk, den=renter_blk, years= &years. );
+	%Pct_calc( var=Prenter_inc80100_blk, label=% Renter occupied units household income 80-100% Black or African-American alone non-Hispanic, num=renter_inc80100_blk, den=renter_blk, years= &years. );
+	%Pct_calc( var=Prenter_inc100pl_blk, label=% Renter occupied units household income 100%+ Black or African-American alone non-Hispanic, num=renter_inc100pl_blk, den=renter_blk, years= &years. );
+
+	%Pct_calc( var=Prenter_inc030_api, label=% Renter occupied units household income 0-30% Asian or pacific islander alone non-Hispanic, num=renter_inc030_api, den=renter_api, years= &years. );
+	%Pct_calc( var=Prenter_inc3050_api, label=% Renter occupied units household income 30-50% Asian or pacific islander alone non-Hispanic, num=renter_inc3050_api, den=renter_api, years= &years. );
+	%Pct_calc( var=Prenter_inc5080_api, label=% Renter occupied units household income 50-80% Asian or pacific islander alone non-Hispanic, num=renter_inc5080_api, den=renter_api, years= &years. );
+	%Pct_calc( var=Prenter_inc80100_api, label=% Renter occupied units household income 80-100% Asian or pacific islander alone non-Hispanic, num=renter_inc80100_api, den=renter_api, years= &years. );
+	%Pct_calc( var=Prenter_inc100pl_api, label=% Renter occupied units household income 100%+ Asian or pacific islander alone non-Hispanic, num=renter_inc100pl_api, den=renter_api, years= &years. );
+
+	%Pct_calc( var=Prenter_inc030_aia, label=% Renter occupied units household income 0-30% American Indian or Alaska Native alone non-Hispanic, num=renter_inc030_aia, den=renter_aia, years= &years. );
+	%Pct_calc( var=Prenter_inc3050_aia, label=% Renter occupied units household income 30-50% American Indian or Alaska Native alone non-Hispanic, num=renter_inc3050_aia, den=renter_aia, years= &years. );
+	%Pct_calc( var=Prenter_inc5080_aia, label=% Renter occupied units household income 50-80% American Indian or Alaska Native alone non-Hispanic, num=renter_inc5080_aia, den=renter_aia, years= &years. );
+	%Pct_calc( var=Prenter_inc80100_aia, label=% Renter occupied units household income 80-100% American Indian or Alaska Native alone non-Hispanic, num=renter_inc80100_aia, den=renter_aia, years= &years. );
+	%Pct_calc( var=Prenter_inc100pl_aia, label=% Renter occupied units household income 100%+ American Indian or Alaska Native alone non-Hispanic, num=renter_inc100pl_aia, den=renter_aia, years= &years. );
+
+	%Pct_calc( var=Prenter_inc030_his, label=% Renter occupied units household income 0-30% Hispanic, num=renter_inc030_his, den=renter_his, years= &years. );
+	%Pct_calc( var=Prenter_inc3050_his, label=% Renter occupied units household income 30-50% Hispanic, num=renter_inc3050_his, den=renter_his, years= &years. );
+	%Pct_calc( var=Prenter_inc5080_his, label=% Renter occupied units household income 50-80% Hispanic, num=renter_inc5080_his, den=renter_his, years= &years. );
+	%Pct_calc( var=Prenter_inc80100_his, label=% Renter occupied units household income 80-100% Hispanic, num=renter_inc80100_his, den=renter_his, years= &years. );
+	%Pct_calc( var=Prenter_inc100pl_his, label=% Renter occupied units household income 100%+ Hispanic, num=renter_inc100pl_his, den=renter_his, years= &years. );
+
+	%Pct_calc( var=Prenter_inc030_oth, label=% Renter occupied units household income 0-30% Other race, num=renter_inc030_oth, den=renter_oth, years= &years. );
+	%Pct_calc( var=Prenter_inc3050_oth, label=% Renter occupied units household income 30-50% Other race, num=renter_inc3050_oth, den=renter_oth, years= &years. );
+	%Pct_calc( var=Prenter_inc5080_oth, label=% Renter occupied units household income 50-80% Other race, num=renter_inc5080_oth, den=renter_oth, years= &years. );
+	%Pct_calc( var=Prenter_inc80100_oth, label=% Renter occupied units household income 80-100% Other race, num=renter_inc80100_oth, den=renter_oth, years= &years. );
+	%Pct_calc( var=Prenter_inc100pl_oth, label=% Renter occupied units household income 100%+ Other race, num=renter_inc100pl_oth, den=renter_oth, years= &years. );
+
+	%Pct_calc( var=Prenter_inc030_1prob_wht, label=% Renter occupied units household income 0-30% White alone non-Hispanic 1 or more of the 4 housing unit problems, num=renter_inc030_1prob_wht, den=renter_inc030_wht, years= &years. );
+	%Pct_calc( var=Prenter_inc030_0prob_wht, label=% Renter occupied units household income 0-30% White alone non-Hispanic none of the 4 housing unit problems, num=renter_inc030_0prob_wht, den=renter_inc030_wht, years= &years. );
+	%Pct_calc( var=Prenter_inc030_nc_wht, label=% Renter occupied units household income 0-30% White alone non-Hispanic cost burden not computed, num=renter_inc030_nc_wht, den=renter_inc030_wht, years= &years. );
+
+	%Pct_calc( var=Prenter_inc030_1prob_blk, label=% Renter occupied units household income 0-30% Black or African-American alone non-Hispanic 1 or more of the 4 housing unit problems, num=renter_inc030_1prob_blk, den=renter_inc030_blk, years= &years. );
+	%Pct_calc( var=Prenter_inc030_0prob_blk, label=% Renter occupied units household income 0-30% Black or African-American alone non-Hispanic none of the 4 housing unit problems, num=renter_inc030_0prob_blk, den=renter_inc030_blk, years= &years. );
+	%Pct_calc( var=Prenter_inc030_nc_blk, label=% Renter occupied units household income 0-30% Black or African-American alone non-Hispanic cost burden not computed, num=renter_inc030_nc_blk, den=renter_inc030_blk, years= &years. );
+
+	%Pct_calc( var=Prenter_inc030_1prob_api, label=% Renter occupied units household income 0-30% Asian or pacific islander alone non-Hispanic 1 or more of the 4 housing unit problems, num=renter_inc030_1prob_api, den=renter_inc030_api, years= &years. );
+	%Pct_calc( var=Prenter_inc030_0prob_api, label=% Renter occupied units household income 0-30% Asian or pacific islander alone non-Hispanic none of the 4 housing unit problems, num=renter_inc030_0prob_api, den=renter_inc030_api, years= &years. );
+	%Pct_calc( var=Prenter_inc030_nc_api, label=% Renter occupied units household income 0-30% Asian or pacific islander alone non-Hispanic cost burden not computed, num=renter_inc030_nc_api, den=renter_inc030_api, years= &years. );
+	
+	%Pct_calc( var=Prenter_inc030_1prob_aia, label=% Renter occupied units household income 0-30% American Indian or Alaska Native alone non-Hispanic 1 or more of the 4 housing unit problems, num=renter_inc030_1prob_aia, den=renter_inc030_aia, years= &years. );
+	%Pct_calc( var=Prenter_inc030_0prob_aia, label=% Renter occupied units household income 0-30% American Indian or Alaska Native alone non-Hispanic none of the 4 housing unit problems, num=renter_inc030_0prob_aia, den=renter_inc030_aia, years= &years. );
+	%Pct_calc( var=Prenter_inc030_nc_aia, label=% Renter occupied units household income 0-30% American Indian or Alaska Native alone non-Hispanic cost burden not computed, num=renter_inc030_nc_aia, den=renter_inc030_aia, years= &years. );
+
+	%Pct_calc( var=Prenter_inc030_1prob_his, label=% Renter occupied units household income 0-30% Hispanic 1 or more of the 4 housing unit problems, num=renter_inc030_1prob_his, den=renter_inc030_his, years= &years. );
+	%Pct_calc( var=Prenter_inc030_0prob_his, label=% Renter occupied units household income 0-30% WHispanic none of the 4 housing unit problems, num=renter_inc030_0prob_his, den=renter_inc030_his, years= &years. );
+	%Pct_calc( var=Prenter_inc030_nc_his, label=% Renter occupied units household income 0-30% Hispanic cost burden not computed, num=renter_inc030_nc_his, den=renter_inc030_his, years= &years. );
+
+	%Pct_calc( var=Prenter_inc030_1prob_oth, label=% Renter occupied units household income 0-30% Other race 1 or more of the 4 housing unit problems, num=renter_inc030_1prob_oth, den=renter_inc030_oth, years= &years. );
+	%Pct_calc( var=Prenter_inc030_0prob_oth, label=% Renter occupied units household income 0-30% Other race none of the 4 housing unit problems, num=renter_inc030_0prob_oth, den=renter_inc030_oth, years= &years. );
+	%Pct_calc( var=Prenter_inc030_nc_oth, label=% Renter occupied units household income 0-30% Other race cost burden not computed, num=renter_inc030_nc_oth, den=renter_inc030_oth, years= &years. );
+
+
+
 run;
 
 %mend chas_summary_vars;
 
-%chas_summary_vars (2006_10);
-%chas_summary_vars (2012_16);
+
+*** TESTING **;
+%chas_summary_vars (2006_10, chas_test);
+%chas_summary_vars (2012_16, chas_test);
