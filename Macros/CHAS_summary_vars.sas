@@ -487,9 +487,9 @@ data &out._&years.;
 
 
 	/* Demand - Affordability */
-	renter_cb_&years. = sum(of T8_est7 T8_est10 T8_est20 T8_est23 T8_est33 T8_est36 T8_est46 T8_est49 T8_est59 T8_est62);
-	renter_scb_&years. = sum(of T8_est10 T8_est23 T8_est36 T8_est49 T8_est62);
-	renter_ncb_&years. = sum(of T8_est13 T8_est26 T8_est39 T8_est52 T8_est65);
+	renter_cb_&years. = sum(of T8_est73 T8_est76  T8_est89 T8_est99 T8_est102 T8_est112 T8_est115 T8_est125 T8_est128);
+	renter_scb_&years. = sum(of T8_est76 T8_est89 T8_est102 T8_est115 T8_est128);
+	renter_ncb_&years. = sum(of T8_est79 T8_est92 T8_est105 T8_est118 T8_est131);
 	renter_noprob_&years. = sum(of T16_est91 T16_est95 T16_est99 T16_est103 T16_est107 T16_est112 T16_est116 T16_est120 T16_est124
 							T16_est128 T16_est133 T16_est137 T16_est141 T16_est145 T16_est149 T16_est154 T16_est158 T16_est162 T16_est166 T16_est170);
 
