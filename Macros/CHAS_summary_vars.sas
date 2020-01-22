@@ -17,7 +17,7 @@
 %DCData_lib( HUD )
 
 
-%macro chas_summary_vars (years=, out=);
+%macro chas_summary_vars (years, out);
 
 %let years_dash = %sysfunc(translate(&years., '-', '_' ));
 
@@ -1057,12 +1057,12 @@ data &out._&years.;
 	%Pct_calc( var=Prenter_inc030_his, label=% Renter occupied units household income 0-30% Hispanic, num=renter_inc030_his, den=renter_inc030, years= &years. );
 	%Pct_calc( var=Prenter_inc030_oth, label=% Renter occupied units household income 0-30% Other race, num=renter_inc030_oth, den=renter_inc030, years= &years. );
 
-	%Pct_calc( var=Prenter_inc3050_wht, label=% Renter occupied units household income 30-50% White alone non-Hispanic, num=renter_inc3050_wht, den=renter_inc03050, years= &years. );
-	%Pct_calc( var=Prenter_inc3050_blk, label=% Renter occupied units household income 30-50% Black or African-American alone non-Hispanic, num=renter_inc3050_blk, den=renter_inc03050, years= &years. );
-	%Pct_calc( var=Prenter_inc3050_api, label=% Renter occupied units household income 30-50% Asian or pacific islander alone non-Hispanic, num=renter_inc3050_api, den=renter_inc03050, years= &years. );
-	%Pct_calc( var=Prenter_inc3050_aia, label=% Renter occupied units household income 30-50% American Indian or Alaska Native alone non-Hispanic, num=renter_inc3050_aia, den=renter_inc03050, years= &years. );
-	%Pct_calc( var=Prenter_inc3050_his, label=% Renter occupied units household income 30-50% Hispanic, num=renter_inc3050_his, den=renter_inc03050, years= &years. );
-	%Pct_calc( var=Prenter_inc3050_oth, label=% Renter occupied units household income 30-50% Other race, num=renter_inc3050_oth, den=renter_inc03050, years= &years. );
+	%Pct_calc( var=Prenter_inc3050_wht, label=% Renter occupied units household income 30-50% White alone non-Hispanic, num=renter_inc3050_wht, den=renter_inc3050, years= &years. );
+	%Pct_calc( var=Prenter_inc3050_blk, label=% Renter occupied units household income 30-50% Black or African-American alone non-Hispanic, num=renter_inc3050_blk, den=renter_inc3050, years= &years. );
+	%Pct_calc( var=Prenter_inc3050_api, label=% Renter occupied units household income 30-50% Asian or pacific islander alone non-Hispanic, num=renter_inc3050_api, den=renter_inc3050, years= &years. );
+	%Pct_calc( var=Prenter_inc3050_aia, label=% Renter occupied units household income 30-50% American Indian or Alaska Native alone non-Hispanic, num=renter_inc3050_aia, den=renter_inc3050, years= &years. );
+	%Pct_calc( var=Prenter_inc3050_his, label=% Renter occupied units household income 30-50% Hispanic, num=renter_inc3050_his, den=renter_inc3050, years= &years. );
+	%Pct_calc( var=Prenter_inc3050_oth, label=% Renter occupied units household income 30-50% Other race, num=renter_inc3050_oth, den=renter_inc3050, years= &years. );
 
 	%Pct_calc( var=Prenter_inc5080_wht, label=% Renter occupied units household income 50-80% White alone non-Hispanic, num=renter_inc5080_wht, den=renter_inc5080, years= &years. );
 	%Pct_calc( var=Prenter_inc5080_blk, label=% Renter occupied units household income 50-80% Black or African-American alone non-Hispanic, num=renter_inc5080_blk, den=renter_inc5080, years= &years. );
