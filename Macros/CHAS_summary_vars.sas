@@ -563,6 +563,9 @@ data &out._&years.;
 	renter_noplumb_scb_&years. = sum(of T8_est77 T8_est90 T8_est103 T8_est116 T8_est129);
 	renter_hasplumb_scb_&years. = sum(of T8_est78 T8_est91 T8_est104 T8_est117 T8_est130);
 
+	renter_onlycb_&years. = sum(of T3_est64 T3_est70);
+
+
 	label
 	renter_cb_&years. = "Renter occupied units, cost burdened, &years_dash."
 	renter_scb_&years. = "Renter occupied units, severely cost burdened, &years_dash."
@@ -614,49 +617,56 @@ data &out._&years.;
 	renter_hasplumb_cb_&years. = "Renter occupied units, has complete plumbing and kitchen facilities, cost burdened, &years_dash."
 	renter_noplumb_scb_&years. = "Renter occupied units, lacks complete plumbing and kitchen facilities, severely cost burdened, &years_dash."
 	renter_hasplumb_scb_&years. = "Renter occupied units, has complete plumbing and kitchen facilities, severely cost burdened, &years_dash."
+	renter_onlycb_&years. = "Renter occupied units,only cost burden is a problem, &years_dash."
 	;
 
-	%Pct_calc( var=Prenter_inc030_cb, label=% Renter occupied units household income 0-30% cost burdened, num=renter_inc030_cb, den=renter_cb, years= &years. );
-	%Pct_calc( var=Prenter_inc3050_cb, label=% Renter occupied units household income 30-50% cost burdened, num=renter_inc3050_cb, den=renter_cb, years= &years. );
-	%Pct_calc( var=Prenter_inc5080_cb, label=% Renter occupied units household income 50-80% cost burdened, num=renter_inc5080_cb, den=renter_cb, years= &years. );
-	%Pct_calc( var=Prenter_inc80100_cb, label=% Renter occupied units household income 80-410% cost burdened, num=renter_inc80100_cb, den=renter_cb, years= &years. );
-	%Pct_calc( var=Prenter_inc100pl_cb, label=% Renter occupied units household income 100%+ cost burdened, num=renter_inc100pl_cb, den=renter_cb, years= &years. );
+	%Pct_calc( var=Prenter_inc030_cb, label=% Renter occupied units household income 0-30% cost burdened, num=renter_inc030_cb, den=renter_inc030, years= &years. );
+	%Pct_calc( var=Prenter_inc030_scb, label=% Renter occupied units household income 0-30% no cost burden computed, num=renter_inc030_scb, den=renter_inc030, years= &years. );
+	%Pct_calc( var=Prenter_inc030_ncb, label=% Renter occupied units household income 0-30% no cost burden computed, num=renter_inc030_ncb, den=renter_inc030, years= &years. );
 
-	%Pct_calc( var=Prenter_inc030_scb, label=% Renter occupied units household income 0-30% no cost burden computed, num=renter_inc030_scb, den=renter_scb, years= &years. );
-	%Pct_calc( var=Prenter_inc3050_scb, label=% Renter occupied units household income 30-50% no cost burden computed, num=renter_inc3050_scb, den=renter_scb, years= &years. );
-	%Pct_calc( var=Prenter_inc5080_scb, label=% Renter occupied units household income 50-80% no cost burden computed, num=renter_inc5080_scb, den=renter_scb, years= &years. );
-	%Pct_calc( var=Prenter_inc80100_scb, label=% Renter occupied units household income 80-410% no cost burden computed, num=renter_inc80100_scb, den=renter_scb, years= &years. );
-	%Pct_calc( var=Prenter_inc100pl_scb, label=% Renter occupied units household income 100%+ no cost burden computed, num=renter_inc100pl_scb, den=renter_scb, years= &years. );
+	%Pct_calc( var=Prenter_inc3050_cb, label=% Renter occupied units household income 30-50% cost burdened, num=renter_inc3050_cb, den=renter_inc3050, years= &years. );
+	%Pct_calc( var=Prenter_inc3050_scb, label=% Renter occupied units household income 30-50% no cost burden computed, num=renter_inc3050_scb, den=renter_inc3050, years= &years. );
+	%Pct_calc( var=Prenter_inc3050_ncb, label=% Renter occupied units household income 30-50% no cost burden computed, num=renter_inc3050_ncb, den=renter_inc3050, years= &years. );
 
-	%Pct_calc( var=Prenter_inc030_ncb, label=% Renter occupied units household income 0-30% no cost burden computed, num=renter_inc030_ncb, den=renter_ncb, years= &years. );
-	%Pct_calc( var=Prenter_inc3050_ncb, label=% Renter occupied units household income 30-50% no cost burden computed, num=renter_inc3050_ncb, den=renter_ncb, years= &years. );
-	%Pct_calc( var=Prenter_inc5080_ncb, label=% Renter occupied units household income 50-80% no cost burden computed, num=renter_inc5080_ncb, den=renter_ncb, years= &years. );
-	%Pct_calc( var=Prenter_inc80100_ncb, label=% Renter occupied units household income 80-410% no cost burden computed, num=renter_inc80100_ncb, den=renter_ncb, years= &years. );
-	%Pct_calc( var=Prenter_inc100pl_ncb, label=% Renter occupied units household income 100%+ no cost burden computed, num=renter_inc100pl_ncb, den=renter_ncb, years= &years. );
+	%Pct_calc( var=Prenter_inc5080_cb, label=% Renter occupied units household income 50-80% cost burdened, num=renter_inc5080_cb, den=renter_inc5080, years= &years. );
+	%Pct_calc( var=Prenter_inc5080_scb, label=% Renter occupied units household income 50-80% no cost burden computed, num=renter_inc5080_scb, den=renter_inc5080, years= &years. );
+	%Pct_calc( var=Prenter_inc5080_ncb, label=% Renter occupied units household income 50-80% no cost burden computed, num=renter_inc5080_ncb, den=renter_inc5080, years= &years. );
 
-	%Pct_calc( var=Prenter_eldfam_cb, label=% Renter occupied units elderly family cost burdened, num=renter_eldfam_cb, den=renter_cb, years= &years. );
-	%Pct_calc( var=Prenter_smfam_cb, label=% Renter occupied units small family cost burdened, num=renter_smfam_cb, den=renter_cb, years= &years. );
-	%Pct_calc( var=Prenter_lgfam_cb, label=% Renter occupied units large family cost burdened, num=renter_lgfam_cb, den=renter_cb, years= &years. );
-	%Pct_calc( var=Prenter_eldnf_cb, label=% Renter occupied units elderly non-family cost burdened, num=renter_eldnf_cb, den=renter_cb, years= &years. );
-	%Pct_calc( var=Prenter_othhh_cb, label=% Renter occupied units other household cost burdened, num=renter_othhh_cb, den=renter_cb, years= &years. );
+	%Pct_calc( var=Prenter_inc80100_cb, label=% Renter occupied units household income 80-410% cost burdened, num=renter_inc80100_cb, den=renter_inc80100, years= &years. );
+	%Pct_calc( var=Prenter_inc80100_scb, label=% Renter occupied units household income 80-410% no cost burden computed, num=renter_inc80100_scb, den=renter_inc80100, years= &years. );
+	%Pct_calc( var=Prenter_inc80100_ncb, label=% Renter occupied units household income 80-410% no cost burden computed, num=renter_inc80100_ncb, den=renter_inc80100, years= &years. );
 
-	%Pct_calc( var=Prenter_eldfam_scb, label=% Renter occupied units elderly family cost burdened, num=renter_eldfam_scb, den=renter_scb, years= &years. );
-	%Pct_calc( var=Prenter_smfam_scb, label=% Renter occupied units small family cost burdened, num=renter_smfam_scb, den=renter_scb, years= &years. );
-	%Pct_calc( var=Prenter_lgfam_scb, label=% Renter occupied units large family cost burdened, num=renter_lgfam_scb, den=renter_scb, years= &years. );
-	%Pct_calc( var=Prenter_eldnf_scb, label=% Renter occupied units elderly non-family cost burdened, num=renter_eldnf_scb, den=renter_scb, years= &years. );
-	%Pct_calc( var=Prenter_othhh_scb, label=% Renter occupied units other household cost burdened, num=renter_othhh_scb, den=renter_scb, years= &years. );
+	%Pct_calc( var=Prenter_inc100pl_cb, label=% Renter occupied units household income 100%+ cost burdened, num=renter_inc100pl_cb, den=renter_inc100pl, years= &years. );
+	%Pct_calc( var=Prenter_inc100pl_scb, label=% Renter occupied units household income 100%+ no cost burden computed, num=renter_inc100pl_scb, den=renter_inc100pl, years= &years. );
+	%Pct_calc( var=Prenter_inc100pl_ncb, label=% Renter occupied units household income 100%+ no cost burden computed, num=renter_inc100pl_ncb, den=renter_inc100pl, years= &years. );
 
-	%Pct_calc( var=Prenter_eldfam_noprob, label=% Renter occupied units elderly family no housing problems, num=renter_eldfam_noprob, den=renter_noprob, years= &years. );
-	%Pct_calc( var=Prenter_smfam_noprob, label=% Renter occupied units small family no housing problems, num=renter_smfam_noprob, den=renter_noprob, years= &years. );
-	%Pct_calc( var=Prenter_lgfam_noprob, label=% Renter occupied units large family no housing problems, num=renter_lgfam_noprob, den=renter_noprob, years= &years. );
-	%Pct_calc( var=Prenter_eldnf_noprob, label=% Renter occupied units elderly non-family no housing problems, num=renter_eldnf_noprob, den=renter_noprob, years= &years. );
-	%Pct_calc( var=Prenter_othhh_noprob, label=% Renter occupied units other household no housing problems, num=renter_othhh_noprob, den=renter_noprob, years= &years. );
+	%Pct_calc( var=Prenter_eldfam_cb, label=% Renter occupied units elderly family cost burdened, num=renter_eldfam_cb, den=renter_eldfam, years= &years. );
+	%Pct_calc( var=Prenter_eldfam_scb, label=% Renter occupied units elderly family cost burdened, num=renter_eldfam_scb, den=renter_eldfam, years= &years. );
+	%Pct_calc( var=Prenter_eldfam_noprob, label=% Renter occupied units elderly family no housing problems, num=renter_eldfam, den=renter_noprob, years= &years. );
 
-	%Pct_calc( var=Prenter_noplumb_cb, label=% Renter occupied units household lacks complete plumbing and kitchen facilities and cost burdened, num=renter_noplumb_cb, den=renter_cb, years= &years. );
-	%Pct_calc( var=Prenter_hasplumb_cb, label=% Renter occupied units household has complete plumbing and kitchen facilities and cost and cost burdened, num=renter_hasplumb_cb, den=renter_cb, years= &years. );
+	%Pct_calc( var=Prenter_smfam_cb, label=% Renter occupied units small family cost burdened, num=renter_smfam_cb, den=renter_smfam, years= &years. );
+	%Pct_calc( var=Prenter_smfam_scb, label=% Renter occupied units small family cost burdened, num=renter_smfam_scb, den=renter_smfam, years= &years. );
+	%Pct_calc( var=Prenter_smfam_noprob, label=% Renter occupied units small family no housing problems, num=renter_smfam_noprob, den=renter_smfam, years= &years. );
 
-	%Pct_calc( var=Prenter_noplumb_scb, label=% Renter occupied units household lacks complete plumbing and kitchen facilities and cost burdened, num=renter_noplumb_scb, den=renter_scb, years= &years. );
-	%Pct_calc( var=Prenter_hasplumb_scb, label=% Renter occupied units household has complete plumbing and kitchen facilities and cost and cost burdened, num=renter_hasplumb_scb, den=renter_scb, years= &years. );
+	%Pct_calc( var=Prenter_lgfam_cb, label=% Renter occupied units large family cost burdened, num=renter_lgfam_cb, den=renter_lgfam, years= &years. );
+	%Pct_calc( var=Prenter_lgfam_scb, label=% Renter occupied units large family cost burdened, num=renter_lgfam_scb, den=renter_lgfam, years= &years. );
+	%Pct_calc( var=Prenter_lgfam_noprob, label=% Renter occupied units large family no housing problems, num=renter_lgfam_noprob, den=renter_lgfam, years= &years. );
+
+	%Pct_calc( var=Prenter_eldnf_cb, label=% Renter occupied units elderly non-family cost burdened, num=renter_eldnf_cb, den=renter_eldnf, years= &years. );
+	%Pct_calc( var=Prenter_eldnf_scb, label=% Renter occupied units elderly non-family cost burdened, num=renter_eldnf_scb, den=renter_eldnf, years= &years. );
+	%Pct_calc( var=Prenter_eldnf_noprob, label=% Renter occupied units elderly non-family no housing problems, num=renter_eldnf_noprob, den=renter_eldnf, years= &years. );
+
+	%Pct_calc( var=Prenter_othhh_cb, label=% Renter occupied units other household cost burdened, num=renter_othhh_cb, den=renter_othhh, years= &years. );
+	%Pct_calc( var=Prenter_othhh_scb, label=% Renter occupied units other household cost burdened, num=renter_othhh_scb, den=renter_othhh, years= &years. );
+	%Pct_calc( var=Prenter_othhh_noprob, label=% Renter occupied units other household no housing problems, num=renter_othhh_noprob, den=renter_othhh, years= &years. );
+
+	%Pct_calc( var=Prenter_noplumb_cb, label=% Renter occupied units household lacks complete plumbing and kitchen facilities and cost burdened, num=renter_noplumb_cb, den=renter_noplumb, years= &years. );
+	%Pct_calc( var=Prenter_noplumb_scb, label=% Renter occupied units household lacks complete plumbing and kitchen facilities and cost burdened, num=renter_noplumb_scb, den=renter_noplumb, years= &years. );
+
+	%Pct_calc( var=Prenter_hasplumb_cb, label=% Renter occupied units household has complete plumbing and kitchen facilities and cost and cost burdened, num=renter_hasplumb_cb, den=renter_hasplumb, years= &years. );
+	%Pct_calc( var=Prenter_hasplumb_scb, label=% Renter occupied units household has complete plumbing and kitchen facilities and cost and cost burdened, num=renter_hasplumb_scb, den=renter_hasplumb, years= &years. );
+
+	%Pct_calc( var=Prenter_onlycb, label=% Renter occupied units where only cost burden is a problem, num=renter_onlycb, den=renter_unit_tot, years= &years. );
 
 
 	/* Demand - Size */
