@@ -1,6 +1,15 @@
+/**************************************************************************
+ Program:  Output_CHAS_Tables.sas
+ Library:  HUD
+ Project:  Urban-Greater DC
+ Author:   Rob Pitingolo
+ Created:  01/22/2020
+ Version:  SAS 9.4
+ Environment:  Windows
+ Description: Output CSVs for CHAS tables that then get copied into worksheets. 
+ Modifications: 
 
-
-
+**************************************************************************/
 
 %include "L:\SAS\Inc\StdLocal.sas"; 
 
