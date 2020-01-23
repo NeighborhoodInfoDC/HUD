@@ -11,18 +11,13 @@
 
 **************************************************************************/
 
-%include "L:\SAS\Inc\StdLocal.sas"; 
-
-** Define standard libraries **;
-%DCData_lib( HUD )
-
 
 %macro chas_summary_vars (years, out);
 
 %let years_dash = %sysfunc(translate(&years., '-', '_' ));
 
 data &out._&years.;
-	set hud.Chas_&years._ntnl ;
+	set hud.Chas_&years._ntnl;
 
 	/* Supply */
 	all_units_tot_&years. = sum(of T1_est1 T14A_est1 T14B_est1);
@@ -1117,6 +1112,4 @@ run;
 %mend chas_summary_vars;
 
 
-*** TESTING **;
-%chas_summary_vars (2006_10, chas_test);
-%chas_summary_vars (2012_16, chas_test);
+/* End of Macro */
