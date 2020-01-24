@@ -147,6 +147,10 @@ data &out._&years.;
 	%Pct_calc( var=Prenter_2br_aff50, label=% Renter-occupied 2 bedroom housing units affordable at 50% AMI, num=renter_2br_aff50, den=renter_unit_aff50, years= &years. );
 	%Pct_calc( var=Prenter_3plusbr_aff50, label=% Renter-occupied 3+ bedroom housing units affordable at 50% AMI, num=renter_3plusbr_aff50, den=renter_unit_aff50, years= &years. );
 
+	%Pct_calc( var=Powner_01br_tot, label=% Owner-occupied 0-1 bedroom housing units, num=owner_01br_tot, den=owner_units_tot, years= &years. );
+	%Pct_calc( var=Powner_2br_tot, label=% Owner-occupied 2 bedroom housing units, num=owner_2br_tot, den=owner_units_tot, years= &years. );
+	%Pct_calc( var=Powner_3plusbr_tot, label=% Owner-occupied 3+ bedroom housing units, num=owner_3plusbr_tot, den=owner_units_tot, years= &years. );
+
 	%Pct_calc( var=Powner_01br_aff50, label=% Owner-occupied 0-1 bedroom housing units affordable at 50% AMI, num=owner_01br_aff50, den=owner_unit_aff50, years= &years. );
 	%Pct_calc( var=Powner_2br_aff50, label=% Owner-occupied 2 bedroom housing units affordable at 50% AMI, num=owner_2br_aff50, den=owner_unit_aff50, years= &years. );
 	%Pct_calc( var=Powner_3plusbr_aff50, label=% Owner-occupied 3+ bedroom housing units affordable at 50% AMI, num=owner_3plusbr_aff50, den=owner_unit_aff50, years= &years. );
