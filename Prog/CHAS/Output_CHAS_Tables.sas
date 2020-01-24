@@ -33,7 +33,8 @@ data chas_bernalillo;
 	merge Chas_2006_10 (drop = &drop_vars.)
 		  Chas_2012_16 (drop = &drop_vars.) ;
 	by geoid;
-	if geoid = "05000US35001";
+	if sumlevel = "50" and ucounty = "35001";
+	placeholder = .;
 run;
 
 
@@ -42,8 +43,8 @@ run;
 
 /* Supply */
 
-%reshape_chas(&chas_in.,1a,1,owner_units_tot_2006_10 owner_units_tot_2012_16 owner_unit_aff30_2006_10 owner_unit_aff30_2012_16 owner_unit_aff50_2006_10 owner_unit_aff50_2012_16);
-%reshape_chas(&chas_in.,1a,2,forsale_units_tot_2006_10 forsale_units_tot_2012_16 forsale_units_aff30_2006_10 forsale_units_aff30_2012_16 forsale_units_aff50_2006_10 forsale_units_aff50_2012_16);
+%reshape_chas(&chas_in.,1a,1,owner_units_tot_2006_10 owner_units_tot_2012_16 placeholder placeholder owner_unit_aff50_2006_10 owner_unit_aff50_2012_16);
+%reshape_chas(&chas_in.,1a,2,forsale_units_tot_2006_10 forsale_units_tot_2012_16 placeholder placeholder forsale_units_aff50_2006_10 forsale_units_aff50_2012_16);
 %reshape_chas(&chas_in.,1a,3,renter_unit_tot_2006_10 renter_unit_tot_2012_16 renter_unit_aff30_2006_10 renter_unit_aff30_2012_16 renter_unit_aff50_2006_10 renter_unit_aff50_2012_16);
 %reshape_chas(&chas_in.,1a,4,forrent_units_tot_2006_10 forrent_units_tot_2012_16 forrent_units_aff30_2006_10 forrent_units_aff30_2012_16 forrent_units_aff50_2006_10 forrent_units_aff50_2012_16);
 
@@ -55,8 +56,8 @@ proc export data=table1a
    outfile="&outfolder.table1a.csv" dbms=csv replace;
 run;
 
-%reshape_chas(&chas_in.,1b,1,Powner_units_tot_2006_10 Powner_units_tot_2012_16 Powner_unit_aff30_2006_10 Powner_unit_aff30_2012_16 Powner_unit_aff50_2006_10 Powner_unit_aff50_2012_16);
-%reshape_chas(&chas_in.,1b,2,Pforsale_units_tot_2006_10 Pforsale_units_tot_2012_16 Pforsale_units_aff30_2006_10 Pforsale_units_aff30_2012_16 Pforsale_units_aff50_2006_10 Pforsale_units_aff50_2012_16);
+%reshape_chas(&chas_in.,1b,1,Powner_units_tot_2006_10 Powner_units_tot_2012_16 placeholder placeholder Powner_unit_aff50_2006_10 Powner_unit_aff50_2012_16);
+%reshape_chas(&chas_in.,1b,2,Pforsale_units_tot_2006_10 Pforsale_units_tot_2012_16 placeholder placeholder Pforsale_units_aff50_2006_10 Pforsale_units_aff50_2012_16);
 %reshape_chas(&chas_in.,1b,3,Prenter_unit_tot_2006_10 Prenter_unit_tot_2012_16 Prenter_unit_aff30_2006_10 Prenter_unit_aff30_2012_16 Prenter_unit_aff50_2006_10 Prenter_unit_aff50_2012_16);
 %reshape_chas(&chas_in.,1b,4,Pforrent_units_tot_2006_10 Pforrent_units_tot_2012_16 Pforrent_units_aff30_2006_10 Pforrent_units_aff30_2012_16 Pforrent_units_aff50_2006_10 Pforrent_units_aff50_2012_16);
 
@@ -94,10 +95,10 @@ proc export data=table1d
    outfile="&outfolder.table1d.csv" dbms=csv replace;
 run;
 
-%reshape_chas(&chas_in.,1e,1,owner_units_tot_2006_10 owner_units_tot_2012_16 owner_unit_aff30_2006_10 owner_unit_aff30_2012_16 owner_unit_aff50_2006_10 owner_unit_aff50_2012_16);
-%reshape_chas(&chas_in.,1e,2,owner_01br_tot_2006_10 owner_01br_tot_2012_16 owner_01br_aff30_2006_10 owner_01br_aff30_2012_16 owner_01br_aff50_2006_10 owner_01br_aff50_2012_16);
-%reshape_chas(&chas_in.,1e,3,owner_2br_tot_2006_10 owner_2br_tot_2012_16 owner_2br_aff30_2006_10 owner_2br_aff30_2012_16 owner_2br_aff50_2006_10 owner_2br_aff50_2012_16);
-%reshape_chas(&chas_in.,1e,4,owner_3plusbr_tot_2006_10 owner_3plusbr_tot_2012_16 owner_3plusbr_aff30_2006_10 owner_3plusbr_aff30_2012_16 owner_3plusbr_aff50_2006_10 owner_3plusbr_aff50_2012_16);
+%reshape_chas(&chas_in.,1e,1,owner_units_tot_2006_10 owner_units_tot_2012_16 placeholder placeholder owner_unit_aff50_2006_10 owner_unit_aff50_2012_16);
+%reshape_chas(&chas_in.,1e,2,owner_01br_tot_2006_10 owner_01br_tot_2012_16 placeholder placeholder owner_01br_aff50_2006_10 owner_01br_aff50_2012_16);
+%reshape_chas(&chas_in.,1e,3,owner_2br_tot_2006_10 owner_2br_tot_2012_16 placeholder placeholder owner_2br_aff50_2006_10 owner_2br_aff50_2012_16);
+%reshape_chas(&chas_in.,1e,4,owner_3plusbr_tot_2006_10 owner_3plusbr_tot_2012_16 placeholder placeholder owner_3plusbr_aff50_2006_10 owner_3plusbr_aff50_2012_16);
 
 data table1e;
 	set Table1e_row1 Table1e_row2 Table1e_row3 Table1e_row4 ;
@@ -107,10 +108,10 @@ proc export data=table1e
    outfile="&outfolder.table1e.csv" dbms=csv replace;
 run;
 
-%reshape_chas(&chas_in.,1f,1,Powner_units_tot_2006_10 Powner_units_tot_2012_16 Powner_unit_aff30_2006_10 Powner_unit_aff30_2012_16 Powner_unit_aff50_2006_10 Powner_unit_aff50_2012_16);
-%reshape_chas(&chas_in.,1f,2,Powner_01br_tot_2006_10 Powner_01br_tot_2012_16 Powner_01br_aff30_2006_10 Powner_01br_aff30_2012_16 Powner_01br_aff50_2006_10 Powner_01br_aff50_2012_16);
-%reshape_chas(&chas_in.,1f,3,Powner_2br_tot_2006_10 Powner_2br_tot_2012_16 Powner_2br_aff30_2006_10 Powner_2br_aff30_2012_16 Powner_2br_aff50_2006_10 Powner_2br_aff50_2012_16);
-%reshape_chas(&chas_in.,1f,4,Powner_3plusbr_tot_2006_10 Powner_3plusbr_tot_2012_16 Powner_3plusbr_aff30_2006_10 Powner_3plusbr_aff30_2012_16 Powner_3plusbr_aff50_2006_10 Powner_3plusbr_aff50_2012_16);
+%reshape_chas(&chas_in.,1f,1,Powner_units_tot_2006_10 Powner_units_tot_2012_16 placeholder placeholder Powner_unit_aff50_2006_10 Powner_unit_aff50_2012_16);
+%reshape_chas(&chas_in.,1f,2,Powner_01br_tot_2006_10 Powner_01br_tot_2012_16 placeholder placeholder Powner_01br_aff50_2006_10 Powner_01br_aff50_2012_16);
+%reshape_chas(&chas_in.,1f,3,Powner_2br_tot_2006_10 Powner_2br_tot_2012_16 placeholder placeholder Powner_2br_aff50_2006_10 Powner_2br_aff50_2012_16);
+%reshape_chas(&chas_in.,1f,4,Powner_3plusbr_tot_2006_10 Powner_3plusbr_tot_2012_16 placeholder placeholder Powner_3plusbr_aff50_2006_10 Powner_3plusbr_aff50_2012_16);
 
 data table1f;
 	set Table1f_row1 Table1f_row2 Table1f_row3 Table1f_row4 ;
