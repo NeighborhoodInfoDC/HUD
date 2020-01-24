@@ -893,37 +893,44 @@ data &out._&years.;
 	%Pct_calc( var=Prenter_inc050_bt00, label=% Renter occupied units household income 0-50% built 2000 or later, num=renter_inc050_bt00, den=renter_in50, years= &years. );
 	%Pct_calc( var=Prenter_inc050_bt8099, label=% Renter occupied units household income 0-50% built 1980-1999, num=renter_inc050_bt8099, den=renter_in50, years= &years. );
 	%Pct_calc( var=Prenter_inc050_bt6079, label=% Renter occupied units household income 0-50% built 1960-1979, num=renter_inc050_bt6079, den=renter_in50, years= &years. );
+	%Pct_calc( var=Prenter_inc050_bt4059, label=% Renter occupied units household income 0-50% built 1940-1959, num=renter_inc050_bt4059, den=renter_in50, years= &years. );
 	%Pct_calc( var=Prenter_inc050_bt39, label=% Renter occupied units household income 0-50% built 1939 or earlier, num=renter_inc050_bt39, den=renter_in50, years= &years. );
 
 	%Pct_calc( var=Prenter_inc5080_bt00, label=% Renter occupied units household income 50-80% built 2000 or later, num=renter_inc5080_bt00, den=renter_in5080, years= &years. );
 	%Pct_calc( var=Prenter_inc5080_bt8099, label=% Renter occupied units household income 50-80% built 1980-1999, num=renter_inc5080_bt8099, den=renter_in5080, years= &years. );
 	%Pct_calc( var=Prenter_inc5080_bt6079, label=% Renter occupied units household income 50-80% built 1960-1979, num=renter_inc5080_bt6079, den=renter_in5080, years= &years. );
+	%Pct_calc( var=Prenter_inc5080_bt4059, label=% Renter occupied units household income 50-80% built 1940-1959, num=renter_inc5080_bt4059, den=renter_in5080, years= &years. );
 	%Pct_calc( var=Prenter_inc5080_bt39, label=% Renter occupied units household income 50-80% built 1939 or earlier, num=renter_inc5080_bt39, den=renter_in5080, years= &years. );
 
 	%Pct_calc( var=Prenter_inc80120_bt00, label=% Renter occupied units household income 80-120% built 2000 or later, num=renter_inc80120_bt00, den=renter_in80120, years= &years. );
 	%Pct_calc( var=Prenter_inc80120_bt8099, label=% Renter occupied units household income 80-120% built 1980-1999, num=renter_inc80120_bt8099, den=renter_in80120, years= &years. );
 	%Pct_calc( var=Prenter_inc80120_bt6079, label=% Renter occupied units household income 80-120% built 1960-1979, num=renter_inc80120_bt6079, den=renter_in80120, years= &years. );
+	%Pct_calc( var=Prenter_inc80120_bt4059, label=% Renter occupied units household income 80-120% built 1940-1959, num=renter_inc80120_bt4059, den=renter_in80120, years= &years. );
 	%Pct_calc( var=Prenter_inc80120_bt39, label=% Renter occupied units household income 80-120% built 1939 or earlier, num=renter_inc80120_bt39, den=renter_in80120, years= &years. );
 
 	%Pct_calc( var=Prenter_inc120pl_bt00, label=% Renter occupied units household income 120%+ built 2000 or later, num=renter_inc120pl_bt00, den=renter_in120pl, years= &years. );
 	%Pct_calc( var=Prenter_inc120pl_bt8099, label=% Renter occupied units household income 120%+ built 1980-1999, num=renter_inc120pl_bt8099, den=renter_in120pl, years= &years. );
 	%Pct_calc( var=Prenter_inc120pl_bt6079, label=% Renter occupied units household income 120%+ built 1960-1979, num=renter_inc120pl_bt6079, den=renter_in120pl, years= &years. );
+	%Pct_calc( var=Prenter_inc120pl_bt4059, label=% Renter occupied units household income 120%+ built 1940-1959, num=renter_inc120pl_bt4059, den=renter_in120pl, years= &years. );
 	%Pct_calc( var=Prenter_inc120pl_bt39, label=% Renter occupied units household income 120%+ built 1939 or earlier, num=renter_inc120pl_bt39, den=renter_in120pl, years= &years. );
 
 	%Pct_calc( var=Prenter_ncb_bt00, label=% Renter occupied units NOT cost burdened built 2000 or later, num=renter_ncb_bt00, den=renter_ncb, years= &years. );
-	%Pct_calc( var=Prenter_ncb_bt8099, label=% Renter occupied units NOT cost burdened built 2000 or later, num=renter_ncb_bt8099, den=renter_ncb, years= &years. );
-	%Pct_calc( var=Prenter_ncb_bt6079, label=% Renter occupied units NOT cost burdened built 2000 or later, num=renter_ncb_bt6079, den=renter_ncb, years= &years. );
-	%Pct_calc( var=Prenter_ncb_bt39, label=% Renter occupied units NOT cost burdened built 2000 or later, num=renter_ncb_bt39, den=renter_ncb, years= &years. );
+	%Pct_calc( var=Prenter_ncb_bt8099, label=% Renter occupied units NOT cost burdened built 1980-1999, num=renter_ncb_bt8099, den=renter_ncb, years= &years. );
+	%Pct_calc( var=Prenter_ncb_bt6079, label=% Renter occupied units NOT cost burdened built 1960-1979, num=renter_ncb_bt6079, den=renter_ncb, years= &years. );
+	%Pct_calc( var=Prenter_ncb_bt4059, label=% Renter occupied units NOT cost burdened built 1940-1959, num=renter_ncb_bt4059, den=renter_ncb, years= &years. );
+	%Pct_calc( var=Prenter_ncb_bt39, label=% Renter occupied units NOT cost burdened built 1939 or earlier, num=renter_ncb_bt39, den=renter_ncb, years= &years. );
 
 	%Pct_calc( var=Prenter_cb_bt00, label=% Renter occupied units cost burdened built 2000 or later, num=renter_cb_bt00, den=renter_cb, years= &years. );
-	%Pct_calc( var=Prenter_cb_bt8099, label=% Renter occupied units cost burdened built 2000 or later, num=renter_cb_bt8099, den=renter_cb, years= &years. );
-	%Pct_calc( var=Prenter_cb_bt6079, label=% Renter occupied units cost burdened built 2000 or later, num=renter_cb_bt6079, den=renter_cb, years= &years. );
-	%Pct_calc( var=Prenter_cb_bt39, label=% Renter occupied units cost burdened built 2000 or later, num=renter_cb_bt39, den=renter_cb, years= &years. );
+	%Pct_calc( var=Prenter_cb_bt8099, label=% Renter occupied units cost burdened built 1980-1999, num=renter_cb_bt8099, den=renter_cb, years= &years. );
+	%Pct_calc( var=Prenter_cb_bt6079, label=% Renter occupied units cost burdened built 1960-1979, num=renter_cb_bt6079, den=renter_cb, years= &years. );
+	%Pct_calc( var=Prenter_cb_bt4059, label=% Renter occupied units cost burdened built 1940-1959, num=renter_cb_bt4059, den=renter_cb, years= &years. );
+	%Pct_calc( var=Prenter_cb_bt39, label=% Renter occupied units cost burdened built 1939 or earlier, num=renter_cb_bt39, den=renter_cb, years= &years. );
 
 	%Pct_calc( var=Prenter_scb_bt00, label=% Renter occupied units severely cost burdened built 2000 or later, num=renter_scb_bt00, den=renter_scb, years= &years. );
-	%Pct_calc( var=Prenter_scb_bt8099, label=% Renter occupied units severely cost burdened built 2000 or later, num=renter_scb_bt8099, den=renter_scb, years= &years. );
-	%Pct_calc( var=Prenter_scb_bt6079, label=% Renter occupied units severely cost burdened built 2000 or later, num=renter_scb_bt6079, den=renter_scb, years= &years. );
-	%Pct_calc( var=Prenter_scb_bt39, label=% Renter occupied units severely cost burdened built 2000 or later, num=renter_scb_bt39, den=renter_scb, years= &years. );
+	%Pct_calc( var=Prenter_scb_bt8099, label=% Renter occupied units severely cost burdened built 1980-1999 or later, num=renter_scb_bt8099, den=renter_scb, years= &years. );
+	%Pct_calc( var=Prenter_scb_bt6079, label=% Renter occupied units severely cost burdened built 1960-1979, num=renter_scb_bt6079, den=renter_scb, years= &years. );
+	%Pct_calc( var=Prenter_scb_bt4059, label=% Renter occupied units severely cost burdened built 1940-1959, num=renter_scb_bt4059, den=renter_scb, years= &years. );
+	%Pct_calc( var=Prenter_scb_bt39, label=% Renter occupied units severely cost burdened built 1939 or earlier, num=renter_scb_bt39, den=renter_scb, years= &years. );
 
 
 	/* Race */
