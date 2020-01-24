@@ -18,7 +18,7 @@
 
 
 ** Folder to save output CSVs **;
-%let outfolder = &_dcdata_r_path.\HUD\Raw\CHAS\Output\;
+%let outfolder = &_dcdata_r_path.\HUD\Prog\CHAS\CHASoutput\County\;
 
 
 ** Create CHAS summary variables from national file **;
@@ -228,8 +228,8 @@ data table2g;
 	set Table2g_row1 Table2g_row2 Table2g_row3 Table2g_row4 Table2g_row5;
 run;
 
-proc export data=table2f
-   outfile="&outfolder.table2f.csv" dbms=csv replace;
+proc export data=table2g
+   outfile="&outfolder.table2g.csv" dbms=csv replace;
 run;
 
 
@@ -509,7 +509,7 @@ run;
 
 
 %reshape_chas(&chas_in.,4c,1,rentr_inc030_1fam_2006_10 Prentr_inc030_lte1_1fam_2006_10 Prentr_inc030_lte15_1fam_2006_10 Prentr_inc030_gt15_1fam_2006_10);
-%reshape_chas(&chas_in.,4c,2,rentr_inc030_sfam_2006_10 Prentr_inc030_lte1_sfam_2006_10 Prentr_inc030_lte15_1fam_2006_10 Prentr_inc030_gt15_sfam_2006_10);
+%reshape_chas(&chas_in.,4c,2,rentr_inc030_sfam_2006_10 Prentr_inc030_lte1_sfam_2006_10 Prentr_inc030_lte15_sfam_2006_10 Prentr_inc030_gt15_sfam_2006_10);
 %reshape_chas(&chas_in.,4c,3,rentr_inc030_nfam_2006_10 Prentr_inc030_lte1_nfam_2006_10 Prentr_inc030_lte15_nfam_2006_10 Prentr_inc030_gt15_nfam_2006_10);
 
 data table4c;
