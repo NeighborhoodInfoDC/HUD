@@ -770,7 +770,7 @@ data &out._&years.;
 	%Pct_calc( var=Prentr_inc100pl_gt15, label=% Renter occupied units household income 100%+ persons per room greater than 1.5, num=rentr_inc100pl_gt15, den=renter_inc100pl, years= &years. );
 
 	%Pct_calc( var=Prentr_inc030_lte1_1fam, label=% Renter occupied units household income 0-30% one family persons per room less than or equal 1, num=rentr_inc030_lte1_1fam, den=rentr_inc030_1fam, years= &years. );
-	%Pct_calc( var=Prentr_inc030_lte15_1fam, label=% Renter occupied units household income 0-30% one family persons per room greater than 1 less than or equal 1.5, num=rentr_inc030_lte15_sfam, den=rentr_inc030_1fam, years= &years. );
+	%Pct_calc( var=Prentr_inc030_lte15_1fam, label=% Renter occupied units household income 0-30% one family persons per room greater than 1 less than or equal 1.5, num=rentr_inc030_lte15_1fam, den=rentr_inc030_1fam, years= &years. );
 	%Pct_calc( var=Prentr_inc030_gt15_1fam, label=% Renter occupied units household income 0-30% one family persons per room greater than 1.5, num=rentr_inc030_gt15_1fam, den=rentr_inc030_1fam, years= &years. );
 
 	%Pct_calc( var=Prentr_inc030_lte1_sfam, label=% Renter occupied units household income 0-30% one family with subfamily persons per room less than or equal 1, num=rentr_inc030_lte1_sfam, den=rentr_inc030_sfam, years= &years. );
