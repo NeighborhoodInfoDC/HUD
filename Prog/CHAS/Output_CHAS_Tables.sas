@@ -18,7 +18,7 @@
 
 
 ** Folder to save output CSVs **;
-%let outfolder = &_dcdata_r_path.\HUD\Prog\CHAS\CHASoutput\County\;
+%let outfolder = &_dcdata_r_path.\HUD\Prog\CHAS\CHASoutput\&Level.\;
 
 
 ** Create CHAS summary variables from national file **;
@@ -26,19 +26,24 @@
 %chas_summary_vars (years=2012_16, out=chas);
 
 
+%macro export_chas_csv (level,code);
 
 %let drop_vars = T1: T2: T3: T4: T5: T7: T8: T9: T10: T11: T12: T13: T14: T15: T16: T17: T18:;
 
-data chas_bernalillo;
+data chas_&code.;
 	merge Chas_2006_10 (drop = &drop_vars.)
 		  Chas_2012_16 (drop = &drop_vars.) ;
 	by geoid;
-	if sumlevel = "50" and ucounty = "35001";
+	%if %upcase( &level. ) = COUNTY %then %do;
+	if sumlevel = "50" and ucounty = "&code.";
+	%end;
+	%else %if %upcase( &level. ) = PLACE %then %do;
+	if uplace = "&code.";
+	%end;
 	placeholder = .;
 run;
 
-
-%let chas_in = chas_bernalillo;
+%let chas_in = chas_&code.;
 
 /* Supply */
 
@@ -655,6 +660,11 @@ run;
 proc export data=table6c
    outfile="&outfolder.table6c.csv" dbms=csv replace;
 run;
+
+%mend export_chas_csv;
+
+%export_chas_csv(county,35001);
+%export_chas_csv(place,3502000);
 
 
 /* End of Program */
