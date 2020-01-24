@@ -522,7 +522,7 @@ run;
 
 
 %reshape_chas(&chas_in.,4d,1,rentr_inc030_1fam_2012_16 Prentr_inc030_lte1_1fam_2012_16 Prentr_inc030_lte15_1fam_2012_16 Prentr_inc030_gt15_1fam_2012_16);
-%reshape_chas(&chas_in.,4d,2,rentr_inc030_sfam_2012_16 Prentr_inc030_lte1_sfam_2012_16 Prentr_inc030_lte15_1fam_2012_16 Prentr_inc030_gt15_sfam_2012_16);
+%reshape_chas(&chas_in.,4d,2,rentr_inc030_sfam_2012_16 Prentr_inc030_lte1_sfam_2012_16 Prentr_inc030_lte15_sfam_2012_16 Prentr_inc030_gt15_sfam_2012_16);
 %reshape_chas(&chas_in.,4d,3,rentr_inc030_nfam_2012_16 Prentr_inc030_lte1_nfam_2012_16 Prentr_inc030_lte15_nfam_2012_16 Prentr_inc030_gt15_nfam_2012_16);
 
 data table4d;
