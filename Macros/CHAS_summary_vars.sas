@@ -628,7 +628,7 @@ data &out._&years.;
 
 	%Pct_calc( var=Prenter_030_eldfam_cb, label=% Renter occupied units household income 0-30% elderly family cost burdened, num=renter_030_eldfam_cb, den=renter_030_eldfam, years= &years. );
 	%Pct_calc( var=Prenter_030_eldfam_scb, label=% Renter occupied units household income 0-30% elderly family cost burdened, num=renter_030_eldfam_scb, den=renter_030_eldfam, years= &years. );
-	%Pct_calc( var=Prenter_030_eldfam_nop, label=% Renter occupied units household income 0-30% elderly family no housing problems, num=renter_030_eldfam, den=renter_030_eldfam, years= &years. );
+	%Pct_calc( var=Prenter_030_eldfam_nop, label=% Renter occupied units household income 0-30% elderly family no housing problems, num=renter_030_eldfam_nop, den=renter_030_eldfam, years= &years. );
 
 	%Pct_calc( var=Prenter_030_smfam_cb, label=% Renter occupied units household income 0-30% small family cost burdened, num=renter_030_smfam_cb, den=renter_030_smfam, years= &years. );
 	%Pct_calc( var=Prenter_030_smfam_scb, label=% Renter occupied units household income 0-30% small family cost burdened, num=renter_030_smfam_scb, den=renter_030_smfam, years= &years. );
@@ -652,7 +652,7 @@ data &out._&years.;
 	%Pct_calc( var=Prenter_030_hasplumb_cb, label=% Renter occupied units household income 0-30% household has complete plumbing and kitchen facilities and cost and cost burdened, num=renter_030_hasplumb_cb, den=renter_030_hasplumb, years= &years. );
 	%Pct_calc( var=Prenter_030_hasplumb_scb, label=% Renter occupied units household income 0-30% household has complete plumbing and kitchen facilities and cost and cost burdened, num=renter_030_hasplumb_scb, den=renter_030_hasplumb, years= &years. );
 
-	%Pct_calc( var=Prenter_030_onlycb, label=% Renter occupied units household income 0-30% where only cost burden is a problem, num=renter_030_onlycb, den=renter_030_unit_tot, years= &years. );
+	%Pct_calc( var=Prenter_030_onlycb, label=% Renter occupied units household income 0-30% where only cost burden is a problem, num=renter_030_onlycb, den=renter_inc030, years= &years. );
 
 
 	/* Demand - Size */
