@@ -28,11 +28,9 @@
 
 %macro export_chas_csv (level,code);
 
-%let drop_vars = T1: T2: T3: T4: T5: T6: T7: T8: T9: T10: T11: T12: T13: T14: T15: T16: T17: T18:;
-
 data chas_&code.;
-	merge Chas_2006_10 (drop = &drop_vars.)
-		  Chas_2012_16 (drop = &drop_vars.) ;
+	merge Chas_2006_10 (drop = T1: T2: T3: T4: T5: T7: T8: T9: T10: T11: T12: T13: T14: T15: T16: T17: T18:)
+		  Chas_2012_16 (drop = T1: T2: T3: T4: T5: T6: T7: T8: T9: T10: T11: T12: T13: T14: T15: T16: T17: T18:) ;
 	by geoid;
 	%if %upcase( &level. ) = COUNTY %then %do;
 	if sumlevel = "50" and ucounty = "&code.";
