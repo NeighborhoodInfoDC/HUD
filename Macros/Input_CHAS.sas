@@ -17,7 +17,7 @@
 
 %macro geo_chas (gcode);
 
-%if &gcode. = 050 and %upcase( &yrs. ) = 2012THRU2016 %then %do;
+%if (&gcode. = 050 or &gcode. = 160) and %upcase( &yrs. ) = 2012THRU2016 %then %do;
 	%let tablelist = Table1 Table2 Table3 Table4 Table5 Table6 Table7 Table8 Table9 Table10 Table11 Table12 Table13
 				 	Table14A Table14B Table15A Table15B Table15C Table16 Table17A Table17B Table18A Table18B Table18C ;
 %end;
