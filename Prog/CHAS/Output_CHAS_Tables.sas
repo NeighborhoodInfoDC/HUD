@@ -28,7 +28,7 @@
 
 %macro export_chas_csv (level,code);
 
-%let drop_vars = T1: T2: T3: T4: T5: T7: T8: T9: T10: T11: T12: T13: T14: T15: T16: T17: T18:;
+%let drop_vars = T1: T2: T3: T4: T5: T6: T7: T8: T9: T10: T11: T12: T13: T14: T15: T16: T17: T18:;
 
 data chas_&code.;
 	merge Chas_2006_10 (drop = &drop_vars.)
@@ -405,11 +405,11 @@ proc export data=table3b
 run;
 
 
-%reshape_chas(&chas_in.,3c,1,renter_eldfam_2006_10 Prenter_eldfam_cb_2006_10 Prenter_eldfam_scb_2006_10 Prenter_eldfam_noprob_2006_10 );
-%reshape_chas(&chas_in.,3c,2,renter_smfam_2006_10 Prenter_smfam_cb_2006_10 Prenter_smfam_scb_2006_10 Prenter_smfam_noprob_2006_10 );
-%reshape_chas(&chas_in.,3c,3,renter_lgfam_2006_10 Prenter_lgfam_cb_2006_10 Prenter_lgfam_scb_2006_10 Prenter_lgfam_noprob_2006_10 );
-%reshape_chas(&chas_in.,3c,4,renter_eldnf_2006_10 Prenter_eldnf_cb_2006_10 Prenter_eldnf_scb_2006_10 Prenter_eldnf_noprob_2006_10 );
-%reshape_chas(&chas_in.,3c,5,renter_othhh_2006_10 Prenter_othhh_cb_2006_10 Prenter_othhh_scb_2006_10 Prenter_othhh_noprob_2006_10 );
+%reshape_chas(&chas_in.,3c,1,renter_030_eldfam_2006_10 Prenter_030_eldfam_cb_2006_10 Prenter_030_eldfam_scb_2006_10 Prenter_030_eldfam_nop_2006_10 );
+%reshape_chas(&chas_in.,3c,2,renter_030_smfam_2006_10 Prenter_030_smfam_cb_2006_10 Prenter_030_smfam_scb_2006_10 Prenter_030_smfam_nop_2006_10 );
+%reshape_chas(&chas_in.,3c,3,renter_030_lgfam_2006_10 Prenter_030_lgfam_cb_2006_10 Prenter_030_lgfam_scb_2006_10 Prenter_030_lgfam_nop_2006_10 );
+%reshape_chas(&chas_in.,3c,4,renter_030_eldnf_2006_10 Prenter_030_eldnf_cb_2006_10 Prenter_030_eldnf_scb_2006_10 Prenter_030_eldnf_nop_2006_10 );
+%reshape_chas(&chas_in.,3c,5,renter_030_othhh_2006_10 Prenter_030_othhh_cb_2006_10 Prenter_030_othhh_scb_2006_10 Prenter_030_othhh_nop_2006_10 );
 
 data table3c;
 	set table3c_row1 table3c_row2 table3c_row3 table3c_row4 table3c_row5;
@@ -420,11 +420,11 @@ proc export data=table3c
 run;
 
 
-%reshape_chas(&chas_in.,3d,1,renter_eldfam_2012_16 Prenter_eldfam_cb_2012_16 Prenter_eldfam_scb_2012_16 Prenter_eldfam_noprob_2012_16 );
-%reshape_chas(&chas_in.,3d,2,renter_smfam_2012_16 Prenter_smfam_cb_2012_16 Prenter_smfam_scb_2012_16 Prenter_smfam_noprob_2012_16 );
-%reshape_chas(&chas_in.,3d,3,renter_lgfam_2012_16 Prenter_lgfam_cb_2012_16 Prenter_lgfam_scb_2012_16 Prenter_lgfam_noprob_2012_16 );
-%reshape_chas(&chas_in.,3d,4,renter_eldnf_2012_16 Prenter_eldnf_cb_2012_16 Prenter_eldnf_scb_2012_16 Prenter_eldnf_noprob_2012_16 );
-%reshape_chas(&chas_in.,3d,5,renter_othhh_2012_16 Prenter_othhh_cb_2012_16 Prenter_othhh_scb_2012_16 Prenter_othhh_noprob_2012_16 );
+%reshape_chas(&chas_in.,3d,1,renter_030_eldfam_2012_16 Prenter_030_eldfam_cb_2012_16 Prenter_030_eldfam_scb_2012_16 Prenter_030_eldfam_nop_2012_16 );
+%reshape_chas(&chas_in.,3d,2,renter_030_smfam_2012_16 Prenter_030_smfam_cb_2012_16 Prenter_030_smfam_scb_2012_16 Prenter_030_smfam_nop_2012_16 );
+%reshape_chas(&chas_in.,3d,3,renter_030_lgfam_2012_16 Prenter_030_lgfam_cb_2012_16 Prenter_030_lgfam_scb_2012_16 Prenter_030_lgfam_nop_2012_16 );
+%reshape_chas(&chas_in.,3d,4,renter_030_eldnf_2012_16 Prenter_030_eldnf_cb_2012_16 Prenter_030_eldnf_scb_2012_16 Prenter_030_eldnf_nop_2012_16 );
+%reshape_chas(&chas_in.,3d,5,renter_030_othhh_2012_16 Prenter_030_othhh_cb_2012_16 Prenter_030_othhh_scb_2012_16 Prenter_030_othhh_nop_2012_16 );
 
 data table3d;
 	set table3d_row1 table3d_row2 table3d_row3 table3d_row4 table3d_row5;
@@ -435,8 +435,8 @@ proc export data=table3d
 run;
 
 
-%reshape_chas(&chas_in.,3e,1,renter_noplumb_2006_10 Prenter_noplumb_cb_2006_10 Prenter_noplumb_scb_2006_10 );
-%reshape_chas(&chas_in.,3e,2,renter_hasplumb_2006_10 Prenter_hasplumb_cb_2006_10 Prenter_hasplumb_scb_2006_10 );
+%reshape_chas(&chas_in.,3e,1,renter_030_noplumb_2006_10 Prenter_030_noplumb_cb_2006_10 Prente_030r_noplumb_scb_2006_10 );
+%reshape_chas(&chas_in.,3e,2,renter_030_hasplumb_2006_10 Prenter_030_hasplumb_cb_2006_10 Prenter_030_hasplumb_scb_2006_10 );
 
 data table3e;
 	set table3e_row1 table3e_row2 ;
@@ -447,8 +447,8 @@ proc export data=table3e
 run;
 
 
-%reshape_chas(&chas_in.,3f,1,renter_noplumb_2012_16 Prenter_noplumb_cb_2012_16 Prenter_noplumb_scb_2012_16 );
-%reshape_chas(&chas_in.,3f,2,renter_hasplumb_2012_16 Prenter_hasplumb_cb_2012_16 Prenter_hasplumb_scb_2012_16 );
+%reshape_chas(&chas_in.,3f,1,renter_030_noplumb_2012_16 Prenter_030_noplumb_cb_2012_16 Prenter_030_noplumb_scb_2012_16 );
+%reshape_chas(&chas_in.,3f,2,renter_030_hasplumb_2012_16 Prente_030r_hasplumb_cb_2012_16 Prenter_030_hasplumb_scb_2012_16 );
 
 data table3f;
 	set table3f_row1 table3f_row2 ;
@@ -459,7 +459,7 @@ proc export data=table3f
 run;
 
 
-%reshape_chas(&chas_in.,3g,1,renter_onlycb_2006_10 Prenter_onlycb_2006_10 );
+%reshape_chas(&chas_in.,3g,1,renter_030_onlycb_2006_10 Prenter_030_onlycb_2006_10 );
 
 data table3g;
 	set table3g_row1 ;
@@ -470,7 +470,7 @@ proc export data=table3g
 run;
 
 
-%reshape_chas(&chas_in.,3h,1,renter_onlycb_2012_16 Prenter_onlycb_2012_16 );
+%reshape_chas(&chas_in.,3h,1,renter_030_onlycb_2012_16 Prenter_030_onlycb_2012_16 );
 
 data table3h;
 	set table3h_row1 ;

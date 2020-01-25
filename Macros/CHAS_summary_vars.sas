@@ -489,7 +489,7 @@ data &out._&years.;
 	renter_cb_&years. = sum(of T8_est73 T8_est76  T8_est89 T8_est99 T8_est102 T8_est112 T8_est115 T8_est125 T8_est128);
 	renter_scb_&years. = sum(of T8_est76 T8_est89 T8_est102 T8_est115 T8_est128);
 	renter_ncb_&years. = sum(of T8_est79 T8_est92 T8_est105 T8_est118 T8_est131);
-	renter_noprob_&years. = sum(of T16_est91 T16_est95 T16_est99 T16_est103 T16_est107 T16_est112 T16_est116 T16_est120 T16_est124
+	renter_nop_&years. = sum(of T16_est91 T16_est95 T16_est99 T16_est103 T16_est107 T16_est112 T16_est116 T16_est120 T16_est124
 							T16_est128 T16_est133 T16_est137 T16_est141 T16_est145 T16_est149 T16_est154 T16_est158 T16_est162 T16_est166 T16_est170);
 
 	renter_inc030_&years. = T8_est69;
@@ -516,59 +516,47 @@ data &out._&years.;
 	renter_inc80100_ncb_&years. = T8_est118;
 	renter_inc100pl_ncb_&years. = T8_est131;
 
-	renter_eldfam_&years. = sum(of T16_est89 T16_est110 T16_est131 T16_est152);
-	renter_smfam_&years. = sum(of T16_est93 T16_est114 T16_est135 T16_est156);
-	renter_lgfam_&years. = sum(of T16_est97 T16_est118 T16_est139 T16_est160);
-	renter_eldnf_&years. = sum(of T16_est101 T16_est122 T16_est143 T16_est164);
-	renter_othhh_&years. = sum(of T16_est105 T16_est126 T16_est147 T16_est168);
+	renter_030_eldfam_&years. = T16_est89 ;
+	renter_030_smfam_&years. = T16_est93 ;
+	renter_030_lgfam_&years. = T16_est97 ;
+	renter_030_eldnf_&years. = T16_est101 ;
+	renter_030_othhh_&years. = T16_est105 ;
 
-	renter_eldfam_cb_&years. = sum(of T7_est137 T7_est138 T7_est163 T7_est164 T7_est189 T7_est190
-						T7_est215 T7_est216 T7_est241 T7_est242);
-	renter_smfam_cb_&years. = sum(of T7_est142 T7_est143 T7_est168 T7_est169 T7_est194 T7_est195
-						T7_est220 T7_est221 T7_est246 T7_est247);
-	renter_lgfam_cb_&years. = sum(of T7_est147 T7_est148 T7_est173 T7_est174 T7_est199 T7_est200
-						T7_est225 T7_est226 T7_est251 T7_est252);
-	renter_eldnf_cb_&years. = sum(of T7_est152 T7_est153 T7_est178 T7_est179 T7_est204 T7_est205
-						T7_est230 T7_est231 T7_est256 T7_est257);
-	renter_othhh_cb_&years. = sum(of T7_est157 T7_est158 T7_est183 T7_est184 T7_est209 T7_est210
-						T7_est235 T7_est236 T7_est261 T7_est262);
+	renter_030_eldfam_cb_&years. = sum(of T7_est137 T7_est138 );
+	renter_030_smfam_cb_&years. = sum(of T7_est142 T7_est143 );
+	renter_030_lgfam_cb_&years. = sum(of T7_est147 T7_est148 );
+	renter_030_eldnf_cb_&years. = sum(of T7_est152 T7_est153 );
+	renter_030_othhh_cb_&years. = sum(of T7_est157 T7_est158);
 
-	renter_eldfam_scb_&years. = sum(of T7_est138 T7_est164 T7_est190 T7_est216 T7_est242);
-	renter_smfam_scb_&years. = sum(of T7_est143 T7_est169 T7_est195 T7_est221 T7_est247);
-	renter_lgfam_scb_&years. = sum(of T7_est148 T7_est174 T7_est200 T7_est226 T7_est252);
-	renter_eldnf_scb_&years. = sum(of T7_est153 T7_est179 T7_est205 T7_est231 T7_est257);
-	renter_othhh_scb_&years. = sum(of T7_est158 T7_est184 T7_est210 T7_est236 T7_est262);
+	renter_030_eldfam_scb_&years. = T7_est138;
+	renter_030_smfam_scb_&years. = T7_est143 ;
+	renter_030_lgfam_scb_&years. = T7_est148 ;
+	renter_030_eldnf_scb_&years. = T7_est153 ;
+	renter_030_othhh_scb_&years. = T7_est158 ;
 
-	renter_eldfam_noprob_&years. = sum(of T16_est91 T16_est112 T16_est133 T16_est154);
-	renter_smfam_noprob_&years. = sum(of T16_est95 T16_est116 T16_est137 T16_est158);
-	renter_lgfam_noprob_&years. = sum(of T16_est99 T16_est120 T16_est141 T16_est162);
-	renter_eldnf_noprob_&years. = sum(of T16_est103 T16_est124 T16_est145 T16_est166);
-	renter_othhh_noprob_&years. = sum(of T16_est107 T16_est128 T16_est149 T16_est170);
+	renter_030_eldfam_nop_&years. = T16_est91 ;
+	renter_030_smfam_nop_&years. = T16_est95 ;
+	renter_030_lgfam_nop_&years. = T16_est99;
+	renter_030_eldnf_nop_&years. = T16_est103 ;
+	renter_030_othhh_nop_&years. = T16_est107 ;
 
+	renter_030_noplumb_&years. = sum(of T8_est71 T8_est74 T8_est77 T8_est80 );
+	renter_030_hasplumb_&years. = sum(of T8_est72 T8_est75 T8_est78 T8_est81 );
 
-	renter_noplumb_&years. = sum(of T8_est71 T8_est74 T8_est77 T8_est80 T8_est84 T8_est87 T8_est90 T8_est93
-					T8_est97 T8_est100 T8_est103 T8_est106 T8_est110 T8_est113 T8_est116 T8_est119
-					T8_est123 T8_est126 T8_est129 T8_est132);
-	renter_hasplumb_&years. = sum(of T8_est72 T8_est75 T8_est78 T8_est81 T8_est85 T8_est88 T8_est91 T8_est94
-					T8_est98 T8_est101 T8_est104 T8_est107 T8_est111 T8_est114 T8_est117 T8_est120
-					T8_est124 T8_est127 T8_est130 T8_est133);
+	renter_030_noplumb_cb_&years. = sum(of T8_est74 T8_est77 );
+	renter_030_hasplumb_cb_&years. = sum(of T8_est75 T8_est78 );
 
-	renter_noplumb_cb_&years. = sum(of T8_est74 T8_est77 T8_est87 T8_est90 T8_est100 T8_est103 T8_est113
-					T8_est116 T8_est126 T8_est129);
-	renter_hasplumb_cb_&years. = sum(of T8_est75 T8_est78 T8_est88 T8_est91 T8_est101 T8_est104 T8_est114
-					T8_est117 T8_est127 T8_est130);
+	renter_030_noplumb_scb_&years. = T8_est77 ;
+	renter_030_hasplumb_scb_&years. = T8_est78 ;
 
-	renter_noplumb_scb_&years. = sum(of T8_est77 T8_est90 T8_est103 T8_est116 T8_est129);
-	renter_hasplumb_scb_&years. = sum(of T8_est78 T8_est91 T8_est104 T8_est117 T8_est130);
-
-	renter_onlycb_&years. = sum(of T3_est64 T3_est70);
+	renter_030_onlycb_&years. = sum(of T3_est65 T3_est71);
 
 
 	label
 	renter_cb_&years. = "Renter occupied units, cost burdened, &years_dash."
 	renter_scb_&years. = "Renter occupied units, severely cost burdened, &years_dash."
 	renter_ncb_&years. = "Renter occupied units, no cost burden computed, &years_dash."
-	renter_noprob_&years. = "Renter occupied units, no housing problems, &years_dash."
+	renter_nop_&years. = "Renter occupied units, no housing problems, &years_dash."
 	renter_inc030_&years. = "Renter occupied units, household income 0-30%, &years_dash."
 	renter_inc3050_&years. = "Renter occupied units, household income 30-50%, &years_dash."
 	renter_inc5080_&years. = "Renter occupied units, household income 50-80%, &years_dash."
@@ -589,33 +577,33 @@ data &out._&years.;
 	renter_inc5080_ncb_&years. = "Renter occupied units, household income 50-80%, no cost burden computed, &years_dash."
 	renter_inc80100_ncb_&years. = "Renter occupied units, household income 80-100%, no cost burden computed, &years_dash."
 	renter_inc100pl_ncb_&years. = "Renter occupied units, household income 100%+, no cost burden computed, &years_dash."
-	renter_eldfam_&years. = "Renter occupied units, elderly family (2 people), &years_dash."
-	renter_smfam_&years. = "Renter occupied units, small family (2 non-elderly people or 3-4 person family), &years_dash."
-	renter_lgfam_&years. = "Renter occupied units, large family (5+ people), &years_dash."
-	renter_eldnf_&years. = "Renter occupied units, eldelry nonfamily (1-2 person households), &years_dash."
-	renter_othhh_&years. = "Renter occupied units, other household type, &years_dash."
-	renter_eldfam_cb_&years. = "Renter occupied units, elderly family (2 people), cost burdened, &years_dash."
-	renter_smfam_cb_&years. = "Renter occupied units, small family (2 non-elderly people or 3-4 person family), cost burdened, &years_dash."
-	renter_lgfam_cb_&years. = "Renter occupied units, large family (5+ people), cost burdened, &years_dash."
-	renter_eldnf_cb_&years. = "Renter occupied units, eldelry nonfamily (1-2 person households), cost burdened, &years_dash."
-	renter_othhh_cb_&years. = "Renter occupied units, other household type, cost burdened, &years_dash."
-	renter_eldfam_scb_&years. = "Renter occupied units, elderly family (2 people), severely cost burdened, &years_dash."
-	renter_smfam_scb_&years. = "Renter occupied units, small family (2 non-elderly people or 3-4 person family), severely cost burdened, &years_dash."
-	renter_lgfam_scb_&years. = "Renter occupied units, large family (5+ people), severely cost burdened, &years_dash."
-	renter_eldnf_scb_&years. = "Renter occupied units, eldelry nonfamily (1-2 person households), severely cost burdened, &years_dash."
-	renter_othhh_scb_&years. = "Renter occupied units, other household type, severely cost burdened, &years_dash."
-	renter_eldfam_noprob_&years. = "Renter occupied units, elderly family (2 people), no housing problems, &years_dash."
-	renter_smfam_noprob_&years. = "Renter occupied units, small family (2 non-elderly people or 3-4 person family), no housing problems, &years_dash."
-	renter_lgfam_noprob_&years. = "Renter occupied units, large family (5+ people), no housing problems, &years_dash."
-	renter_eldnf_noprob_&years. = "Renter occupied units, eldelry nonfamily (1-2 person households), no housing problems, &years_dash."
-	renter_othhh_noprob_&years. = "Renter occupied units, other household type, no housing problems, &years_dash."
-	renter_noplumb_&years. = "Renter occupied units, lacks complete plumbing and kitchen facilities, &years_dash."
-	renter_hasplumb_&years. = "Renter occupied units, has complete plumbing and kitchen facilities, &years_dash."
-	renter_noplumb_cb_&years. = "Renter occupied units, lacks complete plumbing and kitchen facilities, cost burdened, &years_dash."
-	renter_hasplumb_cb_&years. = "Renter occupied units, has complete plumbing and kitchen facilities, cost burdened, &years_dash."
-	renter_noplumb_scb_&years. = "Renter occupied units, lacks complete plumbing and kitchen facilities, severely cost burdened, &years_dash."
-	renter_hasplumb_scb_&years. = "Renter occupied units, has complete plumbing and kitchen facilities, severely cost burdened, &years_dash."
-	renter_onlycb_&years. = "Renter occupied units,only cost burden is a problem, &years_dash."
+	renter_030_eldfam_&years. = "Renter occupied units, household income 0-30%, elderly family (2 people), &years_dash."
+	renter_030_smfam_&years. = "Renter occupied units, household income 0-30%, small family (2 non-elderly people or 3-4 person family), &years_dash."
+	renter_030_lgfam_&years. = "Renter occupied units, household income 0-30%, large family (5+ people), &years_dash."
+	renter_030_eldnf_&years. = "Renter occupied units, household income 0-30%, eldelry nonfamily (1-2 person households), &years_dash."
+	renter_030_othhh_&years. = "Renter occupied units, household income 0-30%, other household type, &years_dash."
+	renter_030_eldfam_cb_&years. = "Renter occupied units, household income 0-30%, elderly family (2 people), cost burdened, &years_dash."
+	renter_030_smfam_cb_&years. = "Renter occupied units, household income 0-30%, small family (2 non-elderly people or 3-4 person family), cost burdened, &years_dash."
+	renter_030_lgfam_cb_&years. = "Renter occupied units, household income 0-30%, large family (5+ people), cost burdened, &years_dash."
+	renter_030_eldnf_cb_&years. = "Renter occupied units, household income 0-30%, eldelry nonfamily (1-2 person households), cost burdened, &years_dash."
+	renter_030_othhh_cb_&years. = "Renter occupied units, household income 0-30%, other household type, cost burdened, &years_dash."
+	renter_030_eldfam_scb_&years. = "Renter occupied units, household income 0-30%, elderly family (2 people), severely cost burdened, &years_dash."
+	renter_030_smfam_scb_&years. = "Renter occupied units, household income 0-30%, small family (2 non-elderly people or 3-4 person family), severely cost burdened, &years_dash."
+	renter_030_lgfam_scb_&years. = "Renter occupied units, household income 0-30%, large family (5+ people), severely cost burdened, &years_dash."
+	renter_030_eldnf_scb_&years. = "Renter occupied units, household income 0-30%, eldelry nonfamily (1-2 person households), severely cost burdened, &years_dash."
+	renter_030_othhh_scb_&years. = "Renter occupied units, household income 0-30%, other household type, severely cost burdened, &years_dash."
+	renter_030_eldfam_nop_&years. = "Renter occupied units, household income 0-30%, elderly family (2 people), no housing problems, &years_dash."
+	renter_030_smfam_nop_&years. = "Renter occupied units, household income 0-30%, small family (2 non-elderly people or 3-4 person family), no housing problems, &years_dash."
+	renter_030_lgfam_nop_&years. = "Renter occupied units, household income 0-30%, large family (5+ people), no housing problems, &years_dash."
+	renter_030_eldnf_nop_&years. = "Renter occupied units, household income 0-30%, eldelry nonfamily (1-2 person households), no housing problems, &years_dash."
+	renter_030_othhh_nop_&years. = "Renter occupied units, household income 0-30%, other household type, no housing problems, &years_dash."
+	renter_030_noplumb_&years. = "Renter occupied units, household income 0-30%, lacks complete plumbing and kitchen facilities, &years_dash."
+	renter_030_hasplumb_&years. = "Renter occupied units, household income 0-30%, has complete plumbing and kitchen facilities, &years_dash."
+	renter_030_noplumb_cb_&years. = "Renter occupied units, household income 0-30%, lacks complete plumbing and kitchen facilities, cost burdened, &years_dash."
+	renter_030_hasplumb_cb_&years. = "Renter occupied units, household income 0-30%, has complete plumbing and kitchen facilities, cost burdened, &years_dash."
+	renter_030_noplumb_scb_&years. = "Renter occupied units, household income 0-30%, lacks complete plumbing and kitchen facilities, severely cost burdened, &years_dash."
+	renter_030_hasplumb_scb_&years. = "Renter occupied units, household income 0-30%, has complete plumbing and kitchen facilities, severely cost burdened, &years_dash."
+	renter_030_onlycb_&years. = "Renter occupied units, household income 0-30%,only cost burden is a problem, &years_dash."
 	;
 
 	%Pct_calc( var=Prenter_inc030_cb, label=% Renter occupied units household income 0-30% cost burdened, num=renter_inc030_cb, den=renter_inc030, years= &years. );
@@ -638,33 +626,33 @@ data &out._&years.;
 	%Pct_calc( var=Prenter_inc100pl_scb, label=% Renter occupied units household income 100%+ no cost burden computed, num=renter_inc100pl_scb, den=renter_inc100pl, years= &years. );
 	%Pct_calc( var=Prenter_inc100pl_ncb, label=% Renter occupied units household income 100%+ no cost burden computed, num=renter_inc100pl_ncb, den=renter_inc100pl, years= &years. );
 
-	%Pct_calc( var=Prenter_eldfam_cb, label=% Renter occupied units elderly family cost burdened, num=renter_eldfam_cb, den=renter_eldfam, years= &years. );
-	%Pct_calc( var=Prenter_eldfam_scb, label=% Renter occupied units elderly family cost burdened, num=renter_eldfam_scb, den=renter_eldfam, years= &years. );
-	%Pct_calc( var=Prenter_eldfam_noprob, label=% Renter occupied units elderly family no housing problems, num=renter_eldfam, den=renter_noprob, years= &years. );
+	%Pct_calc( var=Prenter_030_eldfam_cb, label=% Renter occupied units household income 0-30% elderly family cost burdened, num=renter_030_eldfam_cb, den=renter_030_eldfam, years= &years. );
+	%Pct_calc( var=Prenter_030_eldfam_scb, label=% Renter occupied units household income 0-30% elderly family cost burdened, num=renter_030_eldfam_scb, den=renter_030_eldfam, years= &years. );
+	%Pct_calc( var=Prenter_030_eldfam_nop, label=% Renter occupied units household income 0-30% elderly family no housing problems, num=renter_030_eldfam, den=renter_030_eldfam, years= &years. );
 
-	%Pct_calc( var=Prenter_smfam_cb, label=% Renter occupied units small family cost burdened, num=renter_smfam_cb, den=renter_smfam, years= &years. );
-	%Pct_calc( var=Prenter_smfam_scb, label=% Renter occupied units small family cost burdened, num=renter_smfam_scb, den=renter_smfam, years= &years. );
-	%Pct_calc( var=Prenter_smfam_noprob, label=% Renter occupied units small family no housing problems, num=renter_smfam_noprob, den=renter_smfam, years= &years. );
+	%Pct_calc( var=Prenter_030_smfam_cb, label=% Renter occupied units household income 0-30% small family cost burdened, num=renter_030_smfam_cb, den=renter_030_smfam, years= &years. );
+	%Pct_calc( var=Prenter_030_smfam_scb, label=% Renter occupied units household income 0-30% small family cost burdened, num=renter_030_smfam_scb, den=renter_030_smfam, years= &years. );
+	%Pct_calc( var=Prenter_030_smfam_nop, label=% Renter occupied units household income 0-30% small family no housing problems, num=renter_030_smfam_nop, den=renter_030_smfam, years= &years. );
 
-	%Pct_calc( var=Prenter_lgfam_cb, label=% Renter occupied units large family cost burdened, num=renter_lgfam_cb, den=renter_lgfam, years= &years. );
-	%Pct_calc( var=Prenter_lgfam_scb, label=% Renter occupied units large family cost burdened, num=renter_lgfam_scb, den=renter_lgfam, years= &years. );
-	%Pct_calc( var=Prenter_lgfam_noprob, label=% Renter occupied units large family no housing problems, num=renter_lgfam_noprob, den=renter_lgfam, years= &years. );
+	%Pct_calc( var=Prenter_030_lgfam_cb, label=% Renter occupied units household income 0-30% large family cost burdened, num=renter_030_lgfam_cb, den=renter_030_lgfam, years= &years. );
+	%Pct_calc( var=Prenter_030_lgfam_scb, label=% Renter occupied units household income 0-30% large family cost burdened, num=renter_030_lgfam_scb, den=renter_030_lgfam, years= &years. );
+	%Pct_calc( var=Prenter_030_lgfam_nop, label=% Renter occupied units household income 0-30% large family no housing problems, num=renter_030_lgfam_nop, den=renter_030_lgfam, years= &years. );
 
-	%Pct_calc( var=Prenter_eldnf_cb, label=% Renter occupied units elderly non-family cost burdened, num=renter_eldnf_cb, den=renter_eldnf, years= &years. );
-	%Pct_calc( var=Prenter_eldnf_scb, label=% Renter occupied units elderly non-family cost burdened, num=renter_eldnf_scb, den=renter_eldnf, years= &years. );
-	%Pct_calc( var=Prenter_eldnf_noprob, label=% Renter occupied units elderly non-family no housing problems, num=renter_eldnf_noprob, den=renter_eldnf, years= &years. );
+	%Pct_calc( var=Prenter_030_eldnf_cb, label=% Renter occupied units household income 0-30% elderly non-family cost burdened, num=renter_030_eldnf_cb, den=renter_030_eldnf, years= &years. );
+	%Pct_calc( var=Prenter_030_eldnf_scb, label=% Renter occupied units household income 0-30% elderly non-family cost burdened, num=renter_030_eldnf_scb, den=renter_030_eldnf, years= &years. );
+	%Pct_calc( var=Prenter_030_eldnf_nop, label=% Renter occupied units household income 0-30% elderly non-family no housing problems, num=renter_030_eldnf_nop, den=renter_030_eldnf, years= &years. );
 
-	%Pct_calc( var=Prenter_othhh_cb, label=% Renter occupied units other household cost burdened, num=renter_othhh_cb, den=renter_othhh, years= &years. );
-	%Pct_calc( var=Prenter_othhh_scb, label=% Renter occupied units other household cost burdened, num=renter_othhh_scb, den=renter_othhh, years= &years. );
-	%Pct_calc( var=Prenter_othhh_noprob, label=% Renter occupied units other household no housing problems, num=renter_othhh_noprob, den=renter_othhh, years= &years. );
+	%Pct_calc( var=Prenter_030_othhh_cb, label=% Renter occupied units household income 0-30% other household cost burdened, num=renter_030_othhh_cb, den=renter_030_othhh, years= &years. );
+	%Pct_calc( var=Prenter_030_othhh_scb, label=% Renter occupied units household income 0-30% other household cost burdened, num=renter_030_othhh_scb, den=renter_030_othhh, years= &years. );
+	%Pct_calc( var=Prenter_030_othhh_nop, label=% Renter occupied units household income 0-30% other household no housing problems, num=renter_030_othhh_nop, den=renter_030_othhh, years= &years. );
 
-	%Pct_calc( var=Prenter_noplumb_cb, label=% Renter occupied units household lacks complete plumbing and kitchen facilities and cost burdened, num=renter_noplumb_cb, den=renter_noplumb, years= &years. );
-	%Pct_calc( var=Prenter_noplumb_scb, label=% Renter occupied units household lacks complete plumbing and kitchen facilities and cost burdened, num=renter_noplumb_scb, den=renter_noplumb, years= &years. );
+	%Pct_calc( var=Prenter_030_noplumb_cb, label=% Renter occupied units household income 0-30% household lacks complete plumbing and kitchen facilities and cost burdened, num=renter_030_noplumb_cb, den=renter_030_noplumb, years= &years. );
+	%Pct_calc( var=Prenter_030_noplumb_scb, label=% Renter occupied units household income 0-30% household lacks complete plumbing and kitchen facilities and cost burdened, num=renter_030_noplumb_scb, den=renter_030_noplumb, years= &years. );
 
-	%Pct_calc( var=Prenter_hasplumb_cb, label=% Renter occupied units household has complete plumbing and kitchen facilities and cost and cost burdened, num=renter_hasplumb_cb, den=renter_hasplumb, years= &years. );
-	%Pct_calc( var=Prenter_hasplumb_scb, label=% Renter occupied units household has complete plumbing and kitchen facilities and cost and cost burdened, num=renter_hasplumb_scb, den=renter_hasplumb, years= &years. );
+	%Pct_calc( var=Prenter_030_hasplumb_cb, label=% Renter occupied units household income 0-30% household has complete plumbing and kitchen facilities and cost and cost burdened, num=renter_030_hasplumb_cb, den=renter_030_hasplumb, years= &years. );
+	%Pct_calc( var=Prenter_030_hasplumb_scb, label=% Renter occupied units household income 0-30% household has complete plumbing and kitchen facilities and cost and cost burdened, num=renter_030_hasplumb_scb, den=renter_030_hasplumb, years= &years. );
 
-	%Pct_calc( var=Prenter_onlycb, label=% Renter occupied units where only cost burden is a problem, num=renter_onlycb, den=renter_unit_tot, years= &years. );
+	%Pct_calc( var=Prenter_030_onlycb, label=% Renter occupied units household income 0-30% where only cost burden is a problem, num=renter_030_onlycb, den=renter_030_unit_tot, years= &years. );
 
 
 	/* Demand - Size */
