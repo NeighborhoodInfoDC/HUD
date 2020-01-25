@@ -664,22 +664,32 @@ run;
 %reshape_chas(&chas_in.,7a,2,renter_030_eyeear_1prob_2012_16 Prenter_030_eyeear_1prob_2012_16 );
 %reshape_chas(&chas_in.,7a,3,renter_030_eyeear_0prob_2012_16 Prenter_030_eyeear_0prob_2012_16);
 %reshape_chas(&chas_in.,7a,4,renter_030_eyeear_nc_2012_16 Prenter_030_eyeear_nc_2012_16);
-%reshape_chas(&chas_in.,7a,1,renter_030_amb_2012_16 placeholder );
-%reshape_chas(&chas_in.,7a,2,renter_030_amb_1prob_2012_16 Prenter_030_amb_1prob_2012_16 );
-%reshape_chas(&chas_in.,7a,3,renter_030_amb_0prob_2012_16 Prenter_030_amb_0prob_2012_16);
-%reshape_chas(&chas_in.,7a,4,renter_030_amb_nc_2012_16 Prenter_030_amb_nc_2012_16);
-%reshape_chas(&chas_in.,7a,1,renter_030_cog_2012_16 placeholder );
-%reshape_chas(&chas_in.,7a,2,renter_030_cog_1prob_2012_16 Prenter_030_cog_1prob_2012_16 );
-%reshape_chas(&chas_in.,7a,3,renter_030_cog_0prob_2012_16 Prenter_030_cog_0prob_2012_16);
-%reshape_chas(&chas_in.,7a,4,renter_030_cog_nc_2012_16 Prenter_030_cog_nc_2012_16);
-%reshape_chas(&chas_in.,7a,1,renter_030_self_2012_16 placeholder );
-%reshape_chas(&chas_in.,7a,2,renter_030_self_1prob_2012_16 Prenter_030_self_1prob_2012_16 );
-%reshape_chas(&chas_in.,7a,3,renter_030_self_0prob_2012_16 Prenter_030_self_0prob_2012_16);
-%reshape_chas(&chas_in.,7a,4,renter_030_self_nc_2012_16 Prenter_030_self_nc_2012_16);
-%reshape_chas(&chas_in.,7a,1,renter_030_nodis_2012_16 placeholder );
-%reshape_chas(&chas_in.,7a,2,renter_030_nodis_1prob_2012_16 Prenter_030_nodis_1prob_2012_16 );
-%reshape_chas(&chas_in.,7a,3,renter_030_nodis_0prob_2012_16 Prenter_030_nodis_0prob_2012_16);
-%reshape_chas(&chas_in.,7a,4,renter_030_nodis_nc_2012_16 Prenter_030_nodis_nc_2012_16);
+%reshape_chas(&chas_in.,7a,5,renter_030_amb_2012_16 placeholder );
+%reshape_chas(&chas_in.,7a,6,renter_030_amb_1prob_2012_16 Prenter_030_amb_1prob_2012_16 );
+%reshape_chas(&chas_in.,7a,7,renter_030_amb_0prob_2012_16 Prenter_030_amb_0prob_2012_16);
+%reshape_chas(&chas_in.,7a,8,renter_030_amb_nc_2012_16 Prenter_030_amb_nc_2012_16);
+%reshape_chas(&chas_in.,7a,9,renter_030_cog_2012_16 placeholder );
+%reshape_chas(&chas_in.,7a,10,renter_030_cog_1prob_2012_16 Prenter_030_cog_1prob_2012_16 );
+%reshape_chas(&chas_in.,7a,11,renter_030_cog_0prob_2012_16 Prenter_030_cog_0prob_2012_16);
+%reshape_chas(&chas_in.,7a,12,renter_030_cog_nc_2012_16 Prenter_030_cog_nc_2012_16);
+%reshape_chas(&chas_in.,7a,13,renter_030_self_2012_16 placeholder );
+%reshape_chas(&chas_in.,7a,14,renter_030_self_1prob_2012_16 Prenter_030_self_1prob_2012_16 );
+%reshape_chas(&chas_in.,7a,15,renter_030_self_0prob_2012_16 Prenter_030_self_0prob_2012_16);
+%reshape_chas(&chas_in.,7a,16,renter_030_self_nc_2012_16 Prenter_030_self_nc_2012_16);
+%reshape_chas(&chas_in.,7a,17,renter_030_nodis_2012_16 placeholder );
+%reshape_chas(&chas_in.,7a,18,renter_030_nodis_1prob_2012_16 Prenter_030_nodis_1prob_2012_16 );
+%reshape_chas(&chas_in.,7a,19,renter_030_nodis_0prob_2012_16 Prenter_030_nodis_0prob_2012_16);
+%reshape_chas(&chas_in.,7a,20,renter_030_nodis_nc_2012_16 Prenter_030_nodis_nc_2012_16);
+
+data table7a;
+	set Table7a_row1 Table7a_row2 Table7a_row3 Table7a_row4 Table7a_row5 Table7a_row6 Table7a_row7 Table7a_row8 Table7a_row9 Table7a_row10
+		Table7a_row11 Table7a_row12 Table7a_row13 Table7a_row14 Table7a_row15 Table7a_row16 Table7a_row17 Table7a_row18 Table7a_row19 Table7a_row20
+		Table7a_row21 Table7a_row22 Table7a_row23 Table7a_row24;
+run;
+
+proc export data=table7a
+   outfile="&outfolder.table7a.csv" dbms=csv replace;
+run;
 
 
 %mend export_chas_csv;
