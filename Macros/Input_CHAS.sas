@@ -19,7 +19,13 @@
 
 %macro geo_chas (gcode);
 	%macro import_chas();
+		%if %upcase( &gcode. ) = 140 %then %do;
+		%let tables = &tablelist. Table6;
+		%end;
+		%else %do;
 		%let tables = &tablelist.;
+		%end;
+		
 			%let i = 1;
 				%do %until (%scan(&tables,&i,' ')=);
 					%let table=%scan(&tables,&i,' ');
