@@ -659,6 +659,29 @@ proc export data=table6c
    outfile="&outfolder.table6c.csv" dbms=csv replace;
 run;
 
+/* Disability */
+%reshape_chas(&chas_in.,7a,1,renter_030_eyeear_2012_16 placeholder );
+%reshape_chas(&chas_in.,7a,2,renter_030_eyeear_1prob_2012_16 Prenter_030_eyeear_1prob_2012_16 );
+%reshape_chas(&chas_in.,7a,3,renter_030_eyeear_0prob_2012_16 Prenter_030_eyeear_0prob_2012_16);
+%reshape_chas(&chas_in.,7a,4,renter_030_eyeear_nc_2012_16 Prenter_030_eyeear_nc_2012_16);
+%reshape_chas(&chas_in.,7a,1,renter_030_amb_2012_16 placeholder );
+%reshape_chas(&chas_in.,7a,2,renter_030_amb_1prob_2012_16 Prenter_030_amb_1prob_2012_16 );
+%reshape_chas(&chas_in.,7a,3,renter_030_amb_0prob_2012_16 Prenter_030_amb_0prob_2012_16);
+%reshape_chas(&chas_in.,7a,4,renter_030_amb_nc_2012_16 Prenter_030_amb_nc_2012_16);
+%reshape_chas(&chas_in.,7a,1,renter_030_cog_2012_16 placeholder );
+%reshape_chas(&chas_in.,7a,2,renter_030_cog_1prob_2012_16 Prenter_030_cog_1prob_2012_16 );
+%reshape_chas(&chas_in.,7a,3,renter_030_cog_0prob_2012_16 Prenter_030_cog_0prob_2012_16);
+%reshape_chas(&chas_in.,7a,4,renter_030_cog_nc_2012_16 Prenter_030_cog_nc_2012_16);
+%reshape_chas(&chas_in.,7a,1,renter_030_self_2012_16 placeholder );
+%reshape_chas(&chas_in.,7a,2,renter_030_self_1prob_2012_16 Prenter_030_self_1prob_2012_16 );
+%reshape_chas(&chas_in.,7a,3,renter_030_self_0prob_2012_16 Prenter_030_self_0prob_2012_16);
+%reshape_chas(&chas_in.,7a,4,renter_030_self_nc_2012_16 Prenter_030_self_nc_2012_16);
+%reshape_chas(&chas_in.,7a,1,renter_030_nodis_2012_16 placeholder );
+%reshape_chas(&chas_in.,7a,2,renter_030_nodis_1prob_2012_16 Prenter_030_nodis_1prob_2012_16 );
+%reshape_chas(&chas_in.,7a,3,renter_030_nodis_0prob_2012_16 Prenter_030_nodis_0prob_2012_16);
+%reshape_chas(&chas_in.,7a,4,renter_030_nodis_nc_2012_16 Prenter_030_nodis_nc_2012_16);
+
+
 %mend export_chas_csv;
 
 %export_chas_csv(county,35001);
