@@ -14,18 +14,21 @@
 %macro input_chas (yrs,revisions);
 
 /* List of raw CHAS tables to read-in */
-%let tablelist = Table1 Table2 Table3 Table4 Table5 Table7 Table8 Table9 Table10 Table11 Table12 Table13
-				 Table14A Table14B Table15A Table15B Table15C Table16 Table17A Table17B Table18A Table18B Table18C ;
 
 %macro geo_chas (gcode);
+
+%if &gcode. = 050 and %upcase( &yrs. ) = 2012THRU2016 %then %do;
+	%let tablelist = Table1 Table2 Table3 Table4 Table5 Table6 Table7 Table8 Table9 Table10 Table11 Table12 Table13
+				 	Table14A Table14B Table15A Table15B Table15C Table16 Table17A Table17B Table18A Table18B Table18C ;
+%end;
+%else %do;
+	%let tablelist = Table1 Table2 Table3 Table4 Table5 Table7 Table8 Table9 Table10 Table11 Table12 Table13
+				 	Table14A Table14B Table15A Table15B Table15C Table16 Table17A Table17B Table18A Table18B Table18C ;
+%end;
+
+
 	%macro import_chas();
-		%if %upcase( &gcode. ) = 140 %then %do;
-		%let tables = &tablelist. Table6;
-		%end;
-		%else %do;
 		%let tables = &tablelist.;
-		%end;
-		
 			%let i = 1;
 				%do %until (%scan(&tables,&i,' ')=);
 					%let table=%scan(&tables,&i,' ');
