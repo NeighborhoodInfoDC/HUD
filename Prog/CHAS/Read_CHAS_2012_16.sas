@@ -23,7 +23,7 @@ libname chasraw "&rawpath.";
 
 
 %input_chas (yrs = 2012thru2016,
-			 revisions = Add table6 for county);
+			 revisions = Add table6 for county and place);
 
 
 /* End of program */
