@@ -49,6 +49,7 @@ run;
 %reshape_chas(&chas_in.,1a,2,forsale_units_tot_2006_10 forsale_units_tot_2012_16 placeholder placeholder forsale_units_aff50_2006_10 forsale_units_aff50_2012_16);
 %reshape_chas(&chas_in.,1a,3,renter_unit_tot_2006_10 renter_unit_tot_2012_16 renter_unit_aff30_2006_10 renter_unit_aff30_2012_16 renter_unit_aff50_2006_10 renter_unit_aff50_2012_16);
 %reshape_chas(&chas_in.,1a,4,forrent_units_tot_2006_10 forrent_units_tot_2012_16 forrent_units_aff30_2006_10 forrent_units_aff30_2012_16 forrent_units_aff50_2006_10 forrent_units_aff50_2012_16);
+%reshape_chas(&chas_in.,1a,5,all_units_tot_2006_10 all_units_tot_2012_16 tot_aff30_2006_10 tot_aff30_2012_16 tot_aff50_2006_10 tot_aff50_2012_16);
 
 data table1a;
 	set Table1a_row1 Table1a_row2 Table1a_row3 Table1a_row4 ;
@@ -63,6 +64,7 @@ run;
 %reshape_chas(&chas_in.,1b,2,Pforsale_units_tot_2006_10 Pforsale_units_tot_2012_16 placeholder placeholder Pforsale_units_aff50_2006_10 Pforsale_units_aff50_2012_16);
 %reshape_chas(&chas_in.,1b,3,Prenter_unit_tot_2006_10 Prenter_unit_tot_2012_16 Prenter_unit_aff30_2006_10 Prenter_unit_aff30_2012_16 Prenter_unit_aff50_2006_10 Prenter_unit_aff50_2012_16);
 %reshape_chas(&chas_in.,1b,4,Pforrent_units_tot_2006_10 Pforrent_units_tot_2012_16 Pforrent_units_aff30_2006_10 Pforrent_units_aff30_2012_16 Pforrent_units_aff50_2006_10 Pforrent_units_aff50_2012_16);
+%reshape_chas(&chas_in.,1b,5,all_units_tot_2006_10 all_units_tot_2012_16 tot_aff30_2006_10 tot_aff30_2012_16 tot_aff50_2006_10 tot_aff50_2012_16);
 
 data table1b;
 	set Table1b_row1 Table1b_row2 Table1b_row3 Table1b_row4 ;
