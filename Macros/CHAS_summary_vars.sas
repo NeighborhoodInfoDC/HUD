@@ -17,7 +17,7 @@
 %let years_dash = %sysfunc(translate(&years., '-', '_' ));
 
 data &out._&years.;
-	set hud.Chas_&years._ntnl;
+	set hud.Chas_&years._ntnl /*(where=(geoid="05000US01003"))*/;
 
 	/* Supply */
 	all_units_tot_&years. = sum(of T1_est1 T14A_est1 T14B_est1);
@@ -28,6 +28,15 @@ data &out._&years.;
 	renter_unit_tot_&years. = T1_est126;
 	forrent_units_tot_&years. = T14B_est1;
 	rent_forrent_units_tot_&years. = sum(of T1_est126 T14B_est1);
+
+	Mall_units_tot_&years. =  %moe_sum(var= T1_moe1 T14A_moe1 T14B_moe1);
+	Mocc_units_tot_&years. = T1_moe1;
+	Mowner_units_tot_&years. = T1_moe2;
+	Mforsale_units_tot_&years. = T14A_moe1;
+	Mown_forsale_units_tot_&years. =  %moe_sum(var= T1_moe2 T14A_moe1);
+	Mrenter_unit_tot_&years. = T1_moe126;
+	Mforrent_units_tot_&years. = T14B_moe1;
+	Mrent_forrent_units_tot_&years. = %moe_sum(var= T1_moe126 T14B_moe1);
 
 	renter_unit_aff30_&years. = T15C_est4;
 	forrent_units_aff30_&years. = sum(of T17B_est3 T17B_est8 T17B_est13 T17B_est18);
@@ -125,6 +134,15 @@ data &out._&years.;
 	%Pct_calc( var=Pforsale_units_tot, label=% Vacant housing units for sale, num=forsale_units_tot, den=own_forsale_units_tot, years= &years. );
 	%Pct_calc( var=Prenter_unit_tot, label=% Renter-occupied housing units, num=renter_unit_tot, den=occ_units_tot, years= &years. );
 	%Pct_calc( var=Pforrent_units_tot, label=% Vacant housing units for rent, num=forrent_units_tot, den=rent_forrent_units_tot, years= &years. );
+
+    %Moe_prop_a( var=Oowner_units_tot_&years., mult=100, num=owner_units_tot_&years., den=occ_units_tot_&years., 
+                       num_moe=Mowner_units_tot_&years., den_moe=Mocc_units_tot_&years., label_moe = % Owner-occupied housing units &years_dash. MOE);
+	%Moe_prop_a( var=Oforsale_units_tot_&years., mult=100, num=forsale_units_tot_&years., den=own_forsale_units_tot_&years., 
+                       num_moe=Mforsale_units_tot_&years., den_moe=Mown_forsale_units_tot_&years., label_moe =% Vacant housing units for sale  MOE);
+	%Moe_prop_a( var=Orenter_unit_tot_&years., mult=100, num=renter_unit_tot_&years., den=occ_units_tot_&years., 
+                       num_moe=Mrenter_unit_tot_&years., den_moe=Mocc_units_tot_&years., label_moe =% Renter-occupied housing units  MOE);
+	%Moe_prop_a( var=Oforrent_units_tot_&years., mult=100, num=forrent_units_tot_&years., den=rent_forrent_units_tot_&years., 
+                       num_moe=Mforrent_units_tot_&years., den_moe=Mrent_forrent_units_tot_&years., label_moe =% Vacant housing units for rent  MOE);
 
 	%Pct_calc( var=Prenter_unit_aff30, label=% Renter-occupied housing units affordable at 30% AMI, num=renter_unit_aff30, den=renter_unit_tot, years= &years. );
 	%Pct_calc( var=Pforrent_units_aff30, label=% For-rent housing units affordable at 30% AMI, num=forrent_units_aff30, den=renter_unit_tot, years= &years. );
@@ -281,6 +299,27 @@ data &out._&years.;
 	inc80100_3br_&years. = sum(of T15C_est20 T15C_est41 T15C_est62 T15C_est83);
 	inc100pl_3br_&years. = sum(of T15C_est24 T15C_est45 T15C_est66 T15C_est87);
 
+	rnt030_allbr_&years. = sum(of T15C_est5 T15C_est9 T15C_est13 T15C_est17);
+	rnt3050_allbr_&years. = sum(of T15C_est26 T15C_est30 T15C_est34 T15C_est38);
+	rnt5080_allbr_&years. = sum(of T15C_est47 T15C_est51 T15C_est55 T15C_est59);
+	rnt80pl_allbr_&years. = sum(of T15C_est68 T15C_est72 T15C_est76 T15C_est80);
+
+	rnt030_01br_&years. = sum(of T15C_est6 T15C_est10 T15C_est14 T15C_est18);
+	rnt3050_01br_&years. = sum(of T15C_est27 T15C_est31 T15C_est35 T15C_est39);
+	rnt5080_01br_&years. = sum(of T15C_est48 T15C_est52 T15C_est56 T15C_est60);
+	rnt80pl_01br_&years. = sum(of T15C_est69 T15C_est73 T15C_est77 T15C_est81);
+
+	rnt030_2br_&years. = sum(of T15C_est7 T15C_est11 T15C_est15 T15C_est19);
+	rnt3050_2br_&years. = sum(of T15C_est28 T15C_est32 T15C_est36 T15C_est40);
+	rnt5080_2br_&years. = sum(of T15C_est49 T15C_est53 T15C_est57 T15C_est61);
+	rnt80pl_2br_&years. = sum(of T15C_est70 T15C_est74 T15C_est78 T15C_est82);
+
+	rnt030_3br_&years. = sum(of T15C_est8 T15C_est12 T15C_est16 T15C_est20);
+	rnt3050_3br_&years. = sum(of T15C_est29 T15C_est33 T15C_est37 T15C_est41);
+	rnt5080_3br_&years. = sum(of T15C_est50 T15C_est54 T15C_est58 T15C_est62);
+	rnt80pl_3br_&years. = sum(of T15C_est71 T15C_est75 T15C_est79 T15C_est83);
+
+
 	label
 	rnt030_inc030_allbr_&years. = "Rent level 0-30%, household income 0-30%, &years_dash."
 	rnt3050_inc030_allbr_&years. = "Rent level 30-50%, household income 0-30%, &years_dash."
@@ -382,6 +421,22 @@ data &out._&years.;
 	inc5080_3br_&years. = "Renter household income 50-80%, 3+ bedrooms, &years_dash."
 	inc80100_3br_&years. = "Renter household income 80-100%, 3+ bedrooms, &years_dash."
 	inc100pl_3br_&years. = "Renter household income 100%+, 3+ bedrooms, &years_dash."
+	rnt030_allbr_&years. = "Rent level 0-30%, &years_dash."
+	rnt3050_allbr_&years. = "Rent level 30-50%, &years_dash."
+	rnt5080_allbr_&years. = "Rent level 50-80%, &years_dash."
+	rnt80pl_allbr_&years. = "Rent level 80%+, &years_dash."
+	rnt030_01br_&years. = "Rent level 0-30%, 0-1 bedrooms, &years_dash."
+	rnt3050_01br_&years. = "Rent level 30-50%, 0-1 bedrooms, &years_dash."
+	rnt5080_01br_&years. = "Rent level 50-80%, 0-1 bedrooms, &years_dash."
+	rnt80pl_01br_&years. = "Rent level 80%+, 0-1 bedrooms, &years_dash."
+	rnt030_2br_&years. = "Rent level 0-30%, 2 bedrooms, &years_dash."
+	rnt3050_2br_&years. = "Rent level 30-50%, 2 bedrooms, &years_dash."
+	rnt5080_2br_&years. = "Rent level 50-80%, 2 bedrooms, &years_dash."
+	rnt80pl_2br_&years. = "Rent level 80%+, 2 bedrooms, &years_dash."
+	rnt030_3br_&years. = "Rent level 0-30%, 3+ bedrooms, &years_dash."
+	rnt3050_3br_&years. = "Rent level 30-50%, 3+ bedrooms, &years_dash."
+	rnt5080_3br_&years. = "Rent level 80%+, 3+ bedrooms, &years_dash."
+	rnt80pl_3br_&years. = "Rent level 80%+, 3+ bedrooms, &years_dash."
 	;
 
 	%Pct_calc( var=Prnt030_inc030_allbr, label=% renter households with rent level 0-30% household income 0-30%, num=rnt030_inc030_allbr, den=inc030_allbr, years= &years. );
