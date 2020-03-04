@@ -299,25 +299,25 @@ data &out._&years.;
 	inc80100_3br_&years. = sum(of T15C_est20 T15C_est41 T15C_est62 T15C_est83);
 	inc100pl_3br_&years. = sum(of T15C_est24 T15C_est45 T15C_est66 T15C_est87);
 
-	rnt030_allbr_&years. = sum(of T15C_est5 T15C_est9 T15C_est13 T15C_est17);
-	rnt3050_allbr_&years. = sum(of T15C_est26 T15C_est30 T15C_est34 T15C_est38);
-	rnt5080_allbr_&years. = sum(of T15C_est47 T15C_est51 T15C_est55 T15C_est59);
-	rnt80pl_allbr_&years. = sum(of T15C_est68 T15C_est72 T15C_est76 T15C_est80);
+	rnt030_allbr_&years. = sum(of T15C_est5 T15C_est9 T15C_est13 T15C_est17 T15C_est21);
+	rnt3050_allbr_&years. = sum(of T15C_est26 T15C_est30 T15C_est34 T15C_est38 T15C_est42);
+	rnt5080_allbr_&years. = sum(of T15C_est47 T15C_est51 T15C_est55 T15C_est59 T15C_est63);
+	rnt80pl_allbr_&years. = sum(of T15C_est68 T15C_est72 T15C_est76 T15C_est80 T15C_est84);
 
-	rnt030_01br_&years. = sum(of T15C_est6 T15C_est10 T15C_est14 T15C_est18);
-	rnt3050_01br_&years. = sum(of T15C_est27 T15C_est31 T15C_est35 T15C_est39);
-	rnt5080_01br_&years. = sum(of T15C_est48 T15C_est52 T15C_est56 T15C_est60);
-	rnt80pl_01br_&years. = sum(of T15C_est69 T15C_est73 T15C_est77 T15C_est81);
+	rnt030_01br_&years. = sum(of T15C_est6 T15C_est10 T15C_est14 T15C_est18 T15C_est22);
+	rnt3050_01br_&years. = sum(of T15C_est27 T15C_est31 T15C_est35 T15C_est39 T15C_est43);
+	rnt5080_01br_&years. = sum(of T15C_est48 T15C_est52 T15C_est56 T15C_est60 T15C_est64);
+	rnt80pl_01br_&years. = sum(of T15C_est69 T15C_est73 T15C_est77 T15C_est81 T15C_est85);
 
-	rnt030_2br_&years. = sum(of T15C_est7 T15C_est11 T15C_est15 T15C_est19);
-	rnt3050_2br_&years. = sum(of T15C_est28 T15C_est32 T15C_est36 T15C_est40);
-	rnt5080_2br_&years. = sum(of T15C_est49 T15C_est53 T15C_est57 T15C_est61);
-	rnt80pl_2br_&years. = sum(of T15C_est70 T15C_est74 T15C_est78 T15C_est82);
+	rnt030_2br_&years. = sum(of T15C_est7 T15C_est11 T15C_est15 T15C_est19 T15C_est23);
+	rnt3050_2br_&years. = sum(of T15C_est28 T15C_est32 T15C_est36 T15C_est40 T15C_est44);
+	rnt5080_2br_&years. = sum(of T15C_est49 T15C_est53 T15C_est57 T15C_est61 T15C_est65);
+	rnt80pl_2br_&years. = sum(of T15C_est70 T15C_est74 T15C_est78 T15C_est82 T15C_est86);
 
-	rnt030_3br_&years. = sum(of T15C_est8 T15C_est12 T15C_est16 T15C_est20);
-	rnt3050_3br_&years. = sum(of T15C_est29 T15C_est33 T15C_est37 T15C_est41);
-	rnt5080_3br_&years. = sum(of T15C_est50 T15C_est54 T15C_est58 T15C_est62);
-	rnt80pl_3br_&years. = sum(of T15C_est71 T15C_est75 T15C_est79 T15C_est83);
+	rnt030_3br_&years. = sum(of T15C_est8 T15C_est12 T15C_est16 T15C_est20 T15C_est24);
+	rnt3050_3br_&years. = sum(of T15C_est29 T15C_est33 T15C_est37 T15C_est41 T15C_est45);
+	rnt5080_3br_&years. = sum(of T15C_est50 T15C_est54 T15C_est58 T15C_est62 T15C_est66);
+	rnt80pl_3br_&years. = sum(of T15C_est71 T15C_est75 T15C_est79 T15C_est83 T15C_est87);
 
 
 	label
