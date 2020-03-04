@@ -683,8 +683,7 @@ run;
 
 data table7a;
 	set Table7a_row1 Table7a_row2 Table7a_row3 Table7a_row4 Table7a_row5 Table7a_row6 Table7a_row7 Table7a_row8 Table7a_row9 Table7a_row10
-		Table7a_row11 Table7a_row12 Table7a_row13 Table7a_row14 Table7a_row15 Table7a_row16 Table7a_row17 Table7a_row18 Table7a_row19 Table7a_row20
-		Table7a_row21 Table7a_row22 Table7a_row23 Table7a_row24;
+		Table7a_row11 Table7a_row12 Table7a_row13 Table7a_row14 Table7a_row15 Table7a_row16 Table7a_row17 Table7a_row18 Table7a_row19 Table7a_row20;
 run;
 
 proc export data=table7a
