@@ -459,6 +459,149 @@ data &out._&years.;
 	rnt5080_3br_&years. = sum(of T15C_est50 T15C_est54 T15C_est58 T15C_est62 T15C_est66);
 	rnt80pl_3br_&years. = sum(of T15C_est71 T15C_est75 T15C_est79 T15C_est83 T15C_est87);
 
+	Mrnt030_inc030_allbr_&years. = T15C_moe5;
+	Mrnt3050_inc030_allbr_&years. = T15C_moe26;
+	Mrnt5080_inc030_allbr_&years. = T15C_moe47;
+	Mrnt80pl_inc030_allbr_&years. = T15C_moe68;
+
+	Mrnt030_inc3050_allbr_&years. = T15C_moe9;
+	Mrnt3050_inc3050_allbr_&years. = T15C_moe30;
+	Mrnt5080_inc3050_allbr_&years. = T15C_moe51;
+	Mrnt80pl_inc3050_allbr_&years. = T15C_moe72;
+
+	Mrnt030_inc5080_allbr_&years. = T15C_moe13;
+	Mrnt3050_inc5080_allbr_&years. = T15C_moe34;
+	Mrnt5080_inc5080_allbr_&years. = T15C_moe55;
+	Mrnt80pl_inc5080_allbr_&years. = T15C_moe76;
+
+	Mrnt030_inc80100_allbr_&years. = T15C_moe17;
+	Mrnt3050_inc80100_allbr_&years. = T15C_moe38;
+	Mrnt5080_inc80100_allbr_&years. = T15C_moe59;
+	Mrnt80pl_inc80100_allbr_&years. = T15C_moe80;
+
+	Mrnt030_inc100pl_allbr_&years. = T15C_moe21;
+	Mrnt3050_inc100pl_allbr_&years. = T15C_moe42;
+	Mrnt5080_inc100pl_allbr_&years. = T15C_moe63;
+	Mrnt80pl_inc100pl_allbr_&years. = T15C_moe84;
+
+	Mrnt030_inc030_01br_&years. = T15C_moe6;
+	Mrnt3050_inc030_01br_&years. = T15C_moe27;
+	Mrnt5080_inc030_01br_&years. = T15C_moe48;
+	Mrnt80pl_inc030_01br_&years. = T15C_moe69;
+
+	Mrnt030_inc3050_01br_&years. = T15C_moe10;
+	Mrnt3050_inc3050_01br_&years. = T15C_moe31;
+	Mrnt5080_inc3050_01br_&years. = T15C_moe52;
+	Mrnt80pl_inc3050_01br_&years. = T15C_moe73;
+
+	Mrnt030_inc5080_01br_&years. = T15C_moe14;
+	Mrnt3050_inc5080_01br_&years. = T15C_moe35;
+	Mrnt5080_inc5080_01br_&years. = T15C_moe56;
+	Mrnt80pl_inc5080_01br_&years. = T15C_moe77;
+
+	Mrnt030_inc80100_01br_&years. = T15C_moe18;
+	Mrnt3050_inc80100_01br_&years. = T15C_moe39;
+	Mrnt5080_inc80100_01br_&years. = T15C_moe60;
+	Mrnt80pl_inc80100_01br_&years. = T15C_moe81;
+
+	Mrnt030_inc100pl_01br_&years. = T15C_moe22;
+	Mrnt3050_inc100pl_01br_&years. = T15C_moe43;
+	Mrnt5080_inc100pl_01br_&years. = T15C_moe64;
+	Mrnt80pl_inc100pl_01br_&years. = T15C_moe85;
+
+	Mrnt030_inc030_2br_&years. = T15C_moe7;
+	Mrnt3050_inc030_2br_&years. = T15C_moe28;
+	Mrnt5080_inc030_2br_&years. = T15C_moe49;
+	Mrnt80pl_inc030_2br_&years. = T15C_moe70;
+
+	Mrnt030_inc3050_2br_&years. = T15C_moe11;
+	Mrnt3050_inc3050_2br_&years. = T15C_moe32;
+	Mrnt5080_inc3050_2br_&years. = T15C_moe53;
+	Mrnt80pl_inc3050_2br_&years. = T15C_moe74;
+
+	Mrnt030_inc5080_2br_&years. = T15C_moe15;
+	Mrnt3050_inc5080_2br_&years. = T15C_moe36;
+	Mrnt5080_inc5080_2br_&years. = T15C_moe57;
+	Mrnt80pl_inc5080_2br_&years. = T15C_moe78;
+
+	Mrnt030_inc80100_2br_&years. = T15C_moe19;
+	Mrnt3050_inc80100_2br_&years. = T15C_moe40;
+	Mrnt5080_inc80100_2br_&years. = T15C_moe61;
+	Mrnt80pl_inc80100_2br_&years. = T15C_moe82;
+
+	Mrnt030_inc100pl_2br_&years. = T15C_moe23;
+	Mrnt3050_inc100pl_2br_&years. = T15C_moe44;
+	Mrnt5080_inc100pl_2br_&years. = T15C_moe65;
+	Mrnt80pl_inc100pl_2br_&years. = T15C_moe86;
+
+	Mrnt030_inc030_3br_&years. = T15C_moe8;
+	Mrnt3050_inc030_3br_&years. = T15C_moe29;
+	Mrnt5080_inc030_3br_&years. = T15C_moe50;
+	Mrnt80pl_inc030_3br_&years. = T15C_moe71;
+
+	Mrnt030_inc3050_3br_&years. = T15C_moe12;
+	Mrnt3050_inc3050_3br_&years. = T15C_moe33;
+	Mrnt5080_inc3050_3br_&years. = T15C_moe54;
+	Mrnt80pl_inc3050_3br_&years. = T15C_moe75;
+
+	Mrnt030_inc5080_3br_&years. = T15C_moe16;
+	Mrnt3050_inc5080_3br_&years. = T15C_moe37;
+	Mrnt5080_inc5080_3br_&years. = T15C_moe58;
+	Mrnt80pl_inc5080_3br_&years. = T15C_moe79;
+
+	Mrnt030_inc80100_3br_&years. = T15C_moe20;
+	Mrnt3050_inc80100_3br_&years. = T15C_moe41;
+	Mrnt5080_inc80100_3br_&years. = T15C_moe62;
+	Mrnt80pl_inc80100_3br_&years. = T15C_moe83;
+
+	Mrnt030_inc100pl_3br_&years. = T15C_moe24;
+	Mrnt3050_inc100pl_3br_&years. = T15C_moe45;
+	Mrnt5080_inc100pl_3br_&years. = T15C_moe66;
+	Mrnt80pl_inc100pl_3br_&years. = T15C_moe87;
+
+	Minc030_allbr_&years. = %moe_sum(var= T15C_moe5 T15C_moe26 T15C_moe47 T15C_moe68);
+	Minc3050_allbr_&years. = %moe_sum(var= T15C_moe9 T15C_moe30 T15C_moe51 T15C_moe72);
+	Minc5080_allbr_&years. = %moe_sum(var= T15C_moe13 T15C_moe34 T15C_moe55 T15C_moe76);
+	Minc80100_allbr_&years. = %moe_sum(var= T15C_moe17 T15C_moe38 T15C_moe59 T15C_moe80);
+	Minc100pl_allbr_&years. = %moe_sum(var= T15C_moe21 T15C_moe42 T15C_moe63 T15C_moe84 );
+
+	Minc030_01br_&years. = %moe_sum(var= T15C_moe6 T15C_moe27 T15C_moe48 T15C_moe69 );
+	Minc3050_01br_&years. = %moe_sum(var= T15C_moe10 T15C_moe31 T15C_moe52 T15C_moe73);
+	Minc5080_01br_&years. = %moe_sum(var= T15C_moe14 T15C_moe35 T15C_moe56 T15C_moe77);
+	Minc80100_01br_&years. = %moe_sum(var= T15C_moe18 T15C_moe39 T15C_moe60 T15C_moe81);
+	Minc100pl_01br_&years. = %moe_sum(var= T15C_moe22 T15C_moe43 T15C_moe64 T15C_moe85);
+
+	Minc030_2br_&years. = %moe_sum(var= T15C_moe7 T15C_moe28 T15C_moe49 T15C_moe70);
+	Minc3050_2br_&years. = %moe_sum(var= T15C_moe11 T15C_moe32 T15C_moe53 T15C_moe74);
+	Minc5080_2br_&years. = %moe_sum(var= T15C_moe15 T15C_moe36 T15C_moe57 T15C_moe78);
+	Minc80100_2br_&years. = %moe_sum(var= T15C_moe19 T15C_moe40 T15C_moe61 T15C_moe82);
+	Minc100pl_2br_&years. = %moe_sum(var= T15C_moe23 T15C_moe44 T15C_moe65 T15C_moe86);
+
+	Minc030_3br_&years. = %moe_sum(var= T15C_moe8 T15C_moe29 T15C_moe50 T15C_moe71);
+	Minc3050_3br_&years. = %moe_sum(var= T15C_moe12 T15C_moe33 T15C_moe54 T15C_moe75);
+	Minc5080_3br_&years. = %moe_sum(var= T15C_moe16 T15C_moe37 T15C_moe58 T15C_moe79 );
+	Minc80100_3br_&years. = %moe_sum(var= T15C_moe20 T15C_moe41 T15C_moe62 T15C_moe83);
+	Minc100pl_3br_&years. = %moe_sum(var= T15C_moe24 T15C_moe45 T15C_moe66 T15C_moe87);
+
+	Mrnt030_allbr_&years. = %moe_sum(var= T15C_moe5 T15C_moe9 T15C_moe13 T15C_moe17 T15C_moe21);
+	Mrnt3050_allbr_&years. = %moe_sum(var= T15C_moe26 T15C_moe30 T15C_moe34 T15C_moe38 T15C_moe42);
+	Mrnt5080_allbr_&years. = %moe_sum(var= T15C_moe47 T15C_moe51 T15C_moe55 T15C_moe59 T15C_moe63);
+	Mrnt80pl_allbr_&years. = %moe_sum(var= T15C_moe68 T15C_moe72 T15C_moe76 T15C_moe80 T15C_moe84);
+
+	Mrnt030_01br_&years. = %moe_sum(var= T15C_moe6 T15C_moe10 T15C_moe14 T15C_moe18 T15C_moe22);
+	Mrnt3050_01br_&years. = %moe_sum(var= T15C_moe27 T15C_moe31 T15C_moe35 T15C_moe39 T15C_moe43);
+	Mrnt5080_01br_&years. = %moe_sum(var= T15C_moe48 T15C_moe52 T15C_moe56 T15C_moe60 T15C_moe64);
+	Mrnt80pl_01br_&years. = %moe_sum(var= T15C_moe69 T15C_moe73 T15C_moe77 T15C_moe81 T15C_moe85);
+
+	Mrnt030_2br_&years. = %moe_sum(var= T15C_moe7 T15C_moe11 T15C_moe15 T15C_moe19 T15C_moe23);
+	Mrnt3050_2br_&years. = %moe_sum(var= T15C_moe28 T15C_moe32 T15C_moe36 T15C_moe40 T15C_moe44);
+	Mrnt5080_2br_&years. = %moe_sum(var= T15C_moe49 T15C_moe53 T15C_moe57 T15C_moe61 T15C_moe65);
+	Mrnt80pl_2br_&years. = %moe_sum(var= T15C_moe70 T15C_moe74 T15C_moe78 T15C_moe82 T15C_moe86);
+
+	Mrnt030_3br_&years. = %moe_sum(var= T15C_moe8 T15C_moe12 T15C_moe16 T15C_moe20 T15C_moe24);
+	Mrnt3050_3br_&years. = %moe_sum(var= T15C_moe29 T15C_moe33 T15C_moe37 T15C_moe41 T15C_moe45);
+	Mrnt5080_3br_&years. = %moe_sum(var= T15C_moe50 T15C_moe54 T15C_moe58 T15C_moe62 T15C_moe66);
+	Mrnt80pl_3br_&years. = %moe_sum(var= T15C_moe71 T15C_moe75 T15C_moe79 T15C_moe83 T15C_moe87);
 
 	label
 	rnt030_inc030_allbr_&years. = "Rent level 0-30%, household income 0-30%, &years_dash."
@@ -577,6 +720,123 @@ data &out._&years.;
 	rnt3050_3br_&years. = "Rent level 30-50%, 3+ bedrooms, &years_dash."
 	rnt5080_3br_&years. = "Rent level 80%+, 3+ bedrooms, &years_dash."
 	rnt80pl_3br_&years. = "Rent level 80%+, 3+ bedrooms, &years_dash."
+
+	Mrnt030_inc030_allbr_&years. = "Rent level 0-30%, household income 0-30%, MOE, &years_dash."
+	Mrnt3050_inc030_allbr_&years. = "Rent level 30-50%, household income 0-30%, MOE, &years_dash."
+	Mrnt5080_inc030_allbr_&years. = "Rent level 50-80%, household income 0-30%, MOE, &years_dash."
+	Mrnt80pl_inc030_allbr_&years. = "Rent level 80%+, household income 0-30%, MOE, &years_dash."
+	Mrnt030_inc3050_allbr_&years. = "Rent level 0-30%, household income 30-50%, MOE, &years_dash."
+	Mrnt3050_inc3050_allbr_&years. = "Rent level 30-50%, household income 30-50%, MOE, &years_dash."
+	Mrnt5080_inc3050_allbr_&years. = "Rent level 50-80%, household income 30-50%, MOE, &years_dash."
+	Mrnt80pl_inc3050_allbr_&years. = "Rent level 80%+, household income 30-50%, MOE, &years_dash."
+	Mrnt030_inc5080_allbr_&years. = "Rent level 0-30%, household income 50-80%, MOE, &years_dash."
+	Mrnt3050_inc5080_allbr_&years. = "Rent level 30-50%, household income 50-80%, MOE, &years_dash."
+	Mrnt5080_inc5080_allbr_&years. = "Rent level 50-80%, household income 50-80%, MOE, &years_dash."
+	Mrnt80pl_inc5080_allbr_&years. = "Rent level 80%+, household income 50-80%, MOE, &years_dash."
+	Mrnt030_inc80100_allbr_&years. = "Rent level 0-30%, household income 80-100%, MOE, &years_dash."
+	Mrnt3050_inc80100_allbr_&years. = "Rent level 30-50%, household income 80-100%, MOE, &years_dash."
+	Mrnt5080_inc80100_allbr_&years. = "Rent level 50-80%, household income 80-100%, MOE, &years_dash."
+	Mrnt80pl_inc80100_allbr_&years. = "Rent level 80%+, household income 80-100%, MOE, &years_dash."
+	Mrnt030_inc100pl_allbr_&years. = "Rent level 0-30%, household income 100%+, MOE, &years_dash."
+	Mrnt3050_inc100pl_allbr_&years. = "Rent level 30-50%, household income 100%+, MOE, &years_dash."
+	Mrnt5080_inc100pl_allbr_&years. = "Rent level 50-80%, household income 100%+, MOE, &years_dash."
+	Mrnt80pl_inc100pl_allbr_&years. = "Rent level 80%+, household income 100%+, MOE, &years_dash."
+	Mrnt030_inc030_01br_&years. = "Rent level 0-30%, household income 0-30%, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt3050_inc030_01br_&years. = "Rent level 30-50%, household income 0-30%, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt5080_inc030_01br_&years. = "Rent level 50-80%, household income 0-30%, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt80pl_inc030_01br_&years. = "Rent level 80%+, household income 0-30%, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt030_inc3050_01br_&years. = "Rent level 0-30%, household income 30-50%, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt3050_inc3050_01br_&years. = "Rent level 30-50%, household income 30-50%, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt5080_inc3050_01br_&years. = "Rent level 50-80%, household income 30-50%, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt80pl_inc3050_01br_&years. = "Rent level 80%+, household income 30-50%, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt030_inc5080_01br_&years. = "Rent level 0-30%, household income 50-80%, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt3050_inc5080_01br_&years. = "Rent level 30-50%, household income 50-80%, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt5080_inc5080_01br_&years. = "Rent level 50-80%, household income 50-80%, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt80pl_inc5080_01br_&years. = "Rent level 80%+, household income 50-80%, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt030_inc80100_01br_&years. = "Rent level 0-30%, household income 80-100%, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt3050_inc80100_01br_&years. = "Rent level 30-50%, household income 80-100%, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt5080_inc80100_01br_&years. = "Rent level 50-80%, household income 80-100%, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt80pl_inc80100_01br_&years. = "Rent level 80%+, household income 80-100%, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt030_inc100pl_01br_&years. = "Rent level 0-30%, household income 100%+, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt3050_inc100pl_01br_&years. = "Rent level 30-50%, household income 100%+, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt5080_inc100pl_01br_&years. = "Rent level 50-80%, household income 100%+, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt80pl_inc100pl_01br_&years. = "Rent level 80%+, household income 100%+, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt030_inc030_2br_&years. = "Rent level 0-30%, household income 0-30%, 2 bedrooms, MOE, &years_dash."
+	Mrnt3050_inc030_2br_&years. = "Rent level 30-50%, household income 0-30%, 2 bedrooms, MOE, &years_dash."
+	Mrnt5080_inc030_2br_&years. = "Rent level 50-80%, household income 0-30%, 2 bedrooms, MOE, &years_dash."
+	Mrnt80pl_inc030_2br_&years. = "Rent level 80%+, household income 0-30%, 2 bedrooms, MOE, &years_dash."
+	Mrnt030_inc3050_2br_&years. = "Rent level 0-30%, household income 30-50%, 2 bedrooms, MOE, &years_dash."
+	Mrnt3050_inc3050_2br_&years. = "Rent level 30-50%, household income 30-50%, 2 bedrooms, MOE, &years_dash."
+	Mrnt5080_inc3050_2br_&years. = "Rent level 50-80%, household income 30-50%, 2 bedrooms, MOE, &years_dash."
+	Mrnt80pl_inc3050_2br_&years. = "Rent level 80%+, household income 30-50%, 2 bedrooms, MOE, &years_dash."
+	Mrnt030_inc5080_2br_&years. = "Rent level 0-30%, household income 50-80%, 2 bedrooms, MOE, &years_dash."
+	Mrnt3050_inc5080_2br_&years. = "Rent level 30-50%, household income 50-80%, 2 bedrooms, MOE, &years_dash."
+	Mrnt5080_inc5080_2br_&years. = "Rent level 50-80%, household income 50-80%, 2 bedrooms, MOE, &years_dash."
+	Mrnt80pl_inc5080_2br_&years. = "Rent level 80%+, household income 50-80%, 2 bedrooms, MOE, &years_dash."
+	Mrnt030_inc80100_2br_&years. = "Rent level 0-30%, household income 80-100%, 2 bedrooms, MOE, &years_dash."
+	Mrnt3050_inc80100_2br_&years. = "Rent level 30-50%, household income 80-100%, 2 bedrooms, MOE, &years_dash."
+	Mrnt5080_inc80100_2br_&years. = "Rent level 50-80%, household income 80-100%, 2 bedrooms, MOE, &years_dash."
+	Mrnt80pl_inc80100_2br_&years. = "Rent level 80%+, household income 80-100%, 2 bedrooms, MOE, &years_dash."
+	Mrnt030_inc100pl_2br_&years. = "Rent level 0-30%, household income 100%+, 3+ bedrooms, MOE, &years_dash."
+	Mrnt3050_inc100pl_2br_&years. = "Rent level 30-50%, household income 100%+, 3+ bedrooms, MOE, &years_dash."
+	Mrnt5080_inc100pl_2br_&years. = "Rent level 50-80%, household income 100%+, 3+ bedrooms, MOE, &years_dash."
+	Mrnt80pl_inc100pl_2br_&years. = "Rent level 80%+, household income 100%+, 3+ bedrooms, MOE, &years_dash."
+	Mrnt030_inc030_3br_&years. = "Rent level 0-30%, household income 0-30%, 3+ bedrooms, MOE, &years_dash."
+	Mrnt3050_inc030_3br_&years. = "Rent level 30-50%, household income 0-30%, 3+ bedrooms, MOE, &years_dash."
+	Mrnt5080_inc030_3br_&years. = "Rent level 50-80%, household income 0-30%, 3+ bedrooms, MOE, &years_dash."
+	Mrnt80pl_inc030_3br_&years. = "Rent level 80%+, household income 0-30%, 3+ bedrooms, MOE, &years_dash."
+	Mrnt030_inc3050_3br_&years. = "Rent level 0-30%, household income 30-50%, 3+ bedrooms, MOE, &years_dash."
+	Mrnt3050_inc3050_3br_&years. = "Rent level 30-50%, household income 30-50%, 3+ bedrooms, MOE, &years_dash."
+	Mrnt5080_inc3050_3br_&years. = "Rent level 50-80%, household income 30-50%, 3+ bedrooms, MOE, &years_dash."
+	Mrnt80pl_inc3050_3br_&years. = "Rent level 80%+, household income 30-50%, 3+ bedrooms, MOE, &years_dash."
+	Mrnt030_inc5080_3br_&years. = "Rent level 0-30%, household income 50-80%, 3+ bedrooms, MOE, &years_dash."
+	Mrnt3050_inc5080_3br_&years. ="Rent level 30-50%, household income 50-80%, 3+ bedrooms, MOE, &years_dash."
+	Mrnt5080_inc5080_3br_&years. = "Rent level 50-80%, household income 50-80%, 3+ bedrooms, MOE, &years_dash."
+	Mrnt80pl_inc5080_3br_&years. = "Rent level 80%+, household income 50-80%, 3+ bedrooms, MOE, &years_dash."
+	Mrnt030_inc80100_3br_&years. = "Rent level 0-30%, household income 80-100%, 3+ bedrooms, MOE, &years_dash."
+	Mrnt3050_inc80100_3br_&years. = "Rent level 30-50%, household income 80-100%, 3+ bedrooms, MOE, &years_dash."
+	Mrnt5080_inc80100_3br_&years. = "Rent level 50-80%, household income 80-100%, 3+ bedrooms, MOE, &years_dash."
+	Mrnt80pl_inc80100_3br_&years. = "Rent level 80%+, household income 80-100%, 3+ bedrooms, MOE, &years_dash."
+	Mrnt030_inc100pl_3br_&years. = "Rent level 0-30%, household income 100%+, 3+ bedrooms, MOE, &years_dash."
+	Mrnt3050_inc100pl_3br_&years. = "Rent level 30-50%, household income 100%+, 3+ bedrooms, MOE, &years_dash."
+	Mrnt5080_inc100pl_3br_&years. = "Rent level 50-80%, household income 100%+, 3+ bedrooms, MOE, &years_dash."
+	Mrnt80pl_inc100pl_3br_&years. = "Rent level 80%+, household income 100%+, 3+ bedrooms, MOE, &years_dash."
+	Minc030_allbr_&years. = "Renter household income 0-30%, MOE, &years_dash."
+	Minc3050_allbr_&years. = "Renter household income 30-50%, MOE, &years_dash."
+	Minc5080_allbr_&years. = "Renter household income 50-80%, MOE, &years_dash."
+	Minc80100_allbr_&years. = "Renter household income 80-100%, MOE, &years_dash."
+	Minc100pl_allbr_&years. = "Renter household income 100%+, MOE, &years_dash."
+	Minc030_01br_&years. = "Renter household income 0-30%, 0-1 bedrooms, MOE, &years_dash."
+	Minc3050_01br_&years. = "Renter household income 30-50%, 0-1 bedrooms, MOE, &years_dash."
+	Minc5080_01br_&years. = "Renter household income 50-80%, 0-1 bedrooms, MOE, &years_dash."
+	Minc80100_01br_&years. = "Renter household income 80-100%, 0-1 bedrooms, MOE, &years_dash."
+	Minc100pl_01br_&years. = "Renter household income 100%+, 0-1 bedrooms, MOE, &years_dash."
+	Minc030_2br_&years. = "Renter household income 0-30%, 2 bedrooms, MOE, &years_dash."
+	Minc3050_2br_&years. = "Renter household income 30-50%, 2 bedrooms, MOE, &years_dash."
+	Minc5080_2br_&years. = "Renter household income 50-80%, 2 bedrooms, MOE, &years_dash."
+	Minc80100_2br_&years. = "Renter household income 80-100%, 2 bedrooms, MOE, &years_dash."
+	Minc100pl_2br_&years. = "Renter household income 100%+, 2 bedrooms, MOE, &years_dash."
+	Minc030_3br_&years. = "Renter household income 0-30%, 3+ bedrooms, MOE, &years_dash."
+	Minc3050_3br_&years. = "Renter household income 30-50%, 3+ bedrooms, MOE, &years_dash."
+	Minc5080_3br_&years. = "Renter household income 50-80%, 3+ bedrooms, MOE, &years_dash."
+	Minc80100_3br_&years. = "Renter household income 80-100%, 3+ bedrooms, MOE, &years_dash."
+	Minc100pl_3br_&years. = "Renter household income 100%+, 3+ bedrooms, MOE, &years_dash."
+	Mrnt030_allbr_&years. = "Rent level 0-30%, MOE, &years_dash."
+	Mrnt3050_allbr_&years. = "Rent level 30-50%, MOE, &years_dash."
+	Mrnt5080_allbr_&years. = "Rent level 50-80%, MOE, &years_dash."
+	Mrnt80pl_allbr_&years. = "Rent level 80%+, MOE, &years_dash."
+	Mrnt030_01br_&years. = "Rent level 0-30%, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt3050_01br_&years. = "Rent level 30-50%, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt5080_01br_&years. = "Rent level 50-80%, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt80pl_01br_&years. = "Rent level 80%+, 0-1 bedrooms, MOE, &years_dash."
+	Mrnt030_2br_&years. = "Rent level 0-30%, 2 bedrooms, MOE, &years_dash."
+	Mrnt3050_2br_&years. = "Rent level 30-50%, 2 bedrooms, MOE, &years_dash."
+	Mrnt5080_2br_&years. = "Rent level 50-80%, 2 bedrooms, MOE, &years_dash."
+	Mrnt80pl_2br_&years. = "Rent level 80%+, 2 bedrooms, MOE, &years_dash."
+	Mrnt030_3br_&years. = "Rent level 0-30%, 3+ bedrooms, MOE, &years_dash."
+	Mrnt3050_3br_&years. = "Rent level 30-50%, 3+ bedrooms, MOE, &years_dash."
+	Mrnt5080_3br_&years. = "Rent level 80%+, 3+ bedrooms, MOE, &years_dash."
+	Mrnt80pl_3br_&years. = "Rent level 80%+, 3+ bedrooms, MOE, &years_dash."
 	;
 
 	%Pct_calc( var=Prnt030_inc030_allbr, label=% renter households with rent level 0-30% household income 0-30%, num=rnt030_inc030_allbr, den=inc030_allbr, years= &years. );
@@ -584,101 +844,280 @@ data &out._&years.;
 	%Pct_calc( var=Prnt5080_inc030_allbr, label=% renter households with rent level 50-80% household income 0-30%, num=rnt5080_inc030_allbr, den=inc030_allbr, years= &years. );
 	%Pct_calc( var=Prnt80pl_inc030_allbr, label=% renter households with rent level 80%+ household income 0-30%, num=rnt80pl_inc030_allbr, den=inc030_allbr, years= &years. );
 
+	%Moe_prop_a( var=Ornt030_inc030_allbr_&years., mult=100, num=rnt030_inc030_allbr_&years., den=inc030_allbr_&years., 
+                       num_moe=Mrnt030_inc030_allbr_&years., den_moe=Minc030_allbr_&years., label_moe = % renter households with rent level 0-30% household income 0-30% MOE);
+	%Moe_prop_a( var=Ornt3050_inc030_allbr_&years., mult=100, num=rnt3050_inc030_allbr_&years., den=inc030_allbr_&years., 
+                       num_moe=Mrnt3050_inc030_allbr_&years., den_moe=Minc030_allbr_&years., label_moe = % renter households with rent level 30-50% household income 0-30% MOE);
+	 %Moe_prop_a( var=Ornt5080_inc030_allbr_&years., mult=100, num=rnt5080_inc030_allbr_&years., den=inc030_allbr_&years., 
+                       num_moe=Mrnt5080_inc030_allbr_&years., den_moe=Minc030_allbr_&years., label_moe = % renter households with rent level 50-80% household income 0-30% MOE);
+	%Moe_prop_a( var=Ornt80pl_inc030_allbr_&years., mult=100, num=rnt80pl_inc030_allbr_&years., den=inc030_allbr_&years., 
+                       num_moe=Mrnt80pl_inc030_allbr_&years., den_moe=Minc030_allbr_&years., label_moe = % renter households with rent level 80%+ household income 0-30% MOE);
+
 	%Pct_calc( var=Prnt030_inc3050_allbr, label=% renter households with rent level 0-30% household income 30-50%, num=rnt030_inc3050_allbr, den=inc3050_allbr, years= &years. );
 	%Pct_calc( var=Prnt3050_inc3050_allbr, label=% renter households with rent level 30-50% household income 30-50%, num=rnt3050_inc3050_allbr, den=inc3050_allbr, years= &years. );
 	%Pct_calc( var=Prnt5080_inc3050_allbr, label=% renter households with rent level 50-80% household income 30-50%, num=rnt5080_inc3050_allbr, den=inc3050_allbr, years= &years. );
 	%Pct_calc( var=Prnt80pl_inc3050_allbr, label=% renter households with rent level 80%+ household income 30-50%, num=rnt80pl_inc3050_allbr, den=inc3050_allbr, years= &years. );
+
+	%Moe_prop_a( var=Ornt030_inc3050_allbr_&years., mult=100, num=rnt030_inc3050_allbr_&years., den=inc3050_allbr_&years., 
+                       num_moe=Mrnt030_inc3050_allbr_&years., den_moe=Minc3050_allbr_&years., label_moe = % renter households with rent level 0-30% household income 30-50% MOE);
+	%Moe_prop_a( var=Ornt3050_inc3050_allbr_&years., mult=100, num=rnt3050_inc3050_allbr_&years., den=inc3050_allbr_&years., 
+                       num_moe=Mrnt3050_inc3050_allbr_&years., den_moe=Minc3050_allbr_&years., label_moe = % renter households with rent level 30-50% household income 30-50% MOE);
+	 %Moe_prop_a( var=Ornt5080_inc3050_allbr_&years., mult=100, num=rnt5080_inc3050_allbr_&years., den=inc3050_allbr_&years., 
+                       num_moe=Mrnt5080_inc3050_allbr_&years., den_moe=Minc3050_allbr_&years., label_moe = % renter households with rent level 50-80% household income 30-50% MOE);
+	%Moe_prop_a( var=Ornt80pl_inc3050_allbr_&years., mult=100, num=rnt80pl_inc3050_allbr_&years., den=inc3050_allbr_&years., 
+                       num_moe=Mrnt80pl_inc3050_allbr_&years., den_moe=Minc3050_allbr_&years., label_moe = % renter households with rent level 80%+ household income 30-50% MOE);
 
 	%Pct_calc( var=Prnt030_inc5080_allbr, label=% renter households with rent level 0-30% household income 50-80%, num=rnt030_inc5080_allbr, den=inc5080_allbr, years= &years. );
 	%Pct_calc( var=Prnt3050_inc5080_allbr, label=% renter households with rent level 30-50% household income 50-80%, num=rnt3050_inc5080_allbr, den=inc5080_allbr, years= &years. );
 	%Pct_calc( var=Prnt5080_inc5080_allbr, label=% renter households with rent level 50-80% household income 50-80%, num=rnt5080_inc5080_allbr, den=inc5080_allbr, years= &years. );
 	%Pct_calc( var=Prnt80pl_inc5080_allbr, label=% renter households with rent level 80%+ household income 50-80%, num=rnt80pl_inc5080_allbr, den=inc5080_allbr, years= &years. );
 
+	%Moe_prop_a( var=Ornt030_inc5080_allbr_&years., mult=100, num=rnt030_inc5080_allbr_&years., den=inc5080_allbr_&years., 
+                       num_moe=Mrnt030_inc5080_allbr_&years., den_moe=Minc5080_allbr_&years., label_moe = % renter households with rent level 0-30% household income 50-80% MOE);
+	%Moe_prop_a( var=Ornt3050_inc5080_allbr_&years., mult=100, num=rnt3050_inc5080_allbr_&years., den=inc5080_allbr_&years., 
+                       num_moe=Mrnt3050_inc5080_allbr_&years., den_moe=Minc5080_allbr_&years., label_moe = % renter households with rent level 30-50% household income 50-80% MOE);
+	 %Moe_prop_a( var=Ornt5080_inc5080_allbr_&years., mult=100, num=rnt5080_inc5080_allbr_&years., den=inc5080_allbr_&years., 
+                       num_moe=Mrnt5080_inc5080_allbr_&years., den_moe=Minc5080_allbr_&years., label_moe = % renter households with rent level 50-80% household income 50-80% MOE);
+	%Moe_prop_a( var=Ornt80pl_inc5080_allbr_&years., mult=100, num=rnt80pl_inc5080_allbr_&years., den=inc5080_allbr_&years., 
+                       num_moe=Mrnt80pl_inc5080_allbr_&years., den_moe=Minc5080_allbr_&years., label_moe = % renter households with rent level 80%+ household income 50-80% MOE);
+
 	%Pct_calc( var=Prnt030_inc80100_allbr, label=% renter households with rent level 0-30% household income 80-100%, num=rnt030_inc80100_allbr, den=inc80100_allbr, years= &years. );
 	%Pct_calc( var=Prnt3050_inc80100_allbr, label=% renter households with rent level 30-50% household income 80-100%, num=rnt3050_inc80100_allbr, den=inc80100_allbr, years= &years. );
 	%Pct_calc( var=Prnt5080_inc80100_allbr, label=% renter households with rent level 50-80% household income 80-100%, num=rnt5080_inc80100_allbr, den=inc80100_allbr, years= &years. );
 	%Pct_calc( var=Prnt80pl_inc80100_allbr, label=% renter households with rent level 80%+ household income 80-100%, num=rnt80pl_inc80100_allbr, den=inc80100_allbr, years= &years. );
+
+	%Moe_prop_a( var=Ornt030_inc80100_allbr_&years., mult=100, num=rnt030_inc80100_allbr_&years., den=inc80100_allbr_&years., 
+                       num_moe=Mrnt030_inc80100_allbr_&years., den_moe=Minc80100_allbr_&years., label_moe = % renter households with rent level 0-30% household income 80-100% MOE);
+	%Moe_prop_a( var=Ornt3050_inc80100_allbr_&years., mult=100, num=rnt3050_inc80100_allbr_&years., den=inc80100_allbr_&years., 
+                       num_moe=Mrnt3050_inc80100_allbr_&years., den_moe=Minc80100_allbr_&years., label_moe = % renter households with rent level 30-50% household income 80-100% MOE);
+	 %Moe_prop_a( var=Ornt5080_inc80100_allbr_&years., mult=100, num=rnt5080_inc80100_allbr_&years., den=inc80100_allbr_&years., 
+                       num_moe=Mrnt5080_inc80100_allbr_&years., den_moe=Minc80100_allbr_&years., label_moe = % renter households with rent level 50-80% household income 80-100% MOE);
+	%Moe_prop_a( var=Ornt80pl_inc80100_allbr_&years., mult=100, num=rnt80pl_inc80100_allbr_&years., den=inc80100_allbr_&years., 
+                       num_moe=Mrnt80pl_inc80100_allbr_&years., den_moe=Minc80100_allbr_&years., label_moe = % renter households with rent level 80%+ household income 80-100% MOE);
 
 	%Pct_calc( var=Prnt030_inc100pl_allbr, label=% renter households with rent level 0-30% household income 100%+, num=rnt030_inc100pl_allbr, den=inc100pl_allbr, years= &years. );
 	%Pct_calc( var=Prnt3050_inc100pl_allbr, label=% renter households with rent level 30-50% household income 100%+, num=rnt3050_inc100pl_allbr, den=inc100pl_allbr, years= &years. );
 	%Pct_calc( var=Prnt5080_inc100pl_allbr, label=% renter households with rent level 50-80% household income 100%+, num=rnt5080_inc100pl_allbr, den=inc100pl_allbr, years= &years. );
 	%Pct_calc( var=Prnt80pl_inc100pl_allbr, label=% renter households with rent level 80%+ household income 100%+, num=rnt80pl_inc100pl_allbr, den=inc100pl_allbr, years= &years. );
 
+	%Moe_prop_a( var=Ornt030_inc100pl_allbr_&years., mult=100, num=rnt030_inc100pl_allbr_&years., den=inc100pl_allbr_&years., 
+                       num_moe=Mrnt030_inc100pl_allbr_&years., den_moe=Minc100pl_allbr_&years., label_moe = % renter households with rent level 0-30% household income 100%+ MOE);
+	%Moe_prop_a( var=Ornt3050_inc100pl_allbr_&years., mult=100, num=rnt3050_inc100pl_allbr_&years., den=inc100pl_allbr_&years., 
+                       num_moe=Mrnt3050_inc100pl_allbr_&years., den_moe=Minc100pl_allbr_&years., label_moe = % renter households with rent level 30-50% household income 100%+ MOE);
+	 %Moe_prop_a( var=Ornt5080_inc100pl_allbr_&years., mult=100, num=rnt5080_inc100pl_allbr_&years., den=inc100pl_allbr_&years., 
+                       num_moe=Mrnt5080_inc100pl_allbr_&years., den_moe=Minc100pl_allbr_&years., label_moe = % renter households with rent level 50-80% household income 100%+ MOE);
+	%Moe_prop_a( var=Ornt80pl_inc100pl_allbr_&years., mult=100, num=rnt80pl_inc100pl_allbr_&years., den=inc100pl_allbr_&years., 
+                       num_moe=Mrnt80pl_inc100pl_allbr_&years., den_moe=Minc100pl_allbr_&years., label_moe = % renter households with rent level 80%+ household income 100%+ MOE);
+
 	%Pct_calc( var=Prnt030_inc030_01br, label=% renter households with rent level 0-30% household income 0-30% 0-1 bedrooms, num=rnt030_inc030_01br, den=inc030_01br, years= &years. );
 	%Pct_calc( var=Prnt3050_inc030_01br, label=% renter households with rent level 30-50% household income 0-30% 0-1 bedrooms, num=rnt3050_inc030_01br, den=inc030_01br, years= &years. );
 	%Pct_calc( var=Prnt5080_inc030_01br, label=% renter households with rent level 50-80% household income 0-30% 0-1 bedrooms, num=rnt5080_inc030_01br, den=inc030_01br, years= &years. );
 	%Pct_calc( var=Prnt80pl_inc030_01br, label=% renter households with rent level 80%+ household income 0-30% 0-1 bedrooms, num=rnt80pl_inc030_01br, den=inc030_01br, years= &years. );
+
+	%Moe_prop_a( var=Ornt030_inc030_01br_&years., mult=100, num=rnt030_inc030_01br_&years., den=inc030_01br_&years., 
+                       num_moe=Mrnt030_inc030_01br_&years., den_moe=Minc030_01br_&years., label_moe = % renter households with rent level 0-30% household income 0-30% 0-1 bedrooms MOE);
+	%Moe_prop_a( var=Ornt3050_inc030_01br_&years., mult=100, num=rnt3050_inc030_01br_&years., den=inc030_01br_&years., 
+                       num_moe=Mrnt3050_inc030_01br_&years., den_moe=Minc030_01br_&years., label_moe = % renter households with rent level 30-50% household income 0-30% 0-1 bedrooms MOE);
+	 %Moe_prop_a( var=Ornt5080_inc030_01br_&years., mult=100, num=rnt5080_inc030_01br_&years., den=inc030_01br_&years., 
+                       num_moe=Mrnt5080_inc030_01br_&years., den_moe=Minc030_01br_&years., label_moe = % renter households with rent level 50-80% household income 0-30% 0-1 bedrooms MOE);
+	%Moe_prop_a( var=Ornt80pl_inc030_01br_&years., mult=100, num=rnt80pl_inc030_01br_&years., den=inc030_01br_&years., 
+                       num_moe=Mrnt80pl_inc030_01br_&years., den_moe=Minc030_01br_&years., label_moe = % renter households with rent level 80%+ household income 0-30% 0-1 bedrooms MOE);
 
 	%Pct_calc( var=Prnt030_inc3050_01br, label=% renter households with rent level 0-30% household income 30-50% 0-1 bedrooms, num=rnt030_inc3050_01br, den=inc3050_01br, years= &years. );
 	%Pct_calc( var=Prnt3050_inc3050_01br, label=% renter households with rent level 30-50% household income 30-50% 0-1 bedrooms, num=rnt3050_inc3050_01br, den=inc3050_01br, years= &years. );
 	%Pct_calc( var=Prnt5080_inc3050_01br, label=% renter households with rent level 50-80% household income 30-50% 0-1 bedrooms, num=rnt5080_inc3050_01br, den=inc3050_01br, years= &years. );
 	%Pct_calc( var=Prnt80pl_inc3050_01br, label=% renter households with rent level 80%+ household income 30-50% 0-1 bedrooms, num=rnt80pl_inc3050_01br, den=inc3050_01br, years= &years. );
 
+	%Moe_prop_a( var=Ornt030_inc3050_01br_&years., mult=100, num=rnt030_inc3050_01br_&years., den=inc3050_01br_&years., 
+                       num_moe=Mrnt030_inc3050_01br_&years., den_moe=Minc3050_01br_&years., label_moe = % renter households with rent level 0-30% household income 30-50% 0-1 bedrooms MOE);
+	%Moe_prop_a( var=Ornt3050_inc3050_01br_&years., mult=100, num=rnt3050_inc3050_01br_&years., den=inc3050_01br_&years., 
+                       num_moe=Mrnt3050_inc3050_01br_&years., den_moe=Minc3050_01br_&years., label_moe = % renter households with rent level 30-50% household income 30-50% 0-1 bedrooms MOE);
+	 %Moe_prop_a( var=Ornt5080_inc3050_01br_&years., mult=100, num=rnt5080_inc3050_01br_&years., den=inc3050_01br_&years., 
+                       num_moe=Mrnt5080_inc3050_01br_&years., den_moe=Minc3050_01br_&years., label_moe = % renter households with rent level 50-80% household income 30-50% 0-1 bedrooms MOE);
+	%Moe_prop_a( var=Ornt80pl_inc3050_01br_&years., mult=100, num=rnt80pl_inc3050_01br_&years., den=inc3050_01br_&years., 
+                       num_moe=Mrnt80pl_inc3050_01br_&years., den_moe=Minc3050_01br_&years., label_moe = % renter households with rent level 80%+ household income 30-50% 0-1 bedrooms MOE);
+
 	%Pct_calc( var=Prnt030_inc5080_01br, label=% renter households with rent level 0-30% household income 50-80% 0-1 bedrooms, num=rnt030_inc5080_01br, den=inc5080_01br, years= &years. );
 	%Pct_calc( var=Prnt3050_inc5080_01br, label=% renter households with rent level 30-50% household income 50-80% 0-1 bedrooms, num=rnt3050_inc5080_01br, den=inc5080_01br, years= &years. );
 	%Pct_calc( var=Prnt5080_inc5080_01br, label=% renter households with rent level 50-80% household income 50-80% 0-1 bedrooms, num=rnt5080_inc5080_01br, den=inc5080_01br, years= &years. );
 	%Pct_calc( var=Prnt80pl_inc5080_01br, label=% renter households with rent level 80%+ household income 50-80% 0-1 bedrooms, num=rnt80pl_inc5080_01br, den=inc5080_01br, years= &years. );
+
+	%Moe_prop_a( var=Ornt030_inc5080_01br_&years., mult=100, num=rnt030_inc5080_01br_&years., den=inc5080_01br_&years., 
+                       num_moe=Mrnt030_inc5080_01br_&years., den_moe=Minc5080_01br_&years., label_moe = % renter households with rent level 0-30% household income 50-80% 0-1 bedrooms MOE);
+	%Moe_prop_a( var=Ornt3050_inc5080_01br_&years., mult=100, num=rnt3050_inc5080_01br_&years., den=inc5080_01br_&years., 
+                       num_moe=Mrnt3050_inc5080_01br_&years., den_moe=Minc5080_01br_&years., label_moe = % renter households with rent level 30-50% household income 50-80% 0-1 bedrooms MOE);
+	 %Moe_prop_a( var=Ornt5080_inc5080_01br_&years., mult=100, num=rnt5080_inc5080_01br_&years., den=inc5080_01br_&years., 
+                       num_moe=Mrnt5080_inc5080_01br_&years., den_moe=Minc5080_01br_&years., label_moe = % renter households with rent level 50-80% household income 50-80% 0-1 bedrooms MOE);
+	%Moe_prop_a( var=Ornt80pl_inc5080_01br_&years., mult=100, num=rnt80pl_inc5080_01br_&years., den=inc5080_01br_&years., 
+                       num_moe=Mrnt80pl_inc5080_01br_&years., den_moe=Minc5080_01br_&years., label_moe = % renter households with rent level 80%+ household income 50-80% 0-1 bedrooms MOE);
 
 	%Pct_calc( var=Prnt030_inc80100_01br, label=% renter households with rent level 0-30% household income 80-100% 0-1 bedrooms, num=rnt030_inc80100_01br, den=inc80100_01br, years= &years. );
 	%Pct_calc( var=Prnt3050_inc80100_01br, label=% renter households with rent level 30-50% household income 80-100% 0-1 bedrooms, num=rnt3050_inc80100_01br, den=inc80100_01br, years= &years. );
 	%Pct_calc( var=Prnt5080_inc80100_01br, label=% renter households with rent level 50-80% household income 80-100% 0-1 bedrooms, num=rnt5080_inc80100_01br, den=inc80100_01br, years= &years. );
 	%Pct_calc( var=Prnt80pl_inc80100_01br, label=% renter households with rent level 80%+ household income 80-100% 0-1 bedrooms, num=rnt80pl_inc80100_01br, den=inc80100_01br, years= &years. );
 
+	%Moe_prop_a( var=Ornt030_inc80100_01br_&years., mult=100, num=rnt030_inc80100_01br_&years., den=inc80100_01br_&years., 
+                       num_moe=Mrnt030_inc80100_01br_&years., den_moe=Minc80100_01br_&years., label_moe = % renter households with rent level 0-30% household income 80-100% 0-1 bedrooms MOE);
+	%Moe_prop_a( var=Ornt3050_inc80100_01br_&years., mult=100, num=rnt3050_inc80100_01br_&years., den=inc80100_01br_&years., 
+                       num_moe=Mrnt3050_inc80100_01br_&years., den_moe=Minc80100_01br_&years., label_moe = % renter households with rent level 30-50% household income 80-100% 0-1 bedrooms MOE);
+	 %Moe_prop_a( var=Ornt5080_inc80100_01br_&years., mult=100, num=rnt5080_inc80100_01br_&years., den=inc80100_01br_&years., 
+                       num_moe=Mrnt5080_inc80100_01br_&years., den_moe=Minc80100_01br_&years., label_moe = % renter households with rent level 50-80% household income 80-100% 0-1 bedrooms MOE);
+	%Moe_prop_a( var=Ornt80pl_inc80100_01br_&years., mult=100, num=rnt80pl_inc80100_01br_&years., den=inc80100_01br_&years., 
+                       num_moe=Mrnt80pl_inc80100_01br_&years., den_moe=Minc80100_01br_&years., label_moe = % renter households with rent level 80%+ household income 80-100% 0-1 bedrooms MOE);
+
 	%Pct_calc( var=Prnt030_inc100pl_01br, label=% renter households with rent level 0-30% household income 100%+ 0-1 bedrooms, num=rnt030_inc100pl_01br, den=inc100pl_01br, years= &years. );
 	%Pct_calc( var=Prnt3050_inc100pl_01br, label=% renter households with rent level 30-50% household income 100%+ 0-1 bedrooms, num=rnt3050_inc100pl_01br, den=inc100pl_01br, years= &years. );
 	%Pct_calc( var=Prnt5080_inc100pl_01br, label=% renter households with rent level 50-80% household income 100%+ 0-1 bedrooms, num=rnt5080_inc100pl_01br, den=inc100pl_01br, years= &years. );
 	%Pct_calc( var=Prnt80pl_inc100pl_01br, label=% renter households with rent level 80%+ household income 100%+ 0-1 bedrooms, num=rnt80pl_inc100pl_01br, den=inc100pl_01br, years= &years. );
+
+	%Moe_prop_a( var=Ornt030_inc100pl_01br_&years., mult=100, num=rnt030_inc100pl_01br_&years., den=inc100pl_01br_&years., 
+                       num_moe=Mrnt030_inc100pl_01br_&years., den_moe=Minc100pl_01br_&years., label_moe = % renter households with rent level 0-30% household income 100%+ 0-1 bedrooms MOE);
+	%Moe_prop_a( var=Ornt3050_inc100pl_01br_&years., mult=100, num=rnt3050_inc100pl_01br_&years., den=inc100pl_01br_&years., 
+                       num_moe=Mrnt3050_inc100pl_01br_&years., den_moe=Minc100pl_01br_&years., label_moe = % renter households with rent level 30-50% household income 100%+ 0-1 bedrooms MOE);
+	 %Moe_prop_a( var=Ornt5080_inc100pl_01br_&years., mult=100, num=rnt5080_inc100pl_01br_&years., den=inc100pl_01br_&years., 
+                       num_moe=Mrnt5080_inc100pl_01br_&years., den_moe=Minc100pl_01br_&years., label_moe = % renter households with rent level 50-80% household income 100%+ 0-1 bedrooms MOE);
+	%Moe_prop_a( var=Ornt80pl_inc100pl_01br_&years., mult=100, num=rnt80pl_inc100pl_01br_&years., den=inc100pl_01br_&years., 
+                       num_moe=Mrnt80pl_inc100pl_01br_&years., den_moe=Minc100pl_01br_&years., label_moe = % renter households with rent level 80%+ household income 100%+ 0-1 bedrooms MOE);
 
 	%Pct_calc( var=Prnt030_inc030_2br, label=% renter households with rent level 0-30% household income 0-30% 2 bedrooms, num=rnt030_inc030_2br, den=inc030_2br, years= &years. );
 	%Pct_calc( var=Prnt3050_inc030_2br, label=% renter households with rent level 30-50% household income 0-30% 2 bedrooms, num=rnt3050_inc030_2br, den=inc030_2br, years= &years. );
 	%Pct_calc( var=Prnt5080_inc030_2br, label=% renter households with rent level 50-80% household income 0-30% 2 bedrooms, num=rnt5080_inc030_2br, den=inc030_2br, years= &years. );
 	%Pct_calc( var=Prnt80pl_inc030_2br, label=% renter households with rent level 80%+ household income 0-30% 2 bedrooms, num=rnt80pl_inc030_2br, den=inc030_2br, years= &years. );
 
+	%Moe_prop_a( var=Ornt030_inc030_2br_&years., mult=100, num=rnt030_inc030_2br_&years., den=rnt030_inc030_2br_&years., 
+                       num_moe=Mrnt030_inc030_2br_&years., den_moe=Mrnt030_inc030_2br_&years., label_moe = % renter households with rent level 0-30% household income 0-30% 2 bedrooms MOE);
+	%Moe_prop_a( var=Ornt3050_inc030_2br_&years., mult=100, num=rnt3050_inc030_2br_&years., den=inc030_2br_&years., 
+                       num_moe=Mrnt3050_inc030_2br_&years., den_moe=Minc030_2br_&years., label_moe = % renter households with rent level 30-50% household income 0-30% 2 bedrooms MOE);
+	 %Moe_prop_a( var=Ornt5080_inc030_2br_&years., mult=100, num=rnt5080_inc030_2br_&years., den=inc030_2br_&years., 
+                       num_moe=Mrnt5080_inc030_2br_&years., den_moe=Minc030_2br_&years., label_moe = % renter households with rent level 50-80% household income 0-30% 2 bedrooms MOE);
+	%Moe_prop_a( var=Ornt80pl_inc030_2br_&years., mult=100, num=rnt80pl_inc030_2br_&years., den=inc030_2br_&years., 
+                       num_moe=Mrnt80pl_inc030_2br_&years., den_moe=Minc030_2br_&years., label_moe = % renter households with rent level 80%+ household income 0-30% 2 bedrooms MOE);
+
 	%Pct_calc( var=Prnt030_inc3050_2br, label=% renter households with rent level 0-30% household income 30-50% 2 bedrooms, num=rnt030_inc3050_2br, den=inc3050_2br, years= &years. );
 	%Pct_calc( var=Prnt3050_inc3050_2br, label=% renter households with rent level 30-50% household income 30-50% 2 bedrooms, num=rnt3050_inc3050_2br, den=inc3050_2br, years= &years. );
 	%Pct_calc( var=Prnt5080_inc3050_2br, label=% renter households with rent level 50-80% household income 30-50% 2 bedrooms, num=rnt5080_inc3050_2br, den=inc3050_2br, years= &years. );
 	%Pct_calc( var=Prnt80pl_inc3050_2br, label=% renter households with rent level 80%+ household income 30-50% 2 bedrooms, num=rnt80pl_inc3050_2br, den=inc3050_2br, years= &years. );
+
+	%Moe_prop_a( var=Ornt030_inc3050_2br_&years., mult=100, num=rnt030_inc3050_2br_&years., den=inc3050_2br_&years., 
+                       num_moe=Mrnt030_inc3050_2br_&years., den_moe=Minc3050_2br_&years., label_moe = % renter households with rent level 0-30% household income 30-50% 2 bedrooms MOE);
+	%Moe_prop_a( var=Ornt3050_inc3050_2br_&years., mult=100, num=rnt3050_inc3050_2br_&years., den=inc3050_2br_&years., 
+                       num_moe=Mrnt3050_inc3050_2br_&years., den_moe=Minc3050_2br_&years., label_moe = % renter households with rent level 30-50% household income 30-50% 2 bedrooms MOE);
+	 %Moe_prop_a( var=Ornt5080_inc3050_2br_&years., mult=100, num=rnt5080_inc3050_2br_&years., den=inc3050_2br_&years., 
+                       num_moe=Mrnt5080_inc3050_2br_&years., den_moe=Minc3050_2br_&years., label_moe = % renter households with rent level 50-80% household income 30-50% 2 bedrooms MOE);
+	%Moe_prop_a( var=Ornt80pl_inc3050_2br_&years., mult=100, num=rnt80pl_inc3050_2br_&years., den=inc3050_2br_&years., 
+                       num_moe=Mrnt80pl_inc3050_2br_&years., den_moe=Minc3050_2br_&years., label_moe = % renter households with rent level 80%+ household income 30-50% 2 bedrooms MOE);
 
 	%Pct_calc( var=Prnt030_inc5080_2br, label=% renter households with rent level 0-30% household income 50-80% 2 bedrooms, num=rnt030_inc5080_2br, den=inc5080_2br, years= &years. );
 	%Pct_calc( var=Prnt3050_inc5080_2br, label=% renter households with rent level 30-50% household income 50-80% 2 bedrooms, num=rnt3050_inc5080_2br, den=inc5080_2br, years= &years. );
 	%Pct_calc( var=Prnt5080_inc5080_2br, label=% renter households with rent level 50-80% household income 50-80% 2 bedrooms, num=rnt5080_inc5080_2br, den=inc5080_2br, years= &years. );
 	%Pct_calc( var=Prnt80pl_inc5080_2br, label=% renter households with rent level 80%+ household income 50-80% 2 bedrooms, num=rnt80pl_inc5080_2br, den=inc5080_2br, years= &years. );
 
+	%Moe_prop_a( var=Ornt030_inc5080_2br_&years., mult=100, num=rnt030_inc5080_2br_&years., den=inc5080_2br_&years., 
+                       num_moe=Mrnt030_inc5080_2br_&years., den_moe=Minc5080_2br_&years., label_moe = % renter households with rent level 0-30% household income 50-80% 2 bedrooms MOE);
+	%Moe_prop_a( var=Ornt3050_inc5080_2br_&years., mult=100, num=rnt3050_inc5080_2br_&years., den=inc5080_2br_&years., 
+                       num_moe=Mrnt3050_inc5080_2br_&years., den_moe=Minc5080_2br_&years., label_moe = % renter households with rent level 30-50% household income 50-80% 2 bedrooms MOE);
+	 %Moe_prop_a( var=Ornt5080_inc5080_2br_&years., mult=100, num=rnt5080_inc5080_2br_&years., den=inc5080_2br_&years., 
+                       num_moe=Mrnt5080_inc5080_2br_&years., den_moe=Minc5080_2br_&years., label_moe = % renter households with rent level 50-80% household income 50-80% 2 bedrooms MOE);
+	%Moe_prop_a( var=Ornt80pl_inc5080_2br_&years., mult=100, num=rnt80pl_inc5080_2br_&years., den=inc5080_2br_&years., 
+                       num_moe=Mrnt80pl_inc5080_2br_&years., den_moe=Minc5080_2br_&years., label_moe = % renter households with rent level 80%+ household income 50-80% 2 bedrooms MOE);
+
 	%Pct_calc( var=Prnt030_inc80100_2br, label=% renter households with rent level 0-30% household income 80-100% 2 bedrooms, num=rnt030_inc80100_2br, den=inc80100_2br, years= &years. );
 	%Pct_calc( var=Prnt3050_inc80100_2br, label=% renter households with rent level 30-50% household income 80-100% 2 bedrooms, num=rnt3050_inc80100_2br, den=inc80100_2br, years= &years. );
 	%Pct_calc( var=Prnt5080_inc80100_2br, label=% renter households with rent level 50-80% household income 80-100% 2 bedrooms, num=rnt5080_inc80100_2br, den=inc80100_2br, years= &years. );
 	%Pct_calc( var=Prnt80pl_inc80100_2br, label=% renter households with rent level 80%+ household income 80-100% 2 bedrooms, num=rnt80pl_inc80100_2br, den=inc80100_2br, years= &years. );
+
+	%Moe_prop_a( var=Ornt030_inc80100_2br_&years., mult=100, num=rnt030_inc80100_2br_&years., den=inc80100_2br_&years., 
+                       num_moe=Mrnt030_inc80100_2br_&years., den_moe=Minc80100_2br_&years., label_moe = % renter households with rent level 0-30% household income 80-100% 2 bedrooms MOE);
+	%Moe_prop_a( var=Ornt3050_inc80100_2br_&years., mult=100, num=rnt3050_inc80100_2br_&years., den=inc80100_2br_&years., 
+                       num_moe=Mrnt3050_inc80100_2br_&years., den_moe=Minc80100_2br_&years., label_moe = % renter households with rent level 30-50% household income 80-100% 2 bedrooms MOE);
+	 %Moe_prop_a( var=Ornt5080_inc80100_2br_&years., mult=100, num=rnt5080_inc80100_2br_&years., den=inc80100_2br_&years., 
+                       num_moe=Mrnt5080_inc80100_2br_&years., den_moe=Minc80100_2br_&years., label_moe = % renter households with rent level 50-80% household income 80-100% 2 bedrooms MOE);
+	%Moe_prop_a( var=Ornt80pl_inc80100_2br_&years., mult=100, num=rnt80pl_inc80100_2br_&years., den=inc80100_2br_&years., 
+                       num_moe=Mrnt80pl_inc80100_2br_&years., den_moe=Minc80100_2br_&years., label_moe = % renter households with rent level 80%+ household income 80-100% 2 bedrooms MOE);
 
 	%Pct_calc( var=Prnt030_inc100pl_2br, label=% renter households with rent level 0-30% household income 100%+ 2 bedrooms, num=rnt030_inc100pl_2br, den=inc100pl_2br, years= &years. );
 	%Pct_calc( var=Prnt3050_inc100pl_2br, label=% renter households with rent level 30-50% household income 100%+ 2 bedrooms, num=rnt3050_inc100pl_2br, den=inc100pl_2br, years= &years. );
 	%Pct_calc( var=Prnt5080_inc100pl_2br, label=% renter households with rent level 50-80% household income 100%+ 2 bedrooms, num=rnt5080_inc100pl_2br, den=inc100pl_2br, years= &years. );
 	%Pct_calc( var=Prnt80pl_inc100pl_2br, label=% renter households with rent level 80%+ household income 100%+ 2 bedrooms, num=rnt80pl_inc100pl_2br, den=inc100pl_2br, years= &years. );
 
+	%Moe_prop_a( var=Ornt030_inc100pl_2br_&years., mult=100, num=rnt030_inc100pl_2br_&years., den=inc100pl_2br_&years., 
+                       num_moe=Mrnt030_inc100pl_2br_&years., den_moe=Minc100pl_2br_&years., label_moe = % renter households with rent level 0-30% household income 100%+ 2 bedrooms MOE);
+	%Moe_prop_a( var=Ornt3050_inc100pl_2br_&years., mult=100, num=rnt3050_inc100pl_2br_&years., den=inc100pl_2br_&years., 
+                       num_moe=Mrnt3050_inc100pl_2br_&years., den_moe=Minc100pl_2br_&years., label_moe = % renter households with rent level 30-50% household income 100%+ 2 bedrooms MOE);
+	 %Moe_prop_a( var=Ornt5080_inc100pl_2br_&years., mult=100, num=rnt5080_inc100pl_2br_&years., den=inc100pl_2br_&years., 
+                       num_moe=Mrnt5080_inc100pl_2br_&years., den_moe=Minc100pl_2br_&years., label_moe = % renter households with rent level 50-80% household income 100%+ 2 bedrooms MOE);
+	%Moe_prop_a( var=Ornt80pl_inc100pl_2br_&years., mult=100, num=rnt80pl_inc100pl_2br_&years., den=inc100pl_2br_&years., 
+                       num_moe=Mrnt80pl_inc100pl_2br_&years., den_moe=Minc100pl_2br_&years., label_moe = % renter households with rent level 80%+ household income 100%+ 2 bedrooms MOE);
+
 	%Pct_calc( var=Prnt030_inc030_3br, label=% renter households with rent level 0-30% household income 0-30% 3+ bedrooms, num=rnt030_inc030_3br, den=inc030_3br, years= &years. );
 	%Pct_calc( var=Prnt3050_inc030_3br, label=% renter households with rent level 30-50% household income 0-30% 3+ bedrooms, num=rnt3050_inc030_3br, den=inc030_3br, years= &years. );
 	%Pct_calc( var=Prnt5080_inc030_3br, label=% renter households with rent level 50-80% household income 0-30% 3+ bedrooms, num=rnt5080_inc030_3br, den=inc030_3br, years= &years. );
 	%Pct_calc( var=Prnt80pl_inc030_3br, label=% renter households with rent level 80%+ household income 0-30% 3+ bedrooms, num=rnt80pl_inc030_3br, den=inc030_3br, years= &years. );
+
+	%Moe_prop_a( var=Ornt030_inc030_3br_&years., mult=100, num=rnt030_inc030_3br_&years., den=inc030_3br_&years., 
+                       num_moe=Mrnt030_inc030_3br_&years., den_moe=Minc030_3br_&years., label_moe = % renter households with rent level 0-30% household income 0-30% 3+ bedrooms MOE);
+	%Moe_prop_a( var=Ornt3050_inc030_3br_&years., mult=100, num=rnt3050_inc030_3br_&years., den=inc030_3br_&years., 
+                       num_moe=Mrnt3050_inc030_3br_&years., den_moe=Minc030_3br_&years., label_moe = % renter households with rent level 30-50% household income 0-30% 3+ bedrooms MOE);
+	 %Moe_prop_a( var=Ornt5080_inc030_3br_&years., mult=100, num=rnt5080_inc030_3br_&years., den=inc030_3br_&years., 
+                       num_moe=Mrnt5080_inc030_3br_&years., den_moe=Minc030_3br_&years., label_moe = % renter households with rent level 50-80% household income 0-30% 3+ bedrooms MOE);
+	%Moe_prop_a( var=Ornt80pl_inc030_3br_&years., mult=100, num=rnt80pl_inc030_3br_&years., den=inc030_3br_&years., 
+                       num_moe=Mrnt80pl_inc030_3br_&years., den_moe=Minc030_3br_&years., label_moe = % renter households with rent level 80%+ household income 0-30% 3+ bedrooms MOE);
 
 	%Pct_calc( var=Prnt030_inc3050_3br, label=% renter households with rent level 0-30% household income 30-50% 3+ bedrooms, num=rnt030_inc3050_3br, den=inc3050_3br, years= &years. );
 	%Pct_calc( var=Prnt3050_inc3050_3br, label=% renter households with rent level 30-50% household income 30-50% 3+ bedrooms, num=rnt3050_inc3050_3br, den=inc3050_3br, years= &years. );
 	%Pct_calc( var=Prnt5080_inc3050_3br, label=% renter households with rent level 50-80% household income 30-50% 3+ bedrooms, num=rnt5080_inc3050_3br, den=inc3050_3br, years= &years. );
 	%Pct_calc( var=Prnt80pl_inc3050_3br, label=% renter households with rent level 80%+ household income 30-50% 3+ bedrooms, num=rnt80pl_inc3050_3br, den=inc3050_3br, years= &years. );
 
+	%Moe_prop_a( var=Ornt030_inc3050_3br_&years., mult=100, num=rnt030_inc3050_3br_&years., den=inc3050_3br_&years., 
+                       num_moe=Mrnt030_inc3050_3br_&years., den_moe=Minc3050_3br_&years., label_moe = % renter households with rent level 0-30% household income 30-50% 3+ bedrooms MOE);
+	%Moe_prop_a( var=Ornt3050_inc3050_3br_&years., mult=100, num=rnt3050_inc3050_3br_&years., den=inc3050_3br_&years., 
+                       num_moe=Mrnt3050_inc3050_3br_&years., den_moe=Minc3050_3br_&years., label_moe = % renter households with rent level 30-50% household income 30-50% 3+ bedrooms MOE);
+	 %Moe_prop_a( var=Ornt5080_inc3050_3br_&years., mult=100, num=rnt5080_inc3050_3br_&years., den=inc3050_3br_&years., 
+                       num_moe=Mrnt5080_inc3050_3br_&years., den_moe=Minc3050_3br_&years., label_moe = % renter households with rent level 50-80% household income 30-50% 3+ bedrooms MOE);
+	%Moe_prop_a( var=Ornt80pl_inc3050_3br_&years., mult=100, num=rnt80pl_inc3050_3br_&years., den=inc3050_3br_&years., 
+                       num_moe=Mrnt80pl_inc3050_3br_&years., den_moe=Minc3050_3br_&years., label_moe = % renter households with rent level 80%+ household income 30-50% 3+ bedrooms MOE);
+
 	%Pct_calc( var=Prnt030_inc5080_3br, label=% renter households with rent level 0-30% household income 50-80% 3+ bedrooms, num=rnt030_inc5080_3br, den=inc5080_3br, years= &years. );
 	%Pct_calc( var=Prnt3050_inc5080_3br, label=% renter households with rent level 30-50% household income 50-80% 3+ bedrooms, num=rnt3050_inc5080_3br, den=inc5080_3br, years= &years. );
 	%Pct_calc( var=Prnt5080_inc5080_3br, label=% renter households with rent level 50-80% household income 50-80% 3+ bedrooms, num=rnt5080_inc5080_3br, den=inc5080_3br, years= &years. );
 	%Pct_calc( var=Prnt80pl_inc5080_3br, label=% renter households with rent level 80%+ household income 50-80% 3+ bedrooms, num=rnt80pl_inc5080_3br, den=inc5080_3br, years= &years. );
+
+	%Moe_prop_a( var=Ornt030_inc5080_3br_&years., mult=100, num=rnt030_inc5080_3br_&years., den=inc5080_3br_&years., 
+                       num_moe=Mrnt030_inc5080_3br_&years., den_moe=Minc5080_3br_&years., label_moe = % renter households with rent level 0-30% household income 50-80% 3+ bedrooms MOE);
+	%Moe_prop_a( var=Ornt3050_inc5080_3br_&years., mult=100, num=rnt3050_inc5080_3br_&years., den=inc5080_3br_&years., 
+                       num_moe=Mrnt3050_inc5080_3br_&years., den_moe=Minc5080_3br_&years., label_moe = % renter households with rent level 30-50% household income 50-80% 3+ bedrooms MOE);
+	 %Moe_prop_a( var=Ornt5080_inc5080_3br_&years., mult=100, num=rnt5080_inc5080_3br_&years., den=inc5080_3br_&years., 
+                       num_moe=Mrnt5080_inc5080_3br_&years., den_moe=Minc5080_3br_&years., label_moe = % renter households with rent level 50-80% household income 50-80% 3+ bedrooms MOE);
+	%Moe_prop_a( var=Ornt80pl_inc5080_3br_&years., mult=100, num=rnt80pl_inc5080_3br_&years., den=inc5080_3br_&years., 
+                       num_moe=Mrnt80pl_inc5080_3br_&years., den_moe=Minc5080_3br_&years., label_moe = % renter households with rent level 80%+ household income 50-80% 3+ bedrooms MOE);
 
 	%Pct_calc( var=Prnt030_inc80100_3br, label=% renter households with rent level 0-30% household income 80-100% 3+ bedrooms, num=rnt030_inc80100_3br, den=inc80100_3br, years= &years. );
 	%Pct_calc( var=Prnt3050_inc80100_3br, label=% renter households with rent level 30-50% household income 80-100% 3+ bedrooms, num=rnt3050_inc80100_3br, den=inc80100_3br, years= &years. );
 	%Pct_calc( var=Prnt5080_inc80100_3br, label=% renter households with rent level 50-80% household income 80-100% 3+ bedrooms, num=rnt5080_inc80100_3br, den=inc80100_3br, years= &years. );
 	%Pct_calc( var=Prnt80pl_inc80100_3br, label=% renter households with rent level 80%+ household income 80-100% 3+ bedrooms, num=rnt80pl_inc80100_3br, den=inc80100_3br, years= &years. );
 
+	%Moe_prop_a( var=Ornt030_inc80100_3br_&years., mult=100, num=rnt030_inc80100_3br_&years., den=inc80100_3br_&years., 
+                       num_moe=Mrnt030_inc80100_3br_&years., den_moe=Minc80100_3br_&years., label_moe = % renter households with rent level 0-30% household income 80-100% 3+ bedrooms MOE);
+	%Moe_prop_a( var=Ornt3050_inc80100_3br_&years., mult=100, num=rnt3050_inc80100_3br_&years., den=inc80100_3br_&years., 
+                       num_moe=Mrnt3050_inc80100_3br_&years., den_moe=Minc80100_3br_&years., label_moe = % renter households with rent level 30-50% household income 80-100% 3+ bedrooms MOE);
+	 %Moe_prop_a( var=Ornt5080_inc80100_3br_&years., mult=100, num=rnt5080_inc80100_3br_&years., den=inc80100_3br_&years., 
+                       num_moe=Mrnt5080_inc80100_3br_&years., den_moe=Minc80100_3br_&years., label_moe = % renter households with rent level 50-80% household income 80-100% 3+ bedrooms MOE);
+	%Moe_prop_a( var=Ornt80pl_inc80100_3br_&years., mult=100, num=rnt80pl_inc80100_3br_&years., den=inc80100_3br_&years., 
+                       num_moe=Mrnt80pl_inc80100_3br_&years., den_moe=Minc80100_3br_&years., label_moe = % renter households with rent level 80%+ household income 80-100% 3+ bedrooms MOE);
+
 	%Pct_calc( var=Prnt030_inc100pl_3br, label=% renter households with rent level 0-30% household income 100%+ 3+ bedrooms, num=rnt030_inc100pl_3br, den=inc100pl_3br, years= &years. );
 	%Pct_calc( var=Prnt3050_inc100pl_3br, label=% renter households with rent level 30-50% household income 100%+ 3+ bedrooms, num=rnt3050_inc100pl_3br, den=inc100pl_3br, years= &years. );
 	%Pct_calc( var=Prnt5080_inc100pl_3br, label=% renter households with rent level 50-80% household income 100%+ 3+ bedrooms, num=rnt5080_inc100pl_3br, den=inc100pl_3br, years= &years. );
 	%Pct_calc( var=Prnt80pl_inc100pl_3br, label=% renter households with rent level 80%+ household income 100%+ 3+ bedrooms, num=rnt80pl_inc100pl_3br, den=inc100pl_3br, years= &years. );
 
+	%Moe_prop_a( var=Ornt030_inc100pl_3br_&years., mult=100, num=rnt030_inc100pl_3br_&years., den=inc100pl_3br_&years., 
+                       num_moe=Mrnt030_inc100pl_3br_&years., den_moe=Minc100pl_3br_&years., label_moe = % renter households with rent level 0-30% household income 100%+ 3+ bedrooms MOE);
+	%Moe_prop_a( var=Ornt3050_inc100pl_3br_&years., mult=100, num=rnt3050_inc100pl_3br_&years., den=inc100pl_3br_&years., 
+                       num_moe=Mrnt3050_inc100pl_3br_&years., den_moe=Minc100pl_3br_&years., label_moe = % renter households with rent level 30-50% household income 100%+ 3+ bedrooms MOE);
+	 %Moe_prop_a( var=Ornt5080_inc100pl_3br_&years., mult=100, num=rnt5080_inc100pl_3br_&years., den=inc100pl_3br_&years., 
+                       num_moe=Mrnt5080_inc100pl_3br_&years., den_moe=Minc100pl_3br_&years., label_moe = % renter households with rent level 50-80% household income 100%+ 3+ bedrooms MOE);
+	%Moe_prop_a( var=Ornt80pl_inc100pl_3br_&years., mult=100, num=rnt80pl_inc100pl_3br_&years., den=inc100pl_3br_&years., 
+                       num_moe=Mrnt80pl_inc100pl_3br_&years., den_moe=Minc100pl_3br_&years., label_moe = % renter households with rent level 80%+ household income 100%+ 3+ bedrooms MOE);
 
 	/* Demand - Affordability */
 	renter_cb_&years. = sum(of T8_est73 T8_est76  T8_est89 T8_est99 T8_est102 T8_est112 T8_est115 T8_est125 T8_est128);
