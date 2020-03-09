@@ -17,26 +17,30 @@
 %let years_dash = %sysfunc(translate(&years., '-', '_' ));
 
 data &out._&years.;
-	set hud.Chas_&years._ntnl (where=(geoid="05000US01003"));
+	set hud.Chas_&years._ntnl /*(where=(geoid="05000US01003"))*/;
 
 	/* Supply */
 	all_units_tot_&years. = sum(of T1_est1 T14A_est1 T14B_est1);
 	occ_units_tot_&years. = T1_est1;
-	owner_units_tot_&years. = T1_est2;
+	owner_units_tot_&years. = sum(of T15A_est1 T15B_est1);
 	forsale_units_tot_&years. = T14A_est1;
-	own_forsale_units_tot_&years. = sum(of T1_est2 T14A_est1);
-	renter_unit_tot_&years. = T1_est126;
+	own_forsale_units_tot_&years. = sum(of T15A_est1 T15B_est1 T14A_est1);
+	renter_unit_tot_&years. = T15C_est1;
 	forrent_units_tot_&years. = T14B_est1;
-	rent_forrent_units_tot_&years. = sum(of T1_est126 T14B_est1);
+	rent_forrent_units_tot_&years. = sum(of T15C_est1 T14B_est1);
+	rent_hasplumb_&years. = T15C_est3;
+	own_hasplumb_&years. = sum(of T15A_est3 T15B_est3);
 
 	Mall_units_tot_&years. =  %moe_sum(var= T1_moe1 T14A_moe1 T14B_moe1);
 	Mocc_units_tot_&years. = T1_moe1;
-	Mowner_units_tot_&years. = T1_moe2;
+	Mowner_units_tot_&years. = %moe_sum(var= T15A_moe1 T15B_moe1);
 	Mforsale_units_tot_&years. = T14A_moe1;
-	Mown_forsale_units_tot_&years. =  %moe_sum(var= T1_moe2 T14A_moe1);
-	Mrenter_unit_tot_&years. = T1_moe126;
+	Mown_forsale_units_tot_&years. =  %moe_sum(var= T15A_moe1 T15B_moe1 T14A_moe1);
+	Mrenter_unit_tot_&years. = T15C_moe1;
 	Mforrent_units_tot_&years. = T14B_moe1;
-	Mrent_forrent_units_tot_&years. = %moe_sum(var= T1_moe126 T14B_moe1);
+	Mrent_forrent_units_tot_&years. = %moe_sum(var= T15C_moe1 T14B_moe1);
+	Mrent_hasplumb_&years. = T15C_moe3;
+	Mown_hasplumb_&years. = %moe_sum(var= T15A_moe3 T15B_moe3);
 
 	renter_unit_aff30_&years. = T15C_est4;
 	forrent_units_aff30_&years. = sum(of T17B_est3 T17B_est8 T17B_est13 T17B_est18);
@@ -67,15 +71,18 @@ data &out._&years.;
 	Mtot_aff50_&years. = %moe_sum(var= T15C_moe4 T15C_moe25 T17B_moe3 T17B_moe4 T17B_moe8 T17B_moe9 T17B_moe13 T17B_moe14 T17B_moe18 T17B_moe19
 								 T15A_moe4 T15B_moe4 T17A_moe3 T17A_moe8 T17A_moe13 T17A_moe18);
 
-	renter_01br_tot_&years. = sum(of T15C_est6 T15C_est10 T15C_est14 T15C_est18 T15C_est22 T15C_est27 T15C_est31 T15C_est35
-						T15C_est39 T15C_est43 T15C_est48 T15C_est52 T15C_est56 T15C_est60 T15C_est64 T15C_est69 T15C_est73
-						T15C_est77 T15C_est81 T15C_est85);
-	renter_2br_tot_&years. = sum(of T15C_est7 T15C_est11 T15C_est15 T15C_est19 T15C_est23 T15C_est28 T15C_est32 T15C_est36 T15C_est40
-						T15C_est44 T15C_est49 T15C_est53 T15C_est57 T15C_est61 T15C_est65 T15C_est70 T15C_est74 T15C_est78
-						T15C_est82 T15C_est86);
-	renter_3plusbr_tot_&years. = sum(of T15C_est8 T15C_est12 T15C_est16 T15C_est20 T15C_est24 T15C_est29 T15C_est33 T15C_est37 T15C_est41
-						T15C_est45 T15C_est50 T15C_est54 T15C_est58 T15C_est62 T15C_est66 T15C_est71 T15C_est75 T15C_est79
-						T15C_est83 T15C_est87);
+	occ_aff30_&years. =  T15C_est4;
+	occ_aff50_&years. = sum(of T15C_est4 T15C_est25 T15A_est4 T15B_est4);
+
+	Mocc_aff30_&years. =  T15C_moe4;
+	Mocc_aff50_&years. = %moe_sum(var= T15C_moe4 T15C_moe25 T15A_moe4 T15B_moe4);
+
+	renter_01br_tot_&years. = sum(of T15C_est6 T15C_est10 T15C_est14 T15C_est18 T15C_est22 T15C_est27 T15C_est31 T15C_est35 T15C_est39 T15C_est43
+							T15C_est48 T15C_est52 T15C_est56 T15C_est60 T15C_est64 T15C_est69 T15C_est73 T15C_est77 T15C_est81 T15C_est85);
+	renter_2br_tot_&years. = sum(of T15C_est7 T15C_est11 T15C_est15 T15C_est19 T15C_est23 T15C_est28 T15C_est32 T15C_est36 T15C_est40 T15C_est44
+							T15C_est49 T15C_est53 T15C_est57 T15C_est61 T15C_est65 T15C_est70 T15C_est74 T15C_est78 T15C_est82 T15C_est86);
+	renter_3plusbr_tot_&years. = sum(of T15C_est8 T15C_est12 T15C_est16 T15C_est20 T15C_est24 T15C_est29 T15C_est33 T15C_est37 T15C_est41 T15C_est45
+							T15C_est50 T15C_est54 T15C_est58 T15C_est62 T15C_est66 T15C_est71 T15C_est75 T15C_est79 T15C_est83 T15C_est87);
 	renter_01br_aff30_&years. = sum(of T15C_est6 T15C_est10 T15C_est14 T15C_est18 T15C_est22);
 	renter_2br_aff30_&years. = sum(of T15C_est7 T15C_est11 T15C_est15 T15C_est19 T15C_est23);
 	renter_3plusbr_aff30_&years. = sum(of T15C_est8 T15C_est12 T15C_est16 T15C_est20 T15C_est24);
@@ -235,40 +242,48 @@ data &out._&years.;
 	%Moe_prop_a( var=Oforrent_units_tot_&years., mult=100, num=forrent_units_tot_&years., den=rent_forrent_units_tot_&years., 
                        num_moe=Mforrent_units_tot_&years., den_moe=Mrent_forrent_units_tot_&years., label_moe =% Vacant housing units for rent  MOE);
 
-	%Pct_calc( var=Prenter_unit_aff30, label=% Renter-occupied housing units affordable at 30% AMI, num=renter_unit_aff30, den=renter_unit_tot, years= &years. );
-	%Pct_calc( var=Pforrent_units_aff30, label=% For-rent housing units affordable at 30% AMI, num=forrent_units_aff30, den=renter_unit_tot, years= &years. );
+	%Pct_calc( var=Prent_hasplumb, label=% Renter-occupied housing units with kitchen and plumbing, num=rent_hasplumb, den=occ_units_tot, years= &years. );
+	%Pct_calc( var=Pown_hasplumb, label=% Owner-occupied housing units with kitchen and plumbing, num=own_hasplumb, den=occ_units_tot, years= &years. );
+	
+	%Moe_prop_a( var=Orent_hasplumb_&years., mult=100, num=rent_hasplumb_&years., den=occ_units_tot_&years., 
+                       num_moe=Mrent_hasplumb_&years., den_moe=Mocc_units_tot_&years., label_moe =  MOE); 
+	%Moe_prop_a( var=Oown_hasplumb_&years., mult=100, num=own_hasplumb_&years., den=occ_units_tot_&years., 
+                       num_moe=Mown_hasplumb_&years., den_moe=Mocc_units_tot_&years., label_moe =  MOE);
 
-	%Moe_prop_a( var=Orenter_unit_aff30_&years., mult=100, num=renter_unit_aff30_&years., den=renter_unit_tot_&years., 
-                       num_moe=Mrenter_unit_aff30_&years., den_moe=Mrenter_unit_tot_&years., label_moe = % Renter-occupied housing units affordable at 30% AMI MOE);
-	%Moe_prop_a( var=Oforrent_units_aff30_&years., mult=100, num=forrent_units_aff30_&years., den=renter_unit_tot_&years., 
-                       num_moe=Mforrent_units_aff30_&years., den_moe=Mrenter_unit_tot_&years., label_moe = % For-rent housing units affordable at 30% AMI MOE);
+	%Pct_calc( var=Prenter_unit_aff30, label=% Renter-occupied housing units affordable at 30% AMI, num=renter_unit_aff30, den=occ_aff30, years= &years. );
+	%Pct_calc( var=Pforrent_units_aff30, label=% For-rent housing units affordable at 30% AMI, num=forrent_units_aff30, den=occ_aff30, years= &years. );
 
-	%Pct_calc( var=Prenter_unit_aff50, label=% Renter-occupied housing units affordable at 50% AMI, num=renter_unit_aff50, den=renter_unit_tot, years= &years. );
-	%Pct_calc( var=Pforrent_units_aff50, label=% For-rent housing units affordable at 50% AMI, num=forrent_units_aff50, den=renter_unit_tot, years= &years. );
+	%Moe_prop_a( var=Orenter_unit_aff30_&years., mult=100, num=renter_unit_aff30_&years., den=occ_aff30_&years., 
+                       num_moe=Mrenter_unit_aff30_&years., den_moe=Mocc_aff30_aff30_&years., label_moe = % Renter-occupied housing units affordable at 30% AMI MOE);
+	%Moe_prop_a( var=Oforrent_units_aff30_&years., mult=100, num=forrent_units_aff30_&years., den=occ_aff30_&years., 
+                       num_moe=Mforrent_units_aff30_&years., den_moe=Mocc_aff30_aff30_&years., label_moe = % For-rent housing units affordable at 30% AMI MOE);
 
-	%Moe_prop_a( var=Orenter_unit_aff50_&years., mult=100, num=renter_unit_aff50_&years., den=renter_unit_tot_&years., 
-                       num_moe=Mrenter_unit_aff50_&years., den_moe=Mrenter_unit_tot_&years., label_moe = % Renter-occupied housing units affordable at 50% AMI MOE);
-	%Moe_prop_a( var=Oforrent_units_aff50_&years., mult=100, num=forrent_units_aff50_&years., den=renter_unit_tot_&years., 
-                       num_moe=Mforrent_units_aff50_&years., den_moe=Mrenter_unit_tot_&years., label_moe = % For-rent housing units affordable at 50% AMI MOE);
+	%Pct_calc( var=Prenter_unit_aff50, label=% Renter-occupied housing units affordable at 50% AMI, num=renter_unit_aff50, den=occ_aff50, years= &years. );
+	%Pct_calc( var=Pforrent_units_aff50, label=% For-rent housing units affordable at 50% AMI, num=forrent_units_aff50, den=occ_aff50, years= &years. );
 
-	%Pct_calc( var=Powner_unit_aff50, label=% Owner-occupied housing units affordable at 50% AMI, num=owner_unit_aff50, den=owner_units_tot, years= &years. );
-	%Pct_calc( var=Pforsale_units_aff50, label=% For-sale housing units affordable at 50% AMI, num=forsale_units_aff50, den=owner_units_tot, years= &years. );
+	%Moe_prop_a( var=Orenter_unit_aff50_&years., mult=100, num=renter_unit_aff50_&years., den=occ_aff50_&years., 
+                       num_moe=Mrenter_unit_aff50_&years., den_moe=Mocc_aff50_&years., label_moe = % Renter-occupied housing units affordable at 50% AMI MOE);
+	%Moe_prop_a( var=Oforrent_units_aff50_&years., mult=100, num=forrent_units_aff50_&years., den=occ_aff50_&years., 
+                       num_moe=Mforrent_units_aff50_&years., den_moe=Mocc_aff50_&years., label_moe = % For-rent housing units affordable at 50% AMI MOE);
 
-	%Moe_prop_a( var=Oowner_unit_aff50_&years., mult=100, num=owner_unit_aff50_&years., den=owner_units_tot_&years., 
-                       num_moe=Mowner_unit_aff50_&years., den_moe=Mowner_units_tot_&years., label_moe = % Owner-occupied housing units affordable at 50% AMI MOE);
-	%Moe_prop_a( var=Oforsale_units_aff50_&years., mult=100, num=forsale_units_aff50_&years., den=owner_units_tot_&years., 
-                       num_moe=Mforsale_units_aff50_&years., den_moe=Mowner_units_tot_&years., label_moe = % For-sale housing units affordable at 50% AMI MOE);
+	%Pct_calc( var=Powner_unit_aff50, label=% Owner-occupied housing units affordable at 50% AMI, num=owner_unit_aff50, den=occ_aff50, years= &years. );
+	%Pct_calc( var=Pforsale_units_aff50, label=% For-sale housing units affordable at 50% AMI, num=forsale_units_aff50, den=occ_aff50, years= &years. );
 
-	%Pct_calc( var=Prenter_01br_tot, label=% Renter-occupied 0-1 bedroom housing units, num=renter_01br_tot, den=renter_unit_tot, years= &years. );
-	%Pct_calc( var=Prenter_2br_tot, label=% Renter-occupied 2 bedroom housing units, num=renter_2br_tot, den=renter_unit_tot, years= &years. );
-	%Pct_calc( var=Prenter_3plusbr_tot, label=% Renter-occupied 3+ bedroom housing units, num=renter_3plusbr_tot, den=renter_unit_tot, years= &years. );
+	%Moe_prop_a( var=Oowner_unit_aff50_&years., mult=100, num=owner_unit_aff50_&years., den=occ_aff50_&years., 
+                       num_moe=Mowner_unit_aff50_&years., den_moe=Mocc_aff50_&years., label_moe = % Owner-occupied housing units affordable at 50% AMI MOE);
+	%Moe_prop_a( var=Oforsale_units_aff50_&years., mult=100, num=forsale_units_aff50_&years., den=occ_aff50_&years., 
+                       num_moe=Mforsale_units_aff50_&years., den_moe=Mocc_aff50t_&years., label_moe = % For-sale housing units affordable at 50% AMI MOE);
 
-	%Moe_prop_a( var=Orenter_01br_tot_&years., mult=100, num=renter_unit_tot_&years., den=renter_unit_tot_&years., 
-                       num_moe=Mrenter_unit_tot_&years., den_moe=Mrenter_unit_tot_&years., label_moe = % Renter-occupied 0-1 bedroom housing units MOE);
-	%Moe_prop_a( var=Orenter_2br_tot_&years., mult=100, num=renter_2br_tot_&years., den=renter_unit_tot_&years., 
-                       num_moe=Mrenter_2br_tot_&years., den_moe=Mrenter_unit_tot_&years., label_moe = % Renter-occupied 2 bedroom housing units MOE);
-	%Moe_prop_a( var=Orenter_3plusbr_tot_&years., mult=100, num=renter_3plusbr_tot_&years., den=renter_unit_tot_&years., 
-                       num_moe=Mrenter_3plusbr_tot_&years., den_moe=Mrenter_unit_tot_&years., label_moe = % Renter-occupied 3+ bedroom housing units MOE);
+	%Pct_calc( var=Prenter_01br_tot, label=% Renter-occupied 0-1 bedroom housing units, num=renter_01br_tot, den=rent_hasplumb, years= &years. );
+	%Pct_calc( var=Prenter_2br_tot, label=% Renter-occupied 2 bedroom housing units, num=renter_2br_tot, den=rent_hasplumb, years= &years. );
+	%Pct_calc( var=Prenter_3plusbr_tot, label=% Renter-occupied 3+ bedroom housing units, num=renter_3plusbr_tot, den=rent_hasplumb, years= &years. );
+
+	%Moe_prop_a( var=Orenter_01br_tot_&years., mult=100, num=renter_unit_tot_&years., den=rent_hasplumb_&years., 
+                       num_moe=Mrenter_unit_tot_&years., den_moe=Mrent_hasplumb_&years., label_moe = % Renter-occupied 0-1 bedroom housing units MOE);
+	%Moe_prop_a( var=Orenter_2br_tot_&years., mult=100, num=renter_2br_tot_&years., den=rent_hasplumb_&years., 
+                       num_moe=Mrenter_2br_tot_&years., den_moe=Mrent_hasplumb_&years., label_moe = % Renter-occupied 2 bedroom housing units MOE);
+	%Moe_prop_a( var=Orenter_3plusbr_tot_&years., mult=100, num=renter_3plusbr_tot_&years., den=rent_hasplumb_&years., 
+                       num_moe=Mrenter_3plusbr_tot_&years., den_moe=Mrent_hasplumb_&years., label_moe = % Renter-occupied 3+ bedroom housing units MOE);
 
 	%Pct_calc( var=Prenter_01br_aff30, label=% Renter-occupied 0-1 bedroom housing units affordable at 30% AMI, num=renter_01br_aff30, den=renter_unit_aff30, years= &years. );
 	%Pct_calc( var=Prenter_2br_aff30, label=% Renter-occupied 2 bedroom housing units affordable at 30% AMI, num=renter_2br_aff30, den=renter_unit_aff30, years= &years. );
@@ -292,16 +307,16 @@ data &out._&years.;
 	%Moe_prop_a( var=Orenter_3plusbr_aff50_&years., mult=100, num=renter_3plusbr_aff50_&years., den=renter_unit_aff50_&years., 
                        num_moe=Mrenter_3plusbr_aff50_&years., den_moe=Mrenter_unit_aff50_&years., label_moe = % Renter-occupied 3+ bedroom housing units affordable at 50% AMI MOE);
 
-	%Pct_calc( var=Powner_01br_tot, label=% Owner-occupied 0-1 bedroom housing units, num=owner_01br_tot, den=owner_units_tot, years= &years. );
-	%Pct_calc( var=Powner_2br_tot, label=% Owner-occupied 2 bedroom housing units, num=owner_2br_tot, den=owner_units_tot, years= &years. );
-	%Pct_calc( var=Powner_3plusbr_tot, label=% Owner-occupied 3+ bedroom housing units, num=owner_3plusbr_tot, den=owner_units_tot, years= &years. );
+	%Pct_calc( var=Powner_01br_tot, label=% Owner-occupied 0-1 bedroom housing units, num=owner_01br_tot, den=own_hasplumb, years= &years. );
+	%Pct_calc( var=Powner_2br_tot, label=% Owner-occupied 2 bedroom housing units, num=owner_2br_tot, den=own_hasplumb, years= &years. );
+	%Pct_calc( var=Powner_3plusbr_tot, label=% Owner-occupied 3+ bedroom housing units, num=owner_3plusbr_tot, den=own_hasplumb, years= &years. );
 
-	%Moe_prop_a( var=Oowner_01br_tot_&years., mult=100, num=owner_01br_tot_&years., den=owner_units_tot_&years., 
-                       num_moe=Mowner_01br_tot_&years., den_moe=Mowner_units_tot_&years., label_moe = % Owner-occupied 0-1 bedroom housing units MOE);
-	%Moe_prop_a( var=Oowner_2br_tot_&years., mult=100, num=owner_2br_tot_&years., den=owner_units_tot_&years., 
-                       num_moe=Mowner_2br_tot_&years., den_moe=Mowner_units_tot_&years., label_moe = % Owner-occupied 2 bedroom housing units MOE);
-	%Moe_prop_a( var=Oowner_3plusbr_tot_&years., mult=100, num=owner_3plusbr_tot_&years., den=owner_units_tot_&years., 
-                       num_moe=Mowner_3plusbr_tot_&years., den_moe=Mowner_units_tot_&years., label_moe = % Owner-occupied 3+ bedroom housing units MOE);
+	%Moe_prop_a( var=Oowner_01br_tot_&years., mult=100, num=owner_01br_tot_&years., den=own_hasplumb_&years., 
+                       num_moe=Mowner_01br_tot_&years., den_moe=Mown_hasplumb_&years., label_moe = % Owner-occupied 0-1 bedroom housing units MOE);
+	%Moe_prop_a( var=Oowner_2br_tot_&years., mult=100, num=owner_2br_tot_&years., den=own_hasplumb_&years., 
+                       num_moe=Mowner_2br_tot_&years., den_moe=Mown_hasplumb_&years., label_moe = % Owner-occupied 2 bedroom housing units MOE);
+	%Moe_prop_a( var=Oowner_3plusbr_tot_&years., mult=100, num=owner_3plusbr_tot_&years., den=own_hasplumb_&years., 
+                       num_moe=Mowner_3plusbr_tot_&years., den_moe=Mown_hasplumb_&years., label_moe = % Owner-occupied 3+ bedroom housing units MOE);
 
 	%Pct_calc( var=Powner_01br_aff50, label=% Owner-occupied 0-1 bedroom housing units affordable at 50% AMI, num=owner_01br_aff50, den=owner_unit_aff50, years= &years. );
 	%Pct_calc( var=Powner_2br_aff50, label=% Owner-occupied 2 bedroom housing units affordable at 50% AMI, num=owner_2br_aff50, den=owner_unit_aff50, years= &years. );
