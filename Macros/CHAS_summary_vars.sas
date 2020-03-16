@@ -1904,62 +1904,62 @@ data &out._&years.;
 	renter_scb_inc050_&years. = sum(of T12_est113 T12_est134 T12_est155 T12_est176 T12_est197);
 	renter_ncb_inc050_&years. = sum(of T12_est111 T12_est132 T12_est153 T12_est174 T12_est195);
 
-	Mrenter_bt00_&years. = T12_moe109;
-	Mrenter_bt8099_&years. = T12_moe130;
-	Mrenter_bt6079_&years. = T12_moe151;
-	Mrenter_bt4059_&years. = T12_moe172;
-	Mrenter_bt39_&years. = T12_moe193;
+	Mrentr_bt00_&years. = T12_moe109;
+	Mrentr_bt8099_&years. = T12_moe130;
+	Mrentr_bt6079_&years. = T12_moe151;
+	Mrentr_bt4059_&years. = T12_moe172;
+	Mrentr_bt39_&years. = T12_moe193;
 
-	Mrenter_in50_&years. = %moe_sum(var= T12_moe110 T12_moe131 T12_moe152 T12_moe173 T12_moe194);
-	Mrenter_in5080_&years. = %moe_sum(var= T12_moe115 T12_moe136 T12_moe157 T12_moe178 T12_moe199);
-	Mrenter_in80120_&years. = %moe_sum(var= T12_moe120 T12_moe141 T12_moe162 T12_moe183 T12_moe204);
-	Mrenter_in120pl_&years. = %moe_sum(var= T12_moe125 T12_moe146 T12_moe167 T12_moe188 T12_moe209);
+	Mrentr_in50_&years. = %moe_sum(var= T12_moe110 T12_moe131 T12_moe152 T12_moe173 T12_moe194);
+	Mrentr_in5080_&years. = %moe_sum(var= T12_moe115 T12_moe136 T12_moe157 T12_moe178 T12_moe199);
+	Mrentr_in80120_&years. = %moe_sum(var= T12_moe120 T12_moe141 T12_moe162 T12_moe183 T12_moe204);
+	Mrentr_in120pl_&years. = %moe_sum(var= T12_moe125 T12_moe146 T12_moe167 T12_moe188 T12_moe209);
 
-	Mrenter_inc050_bt00_&years. = T12_moe110;
-	Mrenter_inc050_bt8099_&years. = T12_moe131;
-	Mrenter_inc050_bt6079_&years. = T12_moe152;
-	Mrenter_inc050_bt4059_&years. = T12_moe173;
-	Mrenter_inc050_bt39_&years. = T12_moe194;
+	Mrentr_inc050_bt00_&years. = T12_moe110;
+	Mrentr_inc050_bt8099_&years. = T12_moe131;
+	Mrentr_inc050_bt6079_&years. = T12_moe152;
+	Mrentr_inc050_bt4059_&years. = T12_moe173;
+	Mrentr_inc050_bt39_&years. = T12_moe194;
 
-	Mrenter_inc5080_bt00_&years. = T12_moe115;
-	Mrenter_inc5080_bt8099_&years. = T12_moe136;
-	Mrenter_inc5080_bt6079_&years. = T12_moe157;
-	Mrenter_inc5080_bt4059_&years. = T12_moe178;
-	Mrenter_inc5080_bt39_&years. = T12_moe199;
+	Mrentr_inc5080_bt00_&years. = T12_moe115;
+	Mrentr_inc5080_bt8099_&years. = T12_moe136;
+	Mrentr_inc5080_bt6079_&years. = T12_moe157;
+	Mrentr_inc5080_bt4059_&years. = T12_moe178;
+	Mrentr_inc5080_bt39_&years. = T12_moe199;
 
-	Mrenter_inc80120_bt00_&years. = T12_moe120;
-	Mrenter_inc80120_bt8099_&years. = T12_moe141;
-	Mrenter_inc80120_bt6079_&years. = T12_moe162;
-	Mrenter_inc80120_bt4059_&years. = T12_moe183;
-	Mrenter_inc80120_bt39_&years. = T12_moe204;
+	Mrentr_inc80120_bt00_&years. = T12_moe120;
+	Mrentr_inc80120_bt8099_&years. = T12_moe141;
+	Mrentr_inc80120_bt6079_&years. = T12_moe162;
+	Mrentr_inc80120_bt4059_&years. = T12_moe183;
+	Mrentr_inc80120_bt39_&years. = T12_moe204;
 
-	Mrenter_inc120pl_bt00_&years. = T12_moe125;
-	Mrenter_inc120pl_bt8099_&years. = T12_moe146;
-	Mrenter_inc120pl_bt6079_&years. = T12_moe167;
-	Mrenter_inc120pl_bt4059_&years. = T12_moe188;
-	Mrenter_inc120pl_bt39_&years. = T12_moe209;
+	Mrentr_inc120pl_bt00_&years. = T12_moe125;
+	Mrentr_inc120pl_bt8099_&years. = T12_moe146;
+	Mrentr_inc120pl_bt6079_&years. = T12_moe167;
+	Mrentr_inc120pl_bt4059_&years. = T12_moe188;
+	Mrentr_inc120pl_bt39_&years. = T12_moe209;
 
-	Mrenter_ncb_inc050_bt00_&years. = T12_moe111 ;
-	Mrenter_ncb_inc050_bt8099_&years. = T12_moe132 ;
-	Mrenter_ncb_inc050_bt6079_&years. = T12_moe153;
-	Mrenter_ncb_inc050_bt4059_&years. = T12_moe174;
-	Mrenter_ncb_inc050_bt39_&years. = T12_moe195 ;
+	Mrentr_ncb_inc050_bt00_&years. = T12_moe111 ;
+	Mrentr_ncb_inc050_bt8099_&years. = T12_moe132 ;
+	Mrentr_ncb_inc050_bt6079_&years. = T12_moe153;
+	Mrentr_ncb_inc050_bt4059_&years. = T12_moe174;
+	Mrentr_ncb_inc050_bt39_&years. = T12_moe195 ;
 
-	Mrenter_cb_inc050_bt00_&years. = %moe_sum(var= T12_moe112 T12_moe113);
-	Mrenter_cb_inc050_bt8099_&years. = %moe_sum(var= T12_moe133 T12_moe134);
-	Mrenter_cb_inc050_bt6079_&years. = %moe_sum(var= T12_moe154 T12_moe155 );
-	Mrenter_cb_inc050_bt4059_&years. = %moe_sum(var= T12_moe175 T12_moe176 );
-	Mrenter_cb_inc050_bt39_&years. = %moe_sum(var= T12_moe196 T12_moe197 );
+	Mrentr_cb_inc050_bt00_&years. = %moe_sum(var= T12_moe112 T12_moe113);
+	Mrentr_cb_inc050_bt8099_&years. = %moe_sum(var= T12_moe133 T12_moe134);
+	Mrentr_cb_inc050_bt6079_&years. = %moe_sum(var= T12_moe154 T12_moe155 );
+	Mrentr_cb_inc050_bt4059_&years. = %moe_sum(var= T12_moe175 T12_moe176 );
+	Mrentr_cb_inc050_bt39_&years. = %moe_sum(var= T12_moe196 T12_moe197 );
 
-	Mrenter_scb_inc050_bt00_&years. = T12_moe113;
-	Mrenter_scb_inc050_bt8099_&years. = T12_moe134 ;
-	Mrenter_scb_inc050_bt6079_&years. = T12_moe155;
-	Mrenter_scb_inc050_bt4059_&years. = T12_moe176 ;
-	Mrenter_scb_inc050_bt39_&years. = T12_moe197 ;
+	Mrentr_scb_inc050_bt00_&years. = T12_moe113;
+	Mrentr_scb_inc050_bt8099_&years. = T12_moe134 ;
+	Mrentr_scb_inc050_bt6079_&years. = T12_moe155;
+	Mrentr_scb_inc050_bt4059_&years. = T12_moe176 ;
+	Mrentr_scb_inc050_bt39_&years. = T12_moe197 ;
 
-	Mrenter_cb_inc050_&years. = %moe_sum(var= T12_moe112 T12_moe113 T12_moe133 T12_moe134 T12_moe154 T12_moe155 T12_moe175 T12_moe176 T12_moe196 T12_moe197);
-	Mrenter_scb_inc050_&years. = %moe_sum(var= T12_moe113 T12_moe134 T12_moe155 T12_moe176 T12_moe197);
-	Mrenter_ncb_inc050_&years. = %moe_sum(var= T12_moe111 T12_moe132 T12_moe153 T12_moe174 T12_moe195);
+	Mrentr_cb_inc050_&years. = %moe_sum(var= T12_moe112 T12_moe113 T12_moe133 T12_moe134 T12_moe154 T12_moe155 T12_moe175 T12_moe176 T12_moe196 T12_moe197);
+	Mrentr_scb_inc050_&years. = %moe_sum(var= T12_moe113 T12_moe134 T12_moe155 T12_moe176 T12_moe197);
+	Mrentr_ncb_inc050_&years. = %moe_sum(var= T12_moe111 T12_moe132 T12_moe153 T12_moe174 T12_moe195);
 
 
 	label 
@@ -2011,53 +2011,53 @@ data &out._&years.;
 	renter_scb_inc050_&years. = "Renter occupied units, household income 50-80%, severely cost burndened, &years_dash."
 	renter_ncb_inc050_&years. = "Renter occupied units, household income 50-80%, not cost burndened, &years_dash."
 
-	Mrenter_bt00_&years. = "Renter occupied units, built 2000 or later, MOE &years_dash."
-	Mrenter_bt8099_&years. = "Renter occupied units, built 1980-1999, MOE &years_dash."
-	Mrenter_bt6079_&years. = "Renter occupied units, built 1960-1979, MOE &years_dash."
-	Mrenter_bt4059_&years. = "Renter occupied units, built 1940-1959, MOE &years_dash."
-	Mrenter_bt39_&years. = "Renter occupied units, built 1940-1959, MOE &years_dash."
-	Mrenter_in50_&years. = "Renter occupied units, household income 0-50%, MOE &years_dash."
-	Mrenter_in5080_&years. = "Renter occupied units, household income 0-50%, MOE &years_dash."
-	Mrenter_in80120_&years. = "Renter occupied units, household income 50-80%, MOE &years_dash."
-	Mrenter_in120pl_&years. = "Renter occupied units, household income 120%+, MOE &years_dash."
-	Mrenter_inc050_bt00_&years. = "Renter occupied units, household income 0-50%, built 2000 or later, MOE &years_dash."
-	Mrenter_inc050_bt8099_&years. = "Renter occupied units, household income 0-50%, built 1980-1999, MOE &years_dash."
-	Mrenter_inc050_bt6079_&years. = "Renter occupied units, household income 0-50%, built 1960-1979, MOE &years_dash."
-	Mrenter_inc050_bt4059_&years. = "Renter occupied units, household income 0-50%, built 1940-1959, MOE &years_dash."
-	Mrenter_inc050_bt39_&years. = "Renter occupied units, household income 0-50%, built 1939 or earlier, MOE &years_dash."
-	Mrenter_inc5080_bt00_&years. = "Renter occupied units, household income 50-80%, built 2000 or later, MOE &years_dash."
-	Mrenter_inc5080_bt8099_&years. = "Renter occupied units, household income 50-80%, built 1980-1999, MOE &years_dash."
-	Mrenter_inc5080_bt6079_&years. = "Renter occupied units, household income 50-80%, built 1960-1979, MOE &years_dash."
-	Mrenter_inc5080_bt4059_&years. = "Renter occupied units, household income 50-80%, built 1940-1959, MOE &years_dash."
-	Mrenter_inc5080_bt39_&years. = "Renter occupied units, household income 50-80%, built 1939 or earlier, MOE &years_dash."
-	Mrenter_inc80120_bt00_&years. = "Renter occupied units, household income 80-120%, built 2000 or later, MOE &years_dash."
-	Mrenter_inc80120_bt8099_&years. = "Renter occupied units, household income 80-120%, built 1980-1999, MOE &years_dash."
-	Mrenter_inc80120_bt6079_&years. = "Renter occupied units, household income 80-120%, built 1960-1979, MOE &years_dash."
-	Mrenter_inc80120_bt4059_&years. = "Renter occupied units, household income 80-120%, built 1940-1959, MOE &years_dash."
-	Mrenter_inc80120_bt39_&years. = "Renter occupied units, household income 80-120%, built 1939 or earlier, MOE &years_dash."
-	Mrenter_inc120pl_bt00_&years. = "Renter occupied units, household income 120%+, built 2000 or later, MOE &years_dash."
-	Mrenter_inc120pl_bt8099_&years. = "Renter occupied units, household income 120%+, built 1980-1999, MOE &years_dash."
-	Mrenter_inc120pl_bt6079_&years. = "Renter occupied units, household income 120%+, built 1960-1979, MOE &years_dash."
-	Mrenter_inc120pl_bt4059_&years. = "Renter occupied units, household income 120%+, built 1940-1959, MOE &years_dash."
-	Mrenter_inc120pl_bt39_&years. = "Renter occupied units, household income 120%+, built 1939 or earlier, MOE &years_dash."
-	Mrenter_ncb_inc050_bt00_&years. = "Renter occupied units, not cost burdened, household income 50-80%, built 1980-1999, MOE &years_dash."
-	Mrenter_ncb_inc050_bt8099_&years. = "Renter occupied units, not cost burdened, household income 50-80%, built 1980-1999, MOE &years_dash."
-	Mrenter_ncb_inc050_bt6079_&years. = "Renter occupied units, not cost burdened, household income 50-80%, built 1960-1979, MOE &years_dash."
-	Mrenter_ncb_inc050_bt4059_&years. = "Renter occupied units, not cost burdened, household income 50-80%, built 1940-1959, MOE &years_dash."
-	Mrenter_ncb_inc050_bt39_&years. = "Renter occupied units, not cost burdened, household income 50-80%, built 1939 or earlier, MOE &years_dash."
-	Mrenter_cb_inc050_bt00_&years. = "Renter occupied units, cost burdened, household income 50-80%, built 1980-1999, MOE &years_dash."
-	Mrenter_cb_inc050_bt8099_&years. = "Renter occupied units, cost burdened, household income 50-80%, built 1980-1999, MOE &years_dash."
-	Mrenter_cb_inc050_bt6079_&years. = "Renter occupied units, cost burdened, household income 50-80%, built 1960-1979, MOE &years_dash."
-	Mrenter_cb_inc050_bt4059_&years. = "Renter occupied units, cost burdened, household income 50-80%, built 1940-1959, MOE &years_dash."
-	Mrenter_cb_inc050_bt39_&years. = "Renter occupied units, cost burdened, household income 50-80%, built 1939 or earlier, MOE &years_dash."
-	Mrenter_scb_inc050_bt00_&years. = "Renter occupied units, severely cost burdened, household income 50-80%, built 1980-1999, MOE &years_dash."
-	Mrenter_scb_inc050_bt8099_&years. = "Renter occupied units, severely cost burdened, household income 50-80%, built 1980-1999, MOE &years_dash."
-	Mrenter_scb_inc050_bt6079_&years. = "Renter occupied units, severely cost burdened, household income 50-80%, built 1960-1979, MOE &years_dash."
-	Mrenter_scb_inc050_bt4059_&years. = "Renter occupied units, severely cost burdened, household income 50-80%, built 1940-1959, MOE &years_dash."
-	Mrenter_scb_inc050_bt39_&years. = "Renter occupied units, severely cost burdened, household income 50-80%, built 1939 or earlier, MOE &years_dash."
-	Mrenter_cb_inc050_&years. = "Renter occupied units, household income 50-80%, cost burndened, MOE &years_dash."
-	Mrenter_scb_inc050_&years. = "Renter occupied units, household income 50-80%, severely cost burndened, MOE &years_dash."
-	Mrenter_ncb_inc050_&years. = "Renter occupied units, household income 50-80%, not cost burndened, MOE &years_dash."
+	Mrentr_bt00_&years. = "Renter occupied units, built 2000 or later, MOE &years_dash."
+	Mrentr_bt8099_&years. = "Renter occupied units, built 1980-1999, MOE &years_dash."
+	Mrentr_bt6079_&years. = "Renter occupied units, built 1960-1979, MOE &years_dash."
+	Mrentr_bt4059_&years. = "Renter occupied units, built 1940-1959, MOE &years_dash."
+	Mrentr_bt39_&years. = "Renter occupied units, built 1940-1959, MOE &years_dash."
+	Mrentr_in50_&years. = "Renter occupied units, household income 0-50%, MOE &years_dash."
+	Mrentr_in5080_&years. = "Renter occupied units, household income 0-50%, MOE &years_dash."
+	Mrentr_in80120_&years. = "Renter occupied units, household income 50-80%, MOE &years_dash."
+	Mrentr_in120pl_&years. = "Renter occupied units, household income 120%+, MOE &years_dash."
+	Mrentr_inc050_bt00_&years. = "Renter occupied units, household income 0-50%, built 2000 or later, MOE &years_dash."
+	Mrentr_inc050_bt8099_&years. = "Renter occupied units, household income 0-50%, built 1980-1999, MOE &years_dash."
+	Mrentr_inc050_bt6079_&years. = "Renter occupied units, household income 0-50%, built 1960-1979, MOE &years_dash."
+	Mrentr_inc050_bt4059_&years. = "Renter occupied units, household income 0-50%, built 1940-1959, MOE &years_dash."
+	Mrentr_inc050_bt39_&years. = "Renter occupied units, household income 0-50%, built 1939 or earlier, MOE &years_dash."
+	Mrentr_inc5080_bt00_&years. = "Renter occupied units, household income 50-80%, built 2000 or later, MOE &years_dash."
+	Mrentr_inc5080_bt8099_&years. = "Renter occupied units, household income 50-80%, built 1980-1999, MOE &years_dash."
+	Mrentr_inc5080_bt6079_&years. = "Renter occupied units, household income 50-80%, built 1960-1979, MOE &years_dash."
+	Mrentr_inc5080_bt4059_&years. = "Renter occupied units, household income 50-80%, built 1940-1959, MOE &years_dash."
+	Mrentr_inc5080_bt39_&years. = "Renter occupied units, household income 50-80%, built 1939 or earlier, MOE &years_dash."
+	Mrentr_inc80120_bt00_&years. = "Renter occupied units, household income 80-120%, built 2000 or later, MOE &years_dash."
+	Mrentr_inc80120_bt8099_&years. = "Renter occupied units, household income 80-120%, built 1980-1999, MOE &years_dash."
+	Mrentr_inc80120_bt6079_&years. = "Renter occupied units, household income 80-120%, built 1960-1979, MOE &years_dash."
+	Mrentr_inc80120_bt4059_&years. = "Renter occupied units, household income 80-120%, built 1940-1959, MOE &years_dash."
+	Mrentr_inc80120_bt39_&years. = "Renter occupied units, household income 80-120%, built 1939 or earlier, MOE &years_dash."
+	Mrentr_inc120pl_bt00_&years. = "Renter occupied units, household income 120%+, built 2000 or later, MOE &years_dash."
+	Mrentr_inc120pl_bt8099_&years. = "Renter occupied units, household income 120%+, built 1980-1999, MOE &years_dash."
+	Mrentr_inc120pl_bt6079_&years. = "Renter occupied units, household income 120%+, built 1960-1979, MOE &years_dash."
+	Mrentr_inc120pl_bt4059_&years. = "Renter occupied units, household income 120%+, built 1940-1959, MOE &years_dash."
+	Mrentr_inc120pl_bt39_&years. = "Renter occupied units, household income 120%+, built 1939 or earlier, MOE &years_dash."
+	Mrentr_ncb_inc050_bt00_&years. = "Renter occupied units, not cost burdened, household income 50-80%, built 1980-1999, MOE &years_dash."
+	Mrentr_ncb_inc050_bt8099_&years. = "Renter occupied units, not cost burdened, household income 50-80%, built 1980-1999, MOE &years_dash."
+	Mrentr_ncb_inc050_bt6079_&years. = "Renter occupied units, not cost burdened, household income 50-80%, built 1960-1979, MOE &years_dash."
+	Mrentr_ncb_inc050_bt4059_&years. = "Renter occupied units, not cost burdened, household income 50-80%, built 1940-1959, MOE &years_dash."
+	Mrentr_ncb_inc050_bt39_&years. = "Renter occupied units, not cost burdened, household income 50-80%, built 1939 or earlier, MOE &years_dash."
+	Mrentr_cb_inc050_bt00_&years. = "Renter occupied units, cost burdened, household income 50-80%, built 1980-1999, MOE &years_dash."
+	Mrentr_cb_inc050_bt8099_&years. = "Renter occupied units, cost burdened, household income 50-80%, built 1980-1999, MOE &years_dash."
+	Mrentr_cb_inc050_bt6079_&years. = "Renter occupied units, cost burdened, household income 50-80%, built 1960-1979, MOE &years_dash."
+	Mrentr_cb_inc050_bt4059_&years. = "Renter occupied units, cost burdened, household income 50-80%, built 1940-1959, MOE &years_dash."
+	Mrentr_cb_inc050_bt39_&years. = "Renter occupied units, cost burdened, household income 50-80%, built 1939 or earlier, MOE &years_dash."
+	Mrentr_scb_inc050_bt00_&years. = "Renter occupied units, severely cost burdened, household income 50-80%, built 1980-1999, MOE &years_dash."
+	Mrentr_scb_inc050_bt8099_&years. = "Renter occupied units, severely cost burdened, household income 50-80%, built 1980-1999, MOE &years_dash."
+	Mrentr_scb_inc050_bt6079_&years. = "Renter occupied units, severely cost burdened, household income 50-80%, built 1960-1979, MOE &years_dash."
+	Mrentr_scb_inc050_bt4059_&years. = "Renter occupied units, severely cost burdened, household income 50-80%, built 1940-1959, MOE &years_dash."
+	Mrentr_scb_inc050_bt39_&years. = "Renter occupied units, severely cost burdened, household income 50-80%, built 1939 or earlier, MOE &years_dash."
+	Mrentr_cb_inc050_&years. = "Renter occupied units, household income 50-80%, cost burndened, MOE &years_dash."
+	Mrentr_scb_inc050_&years. = "Renter occupied units, household income 50-80%, severely cost burndened, MOE &years_dash."
+	Mrentr_ncb_inc050_&years. = "Renter occupied units, household income 50-80%, not cost burndened, MOE &years_dash."
 	;
 
 	%Pct_calc( var=Prenter_inc050_bt00, label=% Renter occupied units household income 0-50% built 2000 or later, num=renter_inc050_bt00, den=renter_in50, years= &years. );
@@ -2067,15 +2067,15 @@ data &out._&years.;
 	%Pct_calc( var=Prenter_inc050_bt39, label=% Renter occupied units household income 0-50% built 1939 or earlier, num=renter_inc050_bt39, den=renter_in50, years= &years. );
 
 	%Moe_prop_a( var=Orenter_inc050_bt00_&years., mult=100, num=renter_inc050_bt00_&years., den=renter_in50_&years., 
-                       num_moe=Mrenter_inc050_bt00_&years., den_moe=Mrenter_in50_&years., label_moe = % Renter occupied units household income 0-50% built 2000 or later MOE);
+                       num_moe=Mrentr_inc050_bt00_&years., den_moe=Mrentr_in50_&years., label_moe = % Renter occupied units household income 0-50% built 2000 or later MOE);
 	%Moe_prop_a( var=Orenter_inc050_bt8099_&years., mult=100, num=renter_inc050_bt8099_&years., den=renter_in50_&years., 
-                       num_moe=Mrenter_inc050_bt8099_&years., den_moe=Mrenter_in50_&years., label_moe = % Renter occupied units household income 0-50% built 1980-1999 MOE);
+                       num_moe=Mrentr_inc050_bt8099_&years., den_moe=Mrentr_in50_&years., label_moe = % Renter occupied units household income 0-50% built 1980-1999 MOE);
 	%Moe_prop_a( var=Orenter_inc050_bt6079_&years., mult=100, num=renter_inc050_bt6079_&years., den=renter_in50_&years., 
-                       num_moe=Mrenter_inc050_bt6079_&years., den_moe=Mrenter_in50_&years., label_moe = % Renter occupied units household income 0-50% built 1960-1979 MOE);
+                       num_moe=Mrentr_inc050_bt6079_&years., den_moe=Mrentr_in50_&years., label_moe = % Renter occupied units household income 0-50% built 1960-1979 MOE);
 	%Moe_prop_a( var=Orenter_inc050_bt4059_&years., mult=100, num=renter_inc050_bt4059_&years., den=renter_in50_&years., 
-                       num_moe=Mrenter_inc050_bt4059_&years., den_moe=Mrenter_in50_&years., label_moe = % Renter occupied units household income 0-50% built 1940-1959 MOE);
+                       num_moe=Mrentr_inc050_bt4059_&years., den_moe=Mrentr_in50_&years., label_moe = % Renter occupied units household income 0-50% built 1940-1959 MOE);
 	%Moe_prop_a( var=Orenter_inc050_bt39_&years., mult=100, num=renter_inc050_bt39_&years., den=renter_in50_&years., 
-                       num_moe=Mrenter_inc050_bt39_&years., den_moe=Mrenter_in50_&years., label_moe = % Renter occupied units household income 0-50% built 1939 or earlier MOE);
+                       num_moe=Mrentr_inc050_bt39_&years., den_moe=Mrentr_in50_&years., label_moe = % Renter occupied units household income 0-50% built 1939 or earlier MOE);
 
 	%Pct_calc( var=Prenter_inc5080_bt00, label=% Renter occupied units household income 50-80% built 2000 or later, num=renter_inc5080_bt00, den=renter_in5080, years= &years. );
 	%Pct_calc( var=Prenter_inc5080_bt8099, label=% Renter occupied units household income 50-80% built 1980-1999, num=renter_inc5080_bt8099, den=renter_in5080, years= &years. );
@@ -2084,15 +2084,15 @@ data &out._&years.;
 	%Pct_calc( var=Prenter_inc5080_bt39, label=% Renter occupied units household income 50-80% built 1939 or earlier, num=renter_inc5080_bt39, den=renter_in5080, years= &years. );
 
 	%Moe_prop_a( var=Orenter_inc5080_bt00_&years., mult=100, num=renter_inc5080_bt00_&years., den=renter_in5080_&years., 
-                       num_moe=Mrenter_inc5080_bt00_&years., den_moe=Mrenter_in5080_&years., label_moe = % Renter occupied units household income 50-80% built 2000 or later MOE);
+                       num_moe=Mrentr_inc5080_bt00_&years., den_moe=Mrentr_in5080_&years., label_moe = % Renter occupied units household income 50-80% built 2000 or later MOE);
 	%Moe_prop_a( var=Orenter_inc5080_bt8099_&years., mult=100, num=renter_inc5080_bt8099_&years., den=renter_in5080_&years., 
-                       num_moe=Mrenter_inc5080_bt8099_&years., den_moe=Mrenter_in5080_&years., label_moe = % Renter occupied units household income 50-80% built 1980-1999 MOE);
+                       num_moe=Mrentr_inc5080_bt8099_&years., den_moe=Mrentr_in5080_&years., label_moe = % Renter occupied units household income 50-80% built 1980-1999 MOE);
 	%Moe_prop_a( var=Orenter_inc5080_bt6079_&years., mult=100, num=renter_inc5080_bt6079_&years., den=renter_in5080_&years., 
-                       num_moe=Mrenter_inc5080_bt6079_&years., den_moe=Mrenter_in5080_&years., label_moe = % Renter occupied units household income 50-80% built 1960-1979 MOE);
+                       num_moe=Mrentr_inc5080_bt6079_&years., den_moe=Mrentr_in5080_&years., label_moe = % Renter occupied units household income 50-80% built 1960-1979 MOE);
 	%Moe_prop_a( var=Orenter_inc5080_bt4059_&years., mult=100, num=renter_inc5080_bt4059_&years., den=renter_in5080_&years., 
-                       num_moe=Mrenter_inc5080_bt4059_&years., den_moe=Mrenter_in5080_&years., label_moe = % Renter occupied units household income 50-80% built 1940-1959 MOE);
+                       num_moe=Mrentr_inc5080_bt4059_&years., den_moe=Mrentr_in5080_&years., label_moe = % Renter occupied units household income 50-80% built 1940-1959 MOE);
 	%Moe_prop_a( var=Orenter_inc5080_bt39_&years., mult=100, num=renter_inc5080_bt39_&years., den=renter_in5080_&years., 
-                       num_moe=Mrenter_inc5080_bt39_&years., den_moe=Mrenter_in5080_&years., label_moe =  MOE);
+                       num_moe=Mrentr_inc5080_bt39_&years., den_moe=Mrentr_in5080_&years., label_moe =  MOE);
 
 	%Pct_calc( var=Prenter_inc80120_bt00, label=% Renter occupied units household income 80-120% built 2000 or later, num=renter_inc80120_bt00, den=renter_in80120, years= &years. );
 	%Pct_calc( var=Prenter_inc80120_bt8099, label=% Renter occupied units household income 80-120% built 1980-1999, num=renter_inc80120_bt8099, den=renter_in80120, years= &years. );
@@ -2101,15 +2101,15 @@ data &out._&years.;
 	%Pct_calc( var=Prenter_inc80120_bt39, label=% Renter occupied units household income 80-120% built 1939 or earlier, num=renter_inc80120_bt39, den=renter_in80120, years= &years. );
 
 	%Moe_prop_a( var=Orenter_inc80120_bt00_&years., mult=100, num=renter_inc80120_bt00_&years., den=renter_in80120_&years., 
-                       num_moe=Mrenter_inc80120_bt00_&years., den_moe=Mrenter_in80120_&years., label_moe = % Renter occupied units household income 80-120% built 2000 or later MOE);
+                       num_moe=Mrentr_inc80120_bt00_&years., den_moe=Mrentr_in80120_&years., label_moe = % Renter occupied units household income 80-120% built 2000 or later MOE);
 	%Moe_prop_a( var=Orenter_inc80120_bt8099_&years., mult=100, num=renter_inc80120_bt8099_&years., den=renter_in80120_&years., 
-                       num_moe=Mrenter_inc80120_bt8099_&years., den_moe=Mrenter_in80120_&years., label_moe = % Renter occupied units household income 80-120% built 1980-1999 MOE);
+                       num_moe=Mrentr_inc80120_bt8099_&years., den_moe=Mrentr_in80120_&years., label_moe = % Renter occupied units household income 80-120% built 1980-1999 MOE);
 	%Moe_prop_a( var=Orenter_inc80120_bt6079_&years., mult=100, num=renter_inc80120_bt6079_&years., den=renter_in80120_&years., 
-                       num_moe=Mrenter_inc80120_bt6079_&years., den_moe=Mrenter_in80120_&years., label_moe = % Renter occupied units household income 80-120% built 1960-1979 MOE);
+                       num_moe=Mrentr_inc80120_bt6079_&years., den_moe=Mrentr_in80120_&years., label_moe = % Renter occupied units household income 80-120% built 1960-1979 MOE);
 	%Moe_prop_a( var=Orenter_inc80120_bt4059_&years., mult=100, num=renter_inc80120_bt4059_&years., den=renter_in80120_&years., 
-                       num_moe=Mrenter_inc80120_bt4059_&years., den_moe=Mrenter_in80120_&years., label_moe = % Renter occupied units household income 80-120% built 1940-1959 MOE);
+                       num_moe=Mrentr_inc80120_bt4059_&years., den_moe=Mrentr_in80120_&years., label_moe = % Renter occupied units household income 80-120% built 1940-1959 MOE);
 	%Moe_prop_a( var=Orenter_inc80120_bt39_&years., mult=100, num=renter_inc80120_bt39_&years., den=renter_in80120_&years., 
-                       num_moe=Mrenter_inc80120_bt39_&years., den_moe=Mrenter_in80120_&years., label_moe = % Renter occupied units household income 80-120% built 1939 or earlier MOE);
+                       num_moe=Mrentr_inc80120_bt39_&years., den_moe=Mrentr_in80120_&years., label_moe = % Renter occupied units household income 80-120% built 1939 or earlier MOE);
 
 	%Pct_calc( var=Prenter_inc120pl_bt00, label=% Renter occupied units household income 120%+ built 2000 or later, num=renter_inc120pl_bt00, den=renter_in120pl, years= &years. );
 	%Pct_calc( var=Prenter_inc120pl_bt8099, label=% Renter occupied units household income 120%+ built 1980-1999, num=renter_inc120pl_bt8099, den=renter_in120pl, years= &years. );
@@ -2118,15 +2118,15 @@ data &out._&years.;
 	%Pct_calc( var=Prenter_inc120pl_bt39, label=% Renter occupied units household income 120%+ built 1939 or earlier, num=renter_inc120pl_bt39, den=renter_in120pl, years= &years. );
 
 	%Moe_prop_a( var=Orenter_inc120pl_bt00_&years., mult=100, num=renter_inc120pl_bt00_&years., den=renter_in120pl_&years., 
-                       num_moe=Mrenter_inc120pl_bt00_&years., den_moe=Mrenter_in120pl_&years., label_moe = % Renter occupied units household income 120%+ built 2000 or later MOE);
+                       num_moe=Mrentr_inc120pl_bt00_&years., den_moe=Mrentr_in120pl_&years., label_moe = % Renter occupied units household income 120%+ built 2000 or later MOE);
 	%Moe_prop_a( var=Orenter_inc120pl_bt8099_&years., mult=100, num=renter_inc120pl_bt8099_&years., den=renter_in120pl_&years., 
-                       num_moe=Mrenter_inc120pl_bt8099_&years., den_moe=Mrenter_in120pl_&years., label_moe = % Renter occupied units household income 120%+ built 1980-1999 MOE);
+                       num_moe=Mrentr_inc120pl_bt8099_&years., den_moe=Mrentr_in120pl_&years., label_moe = % Renter occupied units household income 120%+ built 1980-1999 MOE);
 	%Moe_prop_a( var=Orenter_inc120pl_bt6079_&years., mult=100, num=renter_inc120pl_bt6079_&years., den=renter_in120pl_&years., 
-                       num_moe=Mrenter_inc120pl_bt6079_&years., den_moe=Mrenter_in120pl_&years., label_moe = % Renter occupied units household income 120%+ built 1960-1979 MOE);
+                       num_moe=Mrentr_inc120pl_bt6079_&years., den_moe=Mrentr_in120pl_&years., label_moe = % Renter occupied units household income 120%+ built 1960-1979 MOE);
 	%Moe_prop_a( var=Orenter_inc120pl_bt4059_&years., mult=100, num=renter_inc120pl_bt4059_&years., den=renter_in120pl_&years., 
-                       num_moe=Mrenter_inc120pl_bt4059_&years., den_moe=Mrenter_in120pl_&years., label_moe = % Renter occupied units household income 120%+ built 1940-1959 MOE);
+                       num_moe=Mrentr_inc120pl_bt4059_&years., den_moe=Mrentr_in120pl_&years., label_moe = % Renter occupied units household income 120%+ built 1940-1959 MOE);
 	%Moe_prop_a( var=Orenter_inc120pl_bt39_&years., mult=100, num=renter_inc120pl_bt39_&years., den=renter_in120pl_&years., 
-                       num_moe=Mrenter_inc120pl_bt39_&years., den_moe=Mrenter_in120pl_&years., label_moe = % Renter occupied units household income 120%+ built 1939 or earlier MOE);
+                       num_moe=Mrentr_inc120pl_bt39_&years., den_moe=Mrentr_in120pl_&years., label_moe = % Renter occupied units household income 120%+ built 1939 or earlier MOE);
 
 	%Pct_calc( var=Prenter_ncb_in050_bt00, label=% Renter occupied units NOT cost burdened built 2000 or later, num=renter_ncb_inc050_bt00, den=renter_ncb_inc050, years= &years. );
 	%Pct_calc( var=Prenter_ncb_in050_bt8099, label=% Renter occupied units NOT cost burdened built 1980-1999, num=renter_ncb_inc050_bt8099, den=renter_ncb_inc050, years= &years. );
@@ -2135,15 +2135,15 @@ data &out._&years.;
 	%Pct_calc( var=Prenter_ncb_in050_bt39, label=% Renter occupied units NOT cost burdened built 1939 or earlier, num=renter_ncb_inc050_bt39, den=renter_ncb_inc050, years= &years. );
 
 	%Moe_prop_a( var=Orenter_ncb_in050_bt00_&years., mult=100, num=renter_ncb_inc050_bt00_&years., den=renter_ncb_inc050_&years., 
-                       num_moe=Mrenter_ncb_inc050_bt00_&years., den_moe=Mrenter_ncb_inc050_&years., label_moe = % Renter occupied units NOT cost burdened built 2000 or later MOE);
+                       num_moe=Mrentr_ncb_inc050_bt00_&years., den_moe=Mrentr_ncb_inc050_&years., label_moe = % Renter occupied units NOT cost burdened built 2000 or later MOE);
 	%Moe_prop_a( var=Orenter_ncb_in050_bt8099_&years., mult=100, num=renter_ncb_inc050_bt8099_&years., den=renter_ncb_inc050_&years., 
-                       num_moe=Mrenter_ncb_inc050_bt8099_&years., den_moe=Mrenter_ncb_inc050_&years., label_moe = % Renter occupied units NOT cost burdened built 1980-1999 MOE);
+                       num_moe=Mrentr_ncb_inc050_bt8099_&years., den_moe=Mrentr_ncb_inc050_&years., label_moe = % Renter occupied units NOT cost burdened built 1980-1999 MOE);
 	%Moe_prop_a( var=Orenter_ncb_in050_bt6079_&years., mult=100, num=renter_ncb_inc050_bt6079_&years., den=renter_ncb_inc050_&years., 
-                       num_moe=Mrenter_ncb_inc050_bt6079_&years., den_moe=Mrenter_ncb_inc050_&years., label_moe = % Renter occupied units NOT cost burdened built 1960-1979 MOE);
+                       num_moe=Mrentr_ncb_inc050_bt6079_&years., den_moe=Mrentr_ncb_inc050_&years., label_moe = % Renter occupied units NOT cost burdened built 1960-1979 MOE);
 	%Moe_prop_a( var=Orenter_ncb_in050_bt4059_&years., mult=100, num=renter_ncb_inc050_bt4059_&years., den=renter_ncb_inc050_&years., 
-                       num_moe=Mrenter_ncb_inc050_bt4059_&years., den_moe=Mrenter_ncb_inc050_&years., label_moe = % Renter occupied units NOT cost burdened built 1940-1959 MOE);
+                       num_moe=Mrentr_ncb_inc050_bt4059_&years., den_moe=Mrentr_ncb_inc050_&years., label_moe = % Renter occupied units NOT cost burdened built 1940-1959 MOE);
 	%Moe_prop_a( var=Orenter_ncb_in050_bt39_&years., mult=100, num=renter_ncb_inc050_bt39_&years., den=renter_ncb_inc050_&years., 
-                       num_moe=Mrenter_ncb_inc050_bt39_&years., den_moe=Mrenter_ncb_inc050_&years., label_moe = % Renter occupied units NOT cost burdened built 1939 or earlier MOE);
+                       num_moe=Mrentr_ncb_inc050_bt39_&years., den_moe=Mrentr_ncb_inc050_&years., label_moe = % Renter occupied units NOT cost burdened built 1939 or earlier MOE);
 
 	%Pct_calc( var=Prenter_cb_in050_bt00, label=% Renter occupied units cost burdened built 2000 or later, num=renter_cb_inc050_bt00, den=renter_cb_inc050, years= &years. );
 	%Pct_calc( var=Prenter_cb_in050_bt8099, label=% Renter occupied units cost burdened built 1980-1999, num=renter_cb_inc050_bt8099, den=renter_cb_inc050, years= &years. );
@@ -2152,15 +2152,15 @@ data &out._&years.;
 	%Pct_calc( var=Prenter_cb_in050_bt39, label=% Renter occupied units cost burdened built 1939 or earlier, num=renter_cb_inc050_bt39, den=renter_cb_inc050, years= &years. );
 
 	%Moe_prop_a( var=Orenter_cb_in050_bt00_&years., mult=100, num=renter_cb_inc050_bt00_&years., den=renter_cb_inc050_&years., 
-                       num_moe=Mrenter_cb_inc050_bt00_&years., den_moe=Mrenter_cb_inc050_&years., label_moe = % Renter occupied units cost burdened built 2000 or later MOE);
+                       num_moe=Mrentr_cb_inc050_bt00_&years., den_moe=Mrentr_cb_inc050_&years., label_moe = % Renter occupied units cost burdened built 2000 or later MOE);
 	%Moe_prop_a( var=Orenter_cb_in050_bt8099_&years., mult=100, num=renter_cb_inc050_bt8099_&years., den=renter_cb_inc050_&years., 
-                       num_moe=Mrenter_cb_inc050_bt8099_&years., den_moe=Mrenter_cb_inc050_&years., label_moe = % Renter occupied units cost burdened built 1980-1999 MOE);
+                       num_moe=Mrentr_cb_inc050_bt8099_&years., den_moe=Mrentr_cb_inc050_&years., label_moe = % Renter occupied units cost burdened built 1980-1999 MOE);
 	%Moe_prop_a( var=Orenter_cb_in050_bt6079_&years., mult=100, num=renter_cb_inc050_bt6079_&years., den=renter_cb_inc050_&years., 
-                       num_moe=Mrenter_cb_inc050_bt6079_&years., den_moe=Mrenter_cb_inc050_&years., label_moe = % Renter occupied units cost burdened built 1960-1979 MOE);
+                       num_moe=Mrentr_cb_inc050_bt6079_&years., den_moe=Mrentr_cb_inc050_&years., label_moe = % Renter occupied units cost burdened built 1960-1979 MOE);
 	%Moe_prop_a( var=Orenter_cb_in050_bt4059_&years., mult=100, num=renter_cb_inc050_bt4059_&years., den=renter_cb_inc050_&years., 
-                       num_moe=Mrenter_cb_inc050_bt4059_&years., den_moe=Mrenter_cb_inc050_&years., label_moe = % Renter occupied units cost burdened built 1940-1959 MOE);
+                       num_moe=Mrentr_cb_inc050_bt4059_&years., den_moe=Mrentr_cb_inc050_&years., label_moe = % Renter occupied units cost burdened built 1940-1959 MOE);
 	%Moe_prop_a( var=Orenter_cb_in050_bt39_&years., mult=100, num=renter_cb_inc050_bt39_&years., den=renter_cb_inc050_&years., 
-                       num_moe=Mrenter_cb_inc050_bt39_&years., den_moe=Mrenter_cb_inc050_&years., label_moe = % Renter occupied units cost burdened built 1939 or earlier MOE);
+                       num_moe=Mrentr_cb_inc050_bt39_&years., den_moe=Mrentr_cb_inc050_&years., label_moe = % Renter occupied units cost burdened built 1939 or earlier MOE);
 
 	%Pct_calc( var=Prenter_scb_in050_bt00, label=% Renter occupied units severely cost burdened built 2000 or later, num=renter_scb_inc050_bt00, den=renter_scb_inc050, years= &years. );
 	%Pct_calc( var=Prenter_scb_in050_bt8099, label=% Renter occupied units severely cost burdened built 1980-1999 or later, num=renter_scb_inc050_bt8099, den=renter_scb_inc050, years= &years. );
@@ -2169,15 +2169,15 @@ data &out._&years.;
 	%Pct_calc( var=Prenter_scb_in050_bt39, label=% Renter occupied units severely cost burdened built 1939 or earlier, num=renter_scb_inc050_bt39, den=renter_scb_inc050, years= &years. );
 
 	%Moe_prop_a( var=Orenter_scb_in050_bt00_&years., mult=100, num=renter_scb_inc050_bt00_&years., den=renter_scb_inc050_&years., 
-                       num_moe=Mrenter_scb_inc050_bt00_&years., den_moe=Mrenter_scb_inc050_&years., label_moe = % Renter occupied units severely cost burdened built 2000 or later MOE);
+                       num_moe=Mrentr_scb_inc050_bt00_&years., den_moe=Mrentr_scb_inc050_&years., label_moe = % Renter occupied units severely cost burdened built 2000 or later MOE);
 	%Moe_prop_a( var=Orenter_scb_in050_bt8099_&years., mult=100, num=renter_scb_inc050_bt8099_&years., den=renter_scb_inc050_&years., 
-                       num_moe=Mrenter_scb_inc050_bt8099_&years., den_moe=Mrenter_scb_inc050_&years., label_moe = % Renter occupied units severely cost burdened built 1980-1999 or later MOE);
+                       num_moe=Mrentr_scb_inc050_bt8099_&years., den_moe=Mrentr_scb_inc050_&years., label_moe = % Renter occupied units severely cost burdened built 1980-1999 or later MOE);
 	%Moe_prop_a( var=Orenter_scb_in050_bt6079_&years., mult=100, num=renter_scb_inc050_bt6079_&years., den=renter_scb_inc050_&years., 
-                       num_moe=Mrenter_scb_inc050_bt6079_&years., den_moe=Mrenter_scb_inc050_&years., label_moe = % Renter occupied units severely cost burdened built 1960-1979 MOE);
+                       num_moe=Mrentr_scb_inc050_bt6079_&years., den_moe=Mrentr_scb_inc050_&years., label_moe = % Renter occupied units severely cost burdened built 1960-1979 MOE);
 	%Moe_prop_a( var=Orenter_scb_in050_bt4059_&years., mult=100, num=renter_scb_inc050_bt4059_&years., den=renter_scb_inc050_&years., 
-                       num_moe=Mrenter_scb_inc050_bt4059_&years., den_moe=Mrenter_scb_inc050_&years., label_moe = % Renter occupied units severely cost burdened built 1940-1959 MOE);
+                       num_moe=Mrentr_scb_inc050_bt4059_&years., den_moe=Mrentr_scb_inc050_&years., label_moe = % Renter occupied units severely cost burdened built 1940-1959 MOE);
 	%Moe_prop_a( var=Orenter_scb_in050_bt39_&years., mult=100, num=renter_scb_inc050_bt39_&years., den=renter_scb_inc050_&years., 
-                       num_moe=Mrenter_scb_inc050_bt39_&years., den_moe=Mrenter_scb_inc050_&years., label_moe = % Renter occupied units severely cost burdened built 1939 or earlier MOE);
+                       num_moe=Mrentr_scb_inc050_bt39_&years., den_moe=Mrentr_scb_inc050_&years., label_moe = % Renter occupied units severely cost burdened built 1939 or earlier MOE);
 
 	/* Race */
 	renter_wht_&years. = sum(of T1_est129 T1_est137 T1_est145 T1_est153 T1_est161 T1_est170 T1_est178 T1_est186 T1_est194 T1_est202
@@ -2193,7 +2193,6 @@ data &out._&years.;
 							T1_est216 T1_est224 T1_est232 T1_est240 T1_est248);
 	renter_oth_&years. = sum(of T1_est135 T1_est143 T1_est151 T1_est159 T1_est167 T1_est176 T1_est184 T1_est192 T1_est200 T1_est208
 							T1_est217 T1_est225 T1_est233 T1_est241 T1_est249);
-
 
 	renter_inc030_wht_&years. = sum(of T1_est129 T1_est170 T1_est211);
 	renter_inc3050_wht_&years. = sum(of T1_est137 T1_est178 T1_est219);
@@ -2255,6 +2254,80 @@ data &out._&years.;
 	renter_inc030_0prob_oth_&years. = T1_est176;
 	renter_inc030_nc_oth_&years. = T1_est217;
 
+	Mrenter_wht_&years. = %moe_sum(var= T1_moe129 T1_moe137 T1_moe145 T1_moe153 T1_moe161 T1_moe170 T1_moe178 T1_moe186 T1_moe194 T1_moe202
+							T1_moe211 T1_moe219 T1_moe227 T1_moe235 T1_moe243);
+	Mrenter_blk_&years. = %moe_sum(var= T1_moe130 T1_moe138 T1_moe146 T1_moe154 T1_moe162 T1_moe171 T1_moe179 T1_moe187 T1_moe195 T1_moe203
+							T1_moe212 T1_moe220 T1_moe228 T1_moe236 T1_moe244);
+	Mrenter_api_&years. = %moe_sum(var= T1_moe131 T1_moe133 T1_moe139 T1_moe141 T1_moe147 T1_moe149 T1_moe155 T1_moe157 T1_moe163 T1_moe165
+							T1_moe172 T1_moe174 T1_moe180 T1_moe182 T1_moe188 T1_moe190 T1_moe196 T1_moe198 T1_moe204 T1_moe206 T1_moe213
+							T1_moe215 T1_moe221 T1_moe223 T1_moe229 T1_moe231 T1_moe237 T1_moe239 T1_moe245 T1_moe247); 
+	Mrenter_aia_&years. = %moe_sum(var= T1_moe132 T1_moe140 T1_moe148 T1_moe156 T1_moe164 T1_moe173 T1_moe181 T1_moe189 T1_moe197 T1_moe205
+							T1_moe214 T1_moe222 T1_moe230 T1_moe238 T1_moe246);
+	Mrenter_his_&years. = %moe_sum(var= T1_moe134 T1_moe142 T1_moe150 T1_moe158 T1_moe166 T1_moe175 T1_moe183 T1_moe191 T1_moe199 T1_moe207
+							T1_moe216 T1_moe224 T1_moe232 T1_moe240 T1_moe248);
+	Mrenter_oth_&years. = %moe_sum(var= T1_moe135 T1_moe143 T1_moe151 T1_moe159 T1_moe167 T1_moe176 T1_moe184 T1_moe192 T1_moe200 T1_moe208
+							T1_moe217 T1_moe225 T1_moe233 T1_moe241 T1_moe249);
+
+	Mrenter_inc030_wht_&years. = %moe_sum(var= T1_moe129 T1_moe170 T1_moe211);
+	Mrenter_inc3050_wht_&years. = %moe_sum(var= T1_moe137 T1_moe178 T1_moe219);
+	Mrenter_inc5080_wht_&years. = %moe_sum(var= T1_moe145 T1_moe186 T1_moe227);
+	Mrenter_inc80100_wht_&years. = %moe_sum(var= T1_moe153 T1_moe194 T1_moe235);
+	Mrenter_inc100pl_wht_&years. = %moe_sum(var= T1_moe161 T1_moe202 T1_moe243);
+
+	Mrenter_inc030_blk_&years. = %moe_sum(var= T1_moe130 T1_moe171 T1_moe212);
+	Mrenter_inc3050_blk_&years. = %moe_sum(var= T1_moe138 T1_moe179 T1_moe220);
+	Mrenter_inc5080_blk_&years. = %moe_sum(var= T1_moe146 T1_moe187 T1_moe228);
+	Mrenter_inc80100_blk_&years. = %moe_sum(var= T1_moe154 T1_moe195 T1_moe236);
+	Mrenter_inc100pl_blk_&years. = %moe_sum(var= T1_moe162 T1_moe203 T1_moe244);
+
+	Mrenter_inc030_api_&years. = %moe_sum(var= T1_moe131 T1_moe133 T1_moe172 T1_moe174 T1_moe213 T1_moe215);
+	Mrenter_inc3050_api_&years. = %moe_sum(var= T1_moe139 T1_moe141 T1_moe180 T1_moe182 T1_moe221 T1_moe223);
+	Mrenter_inc5080_api_&years. = %moe_sum(var= T1_moe147 T1_moe149 T1_moe188 T1_moe190 T1_moe229 T1_moe231);
+	Mrenter_inc80100_api_&years. = %moe_sum(var= T1_moe155 T1_moe157 T1_moe196 T1_moe198 T1_moe237 T1_moe239);
+	Mrenter_inc100pl_api_&years. = %moe_sum(var= T1_moe163 T1_moe165 T1_moe204 T1_moe206 T1_moe245 T1_moe247);
+
+	Mrenter_inc030_aia_&years. = %moe_sum(var= T1_moe132 T1_moe173 T1_moe214);
+	Mrenter_inc3050_aia_&years. = %moe_sum(var= T1_moe140 T1_moe181 T1_moe222);
+	Mrenter_inc5080_aia_&years. = %moe_sum(var= T1_moe148 T1_moe189 T1_moe230);
+	Mrenter_inc80100_aia_&years. = %moe_sum(var= T1_moe156 T1_moe197 T1_moe238);
+	Mrenter_inc100pl_aia_&years. = %moe_sum(var= T1_moe164 T1_moe205 T1_moe246);
+
+	Mrenter_inc030_his_&years. = %moe_sum(var= T1_moe134 T1_moe175 T1_moe216);
+	Mrenter_inc3050_his_&years. = %moe_sum(var= T1_moe142 T1_moe183 T1_moe224);
+	Mrenter_inc5080_his_&years. = %moe_sum(var= T1_moe150 T1_moe191 T1_moe232);
+	Mrenter_inc80100_his_&years. = %moe_sum(var= T1_moe158 T1_moe199 T1_moe240);
+	Mrenter_inc100pl_his_&years. = %moe_sum(var= T1_moe166 T1_moe207 T1_moe248);
+
+	Mrenter_inc030_oth_&years. = %moe_sum(var= T1_moe135 T1_moe176 T1_moe217);
+	Mrenter_inc3050_oth_&years. = %moe_sum(var= T1_moe143 T1_moe184 T1_moe225);
+	Mrenter_inc5080_oth_&years. = %moe_sum(var= T1_moe151 T1_moe192 T1_moe233);
+	Mrenter_inc80100_oth_&years. = %moe_sum(var= T1_moe159 T1_moe200 T1_moe241);
+	Mrenter_inc100pl_oth_&years. = %moe_sum(var= T1_moe167 T1_moe208 T1_moe249);
+
+	Mrenter_inc030_1prob_wht_&years. = T1_moe129;
+	Mrenter_inc030_0prob_wht_&years. = T1_moe170;
+	Mrenter_inc030_nc_wht_&years. = T1_moe211;
+
+	Mrenter_inc030_1prob_blk_&years. = T1_moe130;
+	Mrenter_inc030_0prob_blk_&years. = T1_moe171;
+	Mrenter_inc030_nc_blk_&years. = T1_moe212;
+
+	Mrenter_inc030_1prob_api_&years. = %moe_sum(var= T1_moe131 T1_moe133);
+	Mrenter_inc030_0prob_api_&years. = %moe_sum(var= T1_moe172 T1_moe174);
+	Mrenter_inc030_nc_api_&years. = %moe_sum(var= T1_moe213 T1_moe215);
+
+	Mrenter_inc030_1prob_aia_&years. = T1_moe132;
+	Mrenter_inc030_0prob_aia_&years. = T1_moe173;
+	Mrenter_inc030_nc_aia_&years. = T1_moe214;
+
+	Mrenter_inc030_1prob_his_&years. = T1_moe134;
+	Mrenter_inc030_0prob_his_&years. = T1_moe175;
+	Mrenter_inc030_nc_his_&years. = T1_moe216;
+
+	Mrenter_inc030_1prob_oth_&years. = T1_moe135;
+	Mrenter_inc030_0prob_oth_&years. = T1_moe176;
+	Mrenter_inc030_nc_oth_&years. = T1_moe217;
+
 	label
 	renter_wht_&years. = "Renter occupied units, White alone non-Hispanic, &years_dash."
 	renter_blk_&years. = "Renter occupied units, Black or African-American alone non-Hispanic, &years_dash."
@@ -2310,6 +2383,61 @@ data &out._&years.;
 	renter_inc030_1prob_oth_&years. = "Renter occupied units, household income 0-30%, Other race, 1 or more of the 4 housing unit problems, &years_dash."
 	renter_inc030_0prob_oth_&years. = "Renter occupied units, household income 0-30%,Other race, none of the 4 housing unit problems, &years_dash."
 	renter_inc030_nc_oth_&years. = "Renter occupied units, household income 0-30%, Other race, cost burden not computed, household has none of the other housing problems, &years_dash."
+
+	Mrenter_wht_&years. = "Renter occupied units, White alone non-Hispanic, MOE &years_dash."
+	Mrenter_blk_&years. = "Renter occupied units, Black or African-American alone non-Hispanic, MOE &years_dash."
+	Mrenter_api_&years. = "Renter occupied units, Asian or pacific islander alone non-Hispanic, MOE &years_dash."
+	Mrenter_aia_&years. = "Renter occupied units, American Indian or Alaska Native alone non-Hispanic, MOE &years_dash."
+	Mrenter_his_&years. = "Renter occupied units, Hispanic, MOE &years_dash."
+	Mrenter_oth_&years. = "Renter occupied units, Other race, MOE &years_dash."
+	Mrenter_inc030_wht_&years. = "Renter occupied units, household income 0-30%, White alone non-Hispanic, MOE &years_dash."
+	Mrenter_inc3050_wht_&years. = "Renter occupied units, household income 30-50%, White alone non-Hispanic, MOE &years_dash."
+	Mrenter_inc5080_wht_&years. = "Renter occupied units, household income 50-80%, White alone non-Hispanic, MOE &years_dash."
+	Mrenter_inc80100_wht_&years. = "Renter occupied units, household income 80%-100%, White alone non-Hispanic, MOE &years_dash."
+	Mrenter_inc100pl_wht_&years. = "Renter occupied units, household income 100%+, White alone non-Hispanic, MOE &years_dash."
+	Mrenter_inc030_blk_&years. = "Renter occupied units, household income 0-30%, Black or African-American alone non-Hispanic, MOE &years_dash."
+	Mrenter_inc3050_blk_&years. = "Renter occupied units, household income 30-50%, Black or African-American alone non-Hispanic, MOE &years_dash."
+	Mrenter_inc5080_blk_&years. = "Renter occupied units, household income 50-80%, Black or African-American alone non-Hispanic, MOE &years_dash."
+	Mrenter_inc80100_blk_&years. = "Renter occupied units, household income 80%-100%, Black or African-American alone non-Hispanic, MOE &years_dash."
+	Mrenter_inc100pl_blk_&years. = "Renter occupied units, household income 100%+, Black or African-American alone non-Hispanic, MOE &years_dash."
+	Mrenter_inc030_api_&years. = "Renter occupied units, household income 0-30%, Asian or pacific islander alone non-Hispanic, MOE &years_dash."
+	Mrenter_inc3050_api_&years. = "Renter occupied units, household income 30-50%, Asian or pacific islander alone non-Hispanic, MOE &years_dash."
+	Mrenter_inc5080_api_&years. = "Renter occupied units, household income 50-80%, Asian or pacific islander alone non-Hispanic, MOE &years_dash."
+	Mrenter_inc80100_api_&years. = "Renter occupied units, household income 80%-100%, Asian or pacific islander alone non-Hispanic, MOE &years_dash."
+	Mrenter_inc100pl_api_&years. = "Renter occupied units, household income 100%+, Asian or pacific islander alone non-Hispanic, MOE &years_dash."
+	Mrenter_inc030_aia_&years. = "Renter occupied units, household income 0-30%, American Indian or Alaska Native alone non-Hispanic, MOE &years_dash."
+	Mrenter_inc3050_aia_&years. = "Renter occupied units, household income 30-50%, American Indian or Alaska Native alone non-Hispanic, MOE &years_dash."
+	Mrenter_inc5080_aia_&years. = "Renter occupied units, household income 50-80%, American Indian or Alaska Native alone non-Hispanic, MOE &years_dash."
+	Mrenter_inc80100_aia_&years. = "Renter occupied units, household income 80%-100%, American Indian or Alaska Native alone non-Hispanic, MOE &years_dash."
+	Mrenter_inc100pl_aia_&years. = "Renter occupied units, household income 100%+, American Indian or Alaska Native alone non-Hispanic, MOE &years_dash."
+	Mrenter_inc030_his_&years. = "Renter occupied units, household income 0-30%, Hispanic, MOE &years_dash."
+	Mrenter_inc3050_his_&years. = "Renter occupied units, household income 30-50%, Hispanic, MOE &years_dash."
+	Mrenter_inc5080_his_&years. = "Renter occupied units, household income 50-80%, Hispanic, MOE &years_dash."
+	Mrenter_inc80100_his_&years. = "Renter occupied units, household income 80%-100%, Hispanic, MOE &years_dash."
+	Mrenter_inc100pl_his_&years. = "Renter occupied units, household income 100%+, Hispanic, MOE &years_dash."
+	Mrenter_inc030_oth_&years. = "Renter occupied units, household income 0-30%, Other race, MOE &years_dash."
+	Mrenter_inc3050_oth_&years. = "Renter occupied units, household income 30-50%, Other race, MOE &years_dash."
+	Mrenter_inc5080_oth_&years. = "Renter occupied units, household income 50-80%, Other race, MOE &years_dash."
+	Mrenter_inc80100_oth_&years. = "Renter occupied units, household income 80%-100%, Other race, MOE &years_dash."
+	Mrenter_inc100pl_oth_&years. = "Renter occupied units, household income 100%+, Other race, MOE &years_dash."
+	Mrenter_inc030_1prob_wht_&years. = "Renter occupied units, household income 0-30%, White alone non-Hispanic, 1 or more of the 4 housing unit problems, MOE &years_dash."
+	Mrenter_inc030_0prob_wht_&years. = "Renter occupied units, household income 0-30%, White alone non-Hispanic, none of the 4 housing unit problems, MOE &years_dash."
+	Mrenter_inc030_nc_wht_&years. = "Renter occupied units, household income 0-30%, White alone non-Hispanic, cost burden not computed, household has none of the other housing problems, MOE &years_dash."
+	Mrenter_inc030_1prob_blk_&years. = "Renter occupied units, household income 0-30%, Black or African-American alone non-Hispanic, 1 or more of the 4 housing unit problems, MOE &years_dash."
+	Mrenter_inc030_0prob_blk_&years. = "Renter occupied units, household income 0-30%, Black or African-American alone non-Hispanic, none of the 4 housing unit problems, MOE &years_dash."
+	Mrenter_inc030_nc_blk_&years. = "Renter occupied units, household income 0-30%, Black or African-American alone non-Hispanic, cost burden not computed, household has none of the other housing problems, MOE &years_dash."
+	Mrenter_inc030_1prob_api_&years. = "Renter occupied units, household income 0-30%, Asian or pacific islander alone non-Hispanic, 1 or more of the 4 housing unit problems, MOE &years_dash."
+	Mrenter_inc030_0prob_api_&years. = "Renter occupied units, household income 0-30%, Asian or pacific islander alone non-Hispanic, none of the 4 housing unit problems, MOE &years_dash."
+	Mrenter_inc030_nc_api_&years. = "Renter occupied units, household income 0-30%, Asian or pacific islander alone non-Hispanic, household has none of the other housing problems, MOE &years_dash."
+	Mrenter_inc030_1prob_aia_&years. = "Renter occupied units, household income 0-30%, American Indian or Alaska Native alone non-Hispanic, 1 or more of the 4 housing unit problems, MOE &years_dash."
+	Mrenter_inc030_0prob_aia_&years. = "Renter occupied units, household income 0-30%, American Indian or Alaska Native alone non-Hispanic, none of the 4 housing unit problems, MOE &years_dash."
+	Mrenter_inc030_nc_aia_&years. = "Renter occupied units, household income 0-30%, American Indian or Alaska Native alone non-Hispanic, cost burden not computed, household has none of the other housing problems, MOE &years_dash."
+	Mrenter_inc030_1prob_his_&years. = "Renter occupied units, household income 0-30%, Hispanic, 1 or more of the 4 housing unit problems, MOE &years_dash."
+	Mrenter_inc030_0prob_his_&years. = "Renter occupied units, household income 0-30%, Hispanic, none of the 4 housing unit problems, MOE &years_dash."
+	Mrenter_inc030_nc_his_&years. = "Renter occupied units, household income 0-30%, Hispanic, cost burden not computed, household has none of the other housing problems, MOE &years_dash."
+	Mrenter_inc030_1prob_oth_&years. = "Renter occupied units, household income 0-30%, Other race, 1 or more of the 4 housing unit problems, MOE &years_dash."
+	Mrenter_inc030_0prob_oth_&years. = "Renter occupied units, household income 0-30%,Other race, none of the 4 housing unit problems, MOE &years_dash."
+	Mrenter_inc030_nc_oth_&years. = "Renter occupied units, household income 0-30%, Other race, cost burden not computed, household has none of the other housing problems, MOE &years_dash."
 	;
 
 	%Pct_calc( var=Prenter_inc030_wht, label=% Renter occupied units household income 0-30% White alone non-Hispanic, num=renter_inc030_wht, den=renter_inc030, years= &years. );
@@ -2319,12 +2447,38 @@ data &out._&years.;
 	%Pct_calc( var=Prenter_inc030_his, label=% Renter occupied units household income 0-30% Hispanic, num=renter_inc030_his, den=renter_inc030, years= &years. );
 	%Pct_calc( var=Prenter_inc030_oth, label=% Renter occupied units household income 0-30% Other race, num=renter_inc030_oth, den=renter_inc030, years= &years. );
 
+	%Moe_prop_a( var=Orenter_inc030_wht_&years., mult=100, num=renter_inc030_wht_&years., den=renter_inc030_&years., 
+	                       num_moe=Mrenter_inc030_wht_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% White alone non-Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc030_blk_&years., mult=100, num=renter_inc030_blk_&years., den=renter_inc030_&years., 
+	                       num_moe=Mrenter_inc030_blk_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% Black or African-American alone non-Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc030_api_&years., mult=100, num=renter_inc030_api_&years., den=renter_inc030_&years., 
+	                       num_moe=Mrenter_inc030_api_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% Asian or pacific islander alone non-Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc030_aia_&years., mult=100, num=renter_inc030_aia_&years., den=renter_inc030_&years., 
+	                       num_moe=Mrenter_inc030_aia_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% American Indian or Alaska Native alone non-Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc030_his_&years., mult=100, num=renter_inc030_his_&years., den=renter_inc030_&years., 
+	                       num_moe=Mrenter_inc030_his_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc030_oth_&years., mult=100, num=renter_inc030_oth_&years., den=renter_inc030_&years., 
+	                       num_moe=Mrenter_inc030_oth_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% Other race MOE);
+
 	%Pct_calc( var=Prenter_inc3050_wht, label=% Renter occupied units household income 30-50% White alone non-Hispanic, num=renter_inc3050_wht, den=renter_inc3050, years= &years. );
 	%Pct_calc( var=Prenter_inc3050_blk, label=% Renter occupied units household income 30-50% Black or African-American alone non-Hispanic, num=renter_inc3050_blk, den=renter_inc3050, years= &years. );
 	%Pct_calc( var=Prenter_inc3050_api, label=% Renter occupied units household income 30-50% Asian or pacific islander alone non-Hispanic, num=renter_inc3050_api, den=renter_inc3050, years= &years. );
 	%Pct_calc( var=Prenter_inc3050_aia, label=% Renter occupied units household income 30-50% American Indian or Alaska Native alone non-Hispanic, num=renter_inc3050_aia, den=renter_inc3050, years= &years. );
 	%Pct_calc( var=Prenter_inc3050_his, label=% Renter occupied units household income 30-50% Hispanic, num=renter_inc3050_his, den=renter_inc3050, years= &years. );
 	%Pct_calc( var=Prenter_inc3050_oth, label=% Renter occupied units household income 30-50% Other race, num=renter_inc3050_oth, den=renter_inc3050, years= &years. );
+
+	%Moe_prop_a( var=Orenter_inc3050_wht_&years., mult=100, num=renter_inc3050_wht_&years., den=renter_inc3050_&years., 
+	                       num_moe=Mrenter_inc3050_wht_&years., den_moe=Mrenter_inc3050_&years., label_moe = % Renter occupied units household income 30-50% White alone non-Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc3050_blk_&years., mult=100, num=renter_inc3050_blk_&years., den=renter_inc3050_&years., 
+	                       num_moe=Mrenter_inc3050_blk_&years., den_moe=Mrenter_inc3050_&years., label_moe = % Renter occupied units household income 30-50% Black or African-American alone non-Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc3050_api_&years., mult=100, num=renter_inc3050_api_&years., den=renter_inc3050_&years., 
+	                       num_moe=Mrenter_inc3050_api_&years., den_moe=Mrenter_inc3050_&years., label_moe = % Renter occupied units household income 30-50% Asian or pacific islander alone non-Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc3050_aia_&years., mult=100, num=renter_inc3050_aia_&years., den=renter_inc3050_&years., 
+	                       num_moe=Mrenter_inc3050_aia_&years., den_moe=Mrenter_inc3050_&years., label_moe = % Renter occupied units household income 30-50% American Indian or Alaska Native alone non-Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc3050_his_&years., mult=100, num=renter_inc3050_his_&years., den=renter_inc3050_&years., 
+	                       num_moe=Mrenter_inc3050_his_&years., den_moe=Mrenter_inc3050_&years., label_moe = % Renter occupied units household income 30-50% Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc3050_oth_&years., mult=100, num=renter_inc3050_oth_&years., den=renter_inc3050_&years., 
+	                       num_moe=Mrenter_inc3050_oth_&years., den_moe=Mrenter_inc3050_&years., label_moe = % Renter occupied units household income 30-50% Other race MOE);
 
 	%Pct_calc( var=Prenter_inc5080_wht, label=% Renter occupied units household income 50-80% White alone non-Hispanic, num=renter_inc5080_wht, den=renter_inc5080, years= &years. );
 	%Pct_calc( var=Prenter_inc5080_blk, label=% Renter occupied units household income 50-80% Black or African-American alone non-Hispanic, num=renter_inc5080_blk, den=renter_inc5080, years= &years. );
@@ -2333,6 +2487,19 @@ data &out._&years.;
 	%Pct_calc( var=Prenter_inc5080_his, label=% Renter occupied units household income 50-80% Hispanic, num=renter_inc5080_his, den=renter_inc5080, years= &years. );
 	%Pct_calc( var=Prenter_inc5080_oth, label=% Renter occupied units household income 50-80% Other race, num=renter_inc5080_oth, den=renter_inc5080, years= &years. );
 
+	%Moe_prop_a( var=Orenter_inc5080_wht_&years., mult=100, num=renter_inc5080_wht_&years., den=renter_inc5080_&years., 
+	                       num_moe=Mrenter_inc5080_wht_&years., den_moe=Mrenter_inc5080_&years., label_moe = % Renter occupied units household income 50-80% White alone non-Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc5080_blk_&years., mult=100, num=renter_inc5080_blk_&years., den=renter_inc5080_&years., 
+	                       num_moe=Mrenter_inc5080_blk_&years., den_moe=Mrenter_inc5080_&years., label_moe = % Renter occupied units household income 50-80% Black or African-American alone non-Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc5080_api_&years., mult=100, num=renter_inc5080_api_&years., den=renter_inc5080_&years., 
+	                       num_moe=Mrenter_inc5080_api_&years., den_moe=Mrenter_inc5080_&years., label_moe = % Renter occupied units household income 50-80% Asian or pacific islander alone non-Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc5080_aia_&years., mult=100, num=renter_inc5080_aia_&years., den=renter_inc5080_&years., 
+	                       num_moe=Mrenter_inc5080_aia_&years., den_moe=Mrenter_inc5080_&years., label_moe = % Renter occupied units household income 50-80% American Indian or Alaska Native alone non-Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc5080_his_&years., mult=100, num=renter_inc5080_his_&years., den=renter_inc5080_&years., 
+	                       num_moe=Mrenter_inc5080_his_&years., den_moe=Mrenter_inc5080_&years., label_moe = % Renter occupied units household income 50-80% Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc5080_oth_&years., mult=100, num=renter_inc5080_oth_&years., den=renter_inc5080_&years., 
+	                       num_moe=Mrenter_inc5080_oth_&years., den_moe=Mrenter_inc5080_&years., label_moe = % Renter occupied units household income 50-80% Other race MOE);
+
 	%Pct_calc( var=Prenter_inc80100_wht, label=% Renter occupied units household income 80-100% White alone non-Hispanic, num=renter_inc80100_wht, den=renter_inc80100, years= &years. );
 	%Pct_calc( var=Prenter_inc80100_blk, label=% Renter occupied units household income 80-100% Black or African-American alone non-Hispanic, num=renter_inc80100_blk, den=renter_inc80100, years= &years. );
 	%Pct_calc( var=Prenter_inc80100_api, label=% Renter occupied units household income 80-100% Asian or pacific islander alone non-Hispanic, num=renter_inc80100_api, den=renter_inc80100, years= &years. );
@@ -2340,37 +2507,104 @@ data &out._&years.;
 	%Pct_calc( var=Prenter_inc80100_his, label=% Renter occupied units household income 80-100% Hispanic, num=renter_inc80100_his, den=renter_inc80100, years= &years. );
 	%Pct_calc( var=Prenter_inc80100_oth, label=% Renter occupied units household income 80-100% Other race, num=renter_inc80100_oth, den=renter_inc80100, years= &years. );
 
+	%Moe_prop_a( var=Orenter_inc80100_wht_&years., mult=100, num=renter_inc80100_wht_&years., den=renter_inc80100_&years., 
+	                       num_moe=Mrenter_inc80100_wht_&years., den_moe=Mrenter_inc80100_&years., label_moe = % Renter occupied units household income 80-100% White alone non-Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc80100_blk_&years., mult=100, num=renter_inc80100_blk_&years., den=renter_inc80100_&years., 
+	                       num_moe=Mrenter_inc80100_blk_&years., den_moe=Mrenter_inc80100_&years., label_moe = % Renter occupied units household income 80-100% Black or African-American alone non-Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc80100_api_&years., mult=100, num=renter_inc80100_api_&years., den=renter_inc80100_&years., 
+	                       num_moe=Mrenter_inc80100_api_&years., den_moe=Mrenter_inc80100_&years., label_moe = % Renter occupied units household income 80-100% Asian or pacific islander alone non-Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc80100_aia_&years., mult=100, num=renter_inc80100_aia_&years., den=renter_inc80100_&years., 
+	                       num_moe=Mrenter_inc80100_aia_&years., den_moe=Mrenter_inc80100_&years., label_moe = % Renter occupied units household income 80-100% American Indian or Alaska Native alone non-Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc80100_his_&years., mult=100, num=renter_inc80100_his_&years., den=renter_inc80100_&years., 
+	                       num_moe=Mrenter_inc80100_his_&years., den_moe=Mrenter_inc80100_&years., label_moe = % Renter occupied units household income 80-100% Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc80100_oth_&years., mult=100, num=renter_inc80100_oth_&years., den=renter_inc80100_&years., 
+	                       num_moe=Mrenter_inc80100_oth_&years., den_moe=Mrenter_inc80100_&years., label_moe = % Renter occupied units household income 80-100% Other race MOE);
+
 	%Pct_calc( var=Prenter_inc100pl_wht, label=% Renter occupied units household income 100%+ White alone non-Hispanic, num=renter_inc100pl_wht, den=renter_inc100pl, years= &years. );
 	%Pct_calc( var=Prenter_inc100pl_blk, label=% Renter occupied units household income 100%+ Black or African-American alone non-Hispanic, num=renter_inc100pl_blk, den=renter_inc100pl, years= &years. );
 	%Pct_calc( var=Prenter_inc100pl_api, label=% Renter occupied units household income 100%+ Asian or pacific islander alone non-Hispanic, num=renter_inc100pl_api, den=renter_inc100pl, years= &years. );
 	%Pct_calc( var=Prenter_inc100pl_aia, label=% Renter occupied units household income 100%+ American Indian or Alaska Native alone non-Hispanic, num=renter_inc100pl_aia, den=renter_inc100pl, years= &years. );
 	%Pct_calc( var=Prenter_inc100pl_his, label=% Renter occupied units household income 100%+ Hispanic, num=renter_inc100pl_his, den=renter_inc100pl, years= &years. );
 	%Pct_calc( var=Prenter_inc100pl_oth, label=% Renter occupied units household income 100%+ Other race, num=renter_inc100pl_oth, den=renter_inc100pl, years= &years. );
-
+	
+	%Moe_prop_a( var=Orenter_inc100pl_wht_&years., mult=100, num=renter_inc100pl_wht_&years., den=renter_inc100pl_&years., 
+	                       num_moe=Mrenter_inc100pl_wht_&years., den_moe=Mrenter_inc100pl_&years., label_moe = % Renter occupied units household income 100%+ White alone non-Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc100pl_blk_&years., mult=100, num=renter_inc100pl_blk_&years., den=renter_inc100pl_&years., 
+	                       num_moe=Mrenter_inc100pl_blk_&years., den_moe=Mrenter_inc100pl_&years., label_moe = % Renter occupied units household income 100%+ Black or African-American alone non-Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc100pl_api_&years., mult=100, num=renter_inc100pl_api_&years., den=renter_inc100pl_&years., 
+	                       num_moe=Mrenter_inc100pl_api_&years., den_moe=Mrenter_inc100pl_&years., label_moe = % Renter occupied units household income 100%+ Asian or pacific islander alone non-Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc100pl_aia_&years., mult=100, num=renter_inc100pl_aia_&years., den=renter_inc100pl_&years., 
+	                       num_moe=Mrenter_inc100pl_aia_&years., den_moe=Mrenter_inc100pl_&years., label_moe = % Renter occupied units household income 100%+ American Indian or Alaska Native alone non-Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc100pl_his_&years., mult=100, num=renter_inc100pl_his_&years., den=renter_inc100pl_&years., 
+	                       num_moe=Mrenter_inc100pl_his_&years., den_moe=Mrenter_inc100pl_&years., label_moe = % Renter occupied units household income 100%+ Hispanic MOE);
+	%Moe_prop_a( var=Orenter_inc100pl_oth_&years., mult=100, num=renter_inc100pl_oth_&years., den=renter_inc100pl_&years., 
+	                       num_moe=Mrenter_inc100pl_oth_&years., den_moe=Mrenter_inc100pl_&years., label_moe = % Renter occupied units household income 100%+ Other race MOE);
 
 	%Pct_calc( var=Prenter_inc030_1prob_wht, label=% Renter occupied units household income 0-30% White alone non-Hispanic 1 or more of the 4 housing unit problems, num=renter_inc030_1prob_wht, den=renter_inc030_wht, years= &years. );
 	%Pct_calc( var=Prenter_inc030_0prob_wht, label=% Renter occupied units household income 0-30% White alone non-Hispanic none of the 4 housing unit problems, num=renter_inc030_0prob_wht, den=renter_inc030_wht, years= &years. );
 	%Pct_calc( var=Prenter_inc030_nc_wht, label=% Renter occupied units household income 0-30% White alone non-Hispanic cost burden not computed, num=renter_inc030_nc_wht, den=renter_inc030_wht, years= &years. );
 
+	%Moe_prop_a( var=Orenter_inc030_1prob_wht_&years., mult=100, num=renter_inc030_1prob_wht_&years., den=renter_inc030_wht_&years., 
+	                       num_moe=Mrenter_inc030_1prob_wht_&years., den_moe=Mrenter_inc030_wht_&years., label_moe = % Renter occupied units household income 0-30% White alone non-Hispanic 1 or more of the 4 housing unit problems MOE);
+	%Moe_prop_a( var=Orenter_inc030_0prob_wht_&years., mult=100, num=renter_inc030_0prob_wht_&years., den=renter_inc030_wht_&years., 
+	                       num_moe=Mrenter_inc030_0prob_wht_&years., den_moe=Mrenter_inc030_wht_&years., label_moe = % Renter occupied units household income 0-30% White alone non-Hispanic none of the 4 housing unit problems MOE);
+	%Moe_prop_a( var=Orenter_inc030_nc_wht_&years., mult=100, num=renter_inc030_nc_wht_&years., den=renter_inc030_wht_&years., 
+	                       num_moe=Mrenter_inc030_nc_wht_&years., den_moe=Mrenter_inc030_wht_&years., label_moe = % Renter occupied units household income 0-30% White alone non-Hispanic cost burden not computed MOE);
+
 	%Pct_calc( var=Prenter_inc030_1prob_blk, label=% Renter occupied units household income 0-30% Black or African-American alone non-Hispanic 1 or more of the 4 housing unit problems, num=renter_inc030_1prob_blk, den=renter_inc030_blk, years= &years. );
 	%Pct_calc( var=Prenter_inc030_0prob_blk, label=% Renter occupied units household income 0-30% Black or African-American alone non-Hispanic none of the 4 housing unit problems, num=renter_inc030_0prob_blk, den=renter_inc030_blk, years= &years. );
 	%Pct_calc( var=Prenter_inc030_nc_blk, label=% Renter occupied units household income 0-30% Black or African-American alone non-Hispanic cost burden not computed, num=renter_inc030_nc_blk, den=renter_inc030_blk, years= &years. );
+
+	%Moe_prop_a( var=Orenter_inc030_1prob_blk_&years., mult=100, num=renter_inc030_1prob_blk_&years., den=renter_inc030_blk_&years., 
+	                       num_moe=Mrenter_inc030_1prob_blk_&years., den_moe=Mrenter_inc030_blk_&years., label_moe = % Renter occupied units household income 0-30% Black or African-American alone non-Hispanic 1 or more of the 4 housing unit problems MOE);
+	%Moe_prop_a( var=Orenter_inc030_0prob_blk_&years., mult=100, num=renter_inc030_0prob_blk_&years., den=renter_inc030_blk_&years., 
+	                       num_moe=Mrenter_inc030_0prob_blk_&years., den_moe=Mrenter_inc030_blk_&years., label_moe = % Renter occupied units household income 0-30% Black or African-American alone non-Hispanic none of the 4 housing unit problems MOE);
+	%Moe_prop_a( var=Orenter_inc030_nc_blk_&years., mult=100, num=renter_inc030_nc_blk_&years., den=renter_inc030_blk_&years., 
+	                       num_moe=Mrenter_inc030_nc_blk_&years., den_moe=Mrenter_inc030_blk_&years., label_moe = % Renter occupied units household income 0-30% Black or African-American alone non-Hispanic cost burden not computed MOE);
 
 	%Pct_calc( var=Prenter_inc030_1prob_api, label=% Renter occupied units household income 0-30% Asian or pacific islander alone non-Hispanic 1 or more of the 4 housing unit problems, num=renter_inc030_1prob_api, den=renter_inc030_api, years= &years. );
 	%Pct_calc( var=Prenter_inc030_0prob_api, label=% Renter occupied units household income 0-30% Asian or pacific islander alone non-Hispanic none of the 4 housing unit problems, num=renter_inc030_0prob_api, den=renter_inc030_api, years= &years. );
 	%Pct_calc( var=Prenter_inc030_nc_api, label=% Renter occupied units household income 0-30% Asian or pacific islander alone non-Hispanic cost burden not computed, num=renter_inc030_nc_api, den=renter_inc030_api, years= &years. );
 	
+	%Moe_prop_a( var=Orenter_inc030_1prob_api_&years., mult=100, num=renter_inc030_1prob_api_&years., den=renter_inc030_api_&years., 
+	                       num_moe=Mrenter_inc030_1prob_api_&years., den_moe=Mrenter_inc030_api_&years., label_moe = % Renter occupied units household income 0-30% Asian or pacific islander alone non-Hispanic 1 or more of the 4 housing unit problems MOE);
+	%Moe_prop_a( var=Orenter_inc030_0prob_api_&years., mult=100, num=renter_inc030_0prob_api_&years., den=renter_inc030_api_&years., 
+	                       num_moe=Mrenter_inc030_0prob_api_&years., den_moe=Mrenter_inc030_api_&years., label_moe = % Renter occupied units household income 0-30% Asian or pacific islander alone non-Hispanic none of the 4 housing unit problems MOE);
+	%Moe_prop_a( var=Orenter_inc030_nc_api_&years., mult=100, num=renter_inc030_nc_api_&years., den=renter_inc030_api_&years., 
+	                       num_moe=Mrenter_inc030_nc_api_&years., den_moe=Mrenter_inc030_api_&years., label_moe = % Renter occupied units household income 0-30% Asian or pacific islander alone non-Hispanic cost burden not computed MOE);
+
 	%Pct_calc( var=Prenter_inc030_1prob_aia, label=% Renter occupied units household income 0-30% American Indian or Alaska Native alone non-Hispanic 1 or more of the 4 housing unit problems, num=renter_inc030_1prob_aia, den=renter_inc030_aia, years= &years. );
 	%Pct_calc( var=Prenter_inc030_0prob_aia, label=% Renter occupied units household income 0-30% American Indian or Alaska Native alone non-Hispanic none of the 4 housing unit problems, num=renter_inc030_0prob_aia, den=renter_inc030_aia, years= &years. );
 	%Pct_calc( var=Prenter_inc030_nc_aia, label=% Renter occupied units household income 0-30% American Indian or Alaska Native alone non-Hispanic cost burden not computed, num=renter_inc030_nc_aia, den=renter_inc030_aia, years= &years. );
+	
+	%Moe_prop_a( var=Orenter_inc030_1prob_aia_&years., mult=100, num=renter_inc030_1prob_aia_&years., den=renter_inc030_aia_&years., 
+	                       num_moe=Mrenter_inc030_1prob_aia_&years., den_moe=Mrenter_inc030_aia_&years., label_moe = % Renter occupied units household income 0-30% American Indian or Alaska Native alone non-Hispanic 1 or more of the 4 housing unit problems MOE);
+	%Moe_prop_a( var=Orenter_inc030_0prob_aia_&years., mult=100, num=renter_inc030_0prob_aia_&years., den=renter_inc030_aia_&years., 
+	                       num_moe=Mrenter_inc030_0prob_aia_&years., den_moe=Mrenter_inc030_aia_&years., label_moe = % Renter occupied units household income 0-30% American Indian or Alaska Native alone non-Hispanic none of the 4 housing unit problems MOE);
+	%Moe_prop_a( var=Orenter_inc030_nc_aia_&years., mult=100, num=renter_inc030_nc_aia_&years., den=renter_inc030_aia_&years., 
+	                       num_moe=Mrenter_inc030_nc_aia_&years., den_moe=Mrenter_inc030_aia_&years., label_moe = % Renter occupied units household income 0-30% American Indian or Alaska Native alone non-Hispanic cost burden not computed MOE);
 
 	%Pct_calc( var=Prenter_inc030_1prob_his, label=% Renter occupied units household income 0-30% Hispanic 1 or more of the 4 housing unit problems, num=renter_inc030_1prob_his, den=renter_inc030_his, years= &years. );
 	%Pct_calc( var=Prenter_inc030_0prob_his, label=% Renter occupied units household income 0-30% WHispanic none of the 4 housing unit problems, num=renter_inc030_0prob_his, den=renter_inc030_his, years= &years. );
 	%Pct_calc( var=Prenter_inc030_nc_his, label=% Renter occupied units household income 0-30% Hispanic cost burden not computed, num=renter_inc030_nc_his, den=renter_inc030_his, years= &years. );
 
+	%Moe_prop_a( var=Orenter_inc030_1prob_his_&years., mult=100, num=renter_inc030_1prob_his_&years., den=renter_inc030_his_&years., 
+	                       num_moe=Mrenter_inc030_1prob_his_&years., den_moe=Mrenter_inc030_his_&years., label_moe = % Renter occupied units household income 0-30% Hispanic 1 or more of the 4 housing unit problems MOE);
+	%Moe_prop_a( var=Orenter_inc030_0prob_his_&years., mult=100, num=renter_inc030_0prob_his_&years., den=renter_inc030_his_&years., 
+	                       num_moe=Mrenter_inc030_0prob_his_&years., den_moe=Mrenter_inc030_his_&years., label_moe = % Renter occupied units household income 0-30% Hispanic none of the 4 housing unit problems MOE);
+	%Moe_prop_a( var=Orenter_inc030_nc_his_&years., mult=100, num=renter_inc030_nc_his_&years., den=renter_inc030_his_&years., 
+	                       num_moe=Mrenter_inc030_nc_his_&years., den_moe=Mrenter_inc030_his_&years., label_moe = % Renter occupied units household income 0-30% Hispanic cost burden not computed MOE);
+
 	%Pct_calc( var=Prenter_inc030_1prob_oth, label=% Renter occupied units household income 0-30% Other race 1 or more of the 4 housing unit problems, num=renter_inc030_1prob_oth, den=renter_inc030_oth, years= &years. );
 	%Pct_calc( var=Prenter_inc030_0prob_oth, label=% Renter occupied units household income 0-30% Other race none of the 4 housing unit problems, num=renter_inc030_0prob_oth, den=renter_inc030_oth, years= &years. );
 	%Pct_calc( var=Prenter_inc030_nc_oth, label=% Renter occupied units household income 0-30% Other race cost burden not computed, num=renter_inc030_nc_oth, den=renter_inc030_oth, years= &years. );
+
+	%Moe_prop_a( var=Orenter_inc030_1prob_oth_&years., mult=100, num=renter_inc030_1prob_oth_&years., den=renter_inc030_oth_&years., 
+	                       num_moe=Mrenter_inc030_1prob_oth_&years., den_moe=Mrenter_inc030_oth_&years., label_moe = % Renter occupied units household income 0-30% Other race 1 or more of the 4 housing unit problems MOE);
+	%Moe_prop_a( var=Orenter_inc030_0prob_oth_&years., mult=100, num=renter_inc030_0prob_oth_&years., den=renter_inc030_oth_&years., 
+	                       num_moe=Mrenter_inc030_0prob_oth_&years., den_moe=Mrenter_inc030_oth_&years., label_moe = % Renter occupied units household income 0-30% Other race none of the 4 housing unit problems MOE);
+	%Moe_prop_a( var=Orenter_inc030_nc_oth_&years., mult=100, num=renter_inc030_nc_oth_&years., den=renter_inc030_oth_&years., 
+	                       num_moe=Mrenter_inc030_nc_oth_&years., den_moe=Mrenter_inc030_oth_&years., label_moe = % Renter occupied units household income 0-30% Other race cost burden not computed MOE);
 
 
 	%if %upcase( &years. ) = 2012_16 %then %do;
