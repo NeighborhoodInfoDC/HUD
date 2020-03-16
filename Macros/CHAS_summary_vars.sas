@@ -1904,6 +1904,63 @@ data &out._&years.;
 	renter_scb_inc050_&years. = sum(of T12_est113 T12_est134 T12_est155 T12_est176 T12_est197);
 	renter_ncb_inc050_&years. = sum(of T12_est111 T12_est132 T12_est153 T12_est174 T12_est195);
 
+	Mrenter_bt00_&years. = T12_moe109;
+	Mrenter_bt8099_&years. = T12_moe130;
+	Mrenter_bt6079_&years. = T12_moe151;
+	Mrenter_bt4059_&years. = T12_moe172;
+	Mrenter_bt39_&years. = T12_moe193;
+
+	Mrenter_in50_&years. = %moe_sum(var= T12_moe110 T12_moe131 T12_moe152 T12_moe173 T12_moe194);
+	Mrenter_in5080_&years. = %moe_sum(var= T12_moe115 T12_moe136 T12_moe157 T12_moe178 T12_moe199);
+	Mrenter_in80120_&years. = %moe_sum(var= T12_moe120 T12_moe141 T12_moe162 T12_moe183 T12_moe204);
+	Mrenter_in120pl_&years. = %moe_sum(var= T12_moe125 T12_moe146 T12_moe167 T12_moe188 T12_moe209);
+
+	Mrenter_inc050_bt00_&years. = T12_moe110;
+	Mrenter_inc050_bt8099_&years. = T12_moe131;
+	Mrenter_inc050_bt6079_&years. = T12_moe152;
+	Mrenter_inc050_bt4059_&years. = T12_moe173;
+	Mrenter_inc050_bt39_&years. = T12_moe194;
+
+	Mrenter_inc5080_bt00_&years. = T12_moe115;
+	Mrenter_inc5080_bt8099_&years. = T12_moe136;
+	Mrenter_inc5080_bt6079_&years. = T12_moe157;
+	Mrenter_inc5080_bt4059_&years. = T12_moe178;
+	Mrenter_inc5080_bt39_&years. = T12_moe199;
+
+	Mrenter_inc80120_bt00_&years. = T12_moe120;
+	Mrenter_inc80120_bt8099_&years. = T12_moe141;
+	Mrenter_inc80120_bt6079_&years. = T12_moe162;
+	Mrenter_inc80120_bt4059_&years. = T12_moe183;
+	Mrenter_inc80120_bt39_&years. = T12_moe204;
+
+	Mrenter_inc120pl_bt00_&years. = T12_moe125;
+	Mrenter_inc120pl_bt8099_&years. = T12_moe146;
+	Mrenter_inc120pl_bt6079_&years. = T12_moe167;
+	Mrenter_inc120pl_bt4059_&years. = T12_moe188;
+	Mrenter_inc120pl_bt39_&years. = T12_moe209;
+
+	Mrenter_ncb_inc050_bt00_&years. = T12_moe111 ;
+	Mrenter_ncb_inc050_bt8099_&years. = T12_moe132 ;
+	Mrenter_ncb_inc050_bt6079_&years. = T12_moe153;
+	Mrenter_ncb_inc050_bt4059_&years. = T12_moe174;
+	Mrenter_ncb_inc050_bt39_&years. = T12_moe195 ;
+
+	Mrenter_cb_inc050_bt00_&years. = %moe_sum(var= T12_moe112 T12_moe113);
+	Mrenter_cb_inc050_bt8099_&years. = %moe_sum(var= T12_moe133 T12_moe134);
+	Mrenter_cb_inc050_bt6079_&years. = %moe_sum(var= T12_moe154 T12_moe155 );
+	Mrenter_cb_inc050_bt4059_&years. = %moe_sum(var= T12_moe175 T12_moe176 );
+	Mrenter_cb_inc050_bt39_&years. = %moe_sum(var= T12_moe196 T12_moe197 );
+
+	Mrenter_scb_inc050_bt00_&years. = T12_moe113;
+	Mrenter_scb_inc050_bt8099_&years. = T12_moe134 ;
+	Mrenter_scb_inc050_bt6079_&years. = T12_moe155;
+	Mrenter_scb_inc050_bt4059_&years. = T12_moe176 ;
+	Mrenter_scb_inc050_bt39_&years. = T12_moe197 ;
+
+	Mrenter_cb_inc050_&years. = %moe_sum(var= T12_moe112 T12_moe113 T12_moe133 T12_moe134 T12_moe154 T12_moe155 T12_moe175 T12_moe176 T12_moe196 T12_moe197);
+	Mrenter_scb_inc050_&years. = %moe_sum(var= T12_moe113 T12_moe134 T12_moe155 T12_moe176 T12_moe197);
+	Mrenter_ncb_inc050_&years. = %moe_sum(var= T12_moe111 T12_moe132 T12_moe153 T12_moe174 T12_moe195);
+
 
 	label 
 	renter_bt00_&years. = "Renter occupied units, built 2000 or later, &years_dash."
@@ -1953,6 +2010,54 @@ data &out._&years.;
 	renter_cb_inc050_&years. = "Renter occupied units, household income 50-80%, cost burndened, &years_dash."
 	renter_scb_inc050_&years. = "Renter occupied units, household income 50-80%, severely cost burndened, &years_dash."
 	renter_ncb_inc050_&years. = "Renter occupied units, household income 50-80%, not cost burndened, &years_dash."
+
+	Mrenter_bt00_&years. = "Renter occupied units, built 2000 or later, MOE &years_dash."
+	Mrenter_bt8099_&years. = "Renter occupied units, built 1980-1999, MOE &years_dash."
+	Mrenter_bt6079_&years. = "Renter occupied units, built 1960-1979, MOE &years_dash."
+	Mrenter_bt4059_&years. = "Renter occupied units, built 1940-1959, MOE &years_dash."
+	Mrenter_bt39_&years. = "Renter occupied units, built 1940-1959, MOE &years_dash."
+	Mrenter_in50_&years. = "Renter occupied units, household income 0-50%, MOE &years_dash."
+	Mrenter_in5080_&years. = "Renter occupied units, household income 0-50%, MOE &years_dash."
+	Mrenter_in80120_&years. = "Renter occupied units, household income 50-80%, MOE &years_dash."
+	Mrenter_in120pl_&years. = "Renter occupied units, household income 120%+, MOE &years_dash."
+	Mrenter_inc050_bt00_&years. = "Renter occupied units, household income 0-50%, built 2000 or later, MOE &years_dash."
+	Mrenter_inc050_bt8099_&years. = "Renter occupied units, household income 0-50%, built 1980-1999, MOE &years_dash."
+	Mrenter_inc050_bt6079_&years. = "Renter occupied units, household income 0-50%, built 1960-1979, MOE &years_dash."
+	Mrenter_inc050_bt4059_&years. = "Renter occupied units, household income 0-50%, built 1940-1959, MOE &years_dash."
+	Mrenter_inc050_bt39_&years. = "Renter occupied units, household income 0-50%, built 1939 or earlier, MOE &years_dash."
+	Mrenter_inc5080_bt00_&years. = "Renter occupied units, household income 50-80%, built 2000 or later, MOE &years_dash."
+	Mrenter_inc5080_bt8099_&years. = "Renter occupied units, household income 50-80%, built 1980-1999, MOE &years_dash."
+	Mrenter_inc5080_bt6079_&years. = "Renter occupied units, household income 50-80%, built 1960-1979, MOE &years_dash."
+	Mrenter_inc5080_bt4059_&years. = "Renter occupied units, household income 50-80%, built 1940-1959, MOE &years_dash."
+	Mrenter_inc5080_bt39_&years. = "Renter occupied units, household income 50-80%, built 1939 or earlier, MOE &years_dash."
+	Mrenter_inc80120_bt00_&years. = "Renter occupied units, household income 80-120%, built 2000 or later, MOE &years_dash."
+	Mrenter_inc80120_bt8099_&years. = "Renter occupied units, household income 80-120%, built 1980-1999, MOE &years_dash."
+	Mrenter_inc80120_bt6079_&years. = "Renter occupied units, household income 80-120%, built 1960-1979, MOE &years_dash."
+	Mrenter_inc80120_bt4059_&years. = "Renter occupied units, household income 80-120%, built 1940-1959, MOE &years_dash."
+	Mrenter_inc80120_bt39_&years. = "Renter occupied units, household income 80-120%, built 1939 or earlier, MOE &years_dash."
+	Mrenter_inc120pl_bt00_&years. = "Renter occupied units, household income 120%+, built 2000 or later, MOE &years_dash."
+	Mrenter_inc120pl_bt8099_&years. = "Renter occupied units, household income 120%+, built 1980-1999, MOE &years_dash."
+	Mrenter_inc120pl_bt6079_&years. = "Renter occupied units, household income 120%+, built 1960-1979, MOE &years_dash."
+	Mrenter_inc120pl_bt4059_&years. = "Renter occupied units, household income 120%+, built 1940-1959, MOE &years_dash."
+	Mrenter_inc120pl_bt39_&years. = "Renter occupied units, household income 120%+, built 1939 or earlier, MOE &years_dash."
+	Mrenter_ncb_inc050_bt00_&years. = "Renter occupied units, not cost burdened, household income 50-80%, built 1980-1999, MOE &years_dash."
+	Mrenter_ncb_inc050_bt8099_&years. = "Renter occupied units, not cost burdened, household income 50-80%, built 1980-1999, MOE &years_dash."
+	Mrenter_ncb_inc050_bt6079_&years. = "Renter occupied units, not cost burdened, household income 50-80%, built 1960-1979, MOE &years_dash."
+	Mrenter_ncb_inc050_bt4059_&years. = "Renter occupied units, not cost burdened, household income 50-80%, built 1940-1959, MOE &years_dash."
+	Mrenter_ncb_inc050_bt39_&years. = "Renter occupied units, not cost burdened, household income 50-80%, built 1939 or earlier, MOE &years_dash."
+	Mrenter_cb_inc050_bt00_&years. = "Renter occupied units, cost burdened, household income 50-80%, built 1980-1999, MOE &years_dash."
+	Mrenter_cb_inc050_bt8099_&years. = "Renter occupied units, cost burdened, household income 50-80%, built 1980-1999, MOE &years_dash."
+	Mrenter_cb_inc050_bt6079_&years. = "Renter occupied units, cost burdened, household income 50-80%, built 1960-1979, MOE &years_dash."
+	Mrenter_cb_inc050_bt4059_&years. = "Renter occupied units, cost burdened, household income 50-80%, built 1940-1959, MOE &years_dash."
+	Mrenter_cb_inc050_bt39_&years. = "Renter occupied units, cost burdened, household income 50-80%, built 1939 or earlier, MOE &years_dash."
+	Mrenter_scb_inc050_bt00_&years. = "Renter occupied units, severely cost burdened, household income 50-80%, built 1980-1999, MOE &years_dash."
+	Mrenter_scb_inc050_bt8099_&years. = "Renter occupied units, severely cost burdened, household income 50-80%, built 1980-1999, MOE &years_dash."
+	Mrenter_scb_inc050_bt6079_&years. = "Renter occupied units, severely cost burdened, household income 50-80%, built 1960-1979, MOE &years_dash."
+	Mrenter_scb_inc050_bt4059_&years. = "Renter occupied units, severely cost burdened, household income 50-80%, built 1940-1959, MOE &years_dash."
+	Mrenter_scb_inc050_bt39_&years. = "Renter occupied units, severely cost burdened, household income 50-80%, built 1939 or earlier, MOE &years_dash."
+	Mrenter_cb_inc050_&years. = "Renter occupied units, household income 50-80%, cost burndened, MOE &years_dash."
+	Mrenter_scb_inc050_&years. = "Renter occupied units, household income 50-80%, severely cost burndened, MOE &years_dash."
+	Mrenter_ncb_inc050_&years. = "Renter occupied units, household income 50-80%, not cost burndened, MOE &years_dash."
 	;
 
 	%Pct_calc( var=Prenter_inc050_bt00, label=% Renter occupied units household income 0-50% built 2000 or later, num=renter_inc050_bt00, den=renter_in50, years= &years. );
@@ -1961,11 +2066,33 @@ data &out._&years.;
 	%Pct_calc( var=Prenter_inc050_bt4059, label=% Renter occupied units household income 0-50% built 1940-1959, num=renter_inc050_bt4059, den=renter_in50, years= &years. );
 	%Pct_calc( var=Prenter_inc050_bt39, label=% Renter occupied units household income 0-50% built 1939 or earlier, num=renter_inc050_bt39, den=renter_in50, years= &years. );
 
+	%Moe_prop_a( var=Orenter_inc050_bt00_&years., mult=100, num=renter_inc050_bt00_&years., den=renter_in50_&years., 
+                       num_moe=Mrenter_inc050_bt00_&years., den_moe=Mrenter_in50_&years., label_moe = % Renter occupied units household income 0-50% built 2000 or later MOE);
+	%Moe_prop_a( var=Orenter_inc050_bt8099_&years., mult=100, num=renter_inc050_bt8099_&years., den=renter_in50_&years., 
+                       num_moe=Mrenter_inc050_bt8099_&years., den_moe=Mrenter_in50_&years., label_moe = % Renter occupied units household income 0-50% built 1980-1999 MOE);
+	%Moe_prop_a( var=Orenter_inc050_bt6079_&years., mult=100, num=renter_inc050_bt6079_&years., den=renter_in50_&years., 
+                       num_moe=Mrenter_inc050_bt6079_&years., den_moe=Mrenter_in50_&years., label_moe = % Renter occupied units household income 0-50% built 1960-1979 MOE);
+	%Moe_prop_a( var=Orenter_inc050_bt4059_&years., mult=100, num=renter_inc050_bt4059_&years., den=renter_in50_&years., 
+                       num_moe=Mrenter_inc050_bt4059_&years., den_moe=Mrenter_in50_&years., label_moe = % Renter occupied units household income 0-50% built 1940-1959 MOE);
+	%Moe_prop_a( var=Orenter_inc050_bt39_&years., mult=100, num=renter_inc050_bt39_&years., den=renter_in50_&years., 
+                       num_moe=Mrenter_inc050_bt39_&years., den_moe=Mrenter_in50_&years., label_moe = % Renter occupied units household income 0-50% built 1939 or earlier MOE);
+
 	%Pct_calc( var=Prenter_inc5080_bt00, label=% Renter occupied units household income 50-80% built 2000 or later, num=renter_inc5080_bt00, den=renter_in5080, years= &years. );
 	%Pct_calc( var=Prenter_inc5080_bt8099, label=% Renter occupied units household income 50-80% built 1980-1999, num=renter_inc5080_bt8099, den=renter_in5080, years= &years. );
 	%Pct_calc( var=Prenter_inc5080_bt6079, label=% Renter occupied units household income 50-80% built 1960-1979, num=renter_inc5080_bt6079, den=renter_in5080, years= &years. );
 	%Pct_calc( var=Prenter_inc5080_bt4059, label=% Renter occupied units household income 50-80% built 1940-1959, num=renter_inc5080_bt4059, den=renter_in5080, years= &years. );
 	%Pct_calc( var=Prenter_inc5080_bt39, label=% Renter occupied units household income 50-80% built 1939 or earlier, num=renter_inc5080_bt39, den=renter_in5080, years= &years. );
+
+	%Moe_prop_a( var=Orenter_inc5080_bt00_&years., mult=100, num=renter_inc5080_bt00_&years., den=renter_in5080_&years., 
+                       num_moe=Mrenter_inc5080_bt00_&years., den_moe=Mrenter_in5080_&years., label_moe = % Renter occupied units household income 50-80% built 2000 or later MOE);
+	%Moe_prop_a( var=Orenter_inc5080_bt8099_&years., mult=100, num=renter_inc5080_bt8099_&years., den=renter_in5080_&years., 
+                       num_moe=Mrenter_inc5080_bt8099_&years., den_moe=Mrenter_in5080_&years., label_moe = % Renter occupied units household income 50-80% built 1980-1999 MOE);
+	%Moe_prop_a( var=Orenter_inc5080_bt6079_&years., mult=100, num=renter_inc5080_bt6079_&years., den=renter_in5080_&years., 
+                       num_moe=Mrenter_inc5080_bt6079_&years., den_moe=Mrenter_in5080_&years., label_moe = % Renter occupied units household income 50-80% built 1960-1979 MOE);
+	%Moe_prop_a( var=Orenter_inc5080_bt4059_&years., mult=100, num=renter_inc5080_bt4059_&years., den=renter_in5080_&years., 
+                       num_moe=Mrenter_inc5080_bt4059_&years., den_moe=Mrenter_in5080_&years., label_moe = % Renter occupied units household income 50-80% built 1940-1959 MOE);
+	%Moe_prop_a( var=Orenter_inc5080_bt39_&years., mult=100, num=renter_inc5080_bt39_&years., den=renter_in5080_&years., 
+                       num_moe=Mrenter_inc5080_bt39_&years., den_moe=Mrenter_in5080_&years., label_moe =  MOE);
 
 	%Pct_calc( var=Prenter_inc80120_bt00, label=% Renter occupied units household income 80-120% built 2000 or later, num=renter_inc80120_bt00, den=renter_in80120, years= &years. );
 	%Pct_calc( var=Prenter_inc80120_bt8099, label=% Renter occupied units household income 80-120% built 1980-1999, num=renter_inc80120_bt8099, den=renter_in80120, years= &years. );
@@ -1973,11 +2100,33 @@ data &out._&years.;
 	%Pct_calc( var=Prenter_inc80120_bt4059, label=% Renter occupied units household income 80-120% built 1940-1959, num=renter_inc80120_bt4059, den=renter_in80120, years= &years. );
 	%Pct_calc( var=Prenter_inc80120_bt39, label=% Renter occupied units household income 80-120% built 1939 or earlier, num=renter_inc80120_bt39, den=renter_in80120, years= &years. );
 
+	%Moe_prop_a( var=Orenter_inc80120_bt00_&years., mult=100, num=renter_inc80120_bt00_&years., den=renter_in80120_&years., 
+                       num_moe=Mrenter_inc80120_bt00_&years., den_moe=Mrenter_in80120_&years., label_moe = % Renter occupied units household income 80-120% built 2000 or later MOE);
+	%Moe_prop_a( var=Orenter_inc80120_bt8099_&years., mult=100, num=renter_inc80120_bt8099_&years., den=renter_in80120_&years., 
+                       num_moe=Mrenter_inc80120_bt8099_&years., den_moe=Mrenter_in80120_&years., label_moe = % Renter occupied units household income 80-120% built 1980-1999 MOE);
+	%Moe_prop_a( var=Orenter_inc80120_bt6079_&years., mult=100, num=renter_inc80120_bt6079_&years., den=renter_in80120_&years., 
+                       num_moe=Mrenter_inc80120_bt6079_&years., den_moe=Mrenter_in80120_&years., label_moe = % Renter occupied units household income 80-120% built 1960-1979 MOE);
+	%Moe_prop_a( var=Orenter_inc80120_bt4059_&years., mult=100, num=renter_inc80120_bt4059_&years., den=renter_in80120_&years., 
+                       num_moe=Mrenter_inc80120_bt4059_&years., den_moe=Mrenter_in80120_&years., label_moe = % Renter occupied units household income 80-120% built 1940-1959 MOE);
+	%Moe_prop_a( var=Orenter_inc80120_bt39_&years., mult=100, num=renter_inc80120_bt39_&years., den=renter_in80120_&years., 
+                       num_moe=Mrenter_inc80120_bt39_&years., den_moe=Mrenter_in80120_&years., label_moe = % Renter occupied units household income 80-120% built 1939 or earlier MOE);
+
 	%Pct_calc( var=Prenter_inc120pl_bt00, label=% Renter occupied units household income 120%+ built 2000 or later, num=renter_inc120pl_bt00, den=renter_in120pl, years= &years. );
 	%Pct_calc( var=Prenter_inc120pl_bt8099, label=% Renter occupied units household income 120%+ built 1980-1999, num=renter_inc120pl_bt8099, den=renter_in120pl, years= &years. );
 	%Pct_calc( var=Prenter_inc120pl_bt6079, label=% Renter occupied units household income 120%+ built 1960-1979, num=renter_inc120pl_bt6079, den=renter_in120pl, years= &years. );
 	%Pct_calc( var=Prenter_inc120pl_bt4059, label=% Renter occupied units household income 120%+ built 1940-1959, num=renter_inc120pl_bt4059, den=renter_in120pl, years= &years. );
 	%Pct_calc( var=Prenter_inc120pl_bt39, label=% Renter occupied units household income 120%+ built 1939 or earlier, num=renter_inc120pl_bt39, den=renter_in120pl, years= &years. );
+
+	%Moe_prop_a( var=Orenter_inc120pl_bt00_&years., mult=100, num=renter_inc120pl_bt00_&years., den=renter_in120pl_&years., 
+                       num_moe=Mrenter_inc120pl_bt00_&years., den_moe=Mrenter_in120pl_&years., label_moe = % Renter occupied units household income 120%+ built 2000 or later MOE);
+	%Moe_prop_a( var=Orenter_inc120pl_bt8099_&years., mult=100, num=renter_inc120pl_bt8099_&years., den=renter_in120pl_&years., 
+                       num_moe=Mrenter_inc120pl_bt8099_&years., den_moe=Mrenter_in120pl_&years., label_moe = % Renter occupied units household income 120%+ built 1980-1999 MOE);
+	%Moe_prop_a( var=Orenter_inc120pl_bt6079_&years., mult=100, num=renter_inc120pl_bt6079_&years., den=renter_in120pl_&years., 
+                       num_moe=Mrenter_inc120pl_bt6079_&years., den_moe=Mrenter_in120pl_&years., label_moe = % Renter occupied units household income 120%+ built 1960-1979 MOE);
+	%Moe_prop_a( var=Orenter_inc120pl_bt4059_&years., mult=100, num=renter_inc120pl_bt4059_&years., den=renter_in120pl_&years., 
+                       num_moe=Mrenter_inc120pl_bt4059_&years., den_moe=Mrenter_in120pl_&years., label_moe = % Renter occupied units household income 120%+ built 1940-1959 MOE);
+	%Moe_prop_a( var=Orenter_inc120pl_bt39_&years., mult=100, num=renter_inc120pl_bt39_&years., den=renter_in120pl_&years., 
+                       num_moe=Mrenter_inc120pl_bt39_&years., den_moe=Mrenter_in120pl_&years., label_moe = % Renter occupied units household income 120%+ built 1939 or earlier MOE);
 
 	%Pct_calc( var=Prenter_ncb_in050_bt00, label=% Renter occupied units NOT cost burdened built 2000 or later, num=renter_ncb_inc050_bt00, den=renter_ncb_inc050, years= &years. );
 	%Pct_calc( var=Prenter_ncb_in050_bt8099, label=% Renter occupied units NOT cost burdened built 1980-1999, num=renter_ncb_inc050_bt8099, den=renter_ncb_inc050, years= &years. );
@@ -1985,11 +2134,33 @@ data &out._&years.;
 	%Pct_calc( var=Prenter_ncb_in050_bt4059, label=% Renter occupied units NOT cost burdened built 1940-1959, num=renter_ncb_inc050_bt4059, den=renter_ncb_inc050, years= &years. );
 	%Pct_calc( var=Prenter_ncb_in050_bt39, label=% Renter occupied units NOT cost burdened built 1939 or earlier, num=renter_ncb_inc050_bt39, den=renter_ncb_inc050, years= &years. );
 
+	%Moe_prop_a( var=Orenter_ncb_in050_bt00_&years., mult=100, num=renter_ncb_inc050_bt00_&years., den=renter_ncb_inc050_&years., 
+                       num_moe=Mrenter_ncb_inc050_bt00_&years., den_moe=Mrenter_ncb_inc050_&years., label_moe = % Renter occupied units NOT cost burdened built 2000 or later MOE);
+	%Moe_prop_a( var=Orenter_ncb_in050_bt8099_&years., mult=100, num=renter_ncb_inc050_bt8099_&years., den=renter_ncb_inc050_&years., 
+                       num_moe=Mrenter_ncb_inc050_bt8099_&years., den_moe=Mrenter_ncb_inc050_&years., label_moe = % Renter occupied units NOT cost burdened built 1980-1999 MOE);
+	%Moe_prop_a( var=Orenter_ncb_in050_bt6079_&years., mult=100, num=renter_ncb_inc050_bt6079_&years., den=renter_ncb_inc050_&years., 
+                       num_moe=Mrenter_ncb_inc050_bt6079_&years., den_moe=Mrenter_ncb_inc050_&years., label_moe = % Renter occupied units NOT cost burdened built 1960-1979 MOE);
+	%Moe_prop_a( var=Orenter_ncb_in050_bt4059_&years., mult=100, num=renter_ncb_inc050_bt4059_&years., den=renter_ncb_inc050_&years., 
+                       num_moe=Mrenter_ncb_inc050_bt4059_&years., den_moe=Mrenter_ncb_inc050_&years., label_moe = % Renter occupied units NOT cost burdened built 1940-1959 MOE);
+	%Moe_prop_a( var=Orenter_ncb_in050_bt39_&years., mult=100, num=renter_ncb_inc050_bt39_&years., den=renter_ncb_inc050_&years., 
+                       num_moe=Mrenter_ncb_inc050_bt39_&years., den_moe=Mrenter_ncb_inc050_&years., label_moe = % Renter occupied units NOT cost burdened built 1939 or earlier MOE);
+
 	%Pct_calc( var=Prenter_cb_in050_bt00, label=% Renter occupied units cost burdened built 2000 or later, num=renter_cb_inc050_bt00, den=renter_cb_inc050, years= &years. );
 	%Pct_calc( var=Prenter_cb_in050_bt8099, label=% Renter occupied units cost burdened built 1980-1999, num=renter_cb_inc050_bt8099, den=renter_cb_inc050, years= &years. );
 	%Pct_calc( var=Prenter_cb_in050_bt6079, label=% Renter occupied units cost burdened built 1960-1979, num=renter_cb_inc050_bt6079, den=renter_cb_inc050, years= &years. );
 	%Pct_calc( var=Prenter_cb_in050_bt4059, label=% Renter occupied units cost burdened built 1940-1959, num=renter_cb_inc050_bt4059, den=renter_cb_inc050, years= &years. );
 	%Pct_calc( var=Prenter_cb_in050_bt39, label=% Renter occupied units cost burdened built 1939 or earlier, num=renter_cb_inc050_bt39, den=renter_cb_inc050, years= &years. );
+
+	%Moe_prop_a( var=Orenter_cb_in050_bt00_&years., mult=100, num=renter_cb_inc050_bt00_&years., den=renter_cb_inc050_&years., 
+                       num_moe=Mrenter_cb_inc050_bt00_&years., den_moe=Mrenter_cb_inc050_&years., label_moe = % Renter occupied units cost burdened built 2000 or later MOE);
+	%Moe_prop_a( var=Orenter_cb_in050_bt8099_&years., mult=100, num=renter_cb_inc050_bt8099_&years., den=renter_cb_inc050_&years., 
+                       num_moe=Mrenter_cb_inc050_bt8099_&years., den_moe=Mrenter_cb_inc050_&years., label_moe = % Renter occupied units cost burdened built 1980-1999 MOE);
+	%Moe_prop_a( var=Orenter_cb_in050_bt6079_&years., mult=100, num=renter_cb_inc050_bt6079_&years., den=renter_cb_inc050_&years., 
+                       num_moe=Mrenter_cb_inc050_bt6079_&years., den_moe=Mrenter_cb_inc050_&years., label_moe = % Renter occupied units cost burdened built 1960-1979 MOE);
+	%Moe_prop_a( var=Orenter_cb_in050_bt4059_&years., mult=100, num=renter_cb_inc050_bt4059_&years., den=renter_cb_inc050_&years., 
+                       num_moe=Mrenter_cb_inc050_bt4059_&years., den_moe=Mrenter_cb_inc050_&years., label_moe = % Renter occupied units cost burdened built 1940-1959 MOE);
+	%Moe_prop_a( var=Orenter_cb_in050_bt39_&years., mult=100, num=renter_cb_inc050_bt39_&years., den=renter_cb_inc050_&years., 
+                       num_moe=Mrenter_cb_inc050_bt39_&years., den_moe=Mrenter_cb_inc050_&years., label_moe = % Renter occupied units cost burdened built 1939 or earlier MOE);
 
 	%Pct_calc( var=Prenter_scb_in050_bt00, label=% Renter occupied units severely cost burdened built 2000 or later, num=renter_scb_inc050_bt00, den=renter_scb_inc050, years= &years. );
 	%Pct_calc( var=Prenter_scb_in050_bt8099, label=% Renter occupied units severely cost burdened built 1980-1999 or later, num=renter_scb_inc050_bt8099, den=renter_scb_inc050, years= &years. );
@@ -1997,6 +2168,16 @@ data &out._&years.;
 	%Pct_calc( var=Prenter_scb_in050_bt4059, label=% Renter occupied units severely cost burdened built 1940-1959, num=renter_scb_inc050_bt4059, den=renter_scb_inc050, years= &years. );
 	%Pct_calc( var=Prenter_scb_in050_bt39, label=% Renter occupied units severely cost burdened built 1939 or earlier, num=renter_scb_inc050_bt39, den=renter_scb_inc050, years= &years. );
 
+	%Moe_prop_a( var=Orenter_scb_in050_bt00_&years., mult=100, num=renter_scb_inc050_bt00_&years., den=renter_scb_inc050_&years., 
+                       num_moe=Mrenter_scb_inc050_bt00_&years., den_moe=Mrenter_scb_inc050_&years., label_moe = % Renter occupied units severely cost burdened built 2000 or later MOE);
+	%Moe_prop_a( var=Orenter_scb_in050_bt8099_&years., mult=100, num=renter_scb_inc050_bt8099_&years., den=renter_scb_inc050_&years., 
+                       num_moe=Mrenter_scb_inc050_bt8099_&years., den_moe=Mrenter_scb_inc050_&years., label_moe = % Renter occupied units severely cost burdened built 1980-1999 or later MOE);
+	%Moe_prop_a( var=Orenter_scb_in050_bt6079_&years., mult=100, num=renter_scb_inc050_bt6079_&years., den=renter_scb_inc050_&years., 
+                       num_moe=Mrenter_scb_inc050_bt6079_&years., den_moe=Mrenter_scb_inc050_&years., label_moe = % Renter occupied units severely cost burdened built 1960-1979 MOE);
+	%Moe_prop_a( var=Orenter_scb_in050_bt4059_&years., mult=100, num=renter_scb_inc050_bt4059_&years., den=renter_scb_inc050_&years., 
+                       num_moe=Mrenter_scb_inc050_bt4059_&years., den_moe=Mrenter_scb_inc050_&years., label_moe = % Renter occupied units severely cost burdened built 1940-1959 MOE);
+	%Moe_prop_a( var=Orenter_scb_in050_bt39_&years., mult=100, num=renter_scb_inc050_bt39_&years., den=renter_scb_inc050_&years., 
+                       num_moe=Mrenter_scb_inc050_bt39_&years., den_moe=Mrenter_scb_inc050_&years., label_moe = % Renter occupied units severely cost burdened built 1939 or earlier MOE);
 
 	/* Race */
 	renter_wht_&years. = sum(of T1_est129 T1_est137 T1_est145 T1_est153 T1_est161 T1_est170 T1_est178 T1_est186 T1_est194 T1_est202
