@@ -1257,6 +1257,71 @@ data &out._&years.;
 
 	renter_030_onlycb_&years. = sum(of T3_est65 T3_est71);
 
+	Mrenter_cb_&years. = %moe_sum(var= T8_moe73 T8_moe76  T8_moe89 T8_moe99 T8_moe102 T8_moe112 T8_moe115 T8_moe125 T8_moe128);
+	Mrenter_scb_&years. = %moe_sum(var= T8_moe76 T8_moe89 T8_moe102 T8_moe115 T8_moe128);
+	Mrenter_ncb_&years. = %moe_sum(var= T8_moe79 T8_moe92 T8_moe105 T8_moe118 T8_moe131);
+	Mrenter_nop_&years. = %moe_sum(var= T16_moe91 T16_moe95 T16_moe99 T16_moe103 T16_moe107 T16_moe112 T16_moe116 T16_moe120 T16_moe124
+							T16_moe128 T16_moe133 T16_moe137 T16_moe141 T16_moe145 T16_moe149 T16_moe154 T16_moe158 T16_moe162 T16_moe166 T16_moe170);
+
+	Mrenter_inc030_&years. = T8_moe69;
+	Mrenter_inc3050_&years. = T8_moe82;
+	Mrenter_inc5080_&years. = T8_moe95; 
+	Mrenter_inc80100_&years. = T8_moe108;
+	Mrenter_inc100pl_&years. = T8_moe121;
+
+	Mrenter_inc030_cb_&years. = %moe_sum(var= T8_moe73 T8_moe76);
+	Mrenter_inc3050_cb_&years. = %moe_sum(var= T8_moe86 T8_moe89);
+	Mrenter_inc5080_cb_&years. = %moe_sum(var= T8_moe99 T8_moe102);
+	Mrenter_inc80100_cb_&years. = %moe_sum(var= T8_moe112 T8_moe115);
+	Mrenter_inc100pl_cb_&years. = %moe_sum(var= T8_moe125 T8_moe128);
+
+	Mrenter_inc030_scb_&years. = T8_moe76;
+	Mrenter_inc3050_scb_&years. = T8_moe89;
+	Mrenter_inc5080_scb_&years. = T8_moe102;
+	Mrenter_inc80100_scb_&years. = T8_moe115;
+	Mrenter_inc100pl_scb_&years. = T8_moe128;
+
+	Mrenter_inc030_ncb_&years. = T8_moe79;
+	Mrenter_inc3050_ncb_&years. = T8_moe92;
+	Mrenter_inc5080_ncb_&years. = T8_moe105; 
+	Mrenter_inc80100_ncb_&years. = T8_moe118;
+	Mrenter_inc100pl_ncb_&years. = T8_moe131;
+
+	Mrenter_030_eldfam_&years. = T16_moe89 ;
+	Mrenter_030_smfam_&years. = T16_moe93 ;
+	Mrenter_030_lgfam_&years. = T16_moe97 ;
+	Mrenter_030_eldnf_&years. = T16_moe101 ;
+	Mrenter_030_othhh_&years. = T16_moe105 ;
+
+	Mrenter_030_eldfam_cb_&years. = %moe_sum(var= T7_moe137 T7_moe138 );
+	Mrenter_030_smfam_cb_&years. = %moe_sum(var= T7_moe142 T7_moe143 );
+	Mrenter_030_lgfam_cb_&years. = %moe_sum(var= T7_moe147 T7_moe148 );
+	Mrenter_030_eldnf_cb_&years. = %moe_sum(var= T7_moe152 T7_moe153 );
+	Mrenter_030_othhh_cb_&years. = %moe_sum(var= T7_moe157 T7_moe158);
+
+	Mrenter_030_eldfam_scb_&years. = T7_moe138;
+	Mrenter_030_smfam_scb_&years. = T7_moe143 ;
+	Mrenter_030_lgfam_scb_&years. = T7_moe148 ;
+	Mrenter_030_eldnf_scb_&years. = T7_moe153 ;
+	Mrenter_030_othhh_scb_&years. = T7_moe158 ;
+
+	Mrenter_030_eldfam_nop_&years. = T16_moe91 ;
+	Mrenter_030_smfam_nop_&years. = T16_moe95 ;
+	Mrenter_030_lgfam_nop_&years. = T16_moe99;
+	Mrenter_030_eldnf_nop_&years. = T16_moe103 ;
+	Mrenter_030_othhh_nop_&years. = T16_moe107 ;
+
+	Mrenter_030_noplumb_&years. = %moe_sum(var= T8_moe71 T8_moe74 T8_moe77 T8_moe80 );
+	Mrenter_030_hasplumb_&years. = %moe_sum(var= T8_moe72 T8_moe75 T8_moe78 T8_moe81 );
+
+	Mrenter_030_noplumb_cb_&years. = %moe_sum(var= T8_moe74 T8_moe77 );
+	Mrenter_030_hasplumb_cb_&years. = %moe_sum(var= T8_moe75 T8_moe78 );
+
+	Mrenter_030_noplumb_scb_&years. = T8_moe77 ;
+	Mrenter_030_hasplumb_scb_&years. = T8_moe78 ;
+
+	Mrenter_030_onlycb_&years. = %moe_sum(var= T3_moe65 T3_moe71);
+
 
 	label
 	renter_cb_&years. = "Renter occupied units, cost burdened, &years_dash."
@@ -1310,68 +1375,226 @@ data &out._&years.;
 	renter_030_noplumb_scb_&years. = "Renter occupied units, household income 0-30%, lacks complete plumbing and kitchen facilities, severely cost burdened, &years_dash."
 	renter_030_hasplumb_scb_&years. = "Renter occupied units, household income 0-30%, has complete plumbing and kitchen facilities, severely cost burdened, &years_dash."
 	renter_030_onlycb_&years. = "Renter occupied units, household income 0-30%,only cost burden is a problem, &years_dash."
+
+	Mrenter_cb_&years. = "Renter occupied units, cost burdened, MOE &years_dash. "
+	Mrenter_scb_&years. = "Renter occupied units, severely cost burdened, MOE &years_dash."
+	Mrenter_ncb_&years. = "Renter occupied units, no cost burden computed, MOE &years_dash."
+	Mrenter_nop_&years. = "Renter occupied units, no housing problems, MOE &years_dash."
+	Mrenter_inc030_&years. = "Renter occupied units, household income 0-30%, MOE &years_dash."
+	Mrenter_inc3050_&years. = "Renter occupied units, household income 30-50%, MOE &years_dash."
+	Mrenter_inc5080_&years. = "Renter occupied units, household income 50-80%, MOE &years_dash."
+	Mrenter_inc80100_&years. = "Renter occupied units, household income 80-100%, MOE &years_dash."
+	Mrenter_inc100pl_&years. = "Renter occupied units, household income 100%+, MOE &years_dash."
+	Mrenter_inc030_cb_&years. = "Renter occupied units, household income 0-30%, cost burdened, MOE &years_dash."
+	Mrenter_inc3050_cb_&years. = "Renter occupied units, household income 30-50%, cost burdened, MOE &years_dash."
+	Mrenter_inc5080_cb_&years. = "Renter occupied units, household income 50-80%, cost burdened, MOE &years_dash."
+	Mrenter_inc80100_cb_&years. = "Renter occupied units, household income 80-100%, cost burdened, MOE &years_dash."
+	Mrenter_inc100pl_cb_&years. = "Renter occupied units, household income 100%+%, cost burdened, MOE &years_dash."
+	Mrenter_inc030_scb_&years. = "Renter occupied units, household income 0-30%, severely cost burdened, MOE &years_dash."
+	Mrenter_inc3050_scb_&years. = "Renter occupied units, household income 30-50%, severely cost burdened, MOE &years_dash."
+	Mrenter_inc5080_scb_&years. = "Renter occupied units, household income 50-80%, severely cost burdened, MOE &years_dash."
+	Mrenter_inc80100_scb_&years. = "Renter occupied units, household income 80-100%, severely cost burdened, MOE &years_dash."
+	Mrenter_inc100pl_scb_&years. = "Renter occupied units, household income 100%+, severely cost burdened, MOE &years_dash."
+	Mrenter_inc030_ncb_&years. = "Renter occupied units, household income 0-30%, no cost burden computed, MOE &years_dash."
+	Mrenter_inc3050_ncb_&years. = "Renter occupied units, household income 30-50%, no cost burden computed, MOE &years_dash."
+	Mrenter_inc5080_ncb_&years. = "Renter occupied units, household income 50-80%, no cost burden computed, MOE &years_dash."
+	Mrenter_inc80100_ncb_&years. = "Renter occupied units, household income 80-100%, no cost burden computed, MOE &years_dash."
+	Mrenter_inc100pl_ncb_&years. = "Renter occupied units, household income 100%+, no cost burden computed, MOE &years_dash."
+	Mrenter_030_eldfam_&years. = "Renter occupied units, household income 0-30%, elderly family (2 people), MOE &years_dash."
+	Mrenter_030_smfam_&years. = "Renter occupied units, household income 0-30%, small family (2 non-elderly people or 3-4 person family), MOE &years_dash."
+	Mrenter_030_lgfam_&years. = "Renter occupied units, household income 0-30%, large family (5+ people), MOE &years_dash."
+	Mrenter_030_eldnf_&years. = "Renter occupied units, household income 0-30%, eldelry nonfamily (1-2 person households), MOE &years_dash."
+	Mrenter_030_othhh_&years. = "Renter occupied units, household income 0-30%, other household type, MOE &years_dash."
+	Mrenter_030_eldfam_cb_&years. = "Renter occupied units, household income 0-30%, elderly family (2 people), cost burdened, MOE &years_dash."
+	Mrenter_030_smfam_cb_&years. = "Renter occupied units, household income 0-30%, small family (2 non-elderly people or 3-4 person family), cost burdened, MOE &years_dash."
+	Mrenter_030_lgfam_cb_&years. = "Renter occupied units, household income 0-30%, large family (5+ people), cost burdened, MOE &years_dash."
+	Mrenter_030_eldnf_cb_&years. = "Renter occupied units, household income 0-30%, eldelry nonfamily (1-2 person households), cost burdened, MOE &years_dash."
+	Mrenter_030_othhh_cb_&years. = "Renter occupied units, household income 0-30%, other household type, cost burdened, MOE &years_dash."
+	Mrenter_030_eldfam_scb_&years. = "Renter occupied units, household income 0-30%, elderly family (2 people), severely cost burdened, MOE &years_dash."
+	Mrenter_030_smfam_scb_&years. = "Renter occupied units, household income 0-30%, small family (2 non-elderly people or 3-4 person family), severely cost burdened, MOE &years_dash."
+	Mrenter_030_lgfam_scb_&years. = "Renter occupied units, household income 0-30%, large family (5+ people), severely cost burdened, MOE &years_dash."
+	Mrenter_030_eldnf_scb_&years. = "Renter occupied units, household income 0-30%, eldelry nonfamily (1-2 person households), severely cost burdened, MOE &years_dash."
+	Mrenter_030_othhh_scb_&years. = "Renter occupied units, household income 0-30%, other household type, severely cost burdened, MOE &years_dash."
+	Mrenter_030_eldfam_nop_&years. = "Renter occupied units, household income 0-30%, elderly family (2 people), no housing problems, MOE &years_dash."
+	Mrenter_030_smfam_nop_&years. = "Renter occupied units, household income 0-30%, small family (2 non-elderly people or 3-4 person family), no housing problems, MOE &years_dash."
+	Mrenter_030_lgfam_nop_&years. = "Renter occupied units, household income 0-30%, large family (5+ people), no housing problems, MOE &years_dash."
+	Mrenter_030_eldnf_nop_&years. = "Renter occupied units, household income 0-30%, eldelry nonfamily (1-2 person households), no housing problems, MOE &years_dash."
+	Mrenter_030_othhh_nop_&years. = "Renter occupied units, household income 0-30%, other household type, no housing problems, MOE &years_dash."
+	Mrenter_030_noplumb_&years. = "Renter occupied units, household income 0-30%, lacks complete plumbing and kitchen facilities, MOE &years_dash."
+	Mrenter_030_hasplumb_&years. = "Renter occupied units, household income 0-30%, has complete plumbing and kitchen facilities, MOE &years_dash."
+	Mrenter_030_noplumb_cb_&years. = "Renter occupied units, household income 0-30%, lacks complete plumbing and kitchen facilities, cost burdened, MOE &years_dash."
+	Mrenter_030_hasplumb_cb_&years. = "Renter occupied units, household income 0-30%, has complete plumbing and kitchen facilities, cost burdened, MOE &years_dash."
+	Mrenter_030_noplumb_scb_&years. = "Renter occupied units, household income 0-30%, lacks complete plumbing and kitchen facilities, severely cost burdened, MOE &years_dash."
+	Mrenter_030_hasplumb_scb_&years. = "Renter occupied units, household income 0-30%, has complete plumbing and kitchen facilities, severely cost burdened, MOE &years_dash."
+	Mrenter_030_onlycb_&years. = "Renter occupied units, household income 0-30%,only cost burden is a problem, MOE &years_dash."
 	;
 
 	%Pct_calc( var=Prenter_inc030, label=% Renter occupied units household income 0-30%, num=renter_inc030, den=renter_unit_tot, years= &years. );
 	%Pct_calc( var=Prenter_inc030_cb, label=% Renter occupied units household income 0-30% cost burdened, num=renter_inc030_cb, den=renter_inc030, years= &years. );
-	%Pct_calc( var=Prenter_inc030_scb, label=% Renter occupied units household income 0-30% no cost burden computed, num=renter_inc030_scb, den=renter_inc030, years= &years. );
+	%Pct_calc( var=Prenter_inc030_scb, label=% Renter occupied units household income 0-30% severe cost burdened, num=renter_inc030_scb, den=renter_inc030, years= &years. );
 	%Pct_calc( var=Prenter_inc030_ncb, label=% Renter occupied units household income 0-30% no cost burden computed, num=renter_inc030_ncb, den=renter_inc030, years= &years. );
+
+	%Moe_prop_a( var=Orenter_inc030_&years., mult=100, num=renter_inc030_&years., den=renter_unit_tot_&years., 
+                       num_moe=Mrenter_inc030_&years., den_moe=Mrenter_unit_tot_&years., label_moe = % Renter occupied units household income 0-30% MOE);
+	%Moe_prop_a( var=Orenter_inc030_cb_&years., mult=100, num=renter_inc030_cb_&years., den=renter_inc030_&years., 
+                       num_moe=Mrenter_inc030_cb_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% cost burdened MOE);
+	%Moe_prop_a( var=Orenter_inc030_scb_&years., mult=100, num=renter_inc030_scb_&years., den=renter_inc030_&years., 
+                       num_moe=Mrenter_inc030_scb_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% no cost burden computed MOE);
+	%Moe_prop_a( var=Orenter_inc030_ncb_&years., mult=100, num=renter_inc030_ncb_&years., den=renter_inc030_&years., 
+                       num_moe=Mrenter_inc030_ncb_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% no cost burden computed MOE);
 
 	%Pct_calc( var=Prenter_inc3050, label=% Renter occupied units household income 30-50%, num=renter_inc3050, den=renter_unit_tot, years= &years. );
 	%Pct_calc( var=Prenter_inc3050_cb, label=% Renter occupied units household income 30-50% cost burdened, num=renter_inc3050_cb, den=renter_inc3050, years= &years. );
-	%Pct_calc( var=Prenter_inc3050_scb, label=% Renter occupied units household income 30-50% no cost burden computed, num=renter_inc3050_scb, den=renter_inc3050, years= &years. );
+	%Pct_calc( var=Prenter_inc3050_scb, label=% Renter occupied units household income 30-50% severe cost burdened, num=renter_inc3050_scb, den=renter_inc3050, years= &years. );
 	%Pct_calc( var=Prenter_inc3050_ncb, label=% Renter occupied units household income 30-50% no cost burden computed, num=renter_inc3050_ncb, den=renter_inc3050, years= &years. );
+
+	%Moe_prop_a( var=Orenter_inc3050_&years., mult=100, num=renter_inc3050_&years., den=renter_unit_tot_&years., 
+                       num_moe=Mrenter_inc3050_&years., den_moe=Mrenter_unit_tot_&years., label_moe = % Renter occupied units household income 30-50% MOE);
+	%Moe_prop_a( var=Orenter_inc3050_cb_&years., mult=100, num=renter_inc3050_cb_&years., den=renter_inc3050_&years., 
+                       num_moe=Mrenter_inc3050_cb_&years., den_moe=Mrenter_inc3050_&years., label_moe = % Renter occupied units household income 30-50% cost burdened MOE);
+	%Moe_prop_a( var=Orenter_inc3050_scb_&years., mult=100, num=renter_inc3050_scb_&years., den=renter_inc3050_&years., 
+                       num_moe=Mrenter_inc3050_scb_&years., den_moe=Mrenter_inc3050_&years., label_moe = % Renter occupied units household income 30-50% no cost burden computed MOE);
+	%Moe_prop_a( var=Orenter_inc3050_ncb_&years., mult=100, num=renter_inc3050_ncb_&years., den=renter_inc3050_&years., 
+                       num_moe=Mrenter_inc3050_ncb_&years., den_moe=Mrenter_inc3050_&years., label_moe = % Renter occupied units household income 30-50% no cost burden computed MOE);
 
 	%Pct_calc( var=Prenter_inc5080, label=% Renter occupied units household income 50-80%, num=renter_inc5080, den=renter_unit_tot, years= &years. );
 	%Pct_calc( var=Prenter_inc5080_cb, label=% Renter occupied units household income 50-80% cost burdened, num=renter_inc5080_cb, den=renter_inc5080, years= &years. );
-	%Pct_calc( var=Prenter_inc5080_scb, label=% Renter occupied units household income 50-80% no cost burden computed, num=renter_inc5080_scb, den=renter_inc5080, years= &years. );
+	%Pct_calc( var=Prenter_inc5080_scb, label=% Renter occupied units household income 50-80% severe cost burdened, num=renter_inc5080_scb, den=renter_inc5080, years= &years. );
 	%Pct_calc( var=Prenter_inc5080_ncb, label=% Renter occupied units household income 50-80% no cost burden computed, num=renter_inc5080_ncb, den=renter_inc5080, years= &years. );
+
+	%Moe_prop_a( var=Orenter_inc5080_&years., mult=100, num=renter_inc5080_&years., den=renter_unit_tot_&years., 
+                       num_moe=Mrenter_inc5080_&years., den_moe=Mrenter_unit_tot_&years., label_moe = % Renter occupied units household income 50-80% MOE);
+	%Moe_prop_a( var=Orenter_inc5080_cb_&years., mult=100, num=renter_inc5080_cb_&years., den=renter_inc5080_&years., 
+                       num_moe=Mrenter_inc5080_cb_&years., den_moe=Mrenter_inc5080_&years., label_moe = % Renter occupied units household income 50-80% cost burdened MOE);
+	%Moe_prop_a( var=Orenter_inc5080_scb_&years., mult=100, num=renter_inc5080_scb_&years., den=renter_inc5080_&years., 
+                       num_moe=Mrenter_inc5080_scb_&years., den_moe=Mrenter_inc5080_&years., label_moe = % Renter occupied units household income 50-80% severe cost burdened MOE);
+	%Moe_prop_a( var=Orenter_inc5080_ncb_&years., mult=100, num=renter_inc5080_ncb_&years., den=renter_inc5080_&years., 
+                       num_moe=Mrenter_inc5080_ncb_&years., den_moe=Mrenter_inc5080_&years., label_moe = % Renter occupied units household income 50-80% no cost burden computed MOE);
 
 	%Pct_calc( var=Prenter_inc80100, label=% Renter occupied units household income 80-100%, num=renter_inc80100, den=renter_unit_tot, years= &years. );
 	%Pct_calc( var=Prenter_inc80100_cb, label=% Renter occupied units household income 80-100% cost burdened, num=renter_inc80100_cb, den=renter_inc80100, years= &years. );
-	%Pct_calc( var=Prenter_inc80100_scb, label=% Renter occupied units household income 80-100% no cost burden computed, num=renter_inc80100_scb, den=renter_inc80100, years= &years. );
+	%Pct_calc( var=Prenter_inc80100_scb, label=% Renter occupied units household income 80-100% severe cost burdened, num=renter_inc80100_scb, den=renter_inc80100, years= &years. );
 	%Pct_calc( var=Prenter_inc80100_ncb, label=% Renter occupied units household income 80-100% no cost burden computed, num=renter_inc80100_ncb, den=renter_inc80100, years= &years. );
+
+	%Moe_prop_a( var=Orenter_inc80100_&years., mult=100, num=renter_inc80100_&years., den=renter_unit_tot_&years., 
+                       num_moe=Mrenter_inc80100_&years., den_moe=Mrenter_unit_tot_&years., label_moe = % Renter occupied units household income 80-100% MOE);
+	%Moe_prop_a( var=Orenter_inc80100_cb_&years., mult=100, num=renter_inc80100_cb_&years., den=renter_inc80100_&years., 
+                       num_moe=Mrenter_inc80100_cb_&years., den_moe=Mrenter_inc80100_&years., label_moe = % Renter occupied units household income 80-100% cost burdened MOE);
+	%Moe_prop_a( var=Orenter_inc80100_scb_&years., mult=100, num=renter_inc80100_scb_&years., den=renter_inc80100_&years., 
+                       num_moe=Mrenter_inc80100_scb_&years., den_moe=Mrenter_inc80100_&years., label_moe = % Renter occupied units household income 80-100% severe cost burdened MOE);
+	%Moe_prop_a( var=Orenter_inc80100_ncb_&years., mult=100, num=renter_inc80100_ncb_&years., den=renter_inc80100_&years., 
+                       num_moe=Mrenter_inc80100_ncb_&years., den_moe=Mrenter_inc80100_&years., label_moe = % Renter occupied units household income 80-100% no cost burden computed MOE);
 
 	%Pct_calc( var=Prenter_inc100pl, label=% Renter occupied units household income 100%+, num=renter_inc100pl, den=renter_unit_tot, years= &years. );
 	%Pct_calc( var=Prenter_inc100pl_cb, label=% Renter occupied units household income 100%+ cost burdened, num=renter_inc100pl_cb, den=renter_inc100pl, years= &years. );
-	%Pct_calc( var=Prenter_inc100pl_scb, label=% Renter occupied units household income 100%+ no cost burden computed, num=renter_inc100pl_scb, den=renter_inc100pl, years= &years. );
+	%Pct_calc( var=Prenter_inc100pl_scb, label=% Renter occupied units household income 100%+ severe cost burdened, num=renter_inc100pl_scb, den=renter_inc100pl, years= &years. );
 	%Pct_calc( var=Prenter_inc100pl_ncb, label=% Renter occupied units household income 100%+ no cost burden computed, num=renter_inc100pl_ncb, den=renter_inc100pl, years= &years. );
+
+	%Moe_prop_a( var=_&years., mult=100, num=_&years., den=_&years., 
+                       num_moe=_&years., den_moe=_&years., label_moe =  MOE);
+	%Moe_prop_a( var=_&years., mult=100, num=_&years., den=_&years., 
+                       num_moe=_&years., den_moe=_&years., label_moe =  MOE);
+	%Moe_prop_a( var=_&years., mult=100, num=_&years., den=_&years., 
+                       num_moe=_&years., den_moe=_&years., label_moe =  MOE);
+	%Moe_prop_a( var=_&years., mult=100, num=_&years., den=_&years., 
+                       num_moe=_&years., den_moe=_&years., label_moe =  MOE);
 
 	%Pct_calc( var=Prenter_030_eldfam, label=% Renter occupied units household income 0-30% elderly family, num=renter_030_eldfam, den=renter_inc030, years= &years. );
 	%Pct_calc( var=Prenter_030_eldfam_cb, label=% Renter occupied units household income 0-30% elderly family cost burdened, num=renter_030_eldfam_cb, den=renter_030_eldfam, years= &years. );
 	%Pct_calc( var=Prenter_030_eldfam_scb, label=% Renter occupied units household income 0-30% elderly family cost burdened, num=renter_030_eldfam_scb, den=renter_030_eldfam, years= &years. );
 	%Pct_calc( var=Prenter_030_eldfam_nop, label=% Renter occupied units household income 0-30% elderly family no housing problems, num=renter_030_eldfam_nop, den=renter_030_eldfam, years= &years. );
 
+	%Moe_prop_a( var=Orenter_030_eldfam_&years., mult=100, num=renter_030_eldfam_&years., den=renter_inc030_&years., 
+                       num_moe=Mrenter_030_eldfam_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% elderly family MOE);
+	%Moe_prop_a( var=Orenter_030_eldfam_cb_&years., mult=100, num=renter_030_eldfam_cb_&years., den=renter_030_eldfam_&years., 
+                       num_moe=Mrenter_030_eldfam_cb_&years., den_moe=Mrenter_030_eldfam_&years., label_moe = % Renter occupied units household income 0-30% elderly family cost burdened MOE);
+	%Moe_prop_a( var=Orenter_030_eldfam_scb_&years., mult=100, num=renter_030_eldfam_scb_&years., den=renter_030_eldfam_&years., 
+                       num_moe=Mrenter_030_eldfam_scb_&years., den_moe=Mrenter_030_eldfam_&years., label_moe = % Renter occupied units household income 0-30% elderly family cost burdened MOE);
+	%Moe_prop_a( var=Orenter_030_eldfam_nop_&years., mult=100, num=renter_030_eldfam_nop_&years., den=renter_030_eldfam_&years., 
+                       num_moe=Mrenter_030_eldfam_nop_&years., den_moe=Mrenter_030_eldfam_&years., label_moe = % Renter occupied units household income 0-30% elderly family no housing problems MOE);
+
 	%Pct_calc( var=Prenter_030_smfam, label=% Renter occupied units household income 0-30% small family, num=renter_030_smfam, den=renter_inc030, years= &years. );
 	%Pct_calc( var=Prenter_030_smfam_cb, label=% Renter occupied units household income 0-30% small family cost burdened, num=renter_030_smfam_cb, den=renter_030_smfam, years= &years. );
 	%Pct_calc( var=Prenter_030_smfam_scb, label=% Renter occupied units household income 0-30% small family cost burdened, num=renter_030_smfam_scb, den=renter_030_smfam, years= &years. );
 	%Pct_calc( var=Prenter_030_smfam_nop, label=% Renter occupied units household income 0-30% small family no housing problems, num=renter_030_smfam_nop, den=renter_030_smfam, years= &years. );
+
+	%Moe_prop_a( var=Orenter_030_smfam_&years., mult=100, num=renter_030_smfam_&years., den=renter_inc030_&years., 
+                       num_moe=Mrenter_030_smfam_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% small family MOE);
+	%Moe_prop_a( var=Orenter_030_smfam_cb_&years., mult=100, num=renter_030_smfam_cb_&years., den=renter_030_smfam_&years., 
+                       num_moe=Mrenter_030_smfam_cb_&years., den_moe=Mrenter_030_smfam_&years., label_moe = % Renter occupied units household income 0-30% small family cost burdened MOE);
+	%Moe_prop_a( var=Orenter_030_smfam_scb_&years., mult=100, num=renter_030_smfam_scb_&years., den=renter_030_smfam_&years., 
+                       num_moe=Mrenter_030_smfam_scb_&years., den_moe=Mrenter_030_smfam_&years., label_moe = % Renter occupied units household income 0-30% small family cost burdened MOE);
+	%Moe_prop_a( var=Orenter_030_smfam_nop_&years., mult=100, num=renter_030_smfam_nop_&years., den=renter_030_smfam_&years., 
+                       num_moe=Mrenter_030_smfam_nop_&years., den_moe=Mrenter_030_smfam_&years., label_moe = % Renter occupied units household income 0-30% small family no housing problems MOE);
 
 	%Pct_calc( var=Prenter_030_lgfam, label=% Renter occupied units household income 0-30% large family, num=renter_030_lgfam, den=renter_inc030, years= &years. );
 	%Pct_calc( var=Prenter_030_lgfam_cb, label=% Renter occupied units household income 0-30% large family cost burdened, num=renter_030_lgfam_cb, den=renter_030_lgfam, years= &years. );
 	%Pct_calc( var=Prenter_030_lgfam_scb, label=% Renter occupied units household income 0-30% large family cost burdened, num=renter_030_lgfam_scb, den=renter_030_lgfam, years= &years. );
 	%Pct_calc( var=Prenter_030_lgfam_nop, label=% Renter occupied units household income 0-30% large family no housing problems, num=renter_030_lgfam_nop, den=renter_030_lgfam, years= &years. );
 
+	%Moe_prop_a( var=Orenter_030_lgfam_&years., mult=100, num=renter_030_lgfam_&years., den=renter_inc030_&years., 
+                       num_moe=Mrenter_030_lgfam_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% large family MOE);
+	%Moe_prop_a( var=Orenter_030_lgfam_cb_&years., mult=100, num=renter_030_lgfam_cb_&years., den=renter_030_lgfam_&years., 
+                       num_moe=Mrenter_030_lgfam_cb_&years., den_moe=Mrenter_030_lgfam_&years., label_moe = % Renter occupied units household income 0-30% large family cost burdened MOE);
+	%Moe_prop_a( var=Orenter_030_lgfam_scb_&years., mult=100, num=renter_030_lgfam_scb_&years., den=renter_030_lgfam_&years., 
+                       num_moe=Mrenter_030_lgfam_scb_&years., den_moe=Mrenter_030_lgfam_&years., label_moe = % Renter occupied units household income 0-30% large family cost burdened MOE);
+	%Moe_prop_a( var=_&years., mult=100, num=renter_030_lgfam_nop_&years., den=renter_030_lgfam_&years., 
+                       num_moe=Mrenter_030_lgfam_nop_&years., den_moe=Mrenter_030_lgfam_&years., label_moe = % Renter occupied units household income 0-30% large family no housing problems MOE);
+
 	%Pct_calc( var=Prenter_030_eldnf, label=% Renter occupied units household income 0-30% elderly non-family family, num=renter_030_eldnf, den=renter_inc030, years= &years. );
 	%Pct_calc( var=Prenter_030_eldnf_cb, label=% Renter occupied units household income 0-30% elderly non-family cost burdened, num=renter_030_eldnf_cb, den=renter_030_eldnf, years= &years. );
 	%Pct_calc( var=Prenter_030_eldnf_scb, label=% Renter occupied units household income 0-30% elderly non-family cost burdened, num=renter_030_eldnf_scb, den=renter_030_eldnf, years= &years. );
 	%Pct_calc( var=Prenter_030_eldnf_nop, label=% Renter occupied units household income 0-30% elderly non-family no housing problems, num=renter_030_eldnf_nop, den=renter_030_eldnf, years= &years. );
 
+	%Moe_prop_a( var=Orenter_030_eldnf_&years., mult=100, num=renter_030_eldnf_&years., den=renter_inc030_&years., 
+                       num_moe=Mrenter_030_eldnf_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% elderly non-family family MOE);
+	%Moe_prop_a( var=Orenter_030_eldnf_cb_&years., mult=100, num=renter_030_eldnf_cb_&years., den=renter_030_eldnf_&years., 
+                       num_moe=Mrenter_030_eldnf_cb_&years., den_moe=Mrenter_030_eldnf_&years., label_moe = % Renter occupied units household income 0-30% elderly non-family cost burdened MOE);
+	%Moe_prop_a( var=Orenter_030_eldnf_scb_&years., mult=100, num=renter_030_eldnf_scb_&years., den=renter_030_eldnf_&years., 
+                       num_moe=Mrenter_030_eldnf_scb_&years., den_moe=Mrenter_030_eldnf_&years., label_moe = % Renter occupied units household income 0-30% elderly non-family cost burdened MOE);
+	%Moe_prop_a( var=Orenter_030_eldnf_nop_&years., mult=100, num=renter_030_eldnf_scb_&years., den=renter_030_eldnf_&years., 
+                       num_moe=Mrenter_030_eldnf_scb_&years., den_moe=Mrenter_030_eldnf_&years., label_moe = % Renter occupied units household income 0-30% elderly non-family no housing problems MOE);
+
 	%Pct_calc( var=Prenter_030_othhh, label=% Renter occupied units household income 0-30% other household, num=renter_030_othhh, den=renter_inc030, years= &years. );
 	%Pct_calc( var=Prenter_030_othhh_cb, label=% Renter occupied units household income 0-30% other household cost burdened, num=renter_030_othhh_cb, den=renter_030_othhh, years= &years. );
-	%Pct_calc( var=Prenter_030_othhh_scb, label=% Renter occupied units household income 0-30% other household cost burdened, num=renter_030_othhh_scb, den=renter_030_othhh, years= &years. );
+	%Pct_calc( var=Prenter_030_othhh_scb, label=% Renter occupied units household income 0-30% other household severe cost burdened, num=renter_030_othhh_scb, den=renter_030_othhh, years= &years. );
 	%Pct_calc( var=Prenter_030_othhh_nop, label=% Renter occupied units household income 0-30% other household no housing problems, num=renter_030_othhh_nop, den=renter_030_othhh, years= &years. );
+
+	%Moe_prop_a( var=Orenter_030_othhh_&years., mult=100, num=renter_030_othhh_&years., den=renter_inc030_&years., 
+                       num_moe=Mrenter_030_othhh_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% other household MOE);
+	%Moe_prop_a( var=Orenter_030_othhh_cb_&years., mult=100, num=renter_030_othhh_cb_&years., den=renter_030_othhh_&years., 
+                       num_moe=Mrenter_030_othhh_cb_&years., den_moe=Mrenter_030_othhh_&years., label_moe = % Renter occupied units household income 0-30% other household cost burdened MOE);
+	%Moe_prop_a( var=Orenter_030_othhh_scb_&years., mult=100, num=renter_030_othhh_scb_&years., den=renter_030_othhh_&years., 
+                       num_moe=Mrenter_030_othhh_scb_&years., den_moe=Mrenter_030_othhh_&years., label_moe = % Renter occupied units household income 0-30% other household severe cost burdene MOE);
+	%Moe_prop_a( var=Orenter_030_othhh_nop_&years., mult=100, num=renter_030_othhh_nop_&years., den=renter_030_othhh_&years., 
+                       num_moe=Mrenter_030_othhh_nop_&years., den_moe=Mrenter_030_othhh_&years., label_moe = % Renter occupied units household income 0-30% other household no housing problems MOE);
 
 	%Pct_calc( var=Prenter_030_noplumb, label=% Renter occupied units household income 0-30% household lacks complete plumbing and kitchen facilities, num=renter_030_noplumb, den=renter_inc030, years= &years. );
 	%Pct_calc( var=Prenter_030_noplumb_cb, label=% Renter occupied units household income 0-30% household lacks complete plumbing and kitchen facilities and cost burdened, num=renter_030_noplumb_cb, den=renter_030_noplumb, years= &years. );
 	%Pct_calc( var=Prenter_030_noplumb_scb, label=% Renter occupied units household income 0-30% household lacks complete plumbing and kitchen facilities and cost burdened, num=renter_030_noplumb_scb, den=renter_030_noplumb, years= &years. );
 
+	%Moe_prop_a( var=Orenter_030_noplumb_&years., mult=100, num=renter_030_noplumb_&years., den=renter_inc030_&years., 
+                       num_moe=Mrenter_030_noplumb_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% household lacks complete plumbing and kitchen facilities MOE);
+	%Moe_prop_a( var=Orenter_030_noplumb_cb_&years., mult=100, num=renter_030_noplumb_cb_&years., den=renter_030_noplumb_&years., 
+                       num_moe=Mrenter_030_noplumb_cb_&years., den_moe=Mrenter_030_noplumb_&years., label_moe = % Renter occupied units household income 0-30% household lacks complete plumbing and kitchen facilities and cost burdened MOE);
+	%Moe_prop_a( var=Orenter_030_noplumb_scb_&years., mult=100, num=renter_030_noplumb_scb_&years., den=renter_030_noplumb_&years., 
+                       num_moe=Mrenter_030_noplumb_scb_&years., den_moe=Mrenter_030_noplumb_&years., label_moe = % Renter occupied units household income 0-30% household lacks complete plumbing and kitchen facilities and cost burdened MOE);
+
 	%Pct_calc( var=Prenter_030_hasplumb, label=% Renter occupied units household income 0-30% household has complete plumbing and kitchen facilities, num=renter_030_hasplumb, den=renter_inc030, years= &years. );
 	%Pct_calc( var=Prenter_030_hasplumb_cb, label=% Renter occupied units household income 0-30% household has complete plumbing and kitchen facilities and cost and cost burdened, num=renter_030_hasplumb_cb, den=renter_030_hasplumb, years= &years. );
-	%Pct_calc( var=Prenter_030_hasplumb_scb, label=% Renter occupied units household income 0-30% household has complete plumbing and kitchen facilities and cost and cost burdened, num=renter_030_hasplumb_scb, den=renter_030_hasplumb, years= &years. );
+	%Pct_calc( var=Prenter_030_hasplumb_scb, label=% Renter occupied units household income 0-30% household has complete plumbing and kitchen facilities and cost and severe cost burdened, num=renter_030_hasplumb_scb, den=renter_030_hasplumb, years= &years. );
+
+	%Moe_prop_a( var=Orenter_030_hasplumb_&years., mult=100, num=renter_030_hasplumb_&years., den=renter_inc030_&years., 
+                       num_moe=Mrenter_030_hasplumb_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% household has complete plumbing and kitchen facilities MOE);
+	%Moe_prop_a( var=Orenter_030_hasplumb_cb_&years., mult=100, num=renter_030_hasplumb_cb_&years., den=renter_030_hasplumb_&years., 
+                       num_moe=Mrenter_030_hasplumb_cb_&years., den_moe=Mrenter_030_hasplumb_&years., label_moe = % Renter occupied units household income 0-30% household has complete plumbing and kitchen facilities and cost and cost burdened MOE);
+	%Moe_prop_a( var=Orenter_030_hasplumb_scb_&years., mult=100, num=renter_030_hasplumb_scb_&years., den=renter_030_hasplumb_&years., 
+                       num_moe=Mrenter_030_hasplumb_scb_&years., den_moe=Mrenter_030_hasplumb_&years., label_moe = % Renter occupied units household income 0-30% household has complete plumbing and kitchen facilities and cost and severe cost burdened MOE);
 
 	%Pct_calc( var=Prenter_030_onlycb, label=% Renter occupied units household income 0-30% where only cost burden is a problem, num=renter_030_onlycb, den=renter_inc030, years= &years. );
 
+	%Moe_prop_a( var=Orenter_030_onlycb_&years., mult=100, num=renter_030_onlycb_&years., den=renter_inc030_&years., 
+                       num_moe=Mrenter_030_onlycb_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% where only cost burden is a problem MOE);
 
 	/* Demand - Size */
 	rentr_lte1_&years. = T10_est67;
@@ -1419,6 +1642,51 @@ data &out._&years.;
 	rentr_inc030_gt15_sfam_&years. = T10_est112;
 	rentr_inc030_gt15_nfam_&years. = T10_est113;
 
+	Mrentr_lte1_&years. = T10_moe67;
+	Mrentr_lte15_&years. = T10_moe88;
+	Mrentr_gt15_&years. = T10_moe109;
+
+	Mrentr_1fam_&years. = %moe_sum(var= T10_moe69 T10_moe73 T10_moe77 T10_moe81 T10_moe85 T10_moe90 T10_moe94 T10_moe98
+								T10_moe102 T10_moe106 T10_moe111 T10_moe115 T10_moe119 T10_moe123 T10_moe127);
+	Mrentr_sfam_&years. = %moe_sum(var= T10_moe70 T10_moe74 T10_moe78 T10_moe82 T10_moe86 T10_moe91 T10_moe95 T10_moe99
+								T10_moe103 T10_moe107 T10_moe112 T10_moe116 T10_moe120 T10_moe124 T10_moe128);
+	Mrentr_nfam_&years. = %moe_sum(var= T10_moe69 T10_moe73 T10_moe77 T10_moe81 T10_moe85 T10_moe90 T10_moe94 T10_moe98
+								T10_moe102 T10_moe106 T10_moe111 T10_moe115 T10_moe119 T10_moe123 T10_moe127);
+
+	Mrentr_inc030_lte1_&years. = T10_moe68;
+	Mrentr_inc3050_lte1_&years. = T10_moe72;
+	Mrentr_inc5080_lte1_&years. = T10_moe76;
+	Mrentr_inc80100_lte1_&years. = T10_moe80;
+	Mrentr_inc100pl_lte1_&years. = T10_moe84;
+
+	Mrentr_inc030_lte15_&years. = T10_moe89;
+	Mrentr_inc3050_lte15_&years. = T10_moe93;
+	Mrentr_inc5080_lte15_&years. = T10_moe97;
+	Mrentr_inc80100_lte15_&years. = T10_moe101;
+	Mrentr_inc100pl_lte15_&years. = T10_moe105;
+
+	Mrentr_inc030_gt15_&years. = T10_moe110;
+	Mrentr_inc3050_gt15_&years. = T10_moe114;
+	Mrentr_inc5080_gt15_&years. = T10_moe118;
+	Mrentr_inc80100_gt15_&years. = T10_moe122;
+	Mrentr_inc100pl_gt15_&years. = T10_moe126;
+
+	Mrentr_inc030_1fam_&years. = %moe_sum(var= T10_moe69 T10_moe90 T10_moe111);
+	Mrentr_inc030_sfam_&years. = %moe_sum(var= T10_moe70 T10_moe91 T10_moe112);
+	Mrentr_inc030_nfam_&years. = %moe_sum(var= T10_moe71 T10_moe92 T10_moe113);
+
+	Mrentr_inc030_lte1_1fam_&years. = T10_moe69;
+	Mrentr_inc030_lte1_sfam_&years. = T10_moe70;
+	Mrentr_inc030_lte1_nfam_&years. = T10_moe71;
+
+	Mrentr_inc030_lte15_1fam_&years. = T10_moe90;
+	Mrentr_inc030_lte15_sfam_&years. = T10_moe91;
+	Mrentr_inc030_lte15_nfam_&years. = T10_moe92;
+
+	Mrentr_inc030_gt15_1fam_&years. = T10_moe111;
+	Mrentr_inc030_gt15_sfam_&years. = T10_moe112;
+	Mrentr_inc030_gt15_nfam_&years. = T10_moe113;
+
 	label
 	rentr_lte1_&years. = "Renter occupied units, persons per room less than or equal 1, &years_dash."
 	rentr_lte15_&years. = "Renter occupied units, persons per room greater than 1 less than or equal 1.5, &years_dash."
@@ -1453,40 +1721,129 @@ data &out._&years.;
 	rentr_inc030_gt15_1fam_&years. = "Renter occupied units, household income 0-30%, one family, persons per room greater than 1.5, &years_dash."
 	rentr_inc030_gt15_sfam_&years. = "Renter occupied units, household income 0-30%, one family with subfamily or more than 1 family, persons per room greater 1.5, &years_dash."
 	rentr_inc030_gt15_nfam_&years. = "Renter occupied units, household income 0-30%, non-family, persons per room greater than 1.5, &years_dash."
+
+	Mrentr_lte1_&years. = "Renter occupied units, persons per room less than or equal 1, MOE &years_dash."
+	Mrentr_lte15_&years. = "Renter occupied units, persons per room greater than 1 less than or equal 1.5, MOE &years_dash."
+	Mrentr_gt15_&years. = "Renter occupied units, persons per room greater than 1.5, MOE &years_dash."
+	Mrentr_1fam_&years. = "Renter occupied units, one family, MOE &years_dash."
+	Mrentr_sfam_&years. = "Renter occupied units, one family with subfamily or more than 1 family, MOE &years_dash."
+	Mrentr_nfam_&years. = "Renter occupied units, non-family, MOE &years_dash."
+	Mrentr_inc030_lte1_&years. = "Renter occupied units, household income 0-30%, persons per room less than or equal 1, MOE &years_dash."
+	Mrentr_inc3050_lte1_&years. = "Renter occupied units, household income 30-50%, persons per room less than or equal 1, MOE &years_dash."
+	Mrentr_inc5080_lte1_&years. = "Renter occupied units, household income 50-80%, persons per room less than or equal 1, MOE &years_dash."
+	Mrentr_inc80100_lte1_&years. = "Renter occupied units, household income 80-100%, persons per room less than or equal 1, MOE &years_dash."
+	Mrentr_inc100pl_lte1_&years. = "Renter occupied units, household income 100%+, persons per room less than or equal 1, MOE &years_dash."
+	Mrentr_inc030_lte15_&years. = "Renter occupied units, household income 0-30%, persons per room greater than 1 less than or equal 1.5, MOE &years_dash."
+	Mrentr_inc3050_lte15_&years. = "Renter occupied units, household income 30-50%, persons per room greater than 1 less than or equal 1.5, MOE &years_dash."
+	Mrentr_inc5080_lte15_&years. = "Renter occupied units, household income 50-80%, persons per room greater than 1 less than or equal 1.5, MOE &years_dash."
+	Mrentr_inc80100_lte15_&years. = "Renter occupied units, household income 80-100%, persons per room greater than 1 less than or equal 1.5, MOE &years_dash."
+	Mrentr_inc100pl_lte15_&years. = "Renter occupied units, household income 100%+, persons per room greater than 1 less than or equal 1.5, MOE &years_dash."
+	Mrentr_inc030_gt15_&years. = "Renter occupied units, household income 0-30%, persons per room greater than 1.5, MOE &years_dash."
+	Mrentr_inc3050_gt15_&years. = "Renter occupied units, household income 30-50%, persons per room greater than 1.5, MOE &years_dash."
+	Mrentr_inc5080_gt15_&years. = "Renter occupied units, household income 50-80%, persons per room greater than 1.5, MOE &years_dash."
+	Mrentr_inc80100_gt15_&years. = "Renter occupied units, household income 80-100%, persons per room greater than 1.5, MOE &years_dash."
+	Mrentr_inc100pl_gt15_&years. = "Renter occupied units, household income 100%+, persons per room greater than 1.5, MOE &years_dash."
+	Mrentr_inc030_1fam_&years. = "Renter occupied units, household income 0-30%, one family, MOE &years_dash."
+	Mrentr_inc030_sfam_&years. = "Renter occupied units, household income 0-30%, one family with subfamily or more than 1 family, MOE &years_dash."
+	Mrentr_inc030_nfam_&years. = "Renter occupied units, household income 0-30%, non-family, MOE &years_dash."
+	Mrentr_inc030_lte1_1fam_&years. = "Renter occupied units, household income 0-30%, one family, persons per room less than or equal 1, MOE &years_dash."
+	Mrentr_inc030_lte1_sfam_&years. = "Renter occupied units, household income 0-30%, one family with subfamily or more than 1 family, persons per room less than or equal 1, MOE &years_dash."
+	Mrentr_inc030_lte1_nfam_&years. = "Renter occupied units, household income 0-30%, non-family, persons per room less than or equal 1, MOE &years_dash."
+	Mrentr_inc030_lte15_1fam_&years. = "Renter occupied units, household income 0-30%, one family, persons per room greater than 1 less than or equal 1.5, MOE &years_dash."
+	Mrentr_inc030_lte15_sfam_&years. = "Renter occupied units, household income 0-30%, one family with subfamily or more than 1 family, persons per room greater than 1 less than or equal 1.5, MOE &years_dash."
+	Mrentr_inc030_lte15_nfam_&years. = "Renter occupied units, household income 0-30%, non-family, persons per room greater than 1 less than or equal 1.5, MOE &years_dash."
+	Mrentr_inc030_gt15_1fam_&years. = "Renter occupied units, household income 0-30%, one family, persons per room greater than 1.5, MOE &years_dash."
+	Mrentr_inc030_gt15_sfam_&years. = "Renter occupied units, household income 0-30%, one family with subfamily or more than 1 family, persons per room greater 1.5, MOE &years_dash."
+	Mrentr_inc030_gt15_nfam_&years. = "Renter occupied units, household income 0-30%, non-family, persons per room greater than 1.5, MOE &years_dash."
 	;
 
 	%Pct_calc( var=Prentr_inc030_lte1, label=% Renter occupied units household income 0-30% persons per room less than or equal 1, num=rentr_inc030_lte1, den=renter_inc030, years= &years. );
 	%Pct_calc( var=Prentr_inc030_lte15, label=% Renter occupied units household income 0-30% persons per room greater than 1 less than or equal 1.5, num=rentr_inc030_lte15, den=renter_inc030, years= &years. );
 	%Pct_calc( var=Prentr_inc030_gt15, label=% Renter occupied units household income 0-30% persons per room greater than 1.5, num=rentr_inc030_gt15, den=renter_inc030, years= &years. );
 
+	%Moe_prop_a( var=Orentr_inc030_lte1_&years., mult=100, num=rentr_inc030_lte1_&years., den=renter_inc030_&years., 
+                       num_moe=Mrentr_inc030_lte1_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% persons per room less than or equal 1 MOE);
+	%Moe_prop_a( var=Orentr_inc030_lte15_&years., mult=100, num=rentr_inc030_lte15_&years., den=renter_inc030_&years., 
+                       num_moe=Mrentr_inc030_lte15_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% persons per room greater than 1 less than or equal 1.5 MOE);
+	%Moe_prop_a( var=Orentr_inc030_gt15_&years., mult=100, num=rentr_inc030_gt15_&years., den=renter_inc030_&years., 
+                       num_moe=Mrentr_inc030_gt15_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% persons per room greater than 1.5 MOE);
+
 	%Pct_calc( var=Prentr_inc3050_lte1, label=% Renter occupied units household income 30-50% persons per room less than or equal 1, num=rentr_inc3050_lte1, den=renter_inc3050, years= &years. );
 	%Pct_calc( var=Prentr_inc3050_lte15, label=% Renter occupied units household income 30-50% persons per room greater than 1 less than or equal 1.5, num=rentr_inc3050_lte15, den=renter_inc3050, years= &years. );
 	%Pct_calc( var=Prentr_inc3050_gt15, label=% Renter occupied units household income 30-50% persons per room greater than 1.5, num=rentr_inc3050_gt15, den=renter_inc3050, years= &years. );
+
+	%Moe_prop_a( var=Orentr_inc3050_lte1_&years., mult=100, num=rentr_inc3050_lte1_&years., den=renter_inc3050_&years., 
+                       num_moe=Mrentr_inc3050_lte1_&years., den_moe=Mrenter_inc3050_&years., label_moe =% Renter occupied units household income 30-50% persons per room less than or equal 1  MOE);
+	%Moe_prop_a( var=Orentr_inc3050_lte15_&years., mult=100, num=rentr_inc3050_lte15_&years., den=renter_inc3050_&years., 
+                       num_moe=Mrentr_inc3050_lte15_&years., den_moe=Mrenter_inc3050_&years., label_moe = % Renter occupied units household income 30-50% persons per room greater than 1 less than or equal 1.5 MOE);
+	%Moe_prop_a( var=Orentr_inc3050_gt15_&years., mult=100, num=rentr_inc3050_gt15_&years., den=renter_inc3050_&years., 
+                       num_moe=Mrentr_inc3050_gt15_&years., den_moe=Mrenter_inc3050_&years., label_moe = % Renter occupied units household income 30-50% persons per room greater than 1.5 MOE);
 
 	%Pct_calc( var=Prentr_inc5080_lte1, label=% Renter occupied units household income 50-80% persons per room less than or equal 1, num=rentr_inc5080_lte1, den=renter_inc5080, years= &years. );
 	%Pct_calc( var=Prentr_inc5080_lte15, label=% Renter occupied units household income 50-80% persons per room greater than 1 less than or equal 1.5, num=rentr_inc5080_lte15, den=renter_inc5080, years= &years. );
 	%Pct_calc( var=Prentr_inc5080_gt15, label=% Renter occupied units household income 50-80% persons per room greater than 1.5, num=rentr_inc5080_gt15, den=renter_inc5080, years= &years. );
 
+	%Moe_prop_a( var=Orentr_inc5080_lte1_&years., mult=100, num=rentr_inc5080_lte1_&years., den=renter_inc5080_&years., 
+                       num_moe=Mrentr_inc5080_lte1_&years., den_moe=Mrenter_inc5080_&years., label_moe = % Renter occupied units household income 50-80% persons per room less than or equal 1 MOE);
+	%Moe_prop_a( var=Orentr_inc5080_lte15_&years., mult=100, num=rentr_inc5080_lte15_&years., den=renter_inc5080_&years., 
+                       num_moe=Mrentr_inc5080_lte15_&years., den_moe=Mrenter_inc5080_&years., label_moe = % Renter occupied units household income 50-80% persons per room greater than 1 less than or equal 1.5 MOE);
+	%Moe_prop_a( var=Orentr_inc5080_gt15_&years., mult=100, num=rentr_inc5080_gt15_&years., den=renter_inc5080_&years., 
+                       num_moe=Mrentr_inc5080_gt15_&years., den_moe=Mrenter_inc5080_&years., label_moe = % Renter occupied units household income 50-80% persons per room greater than 1.5 MOE);
+
 	%Pct_calc( var=Prentr_inc80100_lte1, label=% Renter occupied units household income 80-100% persons per room less than or equal 1, num=rentr_inc80100_lte1, den=renter_inc80100, years= &years. );
 	%Pct_calc( var=Prentr_inc80100_lte15, label=% Renter occupied units household income 80-100% persons per room greater than 1 less than or equal 1.5, num=rentr_inc80100_lte15, den=renter_inc80100, years= &years. );
 	%Pct_calc( var=Prentr_inc80100_gt15, label=% Renter occupied units household income 80-100% persons per room greater than 1.5, num=rentr_inc80100_gt15, den=renter_inc80100, years= &years. );
+
+	%Moe_prop_a( var=Orentr_inc80100_lte1_&years., mult=100, num=rentr_inc80100_lte1_&years., den=renter_inc80100_&years., 
+                       num_moe=Mrentr_inc80100_lte1_&years., den_moe=Mrenter_inc80100_&years., label_moe = % Renter occupied units household income 80-100% persons per room less than or equal 1 MOE);
+	%Moe_prop_a( var=Orentr_inc80100_lte15_&years., mult=100, num=rentr_inc80100_lte15_&years., den=renter_inc80100_&years., 
+                       num_moe=Mrentr_inc80100_lte15_&years., den_moe=Mrenter_inc80100_&years., label_moe = % Renter occupied units household income 80-100% persons per room greater than 1 less than or equal 1.5 MOE);
+	%Moe_prop_a( var=Orentr_inc80100_gt15_&years., mult=100, num=rentr_inc80100_gt15_&years., den=renter_inc80100_&years., 
+                       num_moe=Mrentr_inc80100_gt15_&years., den_moe=Mrenter_inc80100_&years., label_moe = % Renter occupied units household income 80-100% persons per room greater than 1.5 MOE);
 
 	%Pct_calc( var=Prentr_inc100pl_lte1, label=% Renter occupied units household income 100%+ persons per room less than or equal 1, num=rentr_inc100pl_lte1, den=renter_inc100pl, years= &years. );
 	%Pct_calc( var=Prentr_inc100pl_lte15, label=% Renter occupied units household income 100%+ persons per room greater than 1 less than or equal 1.5, num=rentr_inc100pl_lte15, den=renter_inc100pl, years= &years. );
 	%Pct_calc( var=Prentr_inc100pl_gt15, label=% Renter occupied units household income 100%+ persons per room greater than 1.5, num=rentr_inc100pl_gt15, den=renter_inc100pl, years= &years. );
 
+	%Moe_prop_a( var=Orentr_inc100pl_lte1_&years., mult=100, num=rentr_inc100pl_lte1_&years., den=renter_inc100pl_&years., 
+                       num_moe=Mrentr_inc100pl_lte1_&years., den_moe=Mrenter_inc100pl_&years., label_moe = % Renter occupied units household income 100%+ persons per room less than or equal 1 MOE);
+	%Moe_prop_a( var=Orentr_inc100pl_lte15_&years., mult=100, num=rentr_inc100pl_lte15_&years., den=renter_inc100pl_&years., 
+                       num_moe=Mrentr_inc100pl_lte15_&years., den_moe=Mrenter_inc100pl_&years., label_moe = % Renter occupied units household income 100%+ persons per room greater than 1 less than or equal 1.5 MOE);
+	%Moe_prop_a( var=Orentr_inc100pl_gt15_&years., mult=100, num=rentr_inc100pl_gt15_&years., den=renter_inc100pl_&years., 
+                       num_moe=Mrentr_inc100pl_gt15_&years., den_moe=Mrenter_inc100pl_&years., label_moe = % Renter occupied units household income 100%+ persons per room greater than 1.5 MOE);
+
 	%Pct_calc( var=Prentr_inc030_lte1_1fam, label=% Renter occupied units household income 0-30% one family persons per room less than or equal 1, num=rentr_inc030_lte1_1fam, den=rentr_inc030_1fam, years= &years. );
 	%Pct_calc( var=Prentr_inc030_lte15_1fam, label=% Renter occupied units household income 0-30% one family persons per room greater than 1 less than or equal 1.5, num=rentr_inc030_lte15_1fam, den=rentr_inc030_1fam, years= &years. );
 	%Pct_calc( var=Prentr_inc030_gt15_1fam, label=% Renter occupied units household income 0-30% one family persons per room greater than 1.5, num=rentr_inc030_gt15_1fam, den=rentr_inc030_1fam, years= &years. );
+
+	%Moe_prop_a( var=Orentr_inc030_lte1_1fam_&years., mult=100, num=rentr_inc030_lte1_1fam_&years., den=rentr_inc030_1fam_&years., 
+                       num_moe=Mrentr_inc030_lte1_1fam_&years., den_moe=Mrentr_inc030_1fam_&years., label_moe = % Renter occupied units household income 0-30% one family persons per room less than or equal 1 MOE);
+	%Moe_prop_a( var=Orentr_inc030_lte15_1fam_&years., mult=100, num=rentr_inc030_lte15_1fam_&years., den=rentr_inc030_1fam_&years., 
+                       num_moe=Mrentr_inc030_lte15_1fam_&years., den_moe=Mrentr_inc030_1fam_&years., label_moe = % Renter occupied units household income 0-30% one family persons per room greater than 1 less than or equal 1.5 MOE);
+	%Moe_prop_a( var=Orentr_inc030_gt15_1fam_&years., mult=100, num=rentr_inc030_gt15_1fam_&years., den=rentr_inc030_1fam_&years., 
+                       num_moe=Mrentr_inc030_gt15_1fam_&years., den_moe=Mrentr_inc030_1fam_&years., label_moe = % Renter occupied units household income 0-30% one family persons per room greater than 1.5 MOE);
 
 	%Pct_calc( var=Prentr_inc030_lte1_sfam, label=% Renter occupied units household income 0-30% one family with subfamily persons per room less than or equal 1, num=rentr_inc030_lte1_sfam, den=rentr_inc030_sfam, years= &years. );
 	%Pct_calc( var=Prentr_inc030_lte15_sfam, label=% Renter occupied units household income 0-30% one family with subfamily persons per room greater than 1 less than or equal 1.5, num=rentr_inc030_lte15_sfam, den=rentr_inc030_sfam, years= &years. );
 	%Pct_calc( var=Prentr_inc030_gt15_sfam, label=% Renter occupied units household income 0-30% one family with subfamily persons per room greater than 1.5, num=rentr_inc030_gt15_sfam, den=rentr_inc030_sfam, years= &years. );
 
+	%Moe_prop_a( var=Orentr_inc030_lte1_sfam_&years., mult=100, num=rentr_inc030_lte1_sfam_&years., den=rentr_inc030_sfam_&years., 
+                       num_moe=Mrentr_inc030_lte1_sfam_&years., den_moe=Mrentr_inc030_sfam_&years., label_moe = % Renter occupied units household income 0-30% one family with subfamily persons per room less than or equal 1 MOE);
+	%Moe_prop_a( var=Orentr_inc030_lte15_sfam_&years., mult=100, num=rentr_inc030_lte15_sfam_&years., den=rentr_inc030_sfam_&years., 
+                       num_moe=Mrentr_inc030_lte15_sfam_&years., den_moe=Mrentr_inc030_sfam_&years., label_moe = % Renter occupied units household income 0-30% one family with subfamily persons per room greater than 1 less than or equal 1.5 MOE);
+	%Moe_prop_a( var=Orentr_inc030_gt15_sfam_&years., mult=100, num=rentr_inc030_gt15_sfam_&years., den=rentr_inc030_sfam_&years., 
+                       num_moe=Mrentr_inc030_gt15_sfam_&years., den_moe=Mrentr_inc030_sfam_&years., label_moe = % Renter occupied units household income 0-30% one family with subfamily persons per room greater than 1.5 MOE);
+
 	%Pct_calc( var=Prentr_inc030_lte1_nfam, label=% Renter occupied units household income 0-30% non-family persons per room less than or equal 1, num=rentr_inc030_lte1_nfam, den=rentr_inc030_nfam, years= &years. );
 	%Pct_calc( var=Prentr_inc030_lte15_nfam, label=% Renter occupied units household income 0-30% non-family persons per room greater than 1 less than or equal 1.5, num=rentr_inc030_lte15_nfam, den=rentr_inc030_nfam, years= &years. );
 	%Pct_calc( var=Prentr_inc030_gt15_nfam, label=% Renter occupied units household income 0-30% non-family persons per room greater than 1.5, num=rentr_inc030_gt15_nfam, den=rentr_inc030_nfam, years= &years. );
 
+	%Moe_prop_a( var=Orentr_inc030_lte1_nfam_&years., mult=100, num=rentr_inc030_lte1_nfam_&years., den=rentr_inc030_nfam_&years., 
+                       num_moe=Mrentr_inc030_lte1_nfam_&years., den_moe=Mrentr_inc030_nfam_&years., label_moe = % Renter occupied units household income 0-30% non-family persons per room less than or equal 1 MOE);
+	%Moe_prop_a( var=Orentr_inc030_lte15_nfam_&years., mult=100, num=rentr_inc030_lte15_nfam_&years., den=rentr_inc030_nfam_&years., 
+                       num_moe=Mrentr_inc030_lte15_nfam_&years., den_moe=Mrentr_inc030_nfam_&years., label_moe = % Renter occupied units household income 0-30% non-family persons per room greater than 1 less than or equal 1.5 MOE);
+	%Moe_prop_a( var=Orentr_inc030_gt15_nfam_&years., mult=100, num=rentr_inc030_gt15_nfam_&years., den=rentr_inc030_nfam_&years., 
+                       num_moe=Mrentr_inc030_gt15_nfam_&years., den_moe=Mrentr_inc030_nfam_&years., label_moe = % Renter occupied units household income 0-30% non-family persons per room greater than 1.5 MOE);
 
 	/* Demand - Age */
 
