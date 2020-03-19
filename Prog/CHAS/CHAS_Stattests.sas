@@ -11,10 +11,13 @@
 
 **************************************************************************/
 
+%let indata = Chas_3502000;
+
+
 %macro chas_stattest (est1,moe1,est2,moe2);
 
 data a_tests ;
-	set Chas_3502000;
+	set &indata.;
 
 	E1 = &est1.;
 	M1 = &moe1.;
@@ -64,5 +67,21 @@ proc print data = a_sig; run;
 %chas_stattest(est1 = Prenter_inc030_scb_2006_10, moe1 = Orenter_inc030_scb_2006_10, 
 		  	   est2 = Prenter_inc030_scb_2012_16, moe2 = Orenter_inc030_scb_2012_16 );	
 
+
+%chas_stattest(est1 = rnt030_allbr_2006_10, moe1 = Mrnt030_allbr_2006_10, 
+		  	   est2 = rnt030_allbr_2012_16, moe2 = Mrnt030_allbr_2012_16 );	
+			   
+%chas_stattest(est1 = rnt3050_allbr_2006_10, moe1 = Mrnt3050_allbr_2006_10, 
+		  	   est2 = rnt3050_allbr_2012_16, moe2 = Mrnt3050_allbr_2012_16 );	
+			   
+%chas_stattest(est1 = rnt5080_allbr_2006_10, moe1 = Mrnt5080_allbr_2006_10, 
+		  	   est2 = rnt5080_allbr_2012_16, moe2 = Mrnt5080_allbr_2012_16 );	
+			   
+%chas_stattest(est1 = rnt80pl_allbr_2006_10, moe1 = Mrnt80pl_allbr_2006_10, 
+		  	   est2 = rnt80pl_allbr_2012_16, moe2 = Mrnt80pl_allbr_2012_16 );	
 			   
 			   
+
+
+			   
+
