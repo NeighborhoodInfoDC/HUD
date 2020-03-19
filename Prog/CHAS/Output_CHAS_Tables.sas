@@ -728,6 +728,36 @@ proc export data=table7a
    outfile="&outfolder.table7a.csv" dbms=csv replace;
 run;
 
+%reshape_chas(&chas_in.,7b,1,renter_eyeear_2012_16 placeholder );
+%reshape_chas(&chas_in.,7b,2,renter_eyeear_1prob_2012_16 Prenter_eyeear_1prob_2012_16 );
+%reshape_chas(&chas_in.,7b,3,renter_eyeear_0prob_2012_16 Prenter_eyeear_0prob_2012_16);
+%reshape_chas(&chas_in.,7b,4,renter_eyeear_nc_2012_16 Prenter_eyeear_nc_2012_16);
+%reshape_chas(&chas_in.,7b,5,renter_amb_2012_16 placeholder );
+%reshape_chas(&chas_in.,7b,6,renter_amb_1prob_2012_16 Prenter_amb_1prob_2012_16 );
+%reshape_chas(&chas_in.,7b,7,renter_amb_0prob_2012_16 Prenter_amb_0prob_2012_16);
+%reshape_chas(&chas_in.,7b,8,renter_amb_nc_2012_16 Prenter_amb_nc_2012_16);
+%reshape_chas(&chas_in.,7b,9,renter_cog_2012_16 placeholder );
+%reshape_chas(&chas_in.,7b,10,renter_cog_1prob_2012_16 Prenter_cog_1prob_2012_16 );
+%reshape_chas(&chas_in.,7b,11,renter_cog_0prob_2012_16 Prenter_cog_0prob_2012_16);
+%reshape_chas(&chas_in.,7b,12,renter_cog_nc_2012_16 Prenter_cog_nc_2012_16);
+%reshape_chas(&chas_in.,7b,13,renter_self_2012_16 placeholder );
+%reshape_chas(&chas_in.,7b,14,renter_self_1prob_2012_16 Prenter_self_1prob_2012_16 );
+%reshape_chas(&chas_in.,7b,15,renter_self_0prob_2012_16 Prenter_self_0prob_2012_16);
+%reshape_chas(&chas_in.,7b,16,renter_self_nc_2012_16 Prenter_self_nc_2012_16);
+%reshape_chas(&chas_in.,7b,17,renter_nodis_2012_16 placeholder );
+%reshape_chas(&chas_in.,7b,18,renter_nodis_1prob_2012_16 Prenter_nodis_1prob_2012_16 );
+%reshape_chas(&chas_in.,7b,19,renter_nodis_0prob_2012_16 Prenter_nodis_0prob_2012_16);
+%reshape_chas(&chas_in.,7b,20,renter_nodis_nc_2012_16 Prenter_nodis_nc_2012_16);
+
+data table7b;
+	set Table7b_row1 Table7b_row2 Table7b_row3 Table7b_row4 Table7b_row5 Table7b_row6 Table7b_row7 Table7b_row8 Table7b_row9 Table7b_row10
+		Table7b_row11 Table7b_row12 Table7b_row13 Table7b_row14 Table7b_row15 Table7b_row16 Table7b_row17 Table7b_row18 Table7b_row19 Table7b_row20;
+run;
+
+proc export data=table7b
+   outfile="&outfolder.table7b.csv" dbms=csv replace;
+run;
+
 
 %mend export_chas_csv;
 
