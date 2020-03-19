@@ -259,20 +259,20 @@ data &out._&years.;
                        num_moe=Mforrent_units_aff30_&years., den_moe=Mocc_aff30_&years., label_moe = % For-rent housing units affordable at 30% AMI MOE);
 
 	%Pct_calc( var=Prenter_unit_aff50, label=% Renter-occupied housing units affordable at 50% AMI, num=renter_unit_aff50, den=occ_aff50, years= &years. );
-	%Pct_calc( var=Pforrent_units_aff50, label=% For-rent housing units affordable at 50% AMI, num=forrent_units_aff50, den=occ_aff50, years= &years. );
+	%Pct_calc( var=Pforrent_units_aff50, label=% For-rent housing units affordable at 50% AMI, num=forrent_units_aff50, den=rental_comb_aff50, years= &years. );
 
 	%Moe_prop_a( var=Orenter_unit_aff50_&years., mult=100, num=renter_unit_aff50_&years., den=occ_aff50_&years., 
                        num_moe=Mrenter_unit_aff50_&years., den_moe=Mocc_aff50_&years., label_moe = % Renter-occupied housing units affordable at 50% AMI MOE);
-	%Moe_prop_a( var=Oforrent_units_aff50_&years., mult=100, num=forrent_units_aff50_&years., den=occ_aff50_&years., 
-                       num_moe=Mforrent_units_aff50_&years., den_moe=Mocc_aff50_&years., label_moe = % For-rent housing units affordable at 50% AMI MOE);
+	%Moe_prop_a( var=Oforrent_units_aff50_&years., mult=100, num=forrent_units_aff50_&years., den=rental_comb_aff50_&years., 
+                       num_moe=Mforrent_units_aff50_&years., den_moe=Mrental_comb_aff50_&years., label_moe = % For-rent housing units affordable at 50% AMI MOE);
 
 	%Pct_calc( var=Powner_unit_aff50, label=% Owner-occupied housing units affordable at 50% AMI, num=owner_unit_aff50, den=occ_aff50, years= &years. );
-	%Pct_calc( var=Pforsale_units_aff50, label=% For-sale housing units affordable at 50% AMI, num=forsale_units_aff50, den=occ_aff50, years= &years. );
+	%Pct_calc( var=Pforsale_units_aff50, label=% For-sale housing units affordable at 50% AMI, num=forsale_units_aff50, den=owner_comb_aff50, years= &years. );
 
 	%Moe_prop_a( var=Oowner_unit_aff50_&years., mult=100, num=owner_unit_aff50_&years., den=occ_aff50_&years., 
                        num_moe=Mowner_unit_aff50_&years., den_moe=Mocc_aff50_&years., label_moe = % Owner-occupied housing units affordable at 50% AMI MOE);
-	%Moe_prop_a( var=Oforsale_units_aff50_&years., mult=100, num=forsale_units_aff50_&years., den=occ_aff50_&years., 
-                       num_moe=Mforsale_units_aff50_&years., den_moe=Mocc_aff50_&years., label_moe = % For-sale housing units affordable at 50% AMI MOE);
+	%Moe_prop_a( var=Oforsale_units_aff50_&years., mult=100, num=forsale_units_aff50_&years., den=owner_comb_aff50_&years., 
+                       num_moe=Mforsale_units_aff50_&years., den_moe=Mowner_comb_aff50_&years., label_moe = % For-sale housing units affordable at 50% AMI MOE);
 
 	%Pct_calc( var=Prenter_01br_tot, label=% Renter-occupied 0-1 bedroom housing units, num=renter_01br_tot, den=rent_hasplumb, years= &years. );
 	%Pct_calc( var=Prenter_2br_tot, label=% Renter-occupied 2 bedroom housing units, num=renter_2br_tot, den=rent_hasplumb, years= &years. );
@@ -2610,6 +2610,31 @@ data &out._&years.;
 	%if %upcase( &years. ) = 2012_16 %then %do;
 
 	/* Disability */
+	renter_eyeear_&years. = T6_est88;
+	renter_eyeear_1prob_&years. = sum(of T6_est90 T6_est94 T6_est98 T6_est102);
+	renter_eyeear_0prob_&years. = sum(of T6_est91 T6_est95 T6_est99 T6_est103);
+	renter_eyeear_nc_&years. = sum(of T6_est92 T6_est96 T6_est100 T6_est104);
+
+	renter_amb_&years. = T6_est105;
+	renter_amb_1prob_&years. = sum(of T6_est107 T6_est111 T6_est115 T6_est119);
+	renter_amb_0prob_&years. = sum(of T6_est108 T6_est112 T6_est116 T6_est120);
+	renter_amb_nc_&years. = sum(of T6_est109 T6_est113 T6_est117 T6_est121);
+
+	renter_cog_&years. = T6_est122;
+	renter_cog_1prob_&years. = sum(of T6_est124 T6_est128 T6_est132 T6_est136);
+	renter_cog_0prob_&years. = sum(of T6_est125 T6_est129 T6_est133 T6_est137);
+	renter_cog_nc_&years. = sum(of T6_est126 T6_est130 T6_est134 T6_est138);
+
+	renter_self_&years. = T6_est139;
+	renter_self_1prob_&years. = sum(of T6_est141 T6_est145 T6_est149 T6_est153);
+	renter_self_0prob_&years. = sum(of T6_est142 T6_est146 T6_est150 T6_est154);
+	renter_self_nc_&years. = sum(of T6_est143 T6_est147 T6_est151 T6_est155);
+
+	renter_nodis_&years. = T6_est156;
+	renter_nodis_1prob_&years. = sum(of T6_est158 T6_est162 T6_est166 T6_est170);
+	renter_nodis_0prob_&years. = sum(of T6_est159 T6_est163 T6_est167 T6_est171);
+	renter_nodis_nc_&years. = sum(of T6_est160 T6_est163 T6_est167 T6_est171);
+
 	renter_030_eyeear_&years. = T6_est89;
 	renter_030_eyeear_1prob_&years. = T6_est90;
 	renter_030_eyeear_0prob_&years. = T6_est91;
@@ -2636,6 +2661,27 @@ data &out._&years.;
 	renter_030_nodis_nc_&years. = T6_est160;
 
 	label
+	renter_eyeear_&years. = "Renter occupied units, household income, HH member has a hearing or vision impairment, &years_dash."
+	renter_eyeear_1prob_&years. = "Renter occupied units, household income, HH member has a hearing or vision impairment, 1 or more of the 4 housing unit problems, &years_dash."
+	renter_eyeear_0prob_&years. = "Renter occupied units, household income, HH member has a hearing or vision impairment, none of the 4 housing unit problems, &years_dash."
+	renter_eyeear_nc_&years. = "Renter occupied units, household income, HH member has a hearing or vision impairment, cost burden not computed, &years_dash."
+	renter_amb_&years. = "Renter occupied units, household income, HH member has an ambulatory limitation, &years_dash."
+	renter_amb_1prob_&years. = "Renter occupied units, household income, HH member has an ambulatory limitation, 1 or more of the 4 housing unit problems, &years_dash."
+	renter_amb_0prob_&years. = "Renter occupied units, household income, HH member has an ambulatory limitation, none of the 4 housing unit problems, &years_dash."
+	renter_amb_nc_&years. = "Renter occupied units, household income, HH member has an ambulatory limitation, cost burden not computed, &years_dash."
+	renter_cog_&years. = "Renter occupied units, household income, HH member has a cognitive limitation, &years_dash."
+	renter_cog_1prob_&years. = "Renter occupied units, household income, HH member a cognitive limitation, 1 or more of the 4 housing unit problems, &years_dash."
+	renter_cog_0prob_&years. = "Renter occupied units, household income, HH member a cognitive limitation, none of the 4 housing unit problems, &years_dash."
+	renter_cog_nc_&years. = "Renter occupied units, household income, HH member a cognitive limitation, cost burden not computed, &years_dash."
+	renter_self_&years. = "Renter occupied units, household income, HH member has self-care or independent living limitation, &years_dash."
+	renter_self_1prob_&years. = "Renter occupied units, household income, HH member has self-care or independent living limitation, 1 or more of the 4 housing unit problems, &years_dash."
+	renter_self_0prob_&years. = "Renter occupied units, household income, HH member has self-care or independent living limitation, none of the 4 housing unit problems, &years_dash."
+	renter_self_nc_&years. = "Renter occupied units, household income, HH member has self-care or independent living limitation, cost burden not computed, &years_dash."
+	renter_nodis_&years. = "Renter occupied units, household income, HH member has none of the limitations, &years_dash."
+	renter_nodis_1prob_&years. = "Renter occupied units, household income, HH member has none of the limitations, 1 or more of the 4 housing unit problems, &years_dash."
+	renter_nodis_0prob_&years. = "Renter occupied units, household income, HH member has none of the limitations, none of the 4 housing unit problems, &years_dash."
+	renter_nodis_nc_&years. = "Renter occupied units, household income, HH member an has none of the limitations, cost burden not computed, &years_dash."
+
 	renter_030_eyeear_&years. = "Renter occupied units, household income 0-30%, HH member has a hearing or vision impairment, &years_dash."
 	renter_030_eyeear_1prob_&years. = "Renter occupied units, household income 0-30%, HH member has a hearing or vision impairment, 1 or more of the 4 housing unit problems, &years_dash."
 	renter_030_eyeear_0prob_&years. = "Renter occupied units, household income 0-30%, HH member has a hearing or vision impairment, none of the 4 housing unit problems, &years_dash."
@@ -2657,6 +2703,26 @@ data &out._&years.;
 	renter_030_nodis_0prob_&years. = "Renter occupied units, household income 0-30%, HH member has none of the limitations, none of the 4 housing unit problems, &years_dash."
 	renter_030_nodis_nc_&years. = "Renter occupied units, household income 0-30%, HH member an has none of the limitations, cost burden not computed, &years_dash."
 	;
+
+	%Pct_calc( var=Prenter_eyeear_1prob, label=% Renter occupied units household income HH member has a hearing or vision impairment 1 or more of the 4 housing unit problems, num=renter_eyeear_1prob, den=renter_eyeear, years= &years. );
+	%Pct_calc( var=Prenter_eyeear_0prob, label=% Renter occupied units household income HH member has a hearing or vision impairment none of the 4 housing unit problems, num=renter_eyeear_0prob, den=renter_eyeear, years= &years. );
+	%Pct_calc( var=Prenter_eyeear_nc, label=% Renter occupied units household income HH member has a hearing or vision impairment cost burden not computed, num=renter_eyeear_nc, den=renter_eyeear, years= &years. );
+
+	%Pct_calc( var=Prenter_amb_1prob, label=% Renter occupied units household income HH member has an ambulatory limitation 1 or more of the 4 housing unit problems, num=renter_amb_1prob, den=renter_amb, years= &years. );
+	%Pct_calc( var=Prenter_amb_0prob, label=% Renter occupied units household income HH member has an ambulatory limitation none of the 4 housing unit problems, num=renter_amb_0prob, den=renter_amb, years= &years. );
+	%Pct_calc( var=Prenter_amb_nc, label=% Renter occupied units household income HH member has an ambulatory limitation cost burden not computed, num=renter_amb_nc, den=renter_amb, years= &years. );
+
+	%Pct_calc( var=Prenter_cog_1prob, label=% Renter occupied units household income HH member has a cognitive limitation 1 or more of the 4 housing unit problems, num=renter_cog_1prob, den=renter_cog, years= &years. );
+	%Pct_calc( var=Prenter_cog_0prob, label=% Renter occupied units household income HH member has a cognitive limitation none of the 4 housing unit problems, num=renter_cog_0prob, den=renter_cog, years= &years. );
+	%Pct_calc( var=Prenter_cog_nc, label=% Renter occupied units household income HH member has a cognitive limitation cost burden not computed, num=renter_cog_nc, den=renter_cog, years= &years. );
+
+	%Pct_calc( var=Prenter_self_1prob, label=% Renter occupied units household income HH member has a self-care or independent living limitation 1 or more of the 4 housing unit problems, num=renter_self_1prob, den=renter_self, years= &years. );
+	%Pct_calc( var=Prenter_self_0prob, label=% Renter occupied units household income HH member has a self-care or independent living limitation none of the 4 housing unit problems, num=renter_self_0prob, den=renter_self, years= &years. );
+	%Pct_calc( var=Prenter_self_nc, label=% Renter occupied units household income HH member has a self-care or independent living limitation cost burden not computed, num=renter_self_nc, den=renter_self, years= &years. );
+
+	%Pct_calc( var=Prenter_nodis_1prob, label=% Renter occupied units household income HH member has none of the limitations 1 or more of the 4 housing unit problems, num=renter_nodis_1prob, den=renter_nodis, years= &years. );
+	%Pct_calc( var=Prenter_nodis_0prob, label=% Renter occupied units household income HH member has none of the limitations none of the 4 housing unit problems, num=renter_nodis_0prob, den=renter_nodis, years= &years. );
+	%Pct_calc( var=Prenter_nodis_nc, label=% Renter occupied units household income HH member has none of the limitations cost burden not computed, num=renter_nodis_nc, den=renter_nodis, years= &years. );
 
 	%Pct_calc( var=Prenter_030_eyeear_1prob, label=% Renter occupied units household income 0-30% HH member has a hearing or vision impairment 1 or more of the 4 housing unit problems, num=renter_030_eyeear_1prob, den=renter_030_eyeear, years= &years. );
 	%Pct_calc( var=Prenter_030_eyeear_0prob, label=% Renter occupied units household income 0-30% HH member has a hearing or vision impairment none of the 4 housing unit problems, num=renter_030_eyeear_0prob, den=renter_030_eyeear, years= &years. );
