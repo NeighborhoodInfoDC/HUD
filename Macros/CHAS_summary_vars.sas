@@ -1191,6 +1191,532 @@ data &out._&years.;
 	%Moe_prop_a( var=Ornt80pl_inc100pl_3br_&years., mult=100, num=rnt80pl_inc100pl_3br_&years., den=inc100pl_3br_&years., 
                        num_moe=Mrnt80pl_inc100pl_3br_&years., den_moe=Minc100pl_3br_&years., label_moe = % renter households with rent level 80%+ household income 100%+ 3+ bedrooms MOE);
 
+	/* Structure Type */
+	rnt030_inc030_1un_&years. = T18C_est4;
+	rnt3050_inc030_1un_&years. = T18C_est10;
+	rnt5080_inc030_1un_&years. = T18C_est16;
+	rnt80pl_inc030_1un_&years. = T18C_est22;
+
+	rnt030_inc3050_1un_&years. = T18C_est5;
+	rnt3050_inc3050_1un_&years. = T18C_est11;
+	rnt5080_inc3050_1un_&years. = T18C_est17;
+	rnt80pl_inc3050_1un_&years. = T18C_est23;
+
+	rnt030_inc5080_1un_&years. = T18C_est6;
+	rnt3050_inc5080_1un_&years. = T18C_est12;
+	rnt5080_inc5080_1un_&years. = T18C_est18;
+	rnt80pl_inc5080_1un_&years. = T18C_est24;
+
+	rnt030_inc80100_1un_&years. = T18C_est7;
+	rnt3050_inc80100_1un_&years. = T18C_est13;
+	rnt5080_inc80100_1un_&years. = T18C_est19;
+	rnt80pl_inc80100_1un_&years. = T18C_est25;
+
+	rnt030_inc100pl_1un_&years. = T18C_est8;
+	rnt3050_inc100pl_1un_&years. = T18C_est14;
+	rnt5080_inc100pl_1un_&years. = T18C_est20;
+	rnt80pl_inc100pl_1un_&years. = T18C_est26;
+
+	rnt030_inc030_24un_&years. = T18C_est29;
+	rnt3050_inc030_24un_&years. = T18C_est35;
+	rnt5080_inc030_24un_&years. = T18C_est41;
+	rnt80pl_inc030_24un_&years. = T18C_est47;
+
+	rnt030_inc3050_24un_&years. = T18C_est30;
+	rnt3050_inc3050_24un_&years. = T18C_est36;
+	rnt5080_inc3050_24un_&years. = T18C_est42;
+	rnt80pl_inc3050_24un_&years. = T18C_est48;
+
+	rnt030_inc5080_24un_&years. = T18C_est31;
+	rnt3050_inc5080_24un_&years. = T18C_est37;
+	rnt5080_inc5080_24un_&years. = T18C_est43;
+	rnt80pl_inc5080_24un_&years. = T18C_est49;
+
+	rnt030_inc80100_24un_&years. = T18C_est32;
+	rnt3050_inc80100_24un_&years. = T18C_est38;
+	rnt5080_inc80100_24un_&years. = T18C_est44;
+	rnt80pl_inc80100_24un_&years. = T18C_est50;
+
+	rnt030_inc100pl_24un_&years. = T18C_est33;
+	rnt3050_inc100pl_24un_&years. = T18C_est39;
+	rnt5080_inc100pl_24un_&years. = T18C_est45;
+	rnt80pl_inc100pl_24un_&years. = T18C_est51;
+
+	rnt030_inc030_5un_&years. = T18C_est54;
+	rnt3050_inc030_5un_&years. = T18C_est60;
+	rnt5080_inc030_5un_&years. = T18C_est66;
+	rnt80pl_inc030_5un_&years. = T18C_est72;
+
+	rnt030_inc3050_5un_&years. = T18C_est55;
+	rnt3050_inc3050_5un_&years. = T18C_est61;
+	rnt5080_inc3050_5un_&years. = T18C_est67;
+	rnt80pl_inc3050_5un_&years. = T18C_est73;
+
+	rnt030_inc5080_5un_&years. = T18C_est56;
+	rnt3050_inc5080_5un_&years. = T18C_est62;
+	rnt5080_inc5080_5un_&years. = T18C_est68;
+	rnt80pl_inc5080_5un_&years. = T18C_est74;
+
+	rnt030_inc80100_5un_&years. = T18C_est57;
+	rnt3050_inc80100_5un_&years. = T18C_est63;
+	rnt5080_inc80100_5un_&years. = T18C_est69;
+	rnt80pl_inc80100_5un_&years. = T18C_est75;
+
+	rnt030_inc100pl_5un_&years. = T18C_est58;
+	rnt3050_inc100pl_5un_&years. = T18C_est64;
+	rnt5080_inc100pl_5un_&years. = T18C_est70;
+	rnt80pl_inc100pl_5un_&years. = T18C_est76;
+
+	rnt030_inc030_xun_&years. = T18C_est79;
+	rnt3050_inc030_xun_&years. = T18C_est85;
+	rnt5080_inc030_xun_&years. = T18C_est91;
+	rnt80pl_inc030_xun_&years. = T18C_est97;
+
+	rnt030_inc3050_xun_&years. = T18C_est80;
+	rnt3050_inc3050_xun_&years. = T18C_est86;
+	rnt5080_inc3050_xun_&years. = T18C_est92;
+	rnt80pl_inc3050_xun_&years. = T18C_est98;
+
+	rnt030_inc5080_xun_&years. = T18C_est81;
+	rnt3050_inc5080_xun_&years. = T18C_est87;
+	rnt5080_inc5080_xun_&years. = T18C_est93;
+	rnt80pl_inc5080_xun_&years. = T18C_est99;
+
+	rnt030_inc80100_xun_&years. = T18C_est82;
+	rnt3050_inc80100_xun_&years. = T18C_est88;
+	rnt5080_inc80100_xun_&years. = T18C_est94;
+	rnt80pl_inc80100_xun_&years. = T18C_est100;
+
+	rnt030_inc100pl_xun_&years. = T18C_est83;
+	rnt3050_inc100pl_xun_&years. = T18C_est89;
+	rnt5080_inc100pl_xun_&years. = T18C_est95;
+	rnt80pl_inc100pl_xun_&years. = T18C_est101;
+
+	inc030_1un_&years. = sum(of T18C_est4 T18C_est10 T18C_est16 T18C_est22 );
+	inc3050_1un_&years. = sum(of T18C_est5 T18C_est11 T18C_est17 T18C_est23 );
+	inc5080_1un_&years. = sum(of T18C_est6 T18C_est12 T18C_est18 T18C_est24 );
+	inc80100_1un_&years. = sum(of T18C_est7 T18C_est13 T18C_est19 T18C_est25 );
+	inc100pl_1un_&years. = sum(of T18C_est8 T18C_est14 T18C_est20 T18C_est26 );
+
+	inc030_24un_&years. = sum(of T18C_est29 T18C_est35 T18C_est41 T18C_est47 );
+	inc3050_24un_&years. = sum(of T18C_est30 T18C_est36 T18C_est42 T18C_est48);
+	inc5080_24un_&years. = sum(of T18C_est31 T18C_est37 T18C_est43 T18C_est49 );
+	inc80100_24un_&years. = sum(of T18C_est32 T18C_est38 T18C_est44 T18C_est50 );
+	inc100pl_24un_&years. = sum(of T18C_est33 T18C_est39 T18C_est45 T18C_est51 );
+
+	inc030_5un_&years. = sum(of T18C_est54 T18C_est60 T18C_est66 T18C_est72 );
+	inc3050_5un_&years. = sum(of T18C_est55 T18C_est61 T18C_est67 T18C_est73 );
+	inc5080_5un_&years. = sum(of T18C_est56 T18C_est62 T18C_est68 T18C_est74 );
+	inc80100_5un_&years. = sum(of T18C_est57 T18C_est63 T18C_est69 T18C_est75 );
+	inc100pl_5un_&years. = sum(of T18C_est58 T18C_est64 T18C_est70 T18C_est76 );
+
+	inc030_xun_&years. = sum(of T18C_est79 T18C_est85 T18C_est91 T18C_est97 );
+	inc3050_xun_&years. = sum(of T18C_est80 T18C_est86 T18C_est92 T18C_est98 );
+	inc5080_xun_&years. = sum(of T18C_est81 T18C_est87 T18C_est93 T18C_est99 );
+	inc80100_xun_&years. = sum(of T18C_est82 T18C_est88 T18C_est94 T18C_est100 );
+	inc100pl_xun_&years. = sum(of T18C_est83 T18C_est89 T18C_est95 T18C_est101 );
+
+	rnt030_1un_&years. = T18C_est3;
+	rnt3050_1un_&years. = T18C_est9;
+	rnt5080_1un_&years. = T18C_est15;
+	rnt80pl_1un_&years. = T18C_est21;
+
+	rnt030_24un_&years. = T18C_est28;
+	rnt3050_24un_&years. = T18C_est34;
+	rnt5080_24un_&years. = T18C_est40;
+	rnt80pl_24un_&years. = T18C_est46;
+
+	rnt030_5un_&years. = T18C_est53;
+	rnt3050_5un_&years. = T18C_est59;
+	rnt5080_5un_&years. = T18C_est65;
+	rnt80pl_5un_&years. = T18C_est71;
+
+	rnt030_xun_&years. = T18C_est78;
+	rnt3050_xun_&years. = T18C_est84;
+	rnt5080_xun_&years. =T18C_est90;
+	rnt80pl_xun_&years. = T18C_est96;
+
+	Mrnt030_inc030_1un_&years. = T18C_est4;
+	Mrnt3050_inc030_1un_&years. = T18C_est10;
+	Mrnt5080_inc030_1un_&years. = T18C_est16;
+	Mrnt80pl_inc030_1un_&years. = T18C_est22;
+
+	Mrnt030_inc3050_1un_&years. = T18C_est5;
+	Mrnt3050_inc3050_1un_&years. = T18C_est11;
+	Mrnt5080_inc3050_1un_&years. = T18C_est17;
+	Mrnt80pl_inc3050_1un_&years. = T18C_est23;
+
+	Mrnt030_inc5080_1un_&years. = T18C_est6;
+	Mrnt3050_inc5080_1un_&years. = T18C_est12;
+	Mrnt5080_inc5080_1un_&years. = T18C_est18;
+	Mrnt80pl_inc5080_1un_&years. = T18C_est24;
+
+	Mrnt030_inc80100_1un_&years. = T18C_est7;
+	Mrnt3050_inc80100_1un_&years. = T18C_est13;
+	Mrnt5080_inc80100_1un_&years. = T18C_est19;
+	Mrnt80pl_inc80100_1un_&years. = T18C_est25;
+
+	Mrnt030_inc100pl_1un_&years. = T18C_est8;
+	Mrnt3050_inc100pl_1un_&years. = T18C_est14;
+	Mrnt5080_inc100pl_1un_&years. = T18C_est20;
+	Mrnt80pl_inc100pl_1un_&years. = T18C_est26;
+
+	Mrnt030_inc030_24un_&years. = T18C_est29;
+	Mrnt3050_inc030_24un_&years. = T18C_est35;
+	Mrnt5080_inc030_24un_&years. = T18C_est41;
+	Mrnt80pl_inc030_24un_&years. = T18C_est47;
+
+	Mrnt030_inc3050_24un_&years. = T18C_est30;
+	Mrnt3050_inc3050_24un_&years. = T18C_est36;
+	Mrnt5080_inc3050_24un_&years. = T18C_est42;
+	Mrnt80pl_inc3050_24un_&years. = T18C_est48;
+
+	Mrnt030_inc5080_24un_&years. = T18C_est31;
+	Mrnt3050_inc5080_24un_&years. = T18C_est37;
+	Mrnt5080_inc5080_24un_&years. = T18C_est43;
+	Mrnt80pl_inc5080_24un_&years. = T18C_est49;
+
+	Mrnt030_inc80100_24un_&years. = T18C_est32;
+	Mrnt3050_inc80100_24un_&years. = T18C_est38;
+	Mrnt5080_inc80100_24un_&years. = T18C_est44;
+	Mrnt80pl_inc80100_24un_&years. = T18C_est50;
+
+	Mrnt030_inc100pl_24un_&years. = T18C_est33;
+	Mrnt3050_inc100pl_24un_&years. = T18C_est39;
+	Mrnt5080_inc100pl_24un_&years. = T18C_est45;
+	Mrnt80pl_inc100pl_24un_&years. = T18C_est51;
+
+	Mrnt030_inc030_5un_&years. = T18C_est54;
+	Mrnt3050_inc030_5un_&years. = T18C_est60;
+	Mrnt5080_inc030_5un_&years. = T18C_est66;
+	Mrnt80pl_inc030_5un_&years. = T18C_est72;
+
+	Mrnt030_inc3050_5un_&years. = T18C_est55;
+	Mrnt3050_inc3050_5un_&years. = T18C_est61;
+	Mrnt5080_inc3050_5un_&years. = T18C_est67;
+	Mrnt80pl_inc3050_5un_&years. = T18C_est73;
+
+	Mrnt030_inc5080_5un_&years. = T18C_est56;
+	Mrnt3050_inc5080_5un_&years. = T18C_est62;
+	Mrnt5080_inc5080_5un_&years. = T18C_est68;
+	Mrnt80pl_inc5080_5un_&years. = T18C_est74;
+
+	Mrnt030_inc80100_5un_&years. = T18C_est57;
+	Mrnt3050_inc80100_5un_&years. = T18C_est63;
+	Mrnt5080_inc80100_5un_&years. = T18C_est69;
+	Mrnt80pl_inc80100_5un_&years. = T18C_est75;
+
+	Mrnt030_inc100pl_5un_&years. = T18C_est58;
+	Mrnt3050_inc100pl_5un_&years. = T18C_est64;
+	Mrnt5080_inc100pl_5un_&years. = T18C_est70;
+	Mrnt80pl_inc100pl_5un_&years. = T18C_est76;
+
+	Mrnt030_inc030_xun_&years. = T18C_est79;
+	Mrnt3050_inc030_xun_&years. = T18C_est85;
+	Mrnt5080_inc030_xun_&years. = T18C_est91;
+	Mrnt80pl_inc030_xun_&years. = T18C_est97;
+
+	Mrnt030_inc3050_xun_&years. = T18C_est80;
+	Mrnt3050_inc3050_xun_&years. = T18C_est86;
+	Mrnt5080_inc3050_xun_&years. = T18C_est92;
+	Mrnt80pl_inc3050_xun_&years. = T18C_est98;
+
+	Mrnt030_inc5080_xun_&years. = T18C_est81;
+	Mrnt3050_inc5080_xun_&years. = T18C_est87;
+	Mrnt5080_inc5080_xun_&years. = T18C_est93;
+	Mrnt80pl_inc5080_xun_&years. = T18C_est99;
+
+	Mrnt030_inc80100_xun_&years. = T18C_est82;
+	Mrnt3050_inc80100_xun_&years. = T18C_est88;
+	Mrnt5080_inc80100_xun_&years. = T18C_est94;
+	Mrnt80pl_inc80100_xun_&years. = T18C_est100;
+
+	Mrnt030_inc100pl_xun_&years. = T18C_est83;
+	Mrnt3050_inc100pl_xun_&years. = T18C_est89;
+	Mrnt5080_inc100pl_xun_&years. = T18C_est95;
+	Mrnt80pl_inc100pl_xun_&years. = T18C_est101;
+
+	Minc030_1un_&years. = sum(of T18C_est4 T18C_est10 T18C_est16 T18C_est22 );
+	Minc3050_1un_&years. = sum(of T18C_est5 T18C_est11 T18C_est17 T18C_est23 );
+	Minc5080_1un_&years. = sum(of T18C_est6 T18C_est12 T18C_est18 T18C_est24 );
+	Minc80100_1un_&years. = sum(of T18C_est7 T18C_est13 T18C_est19 T18C_est25 );
+	Minc100pl_1un_&years. = sum(of T18C_est8 T18C_est14 T18C_est20 T18C_est26 );
+
+	Minc030_24un_&years. = sum(of T18C_est29 T18C_est35 T18C_est41 T18C_est47 );
+	Minc3050_24un_&years. = sum(of T18C_est30 T18C_est36 T18C_est42 T18C_est48);
+	Minc5080_24un_&years. = sum(of T18C_est31 T18C_est37 T18C_est43 T18C_est49 );
+	Minc80100_24un_&years. = sum(of T18C_est32 T18C_est38 T18C_est44 T18C_est50 );
+	Minc100pl_24un_&years. = sum(of T18C_est33 T18C_est39 T18C_est45 T18C_est51 );
+
+	Minc030_5un_&years. = sum(of T18C_est54 T18C_est60 T18C_est66 T18C_est72 );
+	Minc3050_5un_&years. = sum(of T18C_est55 T18C_est61 T18C_est67 T18C_est73 );
+	Minc5080_5un_&years. = sum(of T18C_est56 T18C_est62 T18C_est68 T18C_est74 );
+	Minc80100_5un_&years. = sum(of T18C_est57 T18C_est63 T18C_est69 T18C_est75 );
+	Minc100pl_5un_&years. = sum(of T18C_est58 T18C_est64 T18C_est70 T18C_est76 );
+
+	Minc030_xun_&years. = sum(of T18C_est79 T18C_est85 T18C_est91 T18C_est97 );
+	Minc3050_xun_&years. = sum(of T18C_est80 T18C_est86 T18C_est92 T18C_est98 );
+	Minc5080_xun_&years. = sum(of T18C_est81 T18C_est87 T18C_est93 T18C_est99 );
+	Minc80100_xun_&years. = sum(of T18C_est82 T18C_est88 T18C_est94 T18C_est100 );
+	Minc100pl_xun_&years. = sum(of T18C_est83 T18C_est89 T18C_est95 T18C_est101 );
+
+	Mrnt030_1un_&years. = T18C_est3;
+	Mrnt3050_1un_&years. = T18C_est9;
+	Mrnt5080_1un_&years. = T18C_est15;
+	Mrnt80pl_1un_&years. = T18C_est21;
+
+	Mrnt030_24un_&years. = T18C_est28;
+	Mrnt3050_24un_&years. = T18C_est34;
+	Mrnt5080_24un_&years. = T18C_est40;
+	Mrnt80pl_24un_&years. = T18C_est46;
+
+	Mrnt030_5un_&years. = T18C_est53;
+	Mrnt3050_5un_&years. = T18C_est59;
+	Mrnt5080_5un_&years. = T18C_est65;
+	Mrnt80pl_5un_&years. = T18C_est71;
+
+	Mrnt030_xun_&years. = T18C_est78;
+	Mrnt3050_xun_&years. = T18C_est84;
+	Mrnt5080_xun_&years. =T18C_est90;
+	Mrnt80pl_xun_&years. = T18C_est96;
+
+	label 
+	rnt030_inc030_1un_&years. = "Rent level 0-30%, household income 0-30%, One unit in structure, &years_dash."
+	rnt3050_inc030_1un_&years. = "Rent level 30-50%, household income 0-30%, One unit in structure, &years_dash."
+	rnt5080_inc030_1un_&years. = "Rent level 50-80%, household income 0-30%, One unit in structure, &years_dash."
+	rnt80pl_inc030_1un_&years. = "Rent level 80%+, household income 0-30%, One unit in structure, &years_dash."
+	rnt030_inc3050_1un_&years. = "Rent level 0-30%, household income 30-50%, One unit in structure, &years_dash."
+	rnt3050_inc3050_1un_&years. = "Rent level 30-50%, household income 30-50%, One unit in structure, &years_dash."
+	rnt5080_inc3050_1un_&years. = "Rent level 50-80%, household income 30-50%, One unit in structure, &years_dash."
+	rnt80pl_inc3050_1un_&years. = "Rent level 80%+, household income 30-50%, One unit in structure, &years_dash."
+	rnt030_inc5080_1un_&years. = "Rent level 0-30%, household income 50-80%, One unit in structure, &years_dash."
+	rnt3050_inc5080_1un_&years. = "Rent level 30-50%, household income 50-80%, One unit in structure, &years_dash."
+	rnt5080_inc5080_1un_&years. = "Rent level 50-80%, household income 50-80%, One unit in structure, &years_dash."
+	rnt80pl_inc5080_1un_&years. = "Rent level 80%+, household income 50-80%, One unit in structure, &years_dash."
+	rnt030_inc80100_1un_&years. = "Rent level 0-30%, household income 80-100%, One unit in structure, &years_dash."
+	rnt3050_inc80100_1un_&years. = "Rent level 30-50%, household income 80-100%, One unit in structure, &years_dash."
+	rnt5080_inc80100_1un_&years. = "Rent level 50-80%, household income 80-100%, One unit in structure, &years_dash."
+	rnt80pl_inc80100_1un_&years. = "Rent level 80%+, household income 80-100%, One unit in structure, &years_dash."
+	rnt030_inc100pl_1un_&years. = "Rent level 0-30%, household income 100%+, One unit in structure, &years_dash."
+	rnt3050_inc100pl_1un_&years. = "Rent level 30-50%, household income 100%+, One unit in structure, &years_dash."
+	rnt5080_inc100pl_1un_&years. = "Rent level 50-80%, household income 100%+, One unit in structure, &years_dash."
+	rnt80pl_inc100pl_1un_&years. = "Rent level 80%+, household income 100%+, One unit in structure, &years_dash."
+	rnt030_inc030_24un_&years. = "Rent level 0-30%, household income 0-30%, 2 to 4 units in structure, &years_dash."
+	rnt3050_inc030_24un_&years. = "Rent level 30-50%, household income 0-30%, 2 to 4 units in structure, &years_dash."
+	rnt5080_inc030_24un_&years. = "Rent level 50-80%, household income 0-30%, 2 to 4 units in structure, &years_dash."
+	rnt80pl_inc030_24un_&years. = "Rent level 80%+, household income 0-30%, 2 to 4 units in structure, &years_dash."
+	rnt030_inc3050_24un_&years. = "Rent level 0-30%, household income 30-50%, 2 to 4 units in structure, &years_dash."
+	rnt3050_inc3050_24un_&years. = "Rent level 30-50%, household income 30-50%, 2 to 4 units in structure, &years_dash."
+	rnt5080_inc3050_24un_&years. = "Rent level 50-80%, household income 30-50%, 2 to 4 units in structure, &years_dash."
+	rnt80pl_inc3050_24un_&years. = "Rent level 80%+, household income 30-50%, 2 to 4 units in structure, &years_dash."
+	rnt030_inc5080_24un_&years. = "Rent level 0-30%, household income 50-80%, 2 to 4 units in structure, &years_dash."
+	rnt3050_inc5080_24un_&years. = "Rent level 30-50%, household income 50-80%, 2 to 4 units in structure, &years_dash."
+	rnt5080_inc5080_24un_&years. = "Rent level 50-80%, household income 50-80%, 2 to 4 units in structure, &years_dash."
+	rnt80pl_inc5080_24un_&years. = "Rent level 80%+, household income 50-80%, 2 to 4 units in structure, &years_dash."
+	rnt030_inc80100_24un_&years. = "Rent level 0-30%, household income 80-100%, 2 to 4 units in structure, &years_dash."
+	rnt3050_inc80100_24un_&years. = "Rent level 30-50%, household income 80-100%, 2 to 4 units in structure, &years_dash."
+	rnt5080_inc80100_24un_&years. = "Rent level 50-80%, household income 80-100%, 2 to 4 units in structure, &years_dash."
+	rnt80pl_inc80100_24un_&years. = "Rent level 80%+, household income 80-100%, 2 to 4 units in structure, &years_dash."
+	rnt030_inc100pl_24un_&years. = "Rent level 0-30%, household income 100%+, 2 to 4 units in structure, &years_dash."
+	rnt3050_inc100pl_24un_&years. = "Rent level 30-50%, household income 100%+, 2 to 4 units in structure, &years_dash."
+	rnt5080_inc100pl_24un_&years. = "Rent level 50-80%, household income 100%+, 2 to 4 units in structure, &years_dash."
+	rnt80pl_inc100pl_24un_&years. = "Rent level 80%+, household income 100%+, 2 to 4 units in structure, &years_dash."
+	rnt030_inc030_5un_&years. = "Rent level 0-30%, household income 0-30%, 5 or more units in structure, &years_dash."
+	rnt3050_inc030_5un_&years. = "Rent level 30-50%, household income 0-30%, 5 or more units in structure, &years_dash."
+	rnt5080_inc030_5un_&years. = "Rent level 50-80%, household income 0-30%, 5 or more units in structure, &years_dash."
+	rnt80pl_inc030_5un_&years. = "Rent level 80%+, household income 0-30%, 5 or more units in structure, &years_dash."
+	rnt030_inc3050_5un_&years. = "Rent level 0-30%, household income 30-50%, 5 or more units in structure, &years_dash."
+	rnt3050_inc3050_5un_&years. = "Rent level 30-50%, household income 30-50%, 5 or more units in structure, &years_dash."
+	rnt5080_inc3050_5un_&years. = "Rent level 50-80%, household income 30-50%, 5 or more units in structure, &years_dash."
+	rnt80pl_inc3050_5un_&years. = "Rent level 80%+, household income 30-50%, 5 or more units in structure, &years_dash."
+	rnt030_inc5080_5un_&years. = "Rent level 0-30%, household income 50-80%, 5 or more units in structure, &years_dash."
+	rnt3050_inc5080_5un_&years. = "Rent level 30-50%, household income 50-80%, 5 or more units in structure, &years_dash."
+	rnt5080_inc5080_5un_&years. = "Rent level 50-80%, household income 50-80%, 5 or more units in structure, &years_dash."
+	rnt80pl_inc5080_5un_&years. = "Rent level 80%+, household income 50-80%, 5 or more units in structure, &years_dash."
+	rnt030_inc80100_5un_&years. = "Rent level 0-30%, household income 80-100%, 5 or more units in structure, &years_dash."
+	rnt3050_inc80100_5un_&years. = "Rent level 30-50%, household income 80-100%, 5 or more units in structure, &years_dash."
+	rnt5080_inc80100_5un_&years. = "Rent level 50-80%, household income 80-100%, 5 or more units in structure, &years_dash."
+	rnt80pl_inc80100_5un_&years. = "Rent level 80%+, household income 80-100%, 5 or more units in structure, &years_dash."
+	rnt030_inc100pl_5un_&years. = "Rent level 0-30%, household income 100%+, 5 or more units in structure, &years_dash."
+	rnt3050_inc100pl_5un_&years. = "Rent level 30-50%, household income 100%+, 5 or more units in structure, &years_dash."
+	rnt5080_inc100pl_5un_&years. = "Rent level 50-80%, household income 100%+, 5 or more units in structure, &years_dash."
+	rnt80pl_inc100pl_5un_&years. = "Rent level 80%+, household income 100%+, 5 or more units in structure, &years_dash."
+	rnt030_inc030_xun_&years. = "Rent level 0-30%, household income 0-30%, Other structure type, &years_dash."
+	rnt3050_inc030_xun_&years. = "Rent level 30-50%, household income 0-30%, Other structure type, &years_dash."
+	rnt5080_inc030_xun_&years. = "Rent level 50-80%, household income 0-30%, Other structure type, &years_dash."
+	rnt80pl_inc030_xun_&years. = "Rent level 80%+, household income 0-30%, Other structure type, &years_dash."
+	rnt030_inc3050_xun_&years. = "Rent level 0-30%, household income 30-50%, Other structure type, &years_dash."
+	rnt3050_inc3050_xun_&years. = "Rent level 30-50%, household income 30-50%, Other structure type, &years_dash."
+	rnt5080_inc3050_xun_&years. = "Rent level 50-80%, household income 30-50%, Other structure type, &years_dash."
+	rnt80pl_inc3050_xun_&years. = "Rent level 80%+, household income 30-50%, Other structure type, &years_dash."
+	rnt030_inc5080_xun_&years. = "Rent level 0-30%, household income 50-80%, Other structure type, &years_dash."
+	rnt3050_inc5080_xun_&years. = "Rent level 30-50%, household income 50-80%, Other structure type, &years_dash."
+	rnt5080_inc5080_xun_&years. = "Rent level 50-80%, household income 50-80%, Other structure type, &years_dash."
+	rnt80pl_inc5080_xun_&years. = "Rent level 80%+, household income 50-80%, Other structure type, &years_dash."
+	rnt030_inc80100_xun_&years. = "Rent level 0-30%, household income 80-100%, Other structure type, &years_dash."
+	rnt3050_inc80100_xun_&years. = "Rent level 30-50%, household income 80-100%, Other structure type, &years_dash."
+	rnt5080_inc80100_xun_&years. = "Rent level 50-80%, household income 80-100%, Other structure type, &years_dash."
+	rnt80pl_inc80100_xun_&years. = "Rent level 80%+, household income 80-100%, Other structure type, &years_dash."
+	rnt030_inc100pl_xun_&years. = "Rent level 0-30%, household income 100%+, Other structure type, &years_dash."
+	rnt3050_inc100pl_xun_&years. = "Rent level 30-50%, household income 100%+, Other structure type, &years_dash."
+	rnt5080_inc100pl_xun_&years. = "Rent level 50-80%, household income 100%+, Other structure type, &years_dash."
+	rnt80pl_inc100pl_xun_&years. = "Rent level 80%+, household income 100%+, Other structure type, &years_dash."
+	inc030_1un_&years. = "Household income 0-30%, One unit in structure, &years_dash."
+	inc3050_1un_&years. = "Household income 30-50%, One unit in structure, &years_dash."
+	inc5080_1un_&years. = "Household income 50-80%, One unit in structure, &years_dash."
+	inc80100_1un_&years. = "Household income 80-100%, One unit in structure, &years_dash."
+	inc100pl_1un_&years. = "Household income 100%+, One unit in structure, &years_dash."
+	inc030_24un_&years. = "Household income 0-30%, 2 to 4 units in structure, &years_dash."
+	inc3050_24un_&years. = "Household income 30-50%, 2 to 4 units in structure, &years_dash."
+	inc5080_24un_&years. = "Household income 50-80%, 2 to 4 units in structure, &years_dash."
+	inc80100_24un_&years. = "Household income 80-100%, 2 to 4 units in structure, &years_dash."
+	inc100pl_24un_&years. = "Household income 100%+, 2 to 4 units in structure, &years_dash."
+	inc030_5un_&years. = "Household income 0-30%, 5 or more units in structure, &years_dash."
+	inc3050_5un_&years. = "Household income 30-50%, 5 or more units in structure, &years_dash."
+	inc5080_5un_&years. = "Household income 50-80%, 5 or more units in structure, &years_dash."
+	inc80100_5un_&years. = "Household income 80-100%, 5 or more units in structure, &years_dash."
+	inc100pl_5un_&years. = "Household income 100%+, 5 or more units in structure, &years_dash."
+	inc030_xun_&years. = "Household income 0-30%, Other structure type, &years_dash."
+	inc3050_xun_&years. = "Household income 30-50%, Other structure type, &years_dash."
+	inc5080_xun_&years. = "Household income 50-80%, Other structure type, &years_dash."
+	inc80100_xun_&years. = "Household income 80-100%, Other structure type, &years_dash."
+	inc100pl_xun_&years. = "Household income 100%+, Other structure type, &years_dash."
+	rnt030_1un_&years. = "Rent level 0-30%, One unit in structure, &years_dash."
+	rnt3050_1un_&years. = "Rent level 30-50%, One unit in structure, &years_dash."
+	rnt5080_1un_&years. = "Rent level 50-80%, One unit in structure, &years_dash."
+	rnt80pl_1un_&years. = "Rent level 80%+, One unit in structure, &years_dash."
+	rnt030_24un_&years. = "Rent level 0-30%, 2 to 4 units in structure, &years_dash."
+	rnt3050_24un_&years. = "Rent level 30-50%, 2 to 4 units in structure, &years_dash."
+	rnt5080_24un_&years. = "Rent level 50-80%, 2 to 4 units in structure, &years_dash."
+	rnt80pl_24un_&years. = "Rent level 80%+, 2 to 4 units in structure, &years_dash."
+	rnt030_5un_&years. = "Rent level 0-30%, 5 or more units in structure, &years_dash."
+	rnt3050_5un_&years. = "Rent level 30-50%, 5 or more units in structure, &years_dash."
+	rnt5080_5un_&years. = "Rent level 50-80%, 5 or more units in structure, &years_dash."
+	rnt80pl_5un_&years. = "Rent level 80%+, 5 or more units in structure, &years_dash."
+	rnt030_xun_&years. = "Rent level 0-30%, Other structure type, &years_dash."
+	rnt3050_xun_&years. = "Rent level 30-50%, Other structure type, &years_dash."
+	rnt5080_xun_&years. = "Rent level 50-80%, Other structure type, &years_dash."
+	rnt80pl_xun_&years. = "Rent level 80%+, Other structure type, &years_dash."
+
+	Mrnt030_inc030_1un_&years. = "Rent level 0-30%, household income 0-30%, One unit in structure, MOE &years_dash."
+	Mrnt3050_inc030_1un_&years. = "Rent level 30-50%, household income 0-30%, One unit in structure, MOE &years_dash."
+	Mrnt5080_inc030_1un_&years. = "Rent level 50-80%, household income 0-30%, One unit in structure, MOE &years_dash."
+	Mrnt80pl_inc030_1un_&years. = "Rent level 80%+, household income 0-30%, One unit in structure, MOE &years_dash."
+	Mrnt030_inc3050_1un_&years. = "Rent level 0-30%, household income 30-50%, One unit in structure, MOE &years_dash."
+	Mrnt3050_inc3050_1un_&years. = "Rent level 30-50%, household income 30-50%, One unit in structure, MOE &years_dash."
+	Mrnt5080_inc3050_1un_&years. = "Rent level 50-80%, household income 30-50%, One unit in structure, MOE &years_dash."
+	Mrnt80pl_inc3050_1un_&years. = "Rent level 80%+, household income 30-50%, One unit in structure, MOE &years_dash."
+	Mrnt030_inc5080_1un_&years. = "Rent level 0-30%, household income 50-80%, One unit in structure, MOE &years_dash."
+	Mrnt3050_inc5080_1un_&years. = "Rent level 30-50%, household income 50-80%, One unit in structure, MOE &years_dash."
+	Mrnt5080_inc5080_1un_&years. = "Rent level 50-80%, household income 50-80%, One unit in structure, MOE &years_dash."
+	Mrnt80pl_inc5080_1un_&years. = "Rent level 80%+, household income 50-80%, One unit in structure, MOE &years_dash."
+	Mrnt030_inc80100_1un_&years. = "Rent level 0-30%, household income 80-100%, One unit in structure, MOE &years_dash."
+	Mrnt3050_inc80100_1un_&years. = "Rent level 30-50%, household income 80-100%, One unit in structure, MOE &years_dash."
+	Mrnt5080_inc80100_1un_&years. = "Rent level 50-80%, household income 80-100%, One unit in structure, MOE &years_dash."
+	Mrnt80pl_inc80100_1un_&years. = "Rent level 80%+, household income 80-100%, One unit in structure, MOE &years_dash."
+	Mrnt030_inc100pl_1un_&years. = "Rent level 0-30%, household income 100%+, One unit in structure, MOE &years_dash."
+	Mrnt3050_inc100pl_1un_&years. = "Rent level 30-50%, household income 100%+, One unit in structure, MOE &years_dash."
+	Mrnt5080_inc100pl_1un_&years. = "Rent level 50-80%, household income 100%+, One unit in structure, MOE &years_dash."
+	Mrnt80pl_inc100pl_1un_&years. = "Rent level 80%+, household income 100%+, One unit in structure, MOE &years_dash."
+	Mrnt030_inc030_24un_&years. = "Rent level 0-30%, household income 0-30%, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt3050_inc030_24un_&years. = "Rent level 30-50%, household income 0-30%, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt5080_inc030_24un_&years. = "Rent level 50-80%, household income 0-30%, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt80pl_inc030_24un_&years. = "Rent level 80%+, household income 0-30%, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt030_inc3050_24un_&years. = "Rent level 0-30%, household income 30-50%, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt3050_inc3050_24un_&years. = "Rent level 30-50%, household income 30-50%, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt5080_inc3050_24un_&years. = "Rent level 50-80%, household income 30-50%, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt80pl_inc3050_24un_&years. = "Rent level 80%+, household income 30-50%, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt030_inc5080_24un_&years. = "Rent level 0-30%, household income 50-80%, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt3050_inc5080_24un_&years. = "Rent level 30-50%, household income 50-80%, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt5080_inc5080_24un_&years. = "Rent level 50-80%, household income 50-80%, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt80pl_inc5080_24un_&years. = "Rent level 80%+, household income 50-80%, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt030_inc80100_24un_&years. = "Rent level 0-30%, household income 80-100%, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt3050_inc80100_24un_&years. = "Rent level 30-50%, household income 80-100%, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt5080_inc80100_24un_&years. = "Rent level 50-80%, household income 80-100%, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt80pl_inc80100_24un_&years. = "Rent level 80%+, household income 80-100%, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt030_inc100pl_24un_&years. = "Rent level 0-30%, household income 100%+, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt3050_inc100pl_24un_&years. = "Rent level 30-50%, household income 100%+, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt5080_inc100pl_24un_&years. = "Rent level 50-80%, household income 100%+, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt80pl_inc100pl_24un_&years. = "Rent level 80%+, household income 100%+, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt030_inc030_5un_&years. = "Rent level 0-30%, household income 0-30%, 5 or more units in structure, MOE &years_dash."
+	Mrnt3050_inc030_5un_&years. = "Rent level 30-50%, household income 0-30%, 5 or more units in structure, MOE &years_dash."
+	Mrnt5080_inc030_5un_&years. = "Rent level 50-80%, household income 0-30%, 5 or more units in structure, MOE &years_dash."
+	Mrnt80pl_inc030_5un_&years. = "Rent level 80%+, household income 0-30%, 5 or more units in structure, MOE &years_dash."
+	Mrnt030_inc3050_5un_&years. = "Rent level 0-30%, household income 30-50%, 5 or more units in structure, MOE &years_dash."
+	Mrnt3050_inc3050_5un_&years. = "Rent level 30-50%, household income 30-50%, 5 or more units in structure, MOE &years_dash."
+	Mrnt5080_inc3050_5un_&years. = "Rent level 50-80%, household income 30-50%, 5 or more units in structure, MOE &years_dash."
+	Mrnt80pl_inc3050_5un_&years. = "Rent level 80%+, household income 30-50%, 5 or more units in structure, MOE &years_dash."
+	Mrnt030_inc5080_5un_&years. = "Rent level 0-30%, household income 50-80%, 5 or more units in structure, MOE &years_dash."
+	Mrnt3050_inc5080_5un_&years. = "Rent level 30-50%, household income 50-80%, 5 or more units in structure, MOE &years_dash."
+	Mrnt5080_inc5080_5un_&years. = "Rent level 50-80%, household income 50-80%, 5 or more units in structure, MOE &years_dash."
+	Mrnt80pl_inc5080_5un_&years. = "Rent level 80%+, household income 50-80%, 5 or more units in structure, MOE &years_dash."
+	Mrnt030_inc80100_5un_&years. = "Rent level 0-30%, household income 80-100%, 5 or more units in structure, MOE &years_dash."
+	Mrnt3050_inc80100_5un_&years. = "Rent level 30-50%, household income 80-100%, 5 or more units in structure, MOE &years_dash."
+	Mrnt5080_inc80100_5un_&years. = "Rent level 50-80%, household income 80-100%, 5 or more units in structure, MOE &years_dash."
+	Mrnt80pl_inc80100_5un_&years. = "Rent level 80%+, household income 80-100%, 5 or more units in structure, MOE &years_dash."
+	Mrnt030_inc100pl_5un_&years. = "Rent level 0-30%, household income 100%+, 5 or more units in structure, MOE &years_dash."
+	Mrnt3050_inc100pl_5un_&years. = "Rent level 30-50%, household income 100%+, 5 or more units in structure, MOE &years_dash."
+	Mrnt5080_inc100pl_5un_&years. = "Rent level 50-80%, household income 100%+, 5 or more units in structure, MOE &years_dash."
+	Mrnt80pl_inc100pl_5un_&years. = "Rent level 80%+, household income 100%+, 5 or more units in structure, MOE &years_dash."
+	Mrnt030_inc030_xun_&years. = "Rent level 0-30%, household income 0-30%, Other structure type, MOE &years_dash."
+	Mrnt3050_inc030_xun_&years. = "Rent level 30-50%, household income 0-30%, Other structure type, MOE &years_dash."
+	Mrnt5080_inc030_xun_&years. = "Rent level 50-80%, household income 0-30%, Other structure type, MOE &years_dash."
+	Mrnt80pl_inc030_xun_&years. = "Rent level 80%+, household income 0-30%, Other structure type, MOE &years_dash."
+	Mrnt030_inc3050_xun_&years. = "Rent level 0-30%, household income 30-50%, Other structure type, MOE &years_dash."
+	Mrnt3050_inc3050_xun_&years. = "Rent level 30-50%, household income 30-50%, Other structure type, MOE &years_dash."
+	Mrnt5080_inc3050_xun_&years. = "Rent level 50-80%, household income 30-50%, Other structure type, MOE &years_dash."
+	Mrnt80pl_inc3050_xun_&years. = "Rent level 80%+, household income 30-50%, Other structure type, MOE &years_dash."
+	Mrnt030_inc5080_xun_&years. = "Rent level 0-30%, household income 50-80%, Other structure type, MOE &years_dash."
+	Mrnt3050_inc5080_xun_&years. = "Rent level 30-50%, household income 50-80%, Other structure type, MOE &years_dash."
+	Mrnt5080_inc5080_xun_&years. = "Rent level 50-80%, household income 50-80%, Other structure type, MOE &years_dash."
+	Mrnt80pl_inc5080_xun_&years. = "Rent level 80%+, household income 50-80%, Other structure type, MOE &years_dash."
+	Mrnt030_inc80100_xun_&years. = "Rent level 0-30%, household income 80-100%, Other structure type, MOE &years_dash."
+	Mrnt3050_inc80100_xun_&years. = "Rent level 30-50%, household income 80-100%, Other structure type, MOE &years_dash."
+	Mrnt5080_inc80100_xun_&years. = "Rent level 50-80%, household income 80-100%, Other structure type, MOE &years_dash."
+	Mrnt80pl_inc80100_xun_&years. = "Rent level 80%+, household income 80-100%, Other structure type, MOE &years_dash."
+	Mrnt030_inc100pl_xun_&years. = "Rent level 0-30%, household income 100%+, Other structure type, MOE &years_dash."
+	Mrnt3050_inc100pl_xun_&years. = "Rent level 30-50%, household income 100%+, Other structure type, MOE &years_dash."
+	Mrnt5080_inc100pl_xun_&years. = "Rent level 50-80%, household income 100%+, Other structure type, MOE &years_dash."
+	Mrnt80pl_inc100pl_xun_&years. = "Rent level 80%+, household income 100%+, Other structure type, MOE &years_dash."
+	Minc030_1un_&years. = "Household income 0-30%, One unit in structure, MOE &years_dash."
+	Minc3050_1un_&years. = "Household income 30-50%, One unit in structure, MOE &years_dash."
+	Minc5080_1un_&years. = "Household income 50-80%, One unit in structure, MOE &years_dash."
+	Minc80100_1un_&years. = "Household income 80-100%, One unit in structure, MOE &years_dash."
+	Minc100pl_1un_&years. = "Household income 100%+, One unit in structure, MOE &years_dash."
+	Minc030_24un_&years. = "Household income 0-30%, 2 to 4 units in structure, MOE &years_dash."
+	Minc3050_24un_&years. = "Household income 30-50%, 2 to 4 units in structure, MOE &years_dash."
+	Minc5080_24un_&years. = "Household income 50-80%, 2 to 4 units in structure, MOE &years_dash."
+	Minc80100_24un_&years. = "Household income 80-100%, 2 to 4 units in structure, MOE &years_dash."
+	Minc100pl_24un_&years. = "Household income 100%+, 2 to 4 units in structure, MOE &years_dash."
+	Minc030_5un_&years. = "Household income 0-30%, 5 or more units in structure, MOE &years_dash."
+	Minc3050_5un_&years. = "Household income 30-50%, 5 or more units in structure, MOE &years_dash."
+	Minc5080_5un_&years. = "Household income 50-80%, 5 or more units in structure, MOE &years_dash."
+	Minc80100_5un_&years. = "Household income 80-100%, 5 or more units in structure, MOE &years_dash."
+	Minc100pl_5un_&years. = "Household income 100%+, 5 or more units in structure, MOE &years_dash."
+	Minc030_xun_&years. = "Household income 0-30%, Other structure type, MOE &years_dash."
+	Minc3050_xun_&years. = "Household income 30-50%, Other structure type, MOE &years_dash."
+	Minc5080_xun_&years. = "Household income 50-80%, Other structure type, MOE &years_dash."
+	Minc80100_xun_&years. = "Household income 80-100%, Other structure type, MOE &years_dash."
+	Minc100pl_xun_&years. = "Household income 100%+, Other structure type, MOE &years_dash."
+	Mrnt030_1un_&years. = "Rent level 0-30%, One unit in structure, MOE &years_dash."
+	Mrnt3050_1un_&years. = "Rent level 30-50%, One unit in structure, MOE &years_dash."
+	Mrnt5080_1un_&years. = "Rent level 50-80%, One unit in structure, MOE &years_dash."
+	Mrnt80pl_1un_&years. = "Rent level 80%+, One unit in structure, MOE &years_dash."
+	Mrnt030_24un_&years. = "Rent level 0-30%, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt3050_24un_&years. = "Rent level 30-50%, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt5080_24un_&years. = "Rent level 50-80%, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt80pl_24un_&years. = "Rent level 80%+, 2 to 4 units in structure, MOE &years_dash."
+	Mrnt030_5un_&years. = "Rent level 0-30%, 5 or more units in structure, MOE &years_dash."
+	Mrnt3050_5un_&years. = "Rent level 30-50%, 5 or more units in structure, MOE &years_dash."
+	Mrnt5080_5un_&years. = "Rent level 50-80%, 5 or more units in structure, MOE &years_dash."
+	Mrnt80pl_5un_&years. = "Rent level 80%+, 5 or more units in structure, MOE &years_dash."
+	Mrnt030_xun_&years. = "Rent level 0-30%, Other structure type, MOE &years_dash."
+	Mrnt3050_xun_&years. = "Rent level 30-50%, Other structure type, MOE &years_dash."
+	Mrnt5080_xun_&years. = "Rent level 50-80%, Other structure type, MOE &years_dash."
+	Mrnt80pl_xun_&years. = "Rent level 80%+, Other structure type, MOE &years_dash."
+	;
+
+
 	/* Demand - Affordability */
 	renter_cb_&years. = sum(of T8_est73 T8_est76  T8_est89 T8_est99 T8_est102 T8_est112 T8_est115 T8_est125 T8_est128);
 	renter_scb_&years. = sum(of T8_est76 T8_est89 T8_est102 T8_est115 T8_est128);
@@ -1298,10 +1824,10 @@ data &out._&years.;
 	Mrenter_inc80100_ncb_&years. = T8_moe118;
 	Mrenter_inc100pl_ncb_&years. = T8_moe131;
 
-	renter_inc030_nop_&years. = %moe_sum(var= T16_est91 T16_est95 T16_est99 T16_est103 T16_est107);
-	renter_inc3050_nop_&years. = %moe_sum(var= T16_est112 T16_est116 T16_est120 T16_est124 T16_est128);
-	renter_inc5080_nop_&years. = %moe_sum(var= T16_est133 T16_est137 T16_est141 T16_est145 T16_est149); 
-	renter_inc80pl_nop_&years. = %moe_sum(var= T16_est154 T16_est158 T16_est162 T16_est166 T16_est170);
+	Mrenter_inc030_nop_&years. = %moe_sum(var= T16_moe91 T16_moe95 T16_moe99 T16_moe103 T16_moe107);
+	Mrenter_inc3050_nop_&years. = %moe_sum(var= T16_moe112 T16_moe116 T16_moe120 T16_moe124 T16_moe128);
+	Mrenter_inc5080_nop_&years. = %moe_sum(var= T16_moe133 T16_moe137 T16_moe141 T16_moe145 T16_moe149); 
+	Mrenter_inc80pl_nop_&years. = %moe_sum(var= T16_moe154 T16_moe158 T16_moe162 T16_moe166 T16_moe170);
 
 	Mrenter_030_eldfam_&years. = T16_moe89 ;
 	Mrenter_030_smfam_&years. = T16_moe93 ;
