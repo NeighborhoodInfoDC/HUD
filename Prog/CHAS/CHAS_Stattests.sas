@@ -81,7 +81,53 @@ proc print data = a_sig; run;
 		  	   est2 = rnt80pl_allbr_2012_16, moe2 = Mrnt80pl_allbr_2012_16 );	
 			   
 			   
+%chas_stattest(est1 = renter_1un_tot_2006_10, moe1 = Mrenter_1un_tot_2006_10, 
+		  	   est2 = renter_1un_tot_2012_16, moe2 = Mrenter_1un_tot_2012_16);	
+
+%chas_stattest(est1 = renter_24un_tot_2006_10, moe1 = Mrenter_24un_tot_2006_10, 
+		  	   est2 = renter_24un_tot_2012_16, moe2 = Mrenter_24un_tot_2012_16);	
+
+%chas_stattest(est1 = renter_5un_tot_2006_10, moe1 = Mrenter_5un_tot_2006_10, 
+		  	   est2 = renter_5un_tot_2012_16, moe2 = Mrenter_5un_tot_2012_16);	
+
+%chas_stattest(est1 = renter_xun_tot_2006_10, moe1 = Mrenter_xun_tot_2006_10, 
+		  	   est2 = renter_xun_tot_2012_16, moe2 = Mrenter_xun_tot_2012_16);	
 
 
-			   
+%chas_stattest(est1 = inc030_1un_2006_10, moe1 = Minc030_1un_2006_10, 
+		  	   est2 = inc030_1un_2012_16, moe2 = Minc030_1un_2012_16 );	
 
+%chas_stattest(est1 = inc030_24un_2006_10, moe1 = Minc030_24un_2006_10, 
+		  	   est2 = inc030_24un_2012_16, moe2 = Minc030_24un_2012_16 );	
+
+%chas_stattest(est1 = inc030_5un_2006_10, moe1 = Minc030_5un_2006_10, 
+		  	   est2 = inc030_5un_2012_16, moe2 = Minc030_5un_2012_16 );	
+
+%chas_stattest(est1 = inc030_Xun_2006_10, moe1 = Minc030_Xun_2006_10, 
+		  	   est2 = inc030_Xun_2012_16, moe2 = Minc030_Xun_2012_16 );	
+
+
+%chas_stattest(est1 = rnt030_1un_2006_10, moe1 = Mrnt030_1un_2006_10, 
+		  	   est2 = rnt030_1un_2012_16, moe2 = Mrnt030_1un_2012_16 );	
+
+%chas_stattest(est1 = rnt030_24un_2006_10, moe1 = Mrnt030_24un_2006_10, 
+		  	   est2 = rnt030_24un_2012_16, moe2 = Mrnt030_24un_2012_16 );	
+
+%chas_stattest(est1 = rnt030_5un_2006_10, moe1 = Mrnt030_5un_2006_10, 
+		  	   est2 = rnt030_5un_2012_16, moe2 = Mrnt030_5un_2012_16 );	
+
+%chas_stattest(est1 = rnt030_5un_2006_10, moe1 = Mrnt030_5un_2006_10, 
+		  	   est2 = rnt030_5un_2012_16, moe2 = Mrnt030_5un_2012_16 );	
+
+
+%chas_stattest(est1 = rnt030_5un_2006_10, moe1 = Mrnt030_5un_2006_10, 
+		  	   est2 = rnt030_5un_2012_16, moe2 = Mrnt030_5un_2012_16 );	
+
+%chas_stattest(est1 = rnt3050_5un_2006_10, moe1 = Mrnt3050_5un_2006_10, 
+		  	   est2 = rnt3050_5un_2012_16, moe2 = Mrnt3050_5un_2012_16 );	
+
+%chas_stattest(est1 = rnt5080_5un_2006_10, moe1 = Mrnt5080_5un_2006_10, 
+		  	   est2 = rnt5080_5un_2012_16, moe2 = Mrnt5080_5un_2012_16 );	
+
+%chas_stattest(est1 = rnt80pl_5un_2006_10, moe1 = Mrnt80pl_5un_2006_10, 
+		  	   est2 = rnt80pl_5un_2012_16, moe2 = Mrnt80pl_5un_2012_16 );	
