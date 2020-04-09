@@ -43,6 +43,8 @@ proc print data = a_sig; run;
 
 %mend chas_stattest;
 
+
+
 %chas_stattest(est1 = rent_hasplumb_2006_10, moe1 = Mrent_hasplumb_2006_10, 
 		  	   est2 = rent_hasplumb_2012_16, moe2 = Mrent_hasplumb_2012_16 );
 
@@ -131,3 +133,10 @@ proc print data = a_sig; run;
 
 %chas_stattest(est1 = rnt80pl_5un_2006_10, moe1 = Mrnt80pl_5un_2006_10, 
 		  	   est2 = rnt80pl_5un_2012_16, moe2 = Mrnt80pl_5un_2012_16 );	
+
+
+%chas_stattest(est1 = Prenter_030_lgfam_nop_2006_10, moe1 = Orenter_030_lgfam_nop_2006_10, 
+		  	   est2 = Prenter_030_lgfam_nop_2012_16, moe2 = Orenter_030_lgfam_nop_2012_16 );
+
+%chas_stattest(est1 = renter_1un_tot_2012_16, moe1 = Mrenter_1un_tot_2012_16, 
+		  	   est2 = renter_5un_tot_2012_16, moe2 = Mrenter_5un_tot_2012_16 );	
