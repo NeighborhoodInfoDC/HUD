@@ -17,7 +17,7 @@
 %let years_dash = %sysfunc(translate(&years., '-', '_' ));
 
 data &out._&years.;
-	set hud.Chas_&years._ntnl (where=(geoid="16000US3502000" | geoid="05000US35001"));
+	set hud.Chas_&years._ntnl;
 
 	/* Supply */
 	all_units_tot_&years. = sum(of T1_est1 T14A_est1 T14B_est1);
@@ -328,6 +328,7 @@ data &out._&years.;
                        num_moe=Mowner_2br_aff50_&years., den_moe=Mowner_unit_aff50_&years., label_moe = % Owner-occupied 2 bedroom housing units affordable at 50% AMI MOE);
 	%Moe_prop_a( var=Oowner_3plusbr_aff50_&years., mult=100, num=owner_3plusbr_aff50_&years., den=owner_unit_aff50_&years., 
                        num_moe=Mowner_3plusbr_aff50_&years., den_moe=Mowner_unit_aff50_&years., label_moe = % Owner-occupied 3+ bedroom housing units affordable at 50% AMI MOE);
+
 
 	/* Supply vs Demand */
 	rnt030_inc030_allbr_&years. = T15C_est5;
@@ -1190,6 +1191,7 @@ data &out._&years.;
                        num_moe=Mrnt5080_inc100pl_3br_&years., den_moe=Minc100pl_3br_&years., label_moe = % renter households with rent level 50-80% household income 100%+ 3+ bedrooms MOE);
 	%Moe_prop_a( var=Ornt80pl_inc100pl_3br_&years., mult=100, num=rnt80pl_inc100pl_3br_&years., den=inc100pl_3br_&years., 
                        num_moe=Mrnt80pl_inc100pl_3br_&years., den_moe=Minc100pl_3br_&years., label_moe = % renter households with rent level 80%+ household income 100%+ 3+ bedrooms MOE);
+
 
 	/* Structure Type */
 	renter_1un_tot_&years. = T18C_est2;
@@ -2070,6 +2072,7 @@ data &out._&years.;
 	%Moe_prop_a( var=Ornt80pl_inc100pl_xun_&years., mult=100, num=rnt80pl_inc100pl_xun_&years., den=inc100pl_xun_&years., 
                        num_moe=Mrnt80pl_inc100pl_xun_&years., den_moe=Minc100pl_xun_&years., label_moe = % renter households with rent level 80%+ household income 100%+ Other structure type MOE);
 
+
 	/* Demand - Affordability */
 	renter_cb_&years. = sum(of T8_est73 T8_est76  T8_est89 T8_est99 T8_est102 T8_est112 T8_est115 T8_est125 T8_est128);
 	renter_scb_&years. = sum(of T8_est76 T8_est89 T8_est102 T8_est115 T8_est128);
@@ -2522,6 +2525,7 @@ data &out._&years.;
 	%Moe_prop_a( var=Orenter_030_onlycb_&years., mult=100, num=renter_030_onlycb_&years., den=renter_inc030_&years., 
                        num_moe=Mrenter_030_onlycb_&years., den_moe=Mrenter_inc030_&years., label_moe = % Renter occupied units household income 0-30% where only cost burden is a problem MOE);
 
+
 	/* Demand - Size */
 	rentr_lte1_&years. = T10_est67;
 	rentr_lte15_&years. = T10_est88;
@@ -2771,8 +2775,8 @@ data &out._&years.;
 	%Moe_prop_a( var=Orentr_inc030_gt15_nfam_&years., mult=100, num=rentr_inc030_gt15_nfam_&years., den=rentr_inc030_nfam_&years., 
                        num_moe=Mrentr_inc030_gt15_nfam_&years., den_moe=Mrentr_inc030_nfam_&years., label_moe = % Renter occupied units household income 0-30% non-family persons per room greater than 1.5 MOE);
 
-	/* Demand - Age */
 
+	/* Demand - Age */
 	renter_bt00_&years. = T12_est109;
 	renter_bt8099_&years. = T12_est130;
 	renter_bt6079_&years. = T12_est151;
@@ -3533,9 +3537,10 @@ data &out._&years.;
 	                       num_moe=Mrenter_inc030_nc_oth_&years., den_moe=Mrenter_inc030_oth_&years., label_moe = % Renter occupied units household income 0-30% Other race cost burden not computed MOE);
 
 
+	/* Disability - not available on 2008-12 data*/
+
 	%if %upcase( &years. ) = 2012_16 %then %do;
 
-	/* Disability */
 	renter_eyeear_&years. = T6_est88;
 	renter_eyeear_1prob_&years. = sum(of T6_est90 T6_est94 T6_est98 T6_est102);
 	renter_eyeear_0prob_&years. = sum(of T6_est91 T6_est95 T6_est99 T6_est103);
@@ -3675,6 +3680,7 @@ data &out._&years.;
 run;
 
 %mend chas_summary_vars;
+
 
 
 /* End of Macro */
