@@ -6,7 +6,8 @@
  Created:  12/01/2019
  Version:  SAS 9.4
  Environment:  Windows
- Description: Reads in national CHAS data and labels variables from data dictionary.
+ Description: Reads in national CHAS data and labels variables from data dictionary..
+			  Saves a national tract, county and place level dataset to the DC Data warehouse. 
  Modifications: 
 
 **************************************************************************/
