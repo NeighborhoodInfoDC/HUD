@@ -55,3 +55,4 @@ Prog/Temp/
 # Other
 *.bat
 Thumbs.db
+*.ps1
