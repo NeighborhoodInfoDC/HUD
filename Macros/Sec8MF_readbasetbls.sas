@@ -119,7 +119,7 @@
   		owner_zip4_code $4.
   		owner_main_phone_number_text $25.
   		owner_main_fax_number_text $25.
-  		/*owner_email_text $100.*/
+  		owner_email_text $100.
   		mgmt_agent_participant_id 8.
   		mgmt_agent_company_type $20.
   		mgmt_agent_indv_first_name $18.
@@ -136,7 +136,7 @@
   		mgmt_agent_zip4_code $4.
   		mgmt_agent_main_phone_number $25.
   		mgmt_agent_main_fax_number $18.
-  		/*mgmt_agent_email_text $100.*/;
+  		mgmt_agent_email_text $100.;
 
   	input
   		hub_name_text $
@@ -195,7 +195,7 @@
   		owner_zip4_code $
   		owner_main_phone_number_text $
   		owner_main_fax_number_text $
-  		/*owner_email_text $*/
+  		owner_email_text $
   		mgmt_agent_participant_id
   		mgmt_agent_company_type $
   		mgmt_agent_indv_first_name $
@@ -212,7 +212,7 @@
   		mgmt_agent_zip4_code $
   		mgmt_agent_main_phone_number $
   		mgmt_agent_main_fax_number $
-  		/*mgmt_agent_email_text $*/;
+  		mgmt_agent_email_text $;
 
     extract_date = &filedate;
 
@@ -283,7 +283,7 @@
       owner_zip4_code = "Four digit zip code extension of owner address"
       owner_main_phone_number_text = "Owner main phone number"
       owner_main_fax_number_text = "Owner main fax number"
-      /*owner_email_text = "Internet email address for owner"*/
+      owner_email_text = "Internet email address for owner"
       mgmt_agent_participant_id = "Identifier for management agent having most recent effective date for property"
       mgmt_agent_company_type = "Management agent company type"
       mgmt_agent_indv_first_name = "Management agent first name"
@@ -300,7 +300,7 @@
       mgmt_agent_zip4_code = "Four digit zip code extension of management agent address"
       mgmt_agent_main_phone_number = "Management agent main phone number"
       mgmt_agent_main_fax_number = "Management agent main fax number"
-      /*mgmt_agent_email_text = "Internet email address for management agent"*/;
+      mgmt_agent_email_text = "Internet email address for management agent";
     
   run;
 
