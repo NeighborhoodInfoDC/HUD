@@ -1,9 +1,9 @@
 /**************************************************************************
- Program:  Sec8MF_yyyy_mm.sas
+ Program:  Sec8MF_2020_11.sas
  Library:  HUD
  Project:  Urban-Greater DC
- Author:   
- Created:  
+ Author:   W.Oliver
+ Created:  12/7/2020
  Version:  SAS 9.4
  Environment:  Local Windows session (desktop)
  GitHub issue:  
@@ -24,7 +24,7 @@
 
   ** Enter date of HUD database as SAS date value, ex: '25nov2014'd **;
 
-  %let s8filedate = 'ddmmmyyyy'd;
+  %let s8filedate = '30nov2020'd;
   
   %let revisions = %str(New file.);
 

@@ -1,19 +1,21 @@
 /**************************************************************************
- Program:  MFIS_yyyy_mm.sas
+ Program:  REAC_2020_11.sas
  Library:  HUD
- Project:  Urban-Greater DC
- Author:   
- Created:  
+ Project:  NeighborhoodInfo DC
+ Author:   K.Abazajian
+ Created:  9/22/16
  Version:  SAS 9.4
  Environment:  Local Windows session (desktop)
  GitHub issue:  
  
- Description:  Compile HUD-insured multifamily mortgage data.
+ Description:  Compile REAC scores data.
  Creates files for DC, MD, VA, and WV.
  
+ Modifications:
 **************************************************************************/
 
 %include "\\sas1\DCdata\SAS\Inc\StdLocal.sas";
+
 ** Define libraries **;
 %DCData_lib( HUD )
 %DCData_lib( RealProp )
@@ -21,8 +23,8 @@
 
 *--- EDIT PARAMETERS BELOW -----------------------------------------;
 
-%MFIS_read_update_file( 
-  filedate = 'ddmmmyyyy'd,  /** Enter date of HUD database as SAS date value, ex: '25nov2014'd **/
+%REAC_read_update_file( 
+  filedate = '30nov2020'd,  /** Enter date of HUD database as SAS date value, ex: '25nov2014'd **/
   revisions = %str(New file.)
 )
   
