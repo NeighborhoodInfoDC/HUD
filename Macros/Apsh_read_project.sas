@@ -14,7 +14,7 @@
 
 %macro Apsh_read_project( year=, revisions= );
 
-  filename inf  "L:\Libraries\HUD\Raw\APSH\&year.\PROJECT_&year..csv" lrecl=3000;
+  filename inf  "&_dcdata_r_path\HUD\Raw\APSH\&year.\PROJECT_&year..csv" lrecl=3000;
 
   data Apsh_project_&year._dc Apsh_project_&year._md Apsh_project_&year._va Apsh_project_&year._wv;
 
