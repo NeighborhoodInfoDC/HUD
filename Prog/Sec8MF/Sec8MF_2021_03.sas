@@ -24,7 +24,7 @@
 
   ** Enter date of HUD database as SAS date value, ex: '25nov2014'd **;
 
-  %let s8filedate = '02mar2021'd;
+  %let s8filedate = '25feb2021'd;
   
   %let revisions = %str(New file.);
 
