@@ -12,7 +12,7 @@
  Modifications: 12/5/2019 - Added YHC code
 **************************************************************************/
 
-%include "L:\SAS\Inc\StdLocal.sas";
+%include "\\sas1\DCdata\SAS\Inc\StdLocal.sas";
 
 ** Define libraries **;
 %DCData_lib( HUD )
@@ -87,10 +87,7 @@ proc format library=HUD;
 	"YHC" = "542(C) HFA RISK SHG -- FFB NC/SR"
     "YHN" = "542(c) HFA Risk Sharing -- NC/SR"
     "YPL" = "542(b) QPE Green Risk Shg: >15 yr term"
-	"YHN" = "542(c) HFA Risk Sharing -- NC/SR"
-	"YHC" = "542(C) HFA RISK SHG -- FFB NC/SR"
-	"YPL" = "542(b) QPE Green Risk Shg: >15 yr term"
-    "YPR" = "542(b) QPE Green Risk Shg: < 15 yr term w/Amortz Reserve"
+	"YPR" = "542(b) QPE Green Risk Shg: < 15 yr term w/Amortz Reserve"
     "YPX" = "542(b) QPE Green Risk Shg: < 15 yr term, no Amortz Reserve"
     "YQE" = "542(b) QPE Risk Sharing -- Existing"
     "YQR" = "542(b) QPE Risk Sharing -- Recently Compt'd"
