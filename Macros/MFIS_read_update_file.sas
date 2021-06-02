@@ -21,16 +21,23 @@
   revisions=%str(New file.)       /** Metadata revision description **/
   );
   
-  %local month year filedate_fmt ds_label;
+  %local month year filedate_fmt filedate_fmt_b ds_label inf_path;
 
   %let month = %sysfunc( month( &filedate ), z2. );
   %let year  = %sysfunc( year( &filedate ), z4. );
   %let filedate_fmt = %sysfunc( putn( &filedate, mmddyyd10. ) );
+  %let filedate_fmt_b = %sysfunc( putn( &filedate, mmddyyn8. ) );
   %let ds_label = HUD-insured mortgages, &filedate_fmt update; 
+  
+  ** Determine correct name for input file. **;
+  
+  %let inf_path = &folder\raw\mfis\rm-a_&filedate_fmt..csv;
+  
+  %if not %sysfunc( fileexist( &inf_path ) ) %then %let inf_path = &folder\raw\mfis\FHA_BF90_RM_A_&filedate_fmt_b..csv;
   
   data Active;
   
-    infile "&folder\raw\mfis\rm-a_&filedate_fmt..csv" dsd stopover lrecl=2000 firstobs=2;
+    infile "&inf_path" dsd stopover lrecl=2000 firstobs=2;
 	%if %sysevalf( &filedate ) >= %sysevalf( '31jul2016'd ) %then %do;
 	  input 
       HUD_project_number : $40.
@@ -97,9 +104,15 @@
   
   run;
   
+  ** Determine correct name for input file. **;
+  
+  %let inf_path = &folder\raw\mfis\rm-t_&filedate_fmt..csv;
+  
+  %if not %sysfunc( fileexist( &inf_path ) ) %then %let inf_path = &folder\raw\mfis\FHA_BF90_RM_T_&filedate_fmt_b..csv;
+  
   data Terminated;
   
-    infile "&folder\raw\mfis\rm-t_&filedate_fmt..csv" dsd stopover lrecl=2000 firstobs=2;
+    infile "&inf_path" dsd stopover lrecl=2000 firstobs=2;
 	%if %sysevalf( &filedate ) >= %sysevalf( '31jul2016'd ) %then %do;
 	  input 
       HUD_project_number : $40.

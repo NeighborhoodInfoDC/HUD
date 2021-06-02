@@ -17,18 +17,10 @@
 %macro REAC_read_update_file( 
   filedate=,                      /** File extract date (SAS date value) **/
   folder=&_dcdata_r_path\HUD,     /** Folder for input raw files **/ 
-  finalize=Y,                     /** Upload and register file with metadata (Y/N) **/
+  finalize=,                     /** OPTION NO LONGER ACTIVE **/
   revisions=%str(New file.)       /** Metadata revision description **/
   );
   
-  %let finalize = %upcase( &finalize );
-  
-  %if &finalize = Y and not &_REMOTE_BATCH_SUBMIT %then %do;
-    %warn_mput( macro=REAC_read_update_file,
-                msg=Not remote batch submit session. Finalize will be set to N. )
-    %let finalize = N;
-  %end;
- 
   %local month year filedate_fmt ds_label;
 
   %let month = %sysfunc( month( &filedate ), z2. );
@@ -140,12 +132,14 @@
     end;
 
 	  label
+      has_active_assistance_ind = "Has active assistance (Y/N)"
+      has_active_financing_ind = "Has active financing (Y/N)"
       rems_property_id = "REMS Property ID"
       inspec_id_1 = "Latest Inspection ID"
 	  inspec_score_1 = "Latest Inspection Score"
       release_date_1 = "Latest Inspection Date"
       inspec_id_2 = "Second Latest Inspection ID"
-      inspec_score_2 = "Secont Latest Inspection Score"
+      inspec_score_2 = "Second Latest Inspection Score"
       release_date_2 = "Second Latest Inspection Date"
 	  inspec_id_3 = "Third Latest Inspection ID"
 	  inspec_score_3 = "Third Latest Inspection Score" 
@@ -161,6 +155,7 @@
   proc sort data=REAC_&year._&month._dc;
     by rems_property_id;
 	run;
+
   ** Check for duplicates **;
 
   %Dup_check(
@@ -174,68 +169,36 @@
     debug=N
   )
 
+  %local i v stlist;
 
-  %if &finalize = Y %then %do;
-  
-    proc datasets library=HUD memtype=(data) nolist;
-      copy in=work out=HUD;
-      select REAC_&year._&month._dc REAC_&year._&month._md 
-             REAC_&year._&month._va REAC_&year._&month._wv;
-    quit;
-    %File_info( 
-      data=HUD.REAC_&year._&month._dc, 
-      printobs=5,
+  %let stlist = dc md va wv;
+  %let i = 1;
+  %let v = %scan( &stlist, &i );
+
+  %do %until ( &v = );
+    
+    %Finalize_data_set( 
+      /** Finalize data set parameters **/
+      data=REAC_&year._&month._&v,
+      out=REAC_&year._&month._&v,
+      outlib=HUD,
+      label="&ds_label, %upcase(&v)",
+      sortby=rems_property_id,
+      /** Metadata parameters **/
+      restrictions=None,
+      revisions=%str(&revisions),
+      /** File info parameters **/
+      contents=Y,
+      printobs=10,
       stats=,
-      freqvars=state_code  inspec_score_1  inspec_score_2  inspec_score_3
+      freqvars=state_code has_: 
     )
-  
-    %Dc_update_meta_file(
-      ds_lib=HUD,
-      ds_name=REAC_&year._&month._dc,
-      creator_process=REAC_&year._&month..sas,
-      restrictions=None,
-      revisions=&revisions
-    )
-    
-    %Dc_update_meta_file(
-      ds_lib=HUD,
-      ds_name=REAC_&year._&month._md,
-      creator_process=REAC_&year._&month..sas,
-      restrictions=None,
-      revisions=&revisions
-    )
-    
-    %Dc_update_meta_file(
-      ds_lib=HUD,
-      ds_name=REAC_&year._&month._va,
-      creator_process=REAC_&year._&month..sas,
-      restrictions=None,
-      revisions=&revisions
-    )
-    
-    %Dc_update_meta_file(
-      ds_lib=HUD,
-      ds_name=REAC_&year._&month._wv,
-      creator_process=REAC_&year._&month..sas,
-      restrictions=None,
-      revisions=&revisions
-    )
-  
-    run;
-      
+
+    %let i = %eval( &i + 1 );
+    %let v = %scan( &stlist, &i );
+
   %end;
-  %else %do;
-    
-    %note_mput( macro=REAC_read_update_file, msg=Data sets will not be finalized. )
-    %File_info( 
-      data=REAC_&year._&month._dc, 
-      printobs=5,
-      stats=,
-      freqvars=state_code  inspec_score_1  inspec_score_2  inspec_score_3
-    )
   
-  %end;
-    
   %exit_macro:
 
 %mend REAC_read_update_file;
