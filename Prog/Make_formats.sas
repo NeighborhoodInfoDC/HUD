@@ -12,7 +12,7 @@
  Modifications: 12/5/2019 - Added YHC code
 **************************************************************************/
 
-%include "L:\SAS\Inc\StdLocal.sas";
+%include "\\sas1\DCdata\SAS\Inc\StdLocal.sas";
 
 ** Define libraries **;
 %DCData_lib( HUD )
@@ -87,10 +87,7 @@ proc format library=HUD;
 	"YHC" = "542(C) HFA RISK SHG -- FFB NC/SR"
     "YHN" = "542(c) HFA Risk Sharing -- NC/SR"
     "YPL" = "542(b) QPE Green Risk Shg: >15 yr term"
-	"YHN" = "542(c) HFA Risk Sharing -- NC/SR"
-	"YHC" = "542(C) HFA RISK SHG -- FFB NC/SR"
-	"YPL" = "542(b) QPE Green Risk Shg: >15 yr term"
-    "YPR" = "542(b) QPE Green Risk Shg: < 15 yr term w/Amortz Reserve"
+	"YPR" = "542(b) QPE Green Risk Shg: < 15 yr term w/Amortz Reserve"
     "YPX" = "542(b) QPE Green Risk Shg: < 15 yr term, no Amortz Reserve"
     "YQE" = "542(b) QPE Risk Sharing -- Existing"
     "YQR" = "542(b) QPE Risk Sharing -- Recently Compt'd"
@@ -253,6 +250,7 @@ proc format library=HUD;
     "232PRBC" = "232/223(f)/Pur/Refin/Board & Care"
     "232PRNH" = "232/223(f)/Pur/Refin/Nursing Hms"
     "234DCND" = "234(d) Condominium"
+    "234DNCSRCONDO" = "234(d) NC/SR Condo"
     "235JRS" = "235(j) Rehab. Sales"
     "236J1EH" = "236(j)(1)/202 Elderly Hsg."
     "236J1LIF" = "236(j)(1)/Lower Income Families"
@@ -280,6 +278,7 @@ proc format library=HUD;
     "542CHFARSRC" = "542(c) HFA Risk Sharing-Recent Comp"
     "542CHFARSFFB" = "542(c) HFA Risk Sharing-FFB Existing/Coop/Apts/MHP/ALF"
     "542BQPERSFFBE" = "542(b) QPE Risk Sharing-FFB Existing"
+    "542CHFRISKSHGFFBNCSR" = "542(C) HFA RISK SHG -- FFB NC/SR"
     "608VETHSG" = "608 Veteran Housing"
     "608PBHSDS" = "608-610 Pub. Hsg. Disposition"
     "608WH" = "608 War Housing"
@@ -394,6 +393,7 @@ proc format library=HUD;
     "232/223F/PUR/REFIN/BOARDCARE" = "232PRBC"
     "232/223F/PUR/REFIN/NURSINGHMS" = "232PRNH"
     "234DCONDOMINIUM" = "234DCND"
+    "234DNC/SRCONDO" = "234DNCSRCONDO"
     "235JREHABSALES"= "235JRS"
     "236J1/202ELDERLYHSG" = "236J1EH"
     "236J1/LOWERINCOMEFAMILIES" = "236J1LIF"
@@ -429,6 +429,7 @@ proc format library=HUD;
 	"542CHFARISKSHGFFBEXISTING" = "542CHFARSE"
     "542CHFARISKSHARINGRECENTCOMP" = "542CHFARSRC"
     "542CHFARISKSHARINGFFBEXISTING/COOP/APTS/MHP/ALF" = "542CHFARSFFB"
+    "542CHFARISKSHGFFBNC/SR" = "542CHFRISKSHGFFBNCSR"
     "QPERISKSHARINGFFBEXISTING" = "542BQPERSFFBE"
     "608VETERANHOUSING" = "608VETHSG"
     "608610PUBHSGDISPOSITION"= "608PBHSDS"
