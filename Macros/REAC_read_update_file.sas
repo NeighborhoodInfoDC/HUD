@@ -30,7 +30,7 @@
   
   %put &filedate;
 	
-  %if &filedate < '06feb2019'd %then %do;
+  %if %sysevalf( &filedate ) < %sysevalf( '06feb2019'd ) %then %do;
 
   data rawscores;
   
@@ -56,7 +56,7 @@
   run;
   %end;
 
-   %if &filedate => '31oct2019'd %then %do;
+   %else %if %sysevalf( &filedate ) >= %sysevalf( '31oct2019'd ) %then %do;
 
    data rawscores;
   
