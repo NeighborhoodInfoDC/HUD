@@ -1,12 +1,12 @@
 /**************************************************************************
- Program:  REAC_yyyy_mm.sas
+ Program:  REAC_2021_05.sas
  Library:  HUD
  Project:  Urban-Greater DC
- Author:   
- Created:  
+ Author:   P. Tatian
+ Created:  6/2/2021
  Version:  SAS 9.4
  Environment:  Local Windows session (desktop)
- GitHub issue:  
+ GitHub issue:  189
  
  Description:  Compile REAC scores data.
  Creates files for DC, MD, VA, and WV.
@@ -24,7 +24,7 @@
 *--- EDIT PARAMETERS BELOW -----------------------------------------;
 
 %REAC_read_update_file( 
-  filedate = 'ddmmmyyyy'd,  /** Enter date of HUD database as SAS date value, ex: '25nov2014'd **/
+  filedate = '27may2021'd,  /** Enter date of HUD database as SAS date value, ex: '25nov2014'd **/
   revisions = %str(New file.)
 )
   

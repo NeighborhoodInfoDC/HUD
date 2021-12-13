@@ -1,9 +1,9 @@
 /**************************************************************************
- Program:  REAC_yyyy_mm.sas
+ Program:  REAC_2021_09.sas
  Library:  HUD
- Project:  Urban-Greater DC
- Author:   
- Created:  
+ Project:  NeighborhoodInfo DC
+ Author:   W. Oliver
+ Created:  9/01/2021
  Version:  SAS 9.4
  Environment:  Local Windows session (desktop)
  GitHub issue:  
@@ -24,7 +24,7 @@
 *--- EDIT PARAMETERS BELOW -----------------------------------------;
 
 %REAC_read_update_file( 
-  filedate = 'ddmmmyyyy'd,  /** Enter date of HUD database as SAS date value, ex: '25nov2014'd **/
+  filedate = '01sep2021'd,  /** Enter date of HUD database as SAS date value, ex: '25nov2014'd **/
   revisions = %str(New file.)
 )
   
