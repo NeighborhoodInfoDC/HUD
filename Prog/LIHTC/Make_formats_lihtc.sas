@@ -12,7 +12,7 @@
  Modifications:
 **************************************************************************/
 
-%include "L:\SAS\Inc\StdLocal.sas";
+%include "\\sas1\DCdata\SAS\Inc\StdLocal.sas";
 
 ** Define libraries **;
 %DCData_lib( HUD )
@@ -27,7 +27,8 @@ proc format library=HUD;
 
   value lihtc_inc_ceil 
     1 = "50% AMI"
-    2 = "60% AMI";
+    2 = "60% AMI"
+    .n = "Not reported";
     
   value lihtc_yr_pis
     .u = 'Unknown'
@@ -49,7 +50,7 @@ proc format library=HUD;
   value lihtc_credit
     1 = "4 percent (30 percent present value)"
     2 = "9 percent (70 percent present value)"
-    3 = "Both 4 percent and 9 percent "
+    3 = "Both 4 percent and 9 percent"
     4 = "Tax credit exchange program (TCEP) only";
     
   value lihtc_metro
@@ -64,6 +65,16 @@ proc format library=HUD;
     3 = "In metro GO zone DDA"
     4 = "In non-metro GO zone DDA";
 
+  value lihtc_nlm_reason
+    1 = "Completed extended-use period"
+    2 = "Sale under qualified contract"
+    3 = "Other";
+    
+  value $lihtc_record_stat
+    'N' = "New"
+    'U' = "Updated"
+    'X' = "Existing (unchanged from previous DB version)";
+
 run;
 
 proc catalog catalog=HUD.Formats;
@@ -75,5 +86,7 @@ proc catalog catalog=HUD.Formats;
   modify lihtc_credit (desc="LIHTC type of credit") / entrytype=format;
   modify lihtc_metro (desc="LIHTC metro area") / entrytype=format;
   modify lihtc_dda (desc="LIHTC DDA status") / entrytype=format;
+  modify lihtc_nlm_reason (desc="LIHTC reason prop. no longer monitored") / entrytype=format;
+  modify lihtc_record_stat (desc="LIHTC rec. status compared to prev. db") / entrytype=formatc;
   contents;
 quit;

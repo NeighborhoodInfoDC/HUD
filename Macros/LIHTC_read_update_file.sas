@@ -28,7 +28,7 @@
   
   %** Define local macro variables **;
   
-  %local input_ds recode_yesno ds_label;
+  %local input_ds lihtc_freqvars recode_yesno ds_label;
 
   %let ds_label = Low income housing tax credit projects, placed in service through &year;
   
@@ -38,6 +38,8 @@
                         home tcap cdbg fha hopevi tcep 
                         trgt_pop trgt_fam trgt_eld trgt_dis trgt_hml trgt_other qct;
 
+    %let lihtc_freqvars = credit dda inc_ceil metro rentassist type yr_pis yr_alloc &recode_yesno nonprog;
+    
     libname rawlihtc "&folder\&year";
     
     %let input_ds = rawlihtc.&rawfile;
@@ -52,6 +54,9 @@
                         trgt_pop trgt_fam trgt_eld trgt_dis trgt_hml trgt_other qct
                         htf qozf rad resyndication_cd scattered_site_cd;
                         
+    %let lihtc_freqvars = credit dda inc_ceil metro rentassist type yr_pis yr_alloc &recode_yesno nonprog
+                          nlm_reason record_stat;
+
     filename fimport "&folder\&year\&rawfile..csv" lrecl=1000;
 
     proc import out=&rawfile
@@ -59,7 +64,7 @@
         dbms=csv replace;
       datarow=2;
       getnames=yes;
-      guessingrows=max;
+      guessingrows=2000;
     run;
 
     filename fimport clear;
@@ -124,6 +129,8 @@
       otherwise
         /** Do nothing **/;
     end;
+    
+    if inc_ceil in ( ., 3 ) then inc_ceil = .n; /** Not reported **/
     
     ** Output by state **;
     
@@ -343,7 +350,9 @@
         type lihtc_type.
         yr_pis yr_alloc lihtc_yr_pis.
         &recode_yesno nonprog dyesno.
-        extract_date mmddyy10.;
+        extract_date mmddyy10.
+        nlm_reason lihtc_nlm_reason.
+        record_stat $lihtc_record_stat.;
       
       drop i;
         
@@ -405,8 +414,7 @@
       revisions=%str(&revisions),
       /** File info parameters **/
       printobs=0,
-      freqvars=
-        credit dda inc_ceil metro rentassist type yr_pis yr_alloc &recode_yesno nonprog
+      freqvars=&lihtc_freqvars     
     )
 
     %let i = %eval( &i + 1 );
