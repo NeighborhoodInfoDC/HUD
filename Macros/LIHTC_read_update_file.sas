@@ -64,7 +64,7 @@
         dbms=csv replace;
       datarow=2;
       getnames=yes;
-      guessingrows=2000;
+      guessingrows=10000;
     run;
 
     filename fimport clear;
