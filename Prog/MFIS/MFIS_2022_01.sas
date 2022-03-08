@@ -1,12 +1,12 @@
 /**************************************************************************
- Program:  MFIS_yyyy_mm.sas
+ Program:  MFIS_2022_01.sas
  Library:  HUD
  Project:  Urban-Greater DC
- Author:   
- Created:  
+ Author:   Donovan Harvey
+ Created:  3/7/2022
  Version:  SAS 9.4
  Environment:  Local Windows session (desktop)
- GitHub issue:  
+ GitHub issue: #198 
  
  Description:  Compile HUD-insured multifamily mortgage data.
  Creates files for DC, MD, VA, and WV.

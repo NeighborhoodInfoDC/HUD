@@ -1,12 +1,12 @@
 /**************************************************************************
- Program:  Sec8MF_yyyy_mm.sas
+ Program:  Sec8MF_2022_01.sas
  Library:  HUD
  Project:  Urban-Greater DC
- Author:   
- Created:  
+ Author: Donovan Harvey   
+ Created: 3/7/2022 
  Version:  SAS 9.4
  Environment:  Local Windows session (desktop)
- GitHub issue:  
+ GitHub issue: #198  
  
  Description:  Compile Section 8 multifamily contract/project data.
  Creates files for DC, MD, VA, and WV.
