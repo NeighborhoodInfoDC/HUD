@@ -53,14 +53,76 @@
       ;
     if state_code in ( 'DC', 'MD', 'VA', 'WV' );
   
+	  label
+      has_active_assistance_ind = "Has active assistance (Y/N)"
+      has_active_financing_ind = "Has active financing (Y/N)"
+      rems_property_id = "REMS Property ID"
+      inspec_id_1 = "Latest Inspection ID"
+	  inspec_score_1 = "Latest Inspection Score"
+      release_date_1 = "Latest Inspection Date"
+      inspec_id_2 = "Second Latest Inspection ID"
+      inspec_score_2 = "Second Latest Inspection Score"
+      release_date_2 = "Second Latest Inspection Date"
+	  inspec_id_3 = "Third Latest Inspection ID"
+	  inspec_score_3 = "Third Latest Inspection Score" 
+	  release_date_3 = "Third Latest Inspection Date"
+      property_name = "Property Name"
+      state_name = "State"
+      city = "City"
+      state_code = "State Code";
+
   run;
   %end;
 
-   %else %if %sysevalf( &filedate ) >= %sysevalf( '31oct2019'd ) %then %do;
+  %else %if %sysevalf( &filedate ) >= %sysevalf( '01jan2022'd ) %then %do;
 
    data rawscores;
   
     infile "&folder\raw\reac\&filedate_fmt.\mf_inspection_report.csv" dsd stopover lrecl=2000 firstobs=2;
+    
+	  input 
+      rems_property_id : $9.
+      inspec_id_1 : $6.
+	  inspec_score_1 : $5.
+      release_date_1 : $10.
+      inspec_id_2 : $6.
+      inspec_score_2 : $5.
+      release_date_2 : $10.
+	  inspec_id_3 : $6.
+	  inspec_score_3 : $5.
+	  release_date_3 : $10.
+      property_name : $40.
+      state_name : $15.
+      city : $15.
+      state_code : $2.
+      ;
+    if state_code in ( 'DC', 'MD', 'VA', 'WV' );
+  
+	  label
+      rems_property_id = "REMS Property ID"
+      inspec_id_1 = "Latest Inspection ID"
+	  inspec_score_1 = "Latest Inspection Score"
+      release_date_1 = "Latest Inspection Date"
+      inspec_id_2 = "Second Latest Inspection ID"
+      inspec_score_2 = "Second Latest Inspection Score"
+      release_date_2 = "Second Latest Inspection Date"
+	  inspec_id_3 = "Third Latest Inspection ID"
+	  inspec_score_3 = "Third Latest Inspection Score" 
+	  release_date_3 = "Third Latest Inspection Date"
+      property_name = "Property Name"
+      state_name = "State"
+      city = "City"
+      state_code = "State Code";
+
+  run;
+  %end;
+
+  %else %if %sysevalf( &filedate ) >= %sysevalf( '31oct2019'd ) %then %do;
+
+   data rawscores;
+  
+    infile "&folder\raw\reac\&filedate_fmt.\mf_inspection_report.csv" dsd stopover lrecl=2000 firstobs=2;
+    
 	  input 
       rems_property_id : $9.
 	  has_active_financing_ind : $2.
@@ -81,6 +143,24 @@
       ;
     if state_code in ( 'DC', 'MD', 'VA', 'WV' );
   
+	  label
+      has_active_assistance_ind = "Has active assistance (Y/N)"
+      has_active_financing_ind = "Has active financing (Y/N)"
+      rems_property_id = "REMS Property ID"
+      inspec_id_1 = "Latest Inspection ID"
+	  inspec_score_1 = "Latest Inspection Score"
+      release_date_1 = "Latest Inspection Date"
+      inspec_id_2 = "Second Latest Inspection ID"
+      inspec_score_2 = "Second Latest Inspection Score"
+      release_date_2 = "Second Latest Inspection Date"
+	  inspec_id_3 = "Third Latest Inspection ID"
+	  inspec_score_3 = "Third Latest Inspection Score" 
+	  release_date_3 = "Third Latest Inspection Date"
+      property_name = "Property Name"
+      state_name = "State"
+      city = "City"
+      state_code = "State Code";
+
   run;
   %end;
 
@@ -108,6 +188,22 @@
       ;
     if state_code in ( 'DC', 'MD', 'VA', 'WV' );
   
+	  label
+      rems_property_id = "REMS Property ID"
+      inspec_id_1 = "Latest Inspection ID"
+	  inspec_score_1 = "Latest Inspection Score"
+      release_date_1 = "Latest Inspection Date"
+      inspec_id_2 = "Second Latest Inspection ID"
+      inspec_score_2 = "Second Latest Inspection Score"
+      release_date_2 = "Second Latest Inspection Date"
+	  inspec_id_3 = "Third Latest Inspection ID"
+	  inspec_score_3 = "Third Latest Inspection Score" 
+	  release_date_3 = "Third Latest Inspection Date"
+      property_name = "Property Name"
+      state_name = "State"
+      city = "City"
+      state_code = "State Code";
+
   run;
 
     %end;
@@ -130,25 +226,6 @@
       when ( "WV" ) output REAC_&year._&month._wv;
       otherwise /** Do not save obs. **/;
     end;
-
-	  label
-      has_active_assistance_ind = "Has active assistance (Y/N)"
-      has_active_financing_ind = "Has active financing (Y/N)"
-      rems_property_id = "REMS Property ID"
-      inspec_id_1 = "Latest Inspection ID"
-	  inspec_score_1 = "Latest Inspection Score"
-      release_date_1 = "Latest Inspection Date"
-      inspec_id_2 = "Second Latest Inspection ID"
-      inspec_score_2 = "Second Latest Inspection Score"
-      release_date_2 = "Second Latest Inspection Date"
-	  inspec_id_3 = "Third Latest Inspection ID"
-	  inspec_score_3 = "Third Latest Inspection Score" 
-	  release_date_3 = "Third Latest Inspection Date"
-      property_name = "Property Name"
-      state_name = "State"
-      city = "City"
-      state_code = "State Code";
-
      
   run;
   
@@ -191,7 +268,7 @@
       contents=Y,
       printobs=10,
       stats=,
-      freqvars=state_code has_: 
+      freqvars=state_code 
     )
 
     %let i = %eval( &i + 1 );
