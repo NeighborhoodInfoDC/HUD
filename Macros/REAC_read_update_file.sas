@@ -73,7 +73,7 @@
 
   run;
   %end;
-
+/*
   %else %if %sysevalf( &filedate ) >= %sysevalf( '01jan2022'd ) %then %do;
 
    data rawscores;
@@ -116,7 +116,7 @@
 
   run;
   %end;
-
+*/
   %else %if %sysevalf( &filedate ) >= %sysevalf( '31oct2019'd ) %then %do;
 
    data rawscores;
