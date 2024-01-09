@@ -1,5 +1,5 @@
 /**************************************************************************
- Program:  Sec8MF_2024_01.sas
+ Program:  REAC_2023_11.sas
  Library:  HUD
  Project:  Urban-Greater DC
  Author:   Donovan Harvey
@@ -8,9 +8,10 @@
  Environment:  Local Windows session (desktop)
  GitHub issue:  Update-#442
  
- Description:  Compile Section 8 multifamily contract/project data.
+ Description:  Compile REAC scores data.
  Creates files for DC, MD, VA, and WV.
  
+ Modifications:
 **************************************************************************/
 
 %include "\\sas1\DCdata\SAS\Inc\StdLocal.sas";
@@ -22,26 +23,9 @@
 
 *--- EDIT PARAMETERS BELOW -----------------------------------------;
 
-  ** Enter date of HUD database as SAS date value, ex: '25nov2014'd **;
-
-  %let s8filedate = '04jan2024'd;
+%REAC_read_update_file( 
+  filedate = '15nov2023'd,  /** Enter date of HUD database as SAS date value, ex: '25nov2014'd **/
+  revisions = %str(New file.)
+)
   
-  %let revisions = %str(New file.);
-
-*-------------------------------------------------------------------;
-
-
-*--- MAIN PROGRAM --------------------------------------------------;
-
-%sec8mf_readbasetbls( 
-  filedate=&s8filedate,
-  folder=&_dcdata_r_path\HUD
-)
-
-%Sec8MF_dmvw( 
-  filedate=&s8filedate,
-  revisions=&revisions 
-)
-
 run;
-
