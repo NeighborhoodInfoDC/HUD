@@ -21,7 +21,7 @@
   filedate=,                      /** File extract date (SAS date value) **/
   folder=&_dcdata_r_path\HUD\Raw\LIHTC,     /** Folder for input raw files **/ 
   rawfile = lihtcpub,             /** Name of input data set **/
-  finalize=,                     /** No longer in use**/
+  finalize=N,                     /** Finalize flag, use for remote sesssions **/
   revisions=%str(New file.)       /** Metadata revision description **/
 );
 
@@ -404,6 +404,7 @@
 
     %Finalize_data_set( 
       /** Finalize data set parameters **/
+      finalize=&finalize,
       data=LIHTC_&year._&v,
       out=LIHTC_&year._&v,
       outlib=HUD,
