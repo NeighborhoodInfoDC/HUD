@@ -17,7 +17,7 @@
 %macro REAC_read_update_file( 
   filedate=,                      /** File extract date (SAS date value) **/
   folder=&_dcdata_r_path\HUD,     /** Folder for input raw files **/ 
-  finalize=,                     /** OPTION NO LONGER ACTIVE **/
+  finalize=N,                     /** Finalize flag, use for remote sesssions **/
   revisions=%str(New file.)       /** Metadata revision description **/
   );
   
@@ -256,6 +256,7 @@
     
     %Finalize_data_set( 
       /** Finalize data set parameters **/
+      finalize=&finalize,
       data=REAC_&year._&month._&v,
       out=REAC_&year._&month._&v,
       outlib=HUD,
