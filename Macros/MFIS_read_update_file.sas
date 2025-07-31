@@ -38,7 +38,40 @@
   data Active;
   
     infile "&inf_path" dsd stopover lrecl=2000 firstobs=2;
-	%if %sysevalf( &filedate ) >= %sysevalf( '31jul2016'd ) %then %do;
+		%if %sysevalf( &filedate ) >= %sysevalf( '30jun2025'd ) %then %do;
+	  input 
+      HUD_project_number : $40.
+      Property_name : $40.
+      /** Property_street : $40.**/
+      Property_city : $40.
+      Property_state : $2.
+      Property_zip : $5.
+      Units : 8.
+      Initial_endorsement_date : mmddyy10.
+      Final_endorsement_date : mmddyy10. 
+      Original_mortgage_amount : comma24.
+      First_payment_date : mmddyy10.
+      Maturity_date : mmddyy10.
+      Term_in_months : 8.
+      Interest_rate : 8.2    
+      Current_principal_and_interest : comma24.2
+      Amortized_principal_balance :  comma24.2
+      Holder_name : $40.
+      Holder_city : $40.
+      Holder_state : $2.
+      Servicer_name : $40.
+      Servicer_city : $40.
+      Servicer_state : $2.
+      SOA_code : $3.
+      _SOA_cat_sub_cat : $80.
+      _TE : $2.
+      _TC : $2.
+	  Business_Type : $40.
+	  SA_type_code : $2.;
+	length premise_id $ 16;
+	premise_id = '';
+	%end;
+		%else %if %sysevalf( &filedate ) >= %sysevalf( '31jul2016'd ) %then %do;
 	  input 
       HUD_project_number : $40.
       Property_name : $40.
@@ -113,7 +146,43 @@
   data Terminated;
   
     infile "&inf_path" dsd stopover lrecl=2000 firstobs=2;
-	%if %sysevalf( &filedate ) >= %sysevalf( '31jul2016'd ) %then %do;
+	%if %sysevalf( &filedate ) >= %sysevalf( '30jun2025'd ) %then %do;
+	  input 
+      HUD_project_number : $40.
+      Property_name : $40.
+      /**Property_street : $40.**/
+      Property_city : $40.
+      Property_state : $2.
+      Property_zip : $5.
+      Units : 8.
+      Initial_endorsement_date : mmddyy10.
+      Final_endorsement_date : mmddyy10. 
+      Original_mortgage_amount : comma24.
+      First_payment_date : mmddyy10.
+      Maturity_date : mmddyy10.
+      Term_in_months : 8.
+      Interest_rate : 8.2    
+      Holder_name : $40.
+      Holder_city : $40.
+      Holder_state : $2.
+      Servicer_name : $40.
+      Servicer_city : $40.
+      Servicer_state : $2.
+      SOA_code : $3.
+      _SOA_cat_sub_cat : $80.
+      Term_type : $2.
+      _Term_type_descr : $80.
+      _Type : $80.
+      Term_date : mmddyy10.
+      _TE : $2.
+      _TC : $2.
+      MFIS_status : $1.
+	  Business_Type : $40.
+	  SA_type_code : $2.;
+		length premise_id $ 16;
+		premise_id = '';
+	  %end;
+	%else %if %sysevalf( &filedate ) >= %sysevalf( '31jul2016'd ) %then %do;
 	  input 
       HUD_project_number : $40.
       Property_name : $40.
