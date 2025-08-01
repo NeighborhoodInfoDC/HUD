@@ -23,7 +23,7 @@
 *--- EDIT PARAMETERS BELOW -----------------------------------------;
 
 %MFIS_read_update_file( 
-  finalize = N,               /** Change to Y before final batch submit **/
+  finalize = Y,               /** Change to Y before final batch submit **/
   filedate = '30jun2025'd,    /** Enter date of HUD database as SAS date value, ex: '25nov2014'd **/
   revisions = %str(New file.)
 )

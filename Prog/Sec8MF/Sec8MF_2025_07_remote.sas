@@ -39,7 +39,7 @@
 )
 
 %Sec8MF_dmvw( 
-  finalize = N,               /** Change to Y before final batch submit **/
+  finalize = Y,               /** Change to Y before final batch submit **/
   filedate=&s8filedate,
   revisions=&revisions 
 )
