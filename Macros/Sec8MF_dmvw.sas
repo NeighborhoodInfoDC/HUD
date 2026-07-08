@@ -33,7 +33,7 @@
 /** Macro Sec8MF_dmvw - Start Definition **/
 
 %macro Sec8MF_dmvw( 
-  finalize=N,  /** Finalize flag, use for remote sesssions **/
+  finalize=,   /** Finalize flag, use for remote sesssions **DEPRECATED** **/
   filedate=,   /** As of date of HUD database (SAS date value) **/
   s8folder=,   /** NO LONGER IN USE **/ 
   upload=,     /** NO LONGER IN USE **/
@@ -120,7 +120,6 @@
 
     %Finalize_data_set( 
       /** Finalize data set parameters **/
-      finalize=&finalize,
       data=Sec8MF_&year._&month._&v,
       out=Sec8MF_&year._&month._&v,
       outlib=HUD,

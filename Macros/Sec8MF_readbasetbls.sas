@@ -120,7 +120,7 @@
   		owner_main_phone_number_text $25.
   		owner_main_fax_number_text $25.
   		owner_email_text $100.
-  		mgmt_agent_participant_id 8.
+  		mgmt_agent_participant_id $50.
   		mgmt_agent_company_type $20.
   		mgmt_agent_indv_first_name $18.
   		mgmt_agent_indv_last_name $18.
@@ -196,7 +196,7 @@
   		owner_main_phone_number_text $
   		owner_main_fax_number_text $
   		owner_email_text $
-  		mgmt_agent_participant_id
+  		mgmt_agent_participant_id $
   		mgmt_agent_company_type $
   		mgmt_agent_indv_first_name $
   		mgmt_agent_indv_last_name $

@@ -23,7 +23,6 @@
 *--- EDIT PARAMETERS BELOW -----------------------------------------;
 
 %REAC_read_update_file( 
-  finalize = N,               /** Change to Y before final batch submit **/
   filedate = 'ddmmmyyyy'd,    /** Enter date of HUD database as SAS date value, ex: '25nov2014'd **/
   revisions = %str(New file.)
 )
