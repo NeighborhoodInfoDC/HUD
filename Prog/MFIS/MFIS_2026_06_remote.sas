@@ -1,14 +1,14 @@
 /**************************************************************************
- Program:  REAC_yyyy_mm_remote.sas
+ Program:  MFIS_2026_06_remote.sas
  Library:  HUD
  Project:  Urban-Greater DC
- Author:   
- Created:  
+ Author:   P. Tatian
+ Created:  07/08/2026
  Version:  SAS 9.4
  Environment:  Remote Windows session (SAS1)
- GitHub issue:  
+ GitHub issue:  228
  
- Description:  Compile REAC scores data.
+ Description:  Compile HUD-insured multifamily mortgage data.
  Creates files for DC, MD, VA, and WV.
  
 **************************************************************************/
@@ -22,8 +22,8 @@
 
 *--- EDIT PARAMETERS BELOW -----------------------------------------;
 
-%REAC_read_update_file( 
-  filedate = 'ddmmmyyyy'd,    /** Enter date of HUD database as SAS date value, ex: '25nov2014'd **/
+%MFIS_read_update_file( 
+  filedate = '30jun2026'd,    /** Enter date of HUD database as SAS date value, ex: '25nov2014'd **/
   revisions = %str(New file.)
 )
   

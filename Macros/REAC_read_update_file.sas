@@ -17,11 +17,11 @@
 %macro REAC_read_update_file( 
   filedate=,                      /** File extract date (SAS date value) **/
   folder=&_dcdata_r_path\HUD,     /** Folder for input raw files **/ 
-  finalize=N,                     /** Finalize flag, use for remote sesssions **/
+  finalize=,                      /** Finalize flag, use for remote sesssions **DEPRECATED** **/
   revisions=%str(New file.)       /** Metadata revision description **/
   );
   
-  %local month year filedate_fmt ds_label;
+  %local month year filedate_fmt ds_label inf_path;
 
   %let month = %sysfunc( month( &filedate ), z2. );
   %let year  = %sysfunc( year( &filedate ), z4. );
@@ -31,6 +31,8 @@
   %put &filedate;
 	
   %if %sysevalf( &filedate ) < %sysevalf( '06feb2019'd ) %then %do;
+  
+  ** Pre-Feb 6, 2019 vintage data **;
 
   data rawscores;
   
@@ -73,55 +75,20 @@
 
   run;
   %end;
-/*
-  %else %if %sysevalf( &filedate ) >= %sysevalf( '01jan2022'd ) %then %do;
 
-   data rawscores;
-  
-    infile "&folder\raw\reac\&filedate_fmt.\mf_inspection_report.csv" dsd stopover lrecl=2000 firstobs=2;
-    
-	  input 
-      rems_property_id : $9.
-      inspec_id_1 : $6.
-	  inspec_score_1 : $5.
-      release_date_1 : $10.
-      inspec_id_2 : $6.
-      inspec_score_2 : $5.
-      release_date_2 : $10.
-	  inspec_id_3 : $6.
-	  inspec_score_3 : $5.
-	  release_date_3 : $10.
-      property_name : $40.
-      state_name : $15.
-      city : $15.
-      state_code : $2.
-      ;
-    if state_code in ( 'DC', 'MD', 'VA', 'WV' );
-  
-	  label
-      rems_property_id = "REMS Property ID"
-      inspec_id_1 = "Latest Inspection ID"
-	  inspec_score_1 = "Latest Inspection Score"
-      release_date_1 = "Latest Inspection Date"
-      inspec_id_2 = "Second Latest Inspection ID"
-      inspec_score_2 = "Second Latest Inspection Score"
-      release_date_2 = "Second Latest Inspection Date"
-	  inspec_id_3 = "Third Latest Inspection ID"
-	  inspec_score_3 = "Third Latest Inspection Score" 
-	  release_date_3 = "Third Latest Inspection Date"
-      property_name = "Property Name"
-      state_name = "State"
-      city = "City"
-      state_code = "State Code";
-
-  run;
-  %end;
-*/
   %else %if %sysevalf( &filedate ) >= %sysevalf( '31oct2019'd ) %then %do;
+  
+    %** Determine correct name for input file. **;
+  
+    %let inf_path = &folder\raw\reac\&filedate_fmt.\mf_inspection_report.csv;
+  
+    %if not %sysfunc( fileexist( &inf_path ) ) %then %let inf_path = &folder\raw\reac\&filedate_fmt.\mf-inspection-report.csv;
 
+   ** Oct 31, 2019 or later vintage data **;
+   
    data rawscores;
   
-    infile "&folder\raw\reac\&filedate_fmt.\mf_inspection_report.csv" dsd stopover lrecl=2000 firstobs=2;
+    infile "&inf_path" dsd stopover lrecl=2000 firstobs=2;
     
 	  input 
       rems_property_id : $9.
@@ -165,6 +132,8 @@
   %end;
 
   %else %do;
+  
+  ** Feb 6, 2019 to Oct 30, 2019 vintage data **;
 
   data rawscores;
   
@@ -256,7 +225,6 @@
     
     %Finalize_data_set( 
       /** Finalize data set parameters **/
-      finalize=&finalize,
       data=REAC_&year._&month._&v,
       out=REAC_&year._&month._&v,
       outlib=HUD,

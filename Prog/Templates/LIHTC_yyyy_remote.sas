@@ -20,7 +20,6 @@
 
 
 %Lihtc_read_update_file( 
-  finalize=N,  /** Change to Y before final batch submit **/
   year=yyyy,   /** Replace yyyy with projects placed in service year **/
   filedate=    /** Add file extract date as a SAS date value (eg, '01jan2009'd) **/
 )
