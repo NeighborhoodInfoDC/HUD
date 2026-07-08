@@ -17,7 +17,7 @@
 %macro MFIS_read_update_file( 
   filedate=,                      /** File extract date (SAS date value) **/
   folder=&_dcdata_r_path\HUD,     /** Folder for input raw files **/ 
-  finalize=N,                     /** Finalize flag, use for remote sesssions **/
+  finalize=,                     /** Finalize flag, use for remote sesssions **DEPRECATED** **/
   revisions=%str(New file.)       /** Metadata revision description **/
   );
   
@@ -31,7 +31,7 @@
   
   ** Determine correct name for input file. **;
   
-  %let inf_path = &folder\raw\mfis\rm-a_&filedate_fmt..csv;
+  %let inf_path = &folder\raw\mfis\FHA-BF90-RM-A_&filedate_fmt_b..csv;
   
   %if not %sysfunc( fileexist( &inf_path ) ) %then %let inf_path = &folder\raw\mfis\FHA_BF90_RM_A_&filedate_fmt_b..csv;
   
@@ -139,7 +139,7 @@
   
   ** Determine correct name for input file. **;
   
-  %let inf_path = &folder\raw\mfis\rm-t_&filedate_fmt..csv;
+  %let inf_path = &folder\raw\mfis\FHA-BF90-RM-T_&filedate_fmt_b..csv;
   
   %if not %sysfunc( fileexist( &inf_path ) ) %then %let inf_path = &folder\raw\mfis\FHA_BF90_RM_T_&filedate_fmt_b..csv;
   
@@ -322,7 +322,9 @@
       HUD_project_number = "HUD project ID number"
 	  Premise_id = "HUD premise ID number"
       Property_name = "Property name"
-      Property_street = "Property street address"
+      %if %sysevalf( &filedate ) < %sysevalf( '30jun2025'd ) %then %do;
+        Property_street = "Property street address"
+      %end;
       Property_city = "Property city"
       Property_state = "Property state"
       Property_zip = "Property ZIP code"
@@ -388,7 +390,6 @@
 
     %Finalize_data_set( 
       /** Finalize data set parameters **/
-      finalize=&finalize,
       data=MFIS_&year._&month._&v,
       out=MFIS_&year._&month._&v,
       outlib=HUD,
@@ -400,8 +401,8 @@
       /** File info parameters **/
       printobs=0,
       freqvars=
-        property_state holder_state servicer_state SOA_code
-        SOA_cat_sub_cat TE_bond_finc tax_credit_finc MFIS_status
+        MFIS_status property_state holder_state servicer_state SOA_code
+        SOA_cat_sub_cat TE_bond_finc tax_credit_finc 
         Term_type Claim_type extract_date
     )
 
