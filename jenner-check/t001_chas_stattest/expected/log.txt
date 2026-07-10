@@ -1,0 +1,29 @@
+NOTE: Option OBS changed to 100.
+NOTE: DATA chas_indicators
+
+NOTE: Processing inline DATALINES (5 lines)
+
+NOTE: Read 5 rows from DATALINES.
+NOTE: Wrote chas_indicators (5 rows, 5 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: DATA a_tests
+
+
+NOTE: Read 5 rows from chas_indicators.
+NOTE: Wrote a_tests (5 rows, 12 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: DATA a_sig
+
+
+NOTE: Read 5 rows from a_tests.
+NOTE: Wrote a_sig (5 rows, 1 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC PRINT data=a_sig
+
+NOTE: PROC PRINT completed: 5 observations printed, 1 variables

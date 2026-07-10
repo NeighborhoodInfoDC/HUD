@@ -1,0 +1,37 @@
+NOTE: Option OBS changed to 100.
+NOTE: PROC FORMAT library=WORK
+
+NOTE: FORMAT lihtc_reg defined (4 ranges).
+NOTE: FORMAT lihtc_inc_ceil defined (3 ranges).
+NOTE: FORMAT lihtc_yr_pis defined (2 ranges).
+NOTE: FORMAT lihtc_rentassist defined (5 ranges).
+NOTE: FORMAT lihtc_type defined (4 ranges).
+NOTE: FORMAT lihtc_credit defined (4 ranges).
+NOTE: FORMAT lihtc_metro defined (3 ranges).
+NOTE: FORMAT lihtc_dda defined (5 ranges).
+NOTE: FORMAT lihtc_nlm_reason defined (3 ranges).
+NOTE: FORMAT $lihtc_record_stat defined (3 ranges).
+NOTE: PROC CATALOG catalog=WORK.FORMATS
+
+NOTE: MODIFY: Entry LIHTC_REG description set to 'LIHTC census region'
+NOTE: MODIFY: Entry LIHTC_INC_CEIL description set to 'LIHTC income ceiling'
+NOTE: MODIFY: Entry LIHTC_YR_PIS description set to 'LIHTC year placed in service'
+NOTE: MODIFY: Entry LIHTC_RENTASSIST description set to 'LIHTC rental assistance contract'
+NOTE: MODIFY: Entry LIHTC_TYPE description set to 'LIHTC type of construction'
+NOTE: MODIFY: Entry LIHTC_CREDIT description set to 'LIHTC type of credit'
+NOTE: MODIFY: Entry LIHTC_METRO description set to 'LIHTC metro area'
+NOTE: MODIFY: Entry LIHTC_DDA description set to 'LIHTC DDA status'
+NOTE: MODIFY: Entry LIHTC_NLM_REASON description set to 'LIHTC reason prop. no longer monitored'
+NOTE: MODIFY: Entry LIHTC_RECORD_STAT description set to 'LIHTC rec. status compared to prev. db'
+NOTE: DATA demo
+
+NOTE: Processing inline DATALINES (3 lines)
+
+NOTE: Read 3 rows from DATALINES.
+NOTE: Wrote demo (3 rows, 8 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC PRINT data=demo
+
+NOTE: PROC PRINT completed: 3 observations printed, 8 variables

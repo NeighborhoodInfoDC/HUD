@@ -1,0 +1,7 @@
+{
+  "bundle": "t005_lihtc_formats",
+  "source_file": "Prog/LIHTC/Make_formats_lihtc.sas",
+  "source_blob_sha": "bd161c4a01827037770e82bad5913bba7ffa767c",
+  "source_commit": "32c82cfe30277279feb8220b5ad9efe0155495ba",
+  "notes": "PROC FORMAT value maps for the HUD LIHTC data sets reproduced verbatim (10 formats: census region, income ceiling, year placed in service, rental-assistance contract, construction type, credit type, metro area, DDA status, no-longer-monitored reason, and the char record-status format). These mix plain numeric maps with SAS special-missing keys (.n, .u, .c) and one character format. Only change vs upstream: format library HUD -> WORK so the run is self-contained; the PROC CATALOG entrytype-modify block follows to WORK.Formats. Added a small DATA step applying lihtc_reg, lihtc_credit, lihtc_inc_ceil and $lihtc_record_stat via PUT so the listing shows them resolving. Exercises PROC FORMAT numeric + character VALUE ranges, PROC CATALOG modify + CONTENTS, and PUT-based format application."
+}

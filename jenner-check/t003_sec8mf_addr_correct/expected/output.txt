@@ -1,0 +1,7 @@
+  Obs  state_code         address_line1_text
+-----  ----------  -------------------------
+    1  DC          2518 17th ST NW
+    2  DC          324 ANACOSTIA ROAD SE
+    3  DC          1500 MASSACHUSETTS AVE NW
+    4  MD          324 ANACOSTIA AVE SE
+

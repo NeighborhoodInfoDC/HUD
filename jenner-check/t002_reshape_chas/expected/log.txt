@@ -1,0 +1,21 @@
+NOTE: Option OBS changed to 100.
+NOTE: DATA chas_dc
+
+NOTE: Processing inline DATALINES (1 lines)
+
+NOTE: Read 1 rows from DATALINES.
+NOTE: Wrote chas_dc (1 rows, 6 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: DATA table1a_row3
+
+
+NOTE: Read 1 rows from chas_dc.
+NOTE: Wrote table1a_row3 (1 rows, 6 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC PRINT data=table1a_row3
+
+NOTE: PROC PRINT completed: 1 observations printed, 6 variables

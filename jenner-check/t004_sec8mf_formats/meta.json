@@ -1,0 +1,7 @@
+{
+  "bundle": "t004_sec8mf_formats",
+  "source_file": "Prog/Sec8MF/Sec8MF_formats.sas",
+  "source_blob_sha": "c4d6832173e811fc2ba1bd6c30514d78e966752b",
+  "source_commit": "32c82cfe30277279feb8220b5ad9efe0155495ba",
+  "notes": "PROC FORMAT value maps reproduced verbatim (10 formats for HUD Section 8 MF data: contract status, expiration quarter, document type, program name/group, financing, owner/manager, property category, and the 4- and 2-category UI status codes). Only change vs upstream: format library HUD -> WORK so the run is self-contained; the PROC CATALOG description-modify block follows to WORK.formats. Added a small DATA step applying $s8stat, $s8pgmgr and the multi-value s8ui2cat (1,2,3='Active') via PUT so the listing shows them resolving. Exercises PROC FORMAT char/numeric value ranges, multi-value ranges, PROC CATALOG modify + CONTENTS, and PUT-based format application."
+}

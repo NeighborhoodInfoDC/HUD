@@ -1,0 +1,7 @@
+{
+  "bundle": "t002_reshape_chas",
+  "source_file": "Macros/Reshape_CHAS.sas",
+  "source_blob_sha": "3d5816290c34c047f1d4f384bfb077f366716352",
+  "source_commit": "32c82cfe30277279feb8220b5ad9efe0155495ba",
+  "notes": "%reshape_chas reproduced verbatim: counts a space-delimited varlist with %sysfunc(countw()), then %scan pulls each variable into a positional c1..cN column. Added a 1-row mock CHAS summary (chas_dc, referenced via the global &chas_in exactly as Export_CHAS_csv.sas sets it) and called the macro for table 1a / row 3 with the same 6-variable renter-unit list that program uses. Exercises the %if &var_cnt=6 macro branch, %scan token extraction, and the positional keep list."
+}
