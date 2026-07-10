@@ -1,0 +1,23 @@
+Contents of Catalog WORK.FORMATS
+Name                 Type       Description
+----                 ----       -----------
+LIHTC_CREDIT         FORMAT     LIHTC type of credit
+LIHTC_DDA            FORMAT     LIHTC DDA status
+LIHTC_INC_CEIL       FORMAT     LIHTC income ceiling
+LIHTC_METRO          FORMAT     LIHTC metro area
+LIHTC_NLM_REASON     FORMAT     LIHTC reason prop. no longer monitored
+LIHTC_RECORD_STAT    FORMATC    LIHTC rec. status compared to prev. db
+LIHTC_REG            FORMAT     LIHTC census region
+LIHTC_RENTASSIST     FORMAT     LIHTC rental assistance contract
+LIHTC_TYPE           FORMAT     LIHTC type of construction
+LIHTC_YR_PIS         FORMAT     LIHTC year placed in service
+
+10 entries in catalog.
+
+
+  Obs  region  region_desc  credit                           credit_desc  inc_ceil  ceil_desc  rec_stat                                       rec_desc
+-----  ------  -----------  ------  ------------------------------------  --------  ---------  --------  ---------------------------------------------
+    1       1  Northeast         2  9 percent (70 percent present value)         1  50% AMI    N         New
+    2       3  South             3  Both 4 percent and 9 percent                 2  60% AMI    U         Updated
+    3       4  West              1  4 percent (30 percent present value)         1  50% AMI    X         Existing (unchanged from previous DB version)
+

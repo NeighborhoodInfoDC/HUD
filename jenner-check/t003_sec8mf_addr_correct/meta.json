@@ -1,0 +1,7 @@
+{
+  "bundle": "t003_sec8mf_addr_correct",
+  "source_file": "Macros/Sec8MF_addr_correct.sas",
+  "source_blob_sha": "f1634e125e455342682285a826222b09de8efbbd",
+  "source_commit": "32c82cfe30277279feb8220b5ad9efe0155495ba",
+  "notes": "%Sec8MF_addr_correct reproduced verbatim: an autocall macro that patches known-bad DC Section 8 MF street addresses via a SELECT ( address_line1_text ) block guarded by state_code = 'DC'. Added a 4-row mock contract table hitting both WHEN corrections, a DC address that falls through the otherwise branch, and a non-DC row, then invoked the macro inside a DATA step exactly as Sec8MF_dmvw.sas does. Confirms the two corrections apply, the pass-through and state guard leave rows unchanged."
+}

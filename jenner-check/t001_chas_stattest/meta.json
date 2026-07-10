@@ -1,0 +1,7 @@
+{
+  "bundle": "t001_chas_stattest",
+  "source_file": "Macros/chas_stattest.sas",
+  "source_blob_sha": "14f15071ebe5f5c7308e88be1bcb722f1b38aa4c",
+  "source_commit": "32c82cfe30277279feb8220b5ad9efe0155495ba",
+  "notes": "%chas_stattest reproduced verbatim: tests statistical significance of two CHAS estimates given margins of error, emitting a ***/**/* flag. Added a 5-row mock estimate/MOE table (stands in for a CHAS summary data set) and invoked the macro as the library does. Exercises DATA-step arithmetic, the chained comparison 2.576 > abs(Tstat) >= 1.96, and PROC PRINT."
+}

@@ -1,0 +1,37 @@
+NOTE: Option OBS changed to 100.
+NOTE: PROC FORMAT library=WORK
+
+NOTE: FORMAT $s8stat defined (6 ranges).
+NOTE: FORMAT $s8exqtr defined (4 ranges).
+NOTE: FORMAT $s8docty defined (9 ranges).
+NOTE: FORMAT $s8pgmnm defined (24 ranges).
+NOTE: FORMAT $s8pgmgr defined (14 ranges).
+NOTE: FORMAT $s8prfin defined (6 ranges).
+NOTE: FORMAT $s8owmgt defined (4 ranges).
+NOTE: FORMAT $s8prpct defined (10 ranges).
+NOTE: FORMAT s8ui4cat defined (4 ranges).
+NOTE: FORMAT s8ui2cat defined (4 ranges).
+NOTE: PROC CATALOG catalog=WORK.FORMATS
+
+NOTE: MODIFY: Entry S8STAT description set to 'S8/MF TRACS contract status'
+NOTE: MODIFY: Entry S8EXQTR description set to 'S8/MF Contract expiration quarter'
+NOTE: MODIFY: Entry S8DOCTY description set to 'S8/MF Document type of contract'
+NOTE: MODIFY: Entry S8PGMNM description set to 'S8/MF Program name'
+NOTE: MODIFY: Entry S8PGMGR description set to 'S8/MF Program type group'
+NOTE: MODIFY: Entry S8PRFIN description set to 'S8/MF Property financing'
+NOTE: MODIFY: Entry S8OWMGT description set to 'S8/MF Owner/manager company type'
+NOTE: MODIFY: Entry S8PRPCT description set to 'S8/MF Property category'
+NOTE: MODIFY: Entry S8UI4CAT description set to 'S8/MF UI status code (4 categories)'
+NOTE: MODIFY: Entry S8UI2CAT description set to 'S8/MF UI status code (2 categories)'
+NOTE: DATA demo
+
+NOTE: Processing inline DATALINES (3 lines)
+
+NOTE: Read 3 rows from DATALINES.
+NOTE: Wrote demo (3 rows, 6 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC PRINT data=demo
+
+NOTE: PROC PRINT completed: 3 observations printed, 6 variables

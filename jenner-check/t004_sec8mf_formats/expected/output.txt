@@ -1,0 +1,23 @@
+Contents of Catalog WORK.FORMATS
+Name                 Type       Description
+----                 ----       -----------
+S8DOCTY              FORMATC    S8/MF Document type of contract
+S8EXQTR              FORMATC    S8/MF Contract expiration quarter
+S8OWMGT              FORMATC    S8/MF Owner/manager company type
+S8PGMGR              FORMATC    S8/MF Program type group
+S8PGMNM              FORMATC    S8/MF Program name
+S8PRFIN              FORMATC    S8/MF Property financing
+S8PRPCT              FORMATC    S8/MF Property category
+S8STAT               FORMATC    S8/MF TRACS contract status
+S8UI2CAT             FORMAT     S8/MF UI status code (2 categories)
+S8UI4CAT             FORMAT     S8/MF UI status code (4 categories)
+
+10 entries in catalog.
+
+
+  Obs  tracs_status  status_desc  program_type_group        program_desc  ui_status  ui_desc
+-----  ------------  -----------  ------------------  ------------------  ---------  -------
+    1  A             Active       202                 Section 202                 1  Active
+    2  T             Terminated   LMSA                S8 Loan Management          4  Expired
+    3  X             Expired      PRAC                PRAC 202/811                2  Active
+

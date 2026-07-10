@@ -1,0 +1,13 @@
+{
+  "_captured_at": "2026-07-10T12:32:49+00:00",
+  "_captured_run_id": "r_94893fa75a0e4e43ae8564f6b3870d47",
+  "status": "ok",
+  "exit_code": 0,
+  "log_contains": [
+    "Wrote sec8mf_contracts (4 rows, 2 columns).",
+    "Wrote sec8mf_corrected (4 rows, 2 columns).",
+    "PROC PRINT completed: 4 observations printed, 2 variables"
+  ],
+  "log_does_not_contain": ["ERROR:", "[JENNER-ERROR"],
+  "diagnostics": {"parse_warnings": [], "runtime_warnings": []}
+}
